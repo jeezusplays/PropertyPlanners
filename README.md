@@ -128,9 +128,9 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
-* npm
+* Python libraries
   ```sh
-  npm install npm@latest -g
+  pip install -r requirements.txt
   ```
 
 ### Installation
@@ -151,11 +151,7 @@ _Below is an example of how you can instruct your audience on installing and set
    ```sh
    npm run serve
    ```
-6. Start a new terminal and Change python environment
-   ```sh
-   python_env\scripts\activate
-   ```
-7. Run API server
+6. Start a new terminal and run API server
    ```sh
    python api\api.py
    ```
