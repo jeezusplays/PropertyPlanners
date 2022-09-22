@@ -155,11 +155,7 @@ _Below is an example of how you can instruct your audience on installing and set
    ```sh
    python_env\scripts\activate
    ```
-7. Install requirements.txt
-   ```sh
-   pip install -r requirements.txt
-   ```
-8. Run API server
+7. Run API server
    ```sh
    python api\api.py
    ```
