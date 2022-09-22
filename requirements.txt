@@ -1,2 +1,2 @@
+firebase_admin==5.3.0
 Flask==2.2.2
-SQLAlchemy==1.4.41
