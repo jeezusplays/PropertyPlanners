@@ -146,9 +146,17 @@ _Below is an example of how you can instruct your audience on installing and set
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+4. Run vue
+   ```sh
+   npm run serve
+   ```
+5. Change python environment
+   ```sh
+   python_env\\scripts\\activate
+   ```
+6. Run API server
+   ```sh
+   python api\\api.py
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
