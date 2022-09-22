@@ -151,7 +151,7 @@ _Below is an example of how you can instruct your audience on installing and set
    ```sh
    npm run serve
    ```
-6. Change python environment
+6. Start a new terminal and Change python environment
    ```sh
    python_env\scripts\activate
    ```
