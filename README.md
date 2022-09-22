@@ -137,26 +137,31 @@ This is an example of how to list things you need to use the software and how to
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/your_username_/Project-Name.git
    ```
-3. Install NPM packages
+2. Create a Firebase Project and add service account key json to api folder
+3. Change service account key json to "serviceAccountKey.json"
+4. Install NPM packages
    ```sh
    npm install
    ```
-4. Run vue
+5. Run vue
    ```sh
    npm run serve
    ```
-5. Change python environment
+6. Change python environment
    ```sh
-   python_env\\scripts\\activate
+   python_env\scripts\activate
    ```
-6. Run API server
+7. Install requirements.txt
    ```sh
-   python api\\api.py
+   pip install -r requirements.txt
+   ```
+8. Run API server
+   ```sh
+   python api\api.py
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
