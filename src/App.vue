@@ -14,6 +14,9 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+// import {test} from './scripts/fbapp'
+
+// test()
 
 export default {
   name: 'App',
