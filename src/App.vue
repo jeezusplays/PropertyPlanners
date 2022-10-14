@@ -1,19 +1,14 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import {RouterView } from 'vue-router'
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-
-  <RouterLink to="/">Home</RouterLink>
-  <RouterLink to="/about">About</RouterLink>
-
+  <NavView/>
   <RouterView />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NavView from "./views/Nav.vue"
 // import {test} from './scripts/fbapp'
 
 // test()
@@ -21,7 +16,7 @@ import HelloWorld from './components/HelloWorld.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    NavView
   }
 }
 </script>
@@ -32,7 +27,15 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
+
+:root {
+  --main-dark-green : #547B58;
+  --main-green : #779341;
+  --main-grey : #C6C5B9;
+  --main-white : #FDFDFF;
+  --main-dark : #393D3F;
+
+}
+
 </style>
