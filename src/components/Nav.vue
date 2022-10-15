@@ -8,7 +8,7 @@ import {RouterLink} from 'vue-router'
     href="https://fonts.googleapis.com/css?family=Poppins"
     rel="stylesheet"
   />
-  <nav class="navbar navbar-expand-lg px-4 py-3 border-bottom">
+  <nav class="navbar sticky-top navbar-expand-lg px-4 py-3 border-bottom">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Property Planners</a>
       <button
@@ -25,16 +25,16 @@ import {RouterLink} from 'vue-router'
       <div class="collapse navbar-collapse mx-3" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item ms-auto">
-            <RouterLink class="nav-link px-4 active" to="/" aria-current="page">
+            <RouterLink class="nav-link pp px-4 active" to="/" aria-current="page">
                 Home
             </RouterLink>
           </li>
           <li class="nav-item ms-auto">
-            <RouterLink class="nav-link px-4" to="/about"> <span>Link</span> </RouterLink>
+            <RouterLink class="nav-link pp px-4" to="/about"> <span>Link</span> </RouterLink>
           </li>
           <li class="nav-item ms-auto dropdown">
             <a
-              class="nav-link px-4"
+              class="nav-link pp px-4"
               href="#"
               role="button"
               data-bs-toggle="dropdown"
@@ -62,12 +62,12 @@ export default {
 
 <style>
 
-.nav-item .nav-link{
+.nav-item .nav-link.pp{
   color: var(--main-dark);
   font-weight: 700;
 
 }
-.nav-item .nav-link::after {
+.nav-item .nav-link.pp::after {
     content: "";
     width: 0px;
     height: 2px;
@@ -76,12 +76,12 @@ export default {
     transition: 300ms;
 }
 
-.nav-item .nav-link:hover{
+.nav-item .nav-link.pp:hover{
     display: inline-block;
     color: var(--main-green);
 }
 
-.nav-item .nav-link:hover::after {
+.nav-item .nav-link.pp:hover::after {
   width: 100%;
 }
 

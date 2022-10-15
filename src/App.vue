@@ -8,7 +8,7 @@ import {RouterView } from 'vue-router'
 </template>
 
 <script>
-import NavView from "./views/Nav.vue"
+import NavView from "./components/Nav.vue"
 // import {test} from './scripts/fbapp'
 
 // test()
@@ -35,6 +35,12 @@ export default {
   --main-grey : #C6C5B9;
   --main-white : #FDFDFF;
   --main-dark : #393D3F;
+
+  --main-dark-green-rgb : 84, 123, 88;
+  --main-green-rgb : 119, 147, 65;
+  --main-grey-rgb : 198, 197, 185;
+  --main-white-rgb : 253, 253, 255;
+  --main-dark-rgb : 57, 61, 63;
 
 }
 
