@@ -44,4 +44,11 @@ export default {
 
 }
 
+.grow{
+  transition: 300ms;
+}
+.grow:hover{
+  transform: scale(1.1);
+}
+
 </style>

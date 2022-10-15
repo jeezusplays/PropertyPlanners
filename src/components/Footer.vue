@@ -58,7 +58,7 @@ footer h5{
 footer li a,footer p{
   color: rgba(var(--main-dark-green-rgb),0.7) !important
 }
-#line{
+footer,#line{
   border-top: 1px solid rgba(var(--main-dark-green-rgb),0.5); 
 }
 </style>
