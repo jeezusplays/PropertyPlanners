@@ -9,11 +9,11 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import { faUserSecret,faUser} from '@fortawesome/free-solid-svg-icons'
-import { faTwitter,faInstagram,faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faUserSecret, faUser, faBuilding } from '@fortawesome/free-solid-svg-icons'
+import { faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 /* add icons to the library */
-library.add(faUserSecret,faTwitter,faInstagram,faLinkedin,faUser)
+library.add(faUserSecret, faTwitter, faInstagram, faLinkedin, faUser, faBuilding)
 
 const app = createApp(App)
 app.use(router)

@@ -1,70 +1,81 @@
 <template>
-  <div class="contianer-fluid bg-dark" style="height: 600px">
-    <div
-      id="carouselExampleCaptions"
-      class="carousel slide"
-      data-bs-ride="false"
-    >
+  <div class="contianer-fluid bg-dark p-5 profile-carousel">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
       <div class="carousel-indicators">
-        <button
-          type="button"
-          data-bs-target="#carouselExampleCaptions"
-          data-bs-slide-to="0"
-          class="active"
-          aria-current="true"
-          aria-label="Slide 1"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#carouselExampleCaptions"
-          data-bs-slide-to="1"
-          aria-label="Slide 2"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#carouselExampleCaptions"
-          data-bs-slide-to="2"
-          aria-label="Slide 3"
-        ></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
       </div>
-      <div class="carousel-inner" style="height: 600px">
-        <div class="carousel-item active" style="height: 600px">
-          <div class="carousel-caption d-none d-md-block ">
-            <h5 class="text-light" >First slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
-          </div>
+      <div class="carousel-inner mb-4">
+        <div class="carousel-item p-5 grow active text-light text-center">
+          <a href="https://www.linkedin.com/in/samuel-chung-339688154/" target="_blank" style="text-decoration: none">
+
+            <img src="../assets/sam.jpg" class="prof-img rounded-circle" alt="">
+            <h5 class="mt-3 mb-0">Samuel Chung</h5>
+            <p class="opacity-50">Project manager</p>
+            <p class="mx-auto prof-desc opacity-75">Some quick example text to build on the card title and make up the
+              bulk of the card's content.Some quick example text to build on the card title and make up the
+              bulk of the card's content.</p>
+            
+          </a>
         </div>
-        <div class="carousel-item">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
-            <p>Some representative placeholder content for the second slide.</p>
-          </div>
+        <div class="carousel-item p-5 grow text-light text-center">
+          <a href="https://www.linkedin.com/in/samuel-chung-339688154/" target="_blank" style="text-decoration: none">
+
+            <img src="../assets/sam.jpg" class="prof-img rounded-circle" alt="">
+            <h5 class="mt-3 mb-0">Samuel Chung</h5>
+            <p class="opacity-50">Project manager</p>
+            <p class="mx-auto prof-desc opacity-75">Some quick example text to build on the card title and make up the
+              bulk of the card's content.Some quick example text to build on the card title and make up the
+              bulk of the card's content.</p>
+            
+          </a>
         </div>
-        <div class="carousel-item">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the third slide.</p>
-          </div>
+        <div class="carousel-item p-5 grow text-light text-center">
+          <a href="https://www.linkedin.com/in/samuel-chung-339688154/" target="_blank" style="text-decoration: none">
+
+            <img src="../assets/sam.jpg" class="prof-img rounded-circle" alt="">
+            <h5 class="mt-3 mb-0">Samuel Chung</h5>
+            <p class="opacity-50">Project manager</p>
+            <p class="mx-auto prof-desc opacity-75">Some quick example text to build on the card title and make up the
+              bulk of the card's content.Some quick example text to build on the card title and make up the
+              bulk of the card's content.</p>
+            
+          </a>
         </div>
       </div>
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#carouselExampleCaptions"
-        data-bs-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#carouselExampleCaptions"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
   </div>
 </template>
+
+<style>
+.profile-carousel {
+  background-image: linear-gradient(0deg,
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 0.9)),
+    url("../assets/HDB_banner.jpg");
+
+}
+
+.carousel-item {}
+
+.prof-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 5px solid rgba(255, 255, 255, 0.4);
+}
+
+.prof-desc {
+  max-width: 800px;
+}
+
+.carousel-indicators button {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50%;
+}
+</style>

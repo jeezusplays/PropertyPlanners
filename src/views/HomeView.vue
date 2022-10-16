@@ -4,7 +4,7 @@
     <div class="container h-100 p-5">
       <div class="ps-lg-5 row h-50">
         <div class="col-lg-8 mt-auto mb-auto mb-md-3 text-lg-start">
-          <h1 class="title text-light">More Data, Less Hassle</h1>
+          <h1 class="title text-light">More Data <green>Less Hassle</green></h1>
         </div>
       </div>
       <div class="ps-lg-5 row h-50">
@@ -30,6 +30,9 @@
   <!-- API Component -->
   <API_info />
 
+  <!-- About Us -->
+  <AboutUs />
+
   <!-- Profile Carousel -->
   <ProfileCarousel />
 
@@ -41,14 +44,15 @@
 import Footer from "../components/Footer.vue";
 import API_info from "../components/API_info.vue";
 import ProfileCarousel from "../components/ProfileCarousel.vue";
-
+import AboutUs from "../components/AboutUs.vue"
 
 export default {
   name: "App",
   components: {
     Footer,
     API_info,
-    ProfileCarousel
+    ProfileCarousel,
+    AboutUs
     
   },
 };
@@ -58,16 +62,14 @@ export default {
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,100,700,900);
 
 .banner {
-  max-height: 800px;
-  height: 70vh;
   background-image: linear-gradient(
       0deg,
       rgba(var(--main-dark-rgb), 0.7),
       rgba(var(--main-dark-rgb), 1)
     ),
-    url("../assets/HDB_banner.jpg");
+    url("../assets/profile_carousel.jpg");
   /* object-fit: cover; */
-  background-size: contain;
+  background-size:cover;
 }
 
 .title {
@@ -80,8 +82,8 @@ export default {
   width: 120px;
 }
 
-#footer {
-  height: 30vh;
-  background-color: var(--main-grey);
+green{
+  color: var(--main-green);
 }
+
 </style>

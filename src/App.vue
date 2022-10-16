@@ -44,6 +44,11 @@ export default {
 
 }
 
+#footer {
+  height: 30vh;
+  background-color: var(--main-grey);
+}
+
 .grow{
   transition: 300ms;
 }
@@ -51,4 +56,8 @@ export default {
   transform: scale(1.1);
 }
 
+a, a:hover, a:visited, a:active {
+  color: inherit;
+  text-decoration: none;
+}
 </style>
