@@ -80,6 +80,16 @@ export default {
 
 #signup_banner {
   width: 120px;
+  background-color: var(--main-green);
+  border-color: var(--main-green);
+  transition: 300ms;
+}
+
+#signup_banner:hover {
+
+  /* color: var(--main-green); */
+  background-color: rgba(var(--main-green-rgb),0);
+
 }
 
 green{

@@ -14,27 +14,6 @@
         </ul>
       </div>
 
-      <div class="col-6 col-md-2 mb-3">
-        <h5>Section</h5>
-        <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Home</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Features</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Pricing</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">FAQs</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">About</a></li>
-        </ul>
-      </div>
-
-      <div class="col-6 col-md-2 mb-3">
-        <h5>Section</h5>
-        <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Home</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Features</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">Pricing</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">FAQs</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">About</a></li>
-        </ul>
-      </div>
     </div>
     <div id="line" class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4">
       <p>© 2022 Company, Inc. All rights reserved.</p>

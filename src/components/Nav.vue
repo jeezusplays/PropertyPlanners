@@ -79,9 +79,13 @@ export default {
 .navbar-brand {
   font-family: "Poppins";
   font-size: 26px;
-  color: var(--main-green);
+  color: var(--main-green) !important;
   font-weight: 900;
   transition: 300ms;
+}
+
+.navbar-brand:hover {
+  color: var(--main-dark) !important;
 }
 
 .navbar {
