@@ -26,7 +26,14 @@ import { RouterLink } from 'vue-router'
               </RouterLink>
             </li>
             <li class="nav-item ms-auto">
-              <RouterLink class="nav-link pp px-4" to="/about"> <span>Link</span> </RouterLink>
+              <RouterLink class="nav-link pp px-4" to="/about">
+                Link
+              </RouterLink>
+            </li>
+            <li class="nav-item ms-auto">
+              <RouterLink class="nav-link pp px-4" to="/login">
+                Login
+              </RouterLink>
             </li>
             <li class="nav-item ms-auto dropdown">
               <a class="nav-link pp px-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

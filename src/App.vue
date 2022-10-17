@@ -1,9 +1,9 @@
 <script setup>
-import {RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <NavView/>
+  <NavView />
   <RouterView />
 </template>
 
@@ -30,33 +30,42 @@ export default {
 }
 
 :root {
-  --main-dark-green : #547B58;
-  --main-green : #779341;
-  --main-grey : #C6C5B9;
-  --main-white : #FDFDFF;
-  --main-dark : #393D3F;
+  --main-dark-green: #547B58;
+  --main-green: #779341;
+  --main-grey: #C6C5B9;
+  --main-white: #FDFDFF;
+  --main-dark: #393D3F;
 
-  --main-dark-green-rgb : 84, 123, 88;
-  --main-green-rgb : 119, 147, 65;
-  --main-grey-rgb : 198, 197, 185;
-  --main-white-rgb : 253, 253, 255;
-  --main-dark-rgb : 57, 61, 63;
+  --main-dark-green-rgb: 84, 123, 88;
+  --main-green-rgb: 119, 147, 65;
+  --main-grey-rgb: 198, 197, 185;
+  --main-white-rgb: 253, 253, 255;
+  --main-dark-rgb: 57, 61, 63;
 
 }
+
+* {
+  font-family: 'Poppins';
+}
+
 
 #footer {
   height: 30vh;
   background-color: var(--main-grey);
 }
 
-.grow{
+.grow {
   transition: 300ms;
 }
-.grow:hover{
+
+.grow:hover {
   transform: scale(1.1);
 }
 
-a, a:hover, a:visited, a:active {
+a,
+a:hover,
+a:visited,
+a:active {
   color: inherit;
   text-decoration: none;
 }
