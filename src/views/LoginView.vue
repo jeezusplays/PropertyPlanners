@@ -1,36 +1,12 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sign In Page</title>
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-
-    <style>
-        * {
-            font-family: 'Poppins';
-        }
-
-        .banner {
-            background-image: url(assets/loginbg.jpg);
-            background-size: cover;
-            background-repeat: no-repeat;
-            height: 100vh;
-        }
-    </style>
-</head>
-
-<body class="banner">
-    <div class="container py-5 h-100">
+<template>
+    <div class="container-fluid" id="login-fluid">
+        <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-md-4 col-lg-6 col-xl-7"></div>
             <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                <div class="card" style="border-radius: 1rem; background-color: rgba(255, 255, 255, 0.75);">
+                <div class="card text-start" style="border-radius: 1rem; background-color: rgba(255, 255, 255, 0.75);">
                     <div class="card-body p-5">
-                        <h5>Welcome to <span style="color: #779341;">PropertyPlanners</span></span></h5>
+                        <h5>Welcome to <span style="color: #779341;">PropertyPlanners</span></h5>
                         <h1 class="mb-5 fw-semibold">Sign up</h1>
 
                         <div class="row form-outline mb-4">
@@ -74,16 +50,16 @@
             </div>
         </div>
     </div>
+    </div>
+</template>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
-        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
-        crossorigin="anonymous"></script>
-</body>
+<style>
+#login-fluid{
+    background-image: url('../assets/loginbg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    min-height: 800px;
+}
 
-</html>
+</style>
