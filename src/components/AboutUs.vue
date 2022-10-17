@@ -10,13 +10,13 @@
                 <div class="col-lg-6">
                     <img id="about-us-img" src="../assets/singapore.jpg" alt="">
                 </div>
-                <div class="col-lg-6 px-4 py-2 text-start">
+                <div class="col-lg-6 px-4 mt-3 mt-sm-2 mt-lg-0 py-2 text-start">
                     
                     <h2 class="t2">Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h2>
                     <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     
                     <div class="row my-3">
-                        <div class="col-3 col-md-2">
+                        <div class="col-3 col-xl-2">
                             <div class="icon-button mx-auto rounded-circle d-flex align-middle shadow text-center">
                             <font-awesome-icon class="m-auto" icon="fa-solid fa-building" size="xl" />
                         </div>
@@ -27,7 +27,7 @@
                         </div>
                     </div>
                     <div class="row my-3">
-                        <div class="col-3 col-md-2">
+                        <div class="col-3 col-xl-2">
                             <div class="icon-button mx-auto rounded-circle d-flex align-middle shadow text-center">
                             <font-awesome-icon class="m-auto" icon="fa-solid fa-building" size="xl"/>
                         </div>
@@ -49,6 +49,7 @@
 
 #about-us-img {
     width: 100%;
+    min-height: 400px;
     max-height: 600px;
 
     object-fit: cover;
