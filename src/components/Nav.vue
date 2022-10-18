@@ -20,31 +20,25 @@ import { RouterLink } from 'vue-router'
         </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end ms-auto mb-2 mb-lg-0">
-            <li class="nav-item ms-auto">
-              <RouterLink class="nav-link pp px-4 active" to="/" aria-current="page">
-                Home
-              </RouterLink>
-            </li>
-            <li class="nav-item ms-auto">
-              <RouterLink class="nav-link pp px-4" to="/about">
-                Link
-              </RouterLink>
-            </li>
-            <li class="nav-item ms-auto">
-              <RouterLink class="nav-link pp px-4" to="/login">
-                Login
-              </RouterLink>
-            </li>
-            <li class="nav-item ms-auto dropdown">
-              <a class="nav-link pp px-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item p-3 text-center" href="#">Action</a></li>
-                <li><a class="dropdown-item p-3 text-center" href="#">Another action</a></li>
-                <li><a class="dropdown-item p-3 text-center" href="#">Something else here</a></li>
-              </ul>
-            </li>
+            <template v-for="link in links" :key="link.id">
+              <li class="nav-item ms-auto" v-if="!link.isDropdown">
+                <RouterLink class="nav-link pp px-4 active" :to="link.to" aria-current="page">
+                  {{link.value}}
+                </RouterLink>
+              </li>
+              <li class="nav-item ms-auto dropdown" v-else>
+                <a class="nav-link pp px-4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  {{link.value}}
+                </a>
+                <ul class="dropdown-menu">
+                  <li v-for="dropdown in link.dropdown" :key="dropdown.id">
+                    <RouterLink class="dropdown-item p-3 text-center" :to="dropdown.to" aria-current="page">
+                      {{dropdown.value}}
+                    </RouterLink>
+                  </li>
+                </ul>
+              </li>
+            </template>
           </ul>
         </div>
       </div>
@@ -55,6 +49,43 @@ import { RouterLink } from 'vue-router'
 <script>
 export default {
   name: "NavView",
+  data() {
+    return {
+      links: [
+        {
+          to: '/login',
+          value: 'Login',
+          isDropdown: false,
+          dropdown: []
+        },
+        {
+          to: '/',
+          value: 'Home',
+          isDropdown: false,
+          dropdown: []
+        },
+        {
+          to: '/',
+          value: 'Dropdown',
+          isDropdown: true,
+          dropdown: [
+            {
+              to: '/Action',
+              value: 'Action'
+            },
+            {
+              to: '/',
+              value: 'Another action'
+            },
+            {
+              to: '/',
+              value: 'Something else here'
+            }
+          ]
+        }
+      ]
+    }
+  }
 };
 </script>
 
