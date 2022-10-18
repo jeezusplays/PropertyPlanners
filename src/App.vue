@@ -3,21 +3,30 @@ import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <NavView />
-  <RouterView />
+
+  <div class="d-flex flex-row  h-100 p-0 m-0">
+    <div class="d-flex flex-column p-0 m-0" id="sidebar">
+      <RouterView name="sidebar" />
+    </div>
+
+    <div class="d-flex flex-column flex-fill p-0 m-0">
+      <RouterView name="navbar"/>
+      <RouterView  />
+    </div>
+  </div>
+
+
 </template>
 
 <script>
-import NavView from "./components/Nav.vue"
+// import NavView from "./components/Nav.vue"
+// import Sidebar from "./components/Sidebar.vue"
 // import {test} from './scripts/fbapp'
 
 // test()
 
 export default {
-  name: 'App',
-  components: {
-    NavView
-  }
+  name: 'App'
 }
 </script>
 
@@ -27,6 +36,9 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
 }
 
 :root {
@@ -43,6 +55,7 @@ export default {
   --main-dark-rgb: 57, 61, 63;
 
 }
+
 
 * {
   font-family: 'Poppins';
@@ -68,5 +81,9 @@ a:visited,
 a:active {
   color: inherit;
   text-decoration: none;
+}
+
+#sidebar {
+  max-width: fit-content;
 }
 </style>

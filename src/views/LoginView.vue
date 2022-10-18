@@ -58,7 +58,7 @@
     background-image: url('../assets/loginbg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
+    height: 100%;
     min-height: 800px;
 }
 

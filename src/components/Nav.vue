@@ -65,6 +65,12 @@ export default {
           dropdown: []
         },
         {
+          to: '/seeker/dashboard',
+          value: 'Dashboard',
+          isDropdown: false,
+          dropdown: []
+        },
+        {
           to: '/',
           value: 'Dropdown',
           isDropdown: true,
