@@ -1,13 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
+import Sidebar from '../components/Sidebar.vue'
+import SeekerDashboardView from '../views/Seeker_Dashboard.vue'
+import Navbar from '../components/Nav.vue'
 
 const router = createRouter({
     history: createWebHistory(),
     routes: [{
             path: '/',
             name: 'home',
-            component: HomeView
+            components: {
+                default: HomeView,
+                navbar: Navbar
+            }
         },
         {
             path: '/about',
@@ -21,7 +27,19 @@ const router = createRouter({
         {
             path: '/login',
             name: 'login',
-            component: LoginView
+            components: {
+                default: LoginView,
+                navbar: Navbar
+            }
+        },
+        {
+            path: '/seeker/dashboard',
+            name: 'SeekerDashboard',
+            components: {
+                default: SeekerDashboardView,
+                sidebar: Sidebar,
+                navbar: Navbar
+            }
         }
     ]
 })
