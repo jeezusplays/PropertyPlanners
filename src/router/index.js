@@ -4,6 +4,7 @@ import LoginView from '../views/LoginView.vue'
 import Sidebar from '../components/Sidebar.vue'
 import SeekerDashboardView from '../views/Seeker_Dashboard.vue'
 import Navbar from '../components/Nav.vue'
+import NavbarDashboard from '../components/NavDashboard.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -38,7 +39,7 @@ const router = createRouter({
             components: {
                 default: SeekerDashboardView,
                 sidebar: Sidebar,
-                navbar: Navbar
+                navbar: NavbarDashboard
             }
         }
     ]

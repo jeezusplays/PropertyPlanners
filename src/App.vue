@@ -5,7 +5,7 @@ import { RouterView } from 'vue-router'
 <template>
 
   <div class="d-flex flex-row  h-100 p-0 m-0">
-    <div class="d-flex flex-column p-0 m-0" id="sidebar">
+    <div class="d-flex flex-column p-0 m-0">
       <RouterView name="sidebar" />
     </div>
 
@@ -54,6 +54,8 @@ export default {
   --main-white-rgb: 253, 253, 255;
   --main-dark-rgb: 57, 61, 63;
 
+  --accordion-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'viewBox='0 0 16 16' fill='%23fff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  
 }
 
 
@@ -68,11 +70,19 @@ export default {
 }
 
 .grow {
-  transition: 300ms;
+  transition: 300ms !important;
 }
 
 .grow:hover {
   transform: scale(1.1);
+}
+
+.text-colour-hover {
+  transition: 300ms !important;
+}
+
+.text-colour-hover:hover {
+  color: var(--main-green) !important;
 }
 
 a,
@@ -83,7 +93,4 @@ a:active {
   text-decoration: none;
 }
 
-#sidebar {
-  max-width: fit-content;
-}
 </style>

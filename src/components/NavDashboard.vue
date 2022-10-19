@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink } from "vue-router";
+//  import { RouterLink } from "vue-router";
 </script>
 
 <template>
@@ -9,76 +9,37 @@ import { RouterLink } from "vue-router";
   />
   <nav class="navbar sticky-top navbar-expand-md px-4 py-3">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">PropertyPlanners</a>
       <button
-        class="navbar-toggler"
+        class="navbar-toggler d-block d-sm-none"
         type="button"
         data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasNavbar"
         aria-controls="offcanvasNavbar"
+
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <button
+        class="navbar-toggler d-none d-sm-block"
+        type="button"
+        v-on:click="toggleSidebar('sidebar')"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div
-        class="offcanvas offcanvas-end"
-        tabindex="-1"
-        id="offcanvasNavbar"
-        aria-labelledby="offcanvasNavbarLabel"
-      >
-        <div class="offcanvas-header">
-          <a class="navbar-brand" href="#">PropertyPlanners</a>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end ms-auto mb-2 mb-lg-0">
-            <template v-for="link in links" :key="link.id">
-              <li class="nav-item ms-auto" v-if="!link.isDropdown">
-                <RouterLink
-                  class="nav-link pp px-4 active"
-                  :to="link.to"
-                  aria-current="page"
-                >
-                  {{ link.value }}
-                </RouterLink>
-              </li>
-              <li class="nav-item ms-auto dropdown" v-else>
-                <a
-                  class="nav-link pp px-4"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  {{ link.value }}
-                </a>
-                <ul class="dropdown-menu">
-                  <li v-for="dropdown in link.dropdown" :key="dropdown.id">
-                    <RouterLink
-                      class="dropdown-item p-3 text-center"
-                      :to="dropdown.to"
-                      aria-current="page"
-                    >
-                      {{ dropdown.value }}
-                    </RouterLink>
-                  </li>
-                </ul>
-              </li>
-            </template>
-          </ul>
-        </div>
-      </div>
     </div>
   </nav>
 </template>
 
 <script>
+
+var toggleSidebar = (myDIV)=>{
+  var element = document.getElementById(myDIV);
+  element.classList.toggle('d-sm-flex');
+}
+
 export default {
-  name: "NavView",
+  name: "NavDashboardView",
   data() {
     return {
       links: [
@@ -122,6 +83,9 @@ export default {
       ],
     };
   },
+  methods:{
+    toggleSidebar
+  }
 };
 </script>
 
@@ -193,4 +157,6 @@ export default {
 .dropdown-item:hover {
   background-color: var(--main-grey);
 }
+
+
 </style>
