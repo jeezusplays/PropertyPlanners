@@ -1,0 +1,22 @@
+
+.box {
+    border: none;
+    background-color: #00e0cd;
+    border-radius: 10px;
+    margin: 15px;
+    padding: 15px;
+}
+
+.box h4, p {
+    margin-left: 10px;
+}
+
+.card {
+    background-color: rgb(241, 241, 241);
+    padding: 15px;
+}
+
+a {
+    color: green;
+    text-decoration: none;
+}
