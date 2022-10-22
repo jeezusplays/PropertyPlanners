@@ -1,0 +1,33 @@
+.btn.btn-success:hover .fas {
+    transform: translateX(20px);
+    transition: transform 1.0s ease
+}
+
+.btn.btn-success{
+    width: 70%;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+.right {
+    background-color: rgb(241, 241, 241);
+}
+
+.right .card {
+    background-color: rgb(241, 241, 241);
+}
+
+input[type=text] {
+    width: 80%;
+    transition: width 0.7s ease-in-out;
+    box-sizing: border-box;
+}
+
+input[type=text]:focus {
+    width: 100%;
+    background-color: rgb(241, 241, 241)
+}
+
