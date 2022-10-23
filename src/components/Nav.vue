@@ -3,10 +3,7 @@ import { RouterLink } from "vue-router";
 </script>
 
 <template>
-  <link
-    href="https://fonts.googleapis.com/css?family=Poppins"
-    rel="stylesheet"
-  />
+  
   <nav class="navbar sticky-top navbar-expand-md px-4 py-3">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">PropertyPlanners</a>
@@ -78,7 +75,7 @@ import { RouterLink } from "vue-router";
 
 <script>
 export default {
-  name: "NavView",
+  name: "Nav",
   data() {
     return {
       links: [
