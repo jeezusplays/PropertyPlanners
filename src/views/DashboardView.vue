@@ -120,6 +120,20 @@ import { RouterView } from "vue-router";
                 aria-current="page"
               >
                 <font-awesome-icon
+                  icon="fa-solid fa-magnifying-glass"
+                  class="me-3"
+                  size="md"
+                />
+                <text class="pp-fat-text">Find Agents</text>
+              </a>
+            </li>
+            <li class="nav-item w-100 text-start">
+              <a
+                href="#"
+                class="nav-link grow text-colour-hover px-3 py-2"
+                aria-current="page"
+              >
+                <font-awesome-icon
                   icon="fa-solid fa-comment"
                   class="me-3"
                   size="md"
