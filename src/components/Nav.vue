@@ -92,7 +92,7 @@ export default {
           dropdown: [],
         },
         {
-          to: "/seeker/dashboard",
+          to: "/dashboard/seeker",
           value: "Dashboard",
           isDropdown: false,
           dropdown: [],
