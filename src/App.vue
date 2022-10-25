@@ -7,11 +7,6 @@ import { RouterView } from "vue-router";
 </template>
 
 <script>
-// import NavView from "./components/Nav.vue"
-// import Sidebar from "./components/Sidebar.vue"
-// import {test} from './scripts/fbapp'
-
-// test()
 
 export default {
   name: "App",

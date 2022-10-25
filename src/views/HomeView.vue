@@ -2,14 +2,14 @@
   <!-- Banner -->
   <div class="scroll">
     <div class="banner container-fluid p-5 align-items-center">
-    <div class="container p-5">
+    <div class="container p-md-5">
       <div class="ps-lg-5 row h-50">
-        <div class="col-lg-12 mt-auto mb-auto mb-md-3 text-lg-start">
+        <div class="mt-auto mb-auto mb-md-3 text-lg-start">
           <h1 class="title text-light">More Data <green>Less Hassle</green></h1>
         </div>
       </div>
       <div class="ps-lg-5 row h-50">
-        <div class="col-lg-8 mb-auto text-lg-start">
+        <div class="mb-auto text-lg-start">
           <p class="fs-5 lh-lg text-light mb-5">
             View comprehensive, interactive, and free statistical data with
             Property Planners
