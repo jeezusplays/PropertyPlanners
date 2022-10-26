@@ -107,4 +107,21 @@ a:active {
   min-width: 200px;
   max-width: 700px;
 }
+
+.pp-button {
+  width: fit-content;
+  color: white;
+  background-color: var(--main-green);
+  border-color: var(--main-green);
+  transition: 300ms;
+}
+
+.pp-button:hover {
+
+  /* color: var(--main-green); */
+  background-color: white !important;
+  border-color: var(--main-green) !important;
+  color: var(--main-green) !important; 
+
+}
 </style>

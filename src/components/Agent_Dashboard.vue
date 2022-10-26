@@ -3,7 +3,6 @@
     <div class="flex-row d-flex justify-content-center">
       <div class="col-12">
         <p class="pp-head text-start">Dashboard</p>
-
         <div class="card border-0 text-center">
           <img
             class="p-3 mx-auto illustration"

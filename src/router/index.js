@@ -4,6 +4,7 @@ import LoginView from "../views/LoginView.vue";
 import BasicView from "../views/BasicView.vue";
 import DashboardView from "../views/DashboardView.vue";
 import Agent_Dashboard from "../components/Agent_Dashboard.vue"
+import Chat from "../components/Chat.vue"
 
 const router = createRouter({
   history: createWebHistory(),
@@ -44,7 +45,7 @@ const router = createRouter({
         {
           path: "chat",
           name: "chat",
-          component: LoginView
+          component: Chat
         },
         {
           path: "findagent",
