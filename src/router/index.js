@@ -1,10 +1,22 @@
 import { createRouter, createWebHistory } from "vue-router";
-import LandingPage from "../views/LandingPage.vue";
-import LoginView from "../views/LoginView.vue";
+
+// Views
 import BasicView from "../views/BasicView.vue";
 import DashboardView from "../views/DashboardView.vue";
+
+// Top level Component
+import LoginView from "../components/Login.vue";
+
+// Agent
 import Agent_Dashboard from "../components/agent/Agent_Dashboard.vue"
+
+// Common
 import Chat from "../components/common/Chat.vue"
+
+// Landing
+import LandingPage from "../components/landing/LandingPage.vue";
+
+// Seeker
 import Seeker_Profile from "../components/seeker/Seeker_Profile.vue"
 
 const router = createRouter({
