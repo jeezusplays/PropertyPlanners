@@ -1,39 +1,66 @@
 <script setup>
-import { RouterLink } from 'vue-router'
-
+import { RouterLink } from "vue-router";
 </script>
 
 <template>
-  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
-  <nav class="navbar sticky-top navbar-expand-md px-4 py-3 border-bottom">
+  
+  <nav class="navbar sticky-top navbar-expand-md px-4 py-3">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">PropertyPlanners</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-        aria-controls="offcanvasNavbar">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-        <div class="offcanvas-header border-bottom">
+      <div
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="offcanvasNavbar"
+        aria-labelledby="offcanvasNavbarLabel"
+      >
+        <div class="offcanvas-header">
           <a class="navbar-brand" href="#">PropertyPlanners</a>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
         </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end ms-auto mb-2 mb-lg-0">
             <template v-for="link in links" :key="link.id">
               <li class="nav-item ms-auto" v-if="!link.isDropdown">
-                <RouterLink class="nav-link pp px-4 active" :to="link.to" aria-current="page">
-                  {{link.value}}
+                <RouterLink
+                  class="nav-link pp px-4 active"
+                  :to="link.to"
+                  aria-current="page"
+                >
+                  {{ link.value }}
                 </RouterLink>
               </li>
               <li class="nav-item ms-auto dropdown" v-else>
-                <a class="nav-link pp px-4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  {{link.value}}
+                <a
+                  class="nav-link pp px-4"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  {{ link.value }}
                 </a>
                 <ul class="dropdown-menu">
                   <li v-for="dropdown in link.dropdown" :key="dropdown.id">
-                    <RouterLink class="dropdown-item p-3 text-center" :to="dropdown.to" aria-current="page">
-                      {{dropdown.value}}
+                    <RouterLink
+                      class="dropdown-item p-3 text-center"
+                      :to="dropdown.to"
+                      aria-current="page"
+                    >
+                      {{ dropdown.value }}
                     </RouterLink>
                   </li>
                 </ul>
@@ -48,50 +75,50 @@ import { RouterLink } from 'vue-router'
 
 <script>
 export default {
-  name: "NavView",
+  name: "Nav",
   data() {
     return {
       links: [
         {
-          to: '/login',
-          value: 'Login',
+          to: "/login",
+          value: "Login",
           isDropdown: false,
-          dropdown: []
+          dropdown: [],
         },
         {
-          to: '/',
-          value: 'Home',
+          to: "/home",
+          value: "Home",
           isDropdown: false,
-          dropdown: []
+          dropdown: [],
         },
         {
-          to: '/seeker/dashboard',
-          value: 'Dashboard',
+          to: "/seeker/dashboard",
+          value: "Dashboard",
           isDropdown: false,
-          dropdown: []
+          dropdown: [],
         },
         {
-          to: '/',
-          value: 'Dropdown',
+          to: "/",
+          value: "Dropdown",
           isDropdown: true,
           dropdown: [
             {
-              to: '/Action',
-              value: 'Action'
+              to: "/Action",
+              value: "Action",
             },
             {
-              to: '/',
-              value: 'Another action'
+              to: "/",
+              value: "Another action",
             },
             {
-              to: '/',
-              value: 'Something else here'
-            }
-          ]
-        }
-      ]
-    }
-  }
+              to: "/",
+              value: "Something else here",
+            },
+          ],
+        },
+      ],
+    };
+  },
 };
 </script>
 
@@ -99,7 +126,6 @@ export default {
 .nav-item .nav-link.pp {
   color: var(--main-dark);
   font-weight: 700;
-
 }
 
 .nav-item .nav-link.pp::after {
@@ -133,8 +159,14 @@ export default {
 }
 
 .navbar {
-  background-color: var(--main-white);
+  --bs-navbar-toggler-focus-width: 0rem;
+  background-color: rgba(var(--main-grey-rgb),0.2);
 }
+
+.navbar-toggler {
+  border: 0px solid white;
+}
+
 
 .dropdown-menu.show {
   padding: 0px;
