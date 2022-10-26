@@ -1,5 +1,6 @@
 <script setup>
 import { RouterView } from "vue-router";
+import { RouterLink } from "vue-router";
 </script>
 
 <template>
@@ -10,42 +11,39 @@ import { RouterView } from "vue-router";
           class="p-3 h-100 sidebar text-white bg-dark"
           style="width: fit-content"
         >
-          <div class="d-flex align-items-center mb-3 mx-2 text-white text-decoration-none">
-            <a
-            href="/"
-            class="grow"
+          <div
+            class="d-flex align-items-center mb-3 mx-2 text-white text-decoration-none"
           >
-            <span class="pp-head py-2 mx-3 grow">PropertyPlanners</span>
-
-          </a>
-          <button
-            class="btn-close btn-close-white ms-3 d-block d-md-none"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#sidebar"
-            aria-controls="sidebar"
-            aria-expanded="true"
-            aria-label="Close"
-          >
-          </button>
+            <RouterLink :to="'/'" class="grow">
+              <span class="pp-head py-2 mx-3 grow">PropertyPlanners</span>
+            </RouterLink>
+            <button
+              class="btn-close btn-close-white ms-3 d-block d-md-none"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#sidebar"
+              aria-controls="sidebar"
+              aria-expanded="true"
+              aria-label="Close"
+            ></button>
           </div>
           <div class="d-flex ms-3 my-4 grow">
             <img
               src="../assets/sam.jpg"
               class="border-rounded rounded-circle border border-4"
               alt=""
-              style="width: 56px; height: 56px; object-fit: cover;"
+              style="width: 56px; height: 56px; object-fit: cover"
             />
             <div class="text-start ms-3">
               <span class="pp-fat-text"> John Doe</span>
-              <br>
+              <br />
               <span class="opacity-50"> johndoe@bigpp.com</span>
             </div>
           </div>
           <ul class="navbar-nav nav nav-pills flex-column mb-auto">
             <li class="nav-item w-100 text-start">
-              <a
-                href="#"
+              <RouterLink
+                :to="'/' + userType + '/dashboard'"
                 class="nav-link grow text-colour-hover px-3 py-2"
                 aria-current="page"
               >
@@ -55,7 +53,7 @@ import { RouterView } from "vue-router";
                   size="md"
                 />
                 <text class="pp-fat-text">Dashboard</text>
-              </a>
+              </RouterLink>
             </li>
             <li class="nav-item w-100 text-start">
               <div class="accordion" id="accordionExample">
@@ -84,8 +82,8 @@ import { RouterView } from "vue-router";
                     data-bs-parent="#accordionExample"
                   >
                     <div class="accordion-body mb-2 pt-0">
-                      <a
-                        href="#"
+                      <RouterLink
+                        :to="'/' + userType + '/region'"
                         class="nav-link grow text-colour-hover py-1 ms-4"
                         aria-current="page"
                       >
@@ -95,9 +93,9 @@ import { RouterView } from "vue-router";
                           size="sm"
                         />
                         <text class="pp-fat-text">By Region</text>
-                      </a>
-                      <a
-                        href="#"
+                      </RouterLink>
+                      <RouterLink
+                        :to="'/' + userType + '/general'"
                         class="nav-link grow text-colour-hover py-1 ms-4"
                         aria-current="page"
                       >
@@ -107,15 +105,15 @@ import { RouterView } from "vue-router";
                           size="sm"
                         />
                         <text class="pp-fat-text">General</text>
-                      </a>
+                      </RouterLink>
                     </div>
                   </div>
                 </div>
               </div>
             </li>
-            <li class="nav-item w-100 text-start">
-              <a
-                href="#"
+            <li class="nav-item w-100 text-start" v-if="isSeeker">
+              <RouterLink
+                :to="'/' + userType + '/findagent'"
                 class="nav-link grow text-colour-hover px-3 py-2"
                 aria-current="page"
               >
@@ -125,11 +123,11 @@ import { RouterView } from "vue-router";
                   size="md"
                 />
                 <text class="pp-fat-text">Find Agents</text>
-              </a>
+              </RouterLink>
             </li>
             <li class="nav-item w-100 text-start">
-              <a
-                href="#"
+              <RouterLink
+                :to="'/' + userType + '/chat'"
                 class="nav-link grow text-colour-hover px-3 py-2"
                 aria-current="page"
               >
@@ -139,11 +137,11 @@ import { RouterView } from "vue-router";
                   size="md"
                 />
                 <text class="pp-fat-text">Chats</text>
-              </a>
+              </RouterLink>
             </li>
-            <li class="nav-item w-100 text-start">
-              <a
-                href="#"
+            <li class="nav-item w-100 text-start" v-if="isSeeker">
+              <RouterLink
+                :to="'/' + userType + '/favourites'"
                 class="nav-link grow text-colour-hover px-3 py-2"
                 aria-current="page"
               >
@@ -153,11 +151,25 @@ import { RouterView } from "vue-router";
                   size="md"
                 />
                 <text class="pp-fat-text">Favourites</text>
-              </a>
+              </RouterLink>
+            </li>
+            <li class="nav-item w-100 text-start" v-if="isAgent">
+              <RouterLink
+                :to="'/' + userType + '/plans'"
+                class="nav-link grow text-colour-hover px-3 py-2"
+                aria-current="page"
+              >
+                <font-awesome-icon
+                  icon="fa-solid fa-tag"
+                  class="me-3"
+                  size="md"
+                />
+                <text class="pp-fat-text">Plans</text>
+              </RouterLink>
             </li>
             <li class="nav-item w-100 text-start">
-              <a
-                href="#"
+              <RouterLink
+                :to="'/' + userType + '/profile'"
                 class="nav-link grow text-colour-hover px-3 py-2"
                 aria-current="page"
               >
@@ -167,15 +179,16 @@ import { RouterView } from "vue-router";
                   size="md"
                 />
                 <text class="pp-fat-text">Profile</text>
-              </a>
+              </RouterLink>
             </li>
           </ul>
         </div>
       </div>
     </div>
 
-    <div class="d-flex flex-column flex-fill p-0 m-0">
-      <nav class="navbar sticky-top navbar-expand-md px-4 py-3">
+    <div class="d-flex flex-column flex-fill p-0 m-0" id="main-view">
+      <div id="main-component">
+        <nav class="navbar sticky-top navbar-expand-md px-4 py-3">
         <div class="container-fluid">
           <button
             class="navbar-toggler d-block"
@@ -191,6 +204,7 @@ import { RouterView } from "vue-router";
         </div>
       </nav>
       <RouterView />
+      </div>
     </div>
   </div>
 </template>
@@ -200,51 +214,27 @@ export default {
   name: "DashboardNav",
   data() {
     return {
-      links: [
-        {
-          to: "/login",
-          value: "Login",
-          isDropdown: false,
-          dropdown: [],
-        },
-        {
-          to: "/",
-          value: "Home",
-          isDropdown: false,
-          dropdown: [],
-        },
-        {
-          to: "/seeker/dashboard",
-          value: "Dashboard",
-          isDropdown: false,
-          dropdown: [],
-        },
-        {
-          to: "/",
-          value: "Dropdown",
-          isDropdown: true,
-          dropdown: [
-            {
-              to: "/Action",
-              value: "Action",
-            },
-            {
-              to: "/",
-              value: "Another action",
-            },
-            {
-              to: "/",
-              value: "Something else here",
-            },
-          ],
-        },
-      ],
+      isSeeker: true,
+      isAgent: false,
     };
+  },
+  computed: {
+    userType() {
+      if (this.isSeeker) {
+        return "seeker";
+      } else return "agent";
+    },
   },
 };
 </script>
 
 <style>
+#main-view{
+  overflow-x: auto;
+}
+#main-component{
+  min-width: 100vw;
+}
 .accordion {
   --bs-accordion-color: white !important;
   --bs-accordion-bg: initial !important;
@@ -384,7 +374,7 @@ export default {
 
 .navbar {
   --bs-navbar-toggler-focus-width: 0rem;
-  background-color: rgba(var(--main-grey-rgb), 0.2);
+  background-color: rgba(255,255,255, 0.7);
 }
 
 .navbar-toggler {

@@ -31,15 +31,46 @@ const router = createRouter({
     },
 
     {
-      path: "/dashboard",
-      name: "dashboard",
+      path: "/seeker",
+      name: "seeker",
       component: DashboardView,
       children: [
         {
-          path: "seeker",
-          name: "seeker",
+          path: "dashboard",
+          name: "dashboard",
           component: HomeView
         },
+        {
+          path: "chat",
+          name: "chat",
+          component: LoginView
+        },
+        {
+          path: "findagent",
+          name: "findagent",
+          component: HomeView
+        },
+        {
+          path: "favourites",
+          name: "favourites",
+          component: HomeView
+        },
+        {
+          path: "profile",
+          name: "profile",
+          component: HomeView
+        },
+        {
+          path: "region",
+          name: "region",
+          component: HomeView
+        },
+        {
+          path: "general",
+          name: "general",
+          component: HomeView
+        }
+
       ],
     },
   ],

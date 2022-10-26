@@ -19,7 +19,8 @@ import {
   faChartColumn,
   faComment,
   faStar,
-  faMagnifyingGlass
+  faMagnifyingGlass,
+  faTag
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faTwitter,
@@ -41,7 +42,8 @@ library.add(
   faChartColumn,
   faComment,
   faStar,
-  faMagnifyingGlass
+  faMagnifyingGlass,
+  faTag
 );
 
 const app = createApp(App);
