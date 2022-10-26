@@ -20,6 +20,7 @@
             type="button"
             id="signup_banner"
             class="btn btn-primary rounded-pill btn-lg"
+            v-on:click="testData()"
           >
             Sign up
           </button>
@@ -47,6 +48,7 @@ import Footer from "../components/Footer.vue";
 import API_info from "../components/API_info.vue";
 import ProfileCarousel from "../components/ProfileCarousel.vue";
 import AboutUs from "../components/AboutUs.vue"
+import GovData from "../scripts/data"
 
 export default {
   name: "Home",
@@ -57,6 +59,19 @@ export default {
     AboutUs
     
   },
+  data(){
+    return{
+      years:[2017,2022],
+      url:"https://data.gov.sg/api/action/datastore_search",
+      resource_id:"f1765b54-a209-4718-8d38-a39237f502b3"
+    }
+  },
+  methods:{
+    testData(){
+      var gd = new GovData(this.url,this.resource_id)
+      gd.getData({years:this.years,town:"punggol",limit:500})
+    }
+  }
 };
 </script>
 
