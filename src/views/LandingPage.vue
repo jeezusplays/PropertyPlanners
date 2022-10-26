@@ -30,7 +30,7 @@
   </div>
 
   <!-- API Component -->
-  <API_info />
+  <ApiInfo />
 
   <!-- About Us -->
   <AboutUs />
@@ -45,16 +45,16 @@
 
 <script>
 import Footer from "../components/Footer.vue";
-import API_info from "../components/API_info.vue";
-import ProfileCarousel from "../components/ProfileCarousel.vue";
-import AboutUs from "../components/AboutUs.vue"
+import ApiInfo from "../components/landing/ApiInfo.vue";
+import ProfileCarousel from "../components/landing/ProfileCarousel.vue";
+import AboutUs from "../components/landing/AboutUs.vue"
 import GovData from "../scripts/data"
 
 export default {
   name: "Home",
   components: {
     Footer,
-    API_info,
+    ApiInfo,
     ProfileCarousel,
     AboutUs
     

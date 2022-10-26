@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import LandingPage from "../views/LandingPage.vue";
 import LoginView from "../views/LoginView.vue";
 import BasicView from "../views/BasicView.vue";
 import DashboardView from "../views/DashboardView.vue";
@@ -28,7 +28,7 @@ const router = createRouter({
         {
           path: "home",
           name: "home",
-          component: HomeView
+          component: LandingPage
         },
       ],
     },
@@ -51,12 +51,12 @@ const router = createRouter({
         {
           path: "findagent",
           name: "findagent",
-          component: HomeView
+          component: LandingPage
         },
         {
           path: "favourites",
           name: "favourites",
-          component: HomeView
+          component: LandingPage
         },
         {
           path: "profile",
@@ -66,12 +66,12 @@ const router = createRouter({
         {
           path: "region",
           name: "region",
-          component: HomeView
+          component: LandingPage
         },
         {
           path: "general",
           name: "general",
-          component: HomeView
+          component: LandingPage
         }
 
       ],
