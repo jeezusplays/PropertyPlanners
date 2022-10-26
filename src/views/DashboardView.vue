@@ -12,10 +12,10 @@ import { RouterLink } from "vue-router";
           style="width: fit-content"
         >
           <div
-            class="d-flex align-items-center mb-3 mx-2 text-white text-decoration-none"
+            class="d-flex justify-content-center mb-3 align-self-center w-100 text-white text-decoration-none"
           >
             <RouterLink :to="'/'" class="grow">
-              <span class="pp-head py-2 mx-3 grow">PropertyPlanners</span>
+              <span class="pp-subhead py-2 mx-3 grow">PropertyPlanners</span>
             </RouterLink>
             <button
               class="btn-close btn-close-white ms-3 d-block d-md-none"
@@ -27,7 +27,7 @@ import { RouterLink } from "vue-router";
               aria-label="Close"
             ></button>
           </div>
-          <div class="d-flex ms-3 my-4 grow">
+          <div class="d-flex mx-3 my-4 grow">
             <img
               src="../assets/sam.jpg"
               class="border-rounded rounded-circle border border-4"
@@ -189,21 +189,21 @@ import { RouterLink } from "vue-router";
     <div class="d-flex flex-column flex-fill p-0 m-0" id="main-view">
       <div id="main-component">
         <nav class="navbar sticky-top navbar-expand-md px-4 py-3">
-        <div class="container-fluid">
-          <button
-            class="navbar-toggler d-block"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#sidebar"
-            aria-controls="sidebar"
-            aria-expanded="true"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
-      </nav>
-      <RouterView />
+          <div class="container-fluid">
+            <button
+              class="navbar-toggler d-block"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#sidebar"
+              aria-controls="sidebar"
+              aria-expanded="true"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        </nav>
+        <RouterView />
       </div>
     </div>
   </div>
@@ -229,11 +229,12 @@ export default {
 </script>
 
 <style>
-#main-view{
+#main-view {
   overflow-x: auto;
 }
-#main-component{
-  min-width: 100vw;
+#main-component {
+  min-width: 70vw;
+  width: 100%;
 }
 .accordion {
   --bs-accordion-color: white !important;
@@ -374,7 +375,7 @@ export default {
 
 .navbar {
   --bs-navbar-toggler-focus-width: 0rem;
-  background-color: rgba(255,255,255, 0.7);
+  background-color: rgba(var(--main-grey-rgb), 0.2);
 }
 
 .navbar-toggler {

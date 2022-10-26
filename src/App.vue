@@ -3,11 +3,10 @@ import { RouterView } from "vue-router";
 </script>
 
 <template>
-  <RouterView/>
+  <RouterView />
 </template>
 
 <script>
-
 export default {
   name: "App",
 };
@@ -73,29 +72,39 @@ a:active {
   text-decoration: none;
 }
 
-.pp-big-head{
+.pp-big-head {
   font-weight: 500;
   font-size: 2.5rem;
 }
 
-.pp-head{
+.pp-head {
   font-weight: 500;
   font-size: 2rem;
 }
 
-.pp-subhead{
+.pp-subhead {
   font-weight: 500;
   font-size: 1.5rem;
 }
 
-.pp-fat-text{
+.pp-fat-text {
   font-weight: 500;
   font-size: 1rem;
 }
 
-.pp-text{
+.pp-text {
   font-size: 1rem;
 }
 
+.illustration {
+  max-width: 400px;
+  min-width: 150px;
+  width: 50vw;
+}
 
+#ill-subhead{
+  width: 50vw;
+  min-width: 200px;
+  max-width: 300px;
+}
 </style>
