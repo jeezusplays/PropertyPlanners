@@ -2,7 +2,7 @@
   <div class="container-fluid py-3 px-5">
     <div class="flex-row d-flex justify-content-center">
       <div class="col-12">
-        <p class="pp-head text-start">My Profile</p>
+        <p class="pp-head text-start">Dashboard</p>
 
         <div class="card border-0 text-center">
           <img

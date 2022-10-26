@@ -105,6 +105,6 @@ a:active {
 #ill-subhead{
   width: 50vw;
   min-width: 200px;
-  max-width: 300px;
+  max-width: 700px;
 }
 </style>
