@@ -6,7 +6,7 @@
         <div class="profile-side rounded-4 p-4">
           <div class="profile-head">
             <img
-              class="profile-pic rounded-4 mb-3"
+              class="profile-pic rounded-3 mb-3"
               src="../assets/HDB_banner.jpg"
             />
             <p class="pp-subhead text-center m-0">{{profile.name}}</p>
