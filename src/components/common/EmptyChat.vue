@@ -5,7 +5,7 @@
       <div class="border-0 text-center">
         <img
           class="p-3 mx-auto illustration"
-          src="../assets/Chat_Empty.svg"
+          src="../../assets/Chat_Empty.svg"
           alt="Empty Dashboard"
         />
         <p class="pp-subhead my-3 mx-auto" id="ill-subhead">

@@ -7,7 +7,7 @@
           <div class="profile-head">
             <img
               class="profile-pic rounded-3 mb-3"
-              src="../assets/HDB_banner.jpg"
+              src="../../assets/HDB_banner.jpg"
             />
             <p class="pp-subhead text-center m-0">{{profile.name}}</p>
             <p class="pp-text text-center text-break">{{profile.email}}</p>
@@ -16,6 +16,7 @@
           <div class="profile-body mt-5">
             <p class="pp-text text-start">
               <b>About me:</b>
+              <br>
               {{profile.aboutme}}
             </p>
           </div>

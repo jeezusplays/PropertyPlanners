@@ -6,7 +6,7 @@
         <div class="border-0 text-center">
           <img
             class="p-3 mx-auto illustration"
-            src="../assets/Empty_Dashboard.svg"
+            src="../../assets/Empty_Dashboard.svg"
             alt="Empty Dashboard"
           />
           <p class="pp-subhead my-3 mx-auto" id="ill-subhead">

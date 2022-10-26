@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import EmptyDashboard from "./EmptyDashboard.vue"
+import EmptyDashboard from "../common/EmptyDashboard.vue"
 
 export default{
   name:"AgentDashboard",

@@ -3,9 +3,9 @@ import HomeView from "../views/HomeView.vue";
 import LoginView from "../views/LoginView.vue";
 import BasicView from "../views/BasicView.vue";
 import DashboardView from "../views/DashboardView.vue";
-import Agent_Dashboard from "../components/Agent_Dashboard.vue"
-import Chat from "../components/Chat.vue"
-import Seeker_Profile from "../components/Seeker_Profile.vue"
+import Agent_Dashboard from "../components/agent/Agent_Dashboard.vue"
+import Chat from "../components/common/Chat.vue"
+import Seeker_Profile from "../components/seeker/Seeker_Profile.vue"
 
 const router = createRouter({
   history: createWebHistory(),
