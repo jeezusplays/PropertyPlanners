@@ -13,7 +13,7 @@
         <div class="carousel-item p-5 grow active text-light text-center">
           <a href="https://www.linkedin.com/in/samuel-chung-339688154/" target="_blank" style="text-decoration: none">
 
-            <img src="../assets/sam.jpg" class="prof-img rounded-circle" alt="">
+            <img src="../../assets/sam.jpg" class="prof-img rounded-circle" alt="">
             <h5 class="mt-3 mb-0">Samuel Chung</h5>
             <p class="opacity-50">Project manager</p>
             <p class="mx-auto prof-desc opacity-75">Some quick example text to build on the card title and make up the
@@ -25,7 +25,7 @@
         <div class="carousel-item p-5 grow text-light text-center">
           <a href="https://www.linkedin.com/in/samuel-chung-339688154/" target="_blank" style="text-decoration: none">
 
-            <img src="../assets/sam.jpg" class="prof-img rounded-circle" alt="">
+            <img src="../../assets/sam.jpg" class="prof-img rounded-circle" alt="">
             <h5 class="mt-3 mb-0">Samuel Chung</h5>
             <p class="opacity-50">Project manager</p>
             <p class="mx-auto prof-desc opacity-75">Some quick example text to build on the card title and make up the
@@ -37,7 +37,7 @@
         <div class="carousel-item p-5 grow text-light text-center">
           <a href="https://www.linkedin.com/in/samuel-chung-339688154/" target="_blank" style="text-decoration: none">
 
-            <img src="../assets/sam.jpg" class="prof-img rounded-circle" alt="">
+            <img src="../../assets/sam.jpg" class="prof-img rounded-circle" alt="">
             <h5 class="mt-3 mb-0">Samuel Chung</h5>
             <p class="opacity-50">Project manager</p>
             <p class="mx-auto prof-desc opacity-75">Some quick example text to build on the card title and make up the
@@ -56,7 +56,7 @@
   background-image: linear-gradient(0deg,
       rgba(0, 0, 0, 0.9),
       rgba(0, 0, 0, 0.9)),
-    url("../assets/HDB_banner.jpg");
+    url("../../assets/HDB_banner.jpg");
 
 }
 

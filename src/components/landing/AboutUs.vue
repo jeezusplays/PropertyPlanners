@@ -8,7 +8,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-6">
-                    <img id="about-us-img" src="../assets/singapore.jpg" alt="">
+                    <img id="about-us-img" src="../../assets/singapore.jpg" alt="">
                 </div>
                 <div class="col-lg-6 px-4 mt-3 mt-sm-2 mt-lg-0 py-2 text-start">
                     

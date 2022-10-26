@@ -1,8 +1,23 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
-import LoginView from "../views/LoginView.vue";
+
+// Views
 import BasicView from "../views/BasicView.vue";
 import DashboardView from "../views/DashboardView.vue";
+
+// Top level Component
+import LoginView from "../components/Login.vue";
+
+// Agent
+import Agent_Dashboard from "../components/agent/Agent_Dashboard.vue"
+
+// Common
+import Chat from "../components/common/Chat.vue"
+
+// Landing
+import LandingPage from "../components/landing/LandingPage.vue";
+
+// Seeker
+import Seeker_Profile from "../components/seeker/Seeker_Profile.vue"
 
 const router = createRouter({
   history: createWebHistory(),
@@ -25,7 +40,7 @@ const router = createRouter({
         {
           path: "home",
           name: "home",
-          component: HomeView
+          component: LandingPage
         },
       ],
     },
@@ -38,37 +53,37 @@ const router = createRouter({
         {
           path: "dashboard",
           name: "dashboard",
-          component: HomeView
+          component: Agent_Dashboard
         },
         {
           path: "chat",
           name: "chat",
-          component: LoginView
+          component: Chat
         },
         {
           path: "findagent",
           name: "findagent",
-          component: HomeView
+          component: LandingPage
         },
         {
           path: "favourites",
           name: "favourites",
-          component: HomeView
+          component: LandingPage
         },
         {
           path: "profile",
           name: "profile",
-          component: HomeView
+          component: Seeker_Profile
         },
         {
           path: "region",
           name: "region",
-          component: HomeView
+          component: LandingPage
         },
         {
           path: "general",
           name: "general",
-          component: HomeView
+          component: LandingPage
         }
 
       ],
