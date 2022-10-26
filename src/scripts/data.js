@@ -53,7 +53,7 @@ export default class GovData {
       street_name_string = `"street_name":"${street_name}"`;
     }
     if (typeof floor_area_sqm !== "undefined") {
-      floor_area_sqm_string = `"floor_area_sqm":"${floor_area_sqm}"`;
+      floor_area_sqm_string = `"floor_area_sqm":${floor_area_sqm}`;
     }
 
     var queries = [
@@ -100,6 +100,7 @@ export default class GovData {
         r = r.concat(result)
       })
       console.log(r)
+      return r
     })
     
   }

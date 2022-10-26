@@ -86,7 +86,7 @@ export default {
           dropdown: [],
         },
         {
-          to: "/",
+          to: "/home",
           value: "Home",
           isDropdown: false,
           dropdown: [],
