@@ -5,6 +5,7 @@ import BasicView from "../views/BasicView.vue";
 import DashboardView from "../views/DashboardView.vue";
 import Agent_Dashboard from "../components/Agent_Dashboard.vue"
 import Chat from "../components/Chat.vue"
+import Seeker_Profile from "../components/Seeker_Profile.vue"
 
 const router = createRouter({
   history: createWebHistory(),
@@ -60,7 +61,7 @@ const router = createRouter({
         {
           path: "profile",
           name: "profile",
-          component: HomeView
+          component: Seeker_Profile
         },
         {
           path: "region",
