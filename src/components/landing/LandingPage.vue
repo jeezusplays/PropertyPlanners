@@ -51,7 +51,7 @@ export default {
 </script>
 
 <style>
-.green {
+green {
   color: var(--main-green);
 }
 
