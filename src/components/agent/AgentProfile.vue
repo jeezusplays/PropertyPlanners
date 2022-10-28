@@ -1,31 +1,32 @@
 <template>
   <EmptyProfile v-if="!hasProfile" />
-  <div class="container-fluid p-5" v-else>
+  <div class="container-fluid px-5 py-3" v-else>
     <div class="row pt-3">
       <h1 class="text-start">My Profile</h1>
     </div>
     <hr />
     <div class="row p-3">
-      <div class="col-2 d-flex justify-content-start">
+      <div class="col-12 col-lg-2 d-flex pb-4 px-0 pe-md-3 justify-content-start">
         <img
           src="../../assets/agent_face.jpeg"
-          width="150px"
-          height="200px"
-          class="border border-dark img-fluid"
+          class="border border-dark img-fluid pp-pp"
         />
       </div>
-      <div class="col-7 justify-content-start">
-        <div class="container text-start">
-          <h2>John Doe</h2>
-          <p><b>Registration No. {{registrationNo}}</b></p>
-          <p><b>Registration Date: {{registrationStartDate}} - {{registrationEndDate}}</b></p>
-          <p><b>Estate Agent Name: {{estateAgentName}}</b></p>
-          <p><b>Licence No: {{licenceNo}}</b></p>
+      <div class="col-12 col-lg-7 justify-content-start">
+        <div class="row">
+          <div class="container p-0 me-auto text-start">
+            <p class="pp-head">{{name}}</p>
+            <p>Registration No. <b>{{registrationNo}}</b></p>
+            <p>Registration Date: <b>{{registrationStartDate}} - {{registrationEndDate}}</b></p>
+            <p>Estate Agent Name: <b>{{estateAgentName}}</b></p>
+            <p>Licence No: <b>{{licenceNo}}</b></p>
+          </div>
         </div>
+
       </div>
-      <div class="col-2 justify-content-end">
+      <div class="d-flex flex-row p-0 col-12 col-lg-3 justify-content-end">
         <button
-          class="p-3 btn btn-outline-light"
+          class="p-3 btn me-auto me-lg-0 ms-lg-auto pp-button rounded-pill"
           style="
             background-color: #779341;
             color: #ffffff;
@@ -37,6 +38,9 @@
         </button>
       </div>
     </div>
+
+    <hr class="d-lg-none">
+
     <div class="row py-3">
       <h2 class="d-flex justify-content-start">Records</h2>
     </div>
@@ -1334,7 +1338,8 @@ export default {
   name: "AgentDashboard",
   data() {
     return {
-      hasProfile: false,
+      hasProfile: true,
+      name: 'John Doe',
       registrationNo:'R003797H',
       registrationStartDate: '16/11/2018',
       registrationEndDate: '31/12/2022',

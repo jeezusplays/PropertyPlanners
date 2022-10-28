@@ -26,7 +26,7 @@ function navigationGuard(to, from, next) {
   var isExpired = (sessionEndDate) => {
     return now > new Date(Number(sessionEndDate));
   };
-  console.log(local);
+  
   if (to.name !== "login") {
     if (local.sessionEndDate) {
       if (isExpired(local.sessionEndDate)) next({ name: "login" });

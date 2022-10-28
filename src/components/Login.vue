@@ -58,7 +58,7 @@
 export default{
     name:'login',
     mounted(){
-        localStorage['userType'] = 'seeker'
+        localStorage['userType'] = 'agent'
         localStorage['sessionEndDate'] = new Date('December 23 2022').getTime()
         console.log(localStorage)
     }
