@@ -20,11 +20,36 @@ import LandingPage from "../components/landing/LandingPage.vue";
 // Seeker
 import SeekerProfile from "../components/seeker/SeekerProfile.vue";
 
+function navigationGuard(to, from, next) {
+  var local = localStorage;
+  var now = new Date();
+  var isExpired = (sessionEndDate) => {
+    return now > new Date(Number(sessionEndDate));
+  };
+  console.log(local);
+  if (to.name !== "login") {
+    if (local.sessionEndDate) {
+      if (isExpired(local.sessionEndDate)) next({ name: "login" });
+      else if (to.path.includes("/seeker") && local.userType == "seeker") {
+        next();
+      } else if (to.path.includes("/agent") && local.userType == "agent") {
+        next();
+      } else {
+        next({ name: "login" });
+      }
+    } else {
+      next({ name: "login" });
+    }
+  } else {
+    next();
+  }
+}
+
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: "/main",
+      path: "/",
       name: "main",
       component: BasicView,
       children: [
@@ -74,8 +99,8 @@ const router = createRouter({
           path: "general",
           name: "agent-general",
           component: LandingPage,
-        }
-      ]
+        },
+      ],
     },
     {
       path: "/seeker",
@@ -116,10 +141,11 @@ const router = createRouter({
           path: "general",
           name: "general",
           component: LandingPage,
-        }
-      ]
-    }
-  ]
+        },
+      ],
+    },
+  ],
 });
 
+router.beforeEach(navigationGuard);
 export default router;
