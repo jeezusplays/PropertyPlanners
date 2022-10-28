@@ -52,7 +52,7 @@ export default {
     return {
       links: [
         {
-          to: "#banner",
+          to: "/home",
           value: "Home",
           isDropdown: false,
           dropdown: [],
@@ -64,7 +64,7 @@ export default {
           dropdown: [],
         },
         {
-          to: "/home/#about-us-container",
+          to: "/home",
           value: "About Us",
           isDropdown: false,
           dropdown: [],
@@ -84,7 +84,7 @@ export default {
         },
         {
           to: "/login",
-          value: "Sign Up",
+          value: "Login",
           isDropdown: false,
           dropdown: [],
         },

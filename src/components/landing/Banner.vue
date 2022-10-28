@@ -18,7 +18,7 @@
           </p>
           <button type="button" id="signup_banner" class="btn btn-primary rounded-pill btn-lg"
             onclick="location.href='/login'">
-            Sign up
+            Login
           </button>
         </div>
       </div>
