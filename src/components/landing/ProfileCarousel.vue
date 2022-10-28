@@ -16,7 +16,7 @@
             <h5 class="mt-3 mb-0">Samuel Chung</h5>
             <p class="opacity-50">Property Agent</p>
             <p class="mx-auto prof-desc opacity-75">PropertyPlanners has helped me to meet more seekers and form strong
-              relationships with them!</p>
+              relationships with them! Thank you PropertyPlanners!</p>
           </a>
         </div>
         <div class="carousel-item p-5 grow text-light text-center" data-bs-interval="3000">
