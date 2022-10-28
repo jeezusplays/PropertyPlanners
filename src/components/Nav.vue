@@ -1,6 +1,6 @@
-<script setup>
-import { RouterLink } from "vue-router";
-</script>
+<!-- <script setup>
+  import { RouterLink } from "vue-router";
+</script> -->
 
 <template>
 
@@ -19,7 +19,7 @@ import { RouterLink } from "vue-router";
         </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end ms-auto mb-2 mb-lg-0">
-            <template v-for="link in links" :key="link.id">
+            <!-- <template v-for="link in links" :key="link.id">
               <li class="nav-item ms-auto" v-if="!link.isDropdown">
                 <RouterLink class="nav-link pp px-4 active" :to="link.to" aria-current="page">
                   {{ link.value }}
@@ -37,7 +37,12 @@ import { RouterLink } from "vue-router";
                   </li>
                 </ul>
               </li>
-            </template>
+            </template> -->
+            <li class="nav-item ms-auto"><a href="/home" class="nav-link pp px-4 active">Home</a></li>
+            <li class="nav-item ms-auto"><a href="#api-info" class="nav-link pp px-4 ">Features</a></li>
+            <li class="nav-item ms-auto"><a href="#about-us-container" class="nav-link pp px-4 ">About Us</a></li>
+            <li class="nav-item ms-auto"><a href="#testimonials" class="nav-link pp px-4 ">Testimonials</a></li>
+            <li class="nav-item ms-auto"><a href="/login" class="nav-link pp px-4 ">Login</a></li>
           </ul>
         </div>
       </div>
@@ -45,7 +50,7 @@ import { RouterLink } from "vue-router";
   </nav>
 </template>
 
-<script>
+<!-- <script>
 export default {
   name: "Nav",
   data() {
@@ -111,7 +116,7 @@ export default {
     };
   },
 };
-</script>
+</script> -->
 
 <style>
 .nav-item .nav-link.pp {

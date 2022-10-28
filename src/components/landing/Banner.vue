@@ -17,8 +17,8 @@
             Powerful charts at your fingertips for <b>FREE</b>
           </p>
           <button type="button" id="signup_banner" class="btn btn-primary rounded-pill btn-lg"
-            onclick="location.href='/login'">
-            Login
+            onclick="location.href='/signup'">
+            Sign Up
           </button>
         </div>
       </div>
