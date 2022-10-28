@@ -1,16 +1,16 @@
 <template>
   <!-- Banner -->
   <div class="scroll">
-    <Banner/>
-
-    <!-- API Component -->
-    <ApiInfo/>
+    <Banner />
 
     <!-- About Us -->
-    <AboutUs/>
+    <AboutUs />
+
+    <!-- API Component -->
+    <ApiInfo />
 
     <!-- Profile Carousel -->
-    <ProfileCarousel/>
+    <ProfileCarousel />
 
     <!-- Footer -->
     <Footer/>
@@ -51,7 +51,6 @@ export default {
 </script>
 
 <style>
-
 green {
   color: var(--main-green);
 }
@@ -59,8 +58,10 @@ green {
 .scroll {
   overflow: auto;
 }
+
 ::-webkit-scrollbar {
   width: 0px;
-  background: transparent; /* make scrollbar transparent */
+  background: transparent;
+  /* make scrollbar transparent */
 }
 </style>
