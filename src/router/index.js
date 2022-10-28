@@ -20,31 +20,31 @@ import LandingPage from "../components/landing/LandingPage.vue";
 // Seeker
 import SeekerProfile from "../components/seeker/SeekerProfile.vue";
 
-function navigationGuard(to, from, next) {
-  var local = localStorage;
-  var now = new Date();
-  var isExpired = (sessionEndDate) => {
-    return now > new Date(Number(sessionEndDate));
-  };
+// function navigationGuard(to, from, next) {
+//   var local = localStorage;
+//   var now = new Date();
+//   var isExpired = (sessionEndDate) => {
+//     return now > new Date(Number(sessionEndDate));
+//   };
   
-  if (to.name !== "login") {
-    if (local.sessionEndDate) {
-      if (isExpired(local.sessionEndDate)) next({ name: "login" });
-      else if (to.path.includes("/seeker") && local.userType == "seeker") {
-        next();
-      } else if (to.path.includes("/agent") && local.userType == "agent") {
-        next();
-      } else if (to.path.includes("/home")) next()
-      else {
-        next({ name: "login" });
-      }
-    } else {
-      next({ name: "login" });
-    }
-  } else {
-    next();
-  }
-}
+//   if (to.name !== "login") {
+//     if (local.sessionEndDate) {
+//       if (isExpired(local.sessionEndDate)) next({ name: "login" });
+//       else if (to.path.includes("/seeker") && local.userType == "seeker") {
+//         next();
+//       } else if (to.path.includes("/agent") && local.userType == "agent") {
+//         next();
+//       } else if (to.path.includes("/home")) next()
+//       else {
+//         next({ name: "login" });
+//       }
+//     } else {
+//       next({ name: "login" });
+//     }
+//   } else {
+//     next();
+//   }
+// }
 
 const router = createRouter({
   history: createWebHistory(),
@@ -148,5 +148,5 @@ const router = createRouter({
   ],
 });
 
-router.beforeEach(navigationGuard);
+//router.beforeEach(navigationGuard);
 export default router;
