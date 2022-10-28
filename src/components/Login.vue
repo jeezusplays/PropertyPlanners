@@ -53,6 +53,20 @@
     </div>
 </template>
 
+<script>
+
+export default{
+    name:'login',
+    mounted(){
+        localStorage['userType'] = 'agent'
+        localStorage['sessionEndDate'] = new Date('December 23 2022').getTime()
+        console.log(localStorage)
+    }
+    
+}
+
+</script>
+
 <style>
 #login-fluid{
     background-image: url('../assets/loginbg.jpg');

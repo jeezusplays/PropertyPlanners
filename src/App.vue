@@ -113,6 +113,7 @@ a:active {
   color: white;
   background-color: var(--main-green);
   border-color: var(--main-green);
+  height: fit-content;
   transition: 300ms;
 }
 
@@ -123,5 +124,10 @@ a:active {
   border-color: var(--main-green) !important;
   color: var(--main-green) !important; 
 
+}
+.pp-pp{
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 </style>

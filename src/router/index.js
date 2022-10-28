@@ -9,16 +9,43 @@ import LoginView from "../components/Login.vue";
 import SignupView from "../components/Signup.vue";
 
 // Agent
-import Agent_Dashboard from "../components/agent/Agent_Dashboard.vue"
+import AgentDashboard from "../components/agent/AgentDashboard.vue";
+import AgentProfile from "../components/agent/AgentProfile.vue";
 
 // Common
-import Chat from "../components/common/Chat.vue"
+import Chat from "../components/common/Chat.vue";
 
 // Landing
 import LandingPage from "../components/landing/LandingPage.vue";
 
 // Seeker
-import Seeker_Profile from "../components/seeker/Seeker_Profile.vue"
+import SeekerProfile from "../components/seeker/SeekerProfile.vue";
+
+// function navigationGuard(to, from, next) {
+//   var local = localStorage;
+//   var now = new Date();
+//   var isExpired = (sessionEndDate) => {
+//     return now > new Date(Number(sessionEndDate));
+//   };
+  
+//   if (to.name !== "login") {
+//     if (local.sessionEndDate) {
+//       if (isExpired(local.sessionEndDate)) next({ name: "login" });
+//       else if (to.path.includes("/seeker") && local.userType == "seeker") {
+//         next();
+//       } else if (to.path.includes("/agent") && local.userType == "agent") {
+//         next();
+//       } else if (to.path.includes("/home")) next()
+//       else {
+//         next({ name: "login" });
+//       }
+//     } else {
+//       next({ name: "login" });
+//     }
+//   } else {
+//     next();
+//   }
+// }
 
 const router = createRouter({
   history: createWebHistory(),
@@ -26,26 +53,58 @@ const router = createRouter({
     {
       path: "/",
       name: "main",
-      component:BasicView,
+      component: BasicView,
       children: [
         {
           path: "login",
           name: "login",
-          component: LoginView
+          component: LoginView,
         },
         {
           path: "signup",
           name: "signup",
           component: SignupView
+
         },
         {
           path: "home",
           name: "home",
-          component: LandingPage
+          component: LandingPage,
         },
       ],
     },
-
+    {
+      path: "/agent",
+      name: "agent",
+      component: DashboardView,
+      children: [
+        {
+          path: "dashboard",
+          name: "agent-dashboard",
+          component: AgentDashboard,
+        },
+        {
+          path: "chat",
+          name: "agent-chat",
+          component: Chat,
+        },
+        {
+          path: "profile",
+          name: "agent-profile",
+          component: AgentProfile,
+        },
+        {
+          path: "region",
+          name: "agent-region",
+          component: LandingPage,
+        },
+        {
+          path: "general",
+          name: "agent-general",
+          component: LandingPage,
+        },
+      ],
+    },
     {
       path: "/seeker",
       name: "seeker",
@@ -54,42 +113,42 @@ const router = createRouter({
         {
           path: "dashboard",
           name: "dashboard",
-          component: Agent_Dashboard
+          component: AgentDashboard,
         },
         {
           path: "chat",
           name: "chat",
-          component: Chat
+          component: Chat,
         },
         {
           path: "findagent",
           name: "findagent",
-          component: LandingPage
+          component: LandingPage,
         },
         {
           path: "favourites",
           name: "favourites",
-          component: LandingPage
+          component: LandingPage,
         },
         {
           path: "profile",
           name: "profile",
-          component: Seeker_Profile
+          component: SeekerProfile,
         },
         {
           path: "region",
           name: "region",
-          component: LandingPage
+          component: LandingPage,
         },
         {
           path: "general",
           name: "general",
-          component: LandingPage
-        }
-
+          component: LandingPage,
+        },
       ],
     },
   ],
 });
 
+//router.beforeEach(navigationGuard);
 export default router;

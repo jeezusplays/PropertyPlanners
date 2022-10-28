@@ -28,8 +28,8 @@
           <p class="pp-head text- me-auto">Preferences</p>
           <template v-for="preference in preferences" :key="preference.id">
             <div class="row pref-row text-start rounded-3 p-3 mt-3">
-              <span class="pp-subhead">{{ preference.name }}</span>
-              <span class="pp-text">{{ preference.value }}</span>
+              <span class="pp-subhead text-light">{{ preference.name }}</span>
+              <span class="pp-text text-light opacity-75">{{ preference.value }}</span>
             </div>
           </template>
         </div>
@@ -83,7 +83,7 @@ export default {
   background-color: rgba(var(--main-grey-rgb), 0.2);
 }
 .pref-row {
-  background-color: rgba(var(--main-green-rgb), 0.5);
+  background-color: rgba(var(--main-green-rgb), 1);
 }
 .profile-pic {
   width: 100%;

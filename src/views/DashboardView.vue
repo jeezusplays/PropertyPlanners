@@ -220,11 +220,12 @@ export default {
   },
   computed: {
     userType() {
-      if (this.isSeeker) {
-        return "seeker";
-      } else return "agent";
+      if (localStorage['userType']) {
+        return localStorage['userType']
+      }
+      return 'seeker'
     },
-  },
+  }
 };
 </script>
 
