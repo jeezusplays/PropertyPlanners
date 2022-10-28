@@ -34,7 +34,8 @@ function navigationGuard(to, from, next) {
         next();
       } else if (to.path.includes("/agent") && local.userType == "agent") {
         next();
-      } else {
+      } else if (to.path.includes("/home")) next()
+      else {
         next({ name: "login" });
       }
     } else {
