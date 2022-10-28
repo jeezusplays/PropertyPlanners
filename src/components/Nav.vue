@@ -14,7 +14,7 @@ import { RouterLink } from "vue-router";
 
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header">
-          <a class="navbar-brand" href="#">PropertyPlanners</a>
+          <a class="navbar-brand">PropertyPlanners</a>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
@@ -52,11 +52,30 @@ export default {
     return {
       links: [
         {
-          to: "/home",
+          to: "#banner",
           value: "Home",
           isDropdown: false,
           dropdown: [],
         },
+        {
+          to: "/home",
+          value: "Features",
+          isDropdown: false,
+          dropdown: [],
+        },
+        {
+          to: "/home/#about-us-container",
+          value: "About Us",
+          isDropdown: false,
+          dropdown: [],
+        },
+        {
+          to: "/home",
+          value: "Testimonials",
+          isDropdown: false,
+          dropdown: [],
+        },
+
         {
           to: "/seeker/dashboard",
           value: "Dashboard",
