@@ -6,6 +6,7 @@ import DashboardView from "../views/DashboardView.vue";
 
 // Top level Component
 import LoginView from "../components/Login.vue";
+import SignupView from "../components/Signup.vue";
 
 // Agent
 import Agent_Dashboard from "../components/agent/Agent_Dashboard.vue"
@@ -35,7 +36,7 @@ const router = createRouter({
         {
           path: "signup",
           name: "signup",
-          component: LoginView
+          component: SignupView
         },
         {
           path: "home",
