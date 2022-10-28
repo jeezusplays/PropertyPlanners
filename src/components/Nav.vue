@@ -3,63 +3,35 @@ import { RouterLink } from "vue-router";
 </script>
 
 <template>
-  
+
   <nav class="navbar sticky-top navbar-expand-md px-4 py-3">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">PropertyPlanners</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasNavbar"
-        aria-controls="offcanvasNavbar"
-      >
+      <a class="navbar-brand" href="/home">PropertyPlanners</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div
-        class="offcanvas offcanvas-end"
-        tabindex="-1"
-        id="offcanvasNavbar"
-        aria-labelledby="offcanvasNavbarLabel"
-      >
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header">
           <a class="navbar-brand" href="#">PropertyPlanners</a>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end ms-auto mb-2 mb-lg-0">
             <template v-for="link in links" :key="link.id">
               <li class="nav-item ms-auto" v-if="!link.isDropdown">
-                <RouterLink
-                  class="nav-link pp px-4 active"
-                  :to="link.to"
-                  aria-current="page"
-                >
+                <RouterLink class="nav-link pp px-4 active" :to="link.to" aria-current="page">
                   {{ link.value }}
                 </RouterLink>
               </li>
               <li class="nav-item ms-auto dropdown" v-else>
-                <a
-                  class="nav-link pp px-4"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
+                <a class="nav-link pp px-4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   {{ link.value }}
                 </a>
                 <ul class="dropdown-menu">
                   <li v-for="dropdown in link.dropdown" :key="dropdown.id">
-                    <RouterLink
-                      class="dropdown-item p-3 text-center"
-                      :to="dropdown.to"
-                      aria-current="page"
-                    >
+                    <RouterLink class="dropdown-item p-3 text-center" :to="dropdown.to" aria-current="page">
                       {{ dropdown.value }}
                     </RouterLink>
                   </li>
@@ -80,12 +52,6 @@ export default {
     return {
       links: [
         {
-          to: "/login",
-          value: "Login",
-          isDropdown: false,
-          dropdown: [],
-        },
-        {
           to: "/home",
           value: "Home",
           isDropdown: false,
@@ -98,24 +64,30 @@ export default {
           dropdown: [],
         },
         {
-          to: "/",
-          value: "Dropdown",
-          isDropdown: true,
-          dropdown: [
-            {
-              to: "/Action",
-              value: "Action",
-            },
-            {
-              to: "/",
-              value: "Another action",
-            },
-            {
-              to: "/",
-              value: "Something else here",
-            },
-          ],
+          to: "/login",
+          value: "Sign Up",
+          isDropdown: false,
+          dropdown: [],
         },
+        // {
+        //   to: "/",
+        //   value: "Dropdown",
+        //   isDropdown: true,
+        //   dropdown: [
+        //     {
+        //       to: "/Action",
+        //       value: "Action",
+        //     },
+        //     {
+        //       to: "/",
+        //       value: "Another action",
+        //     },
+        //     {
+        //       to: "/",
+        //       value: "Something else here",
+        //     },
+        //   ],
+        // },
       ],
     };
   },
@@ -160,7 +132,7 @@ export default {
 
 .navbar {
   --bs-navbar-toggler-focus-width: 0rem;
-  background-color: rgba(var(--main-grey-rgb),0.2);
+  background-color: rgba(var(--main-grey-rgb), 0.2);
 }
 
 .navbar-toggler {
