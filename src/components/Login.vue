@@ -7,9 +7,9 @@
                 <div class="card text-start" style="border-radius: 1rem; background-color: rgba(255, 255, 255, 0.75);">
                     <div class="card-body p-5">
                         <h5>Welcome to <span style="color: #779341;">PropertyPlanners</span></h5>
-                        <h1 class="mb-5 fw-semibold">Sign up</h1>
+                        <h1 class="mb-5 fw-semibold">Sign In</h1>
 
-                        <div class="row form-outline mb-4">
+                        <!-- <div class="row form-outline mb-4">
                             <div class="col-6">
                                 <label class="form-label" for="fullName">Full Name</label>
                             <input type="text" id="fullName" class="form-control" placeholder="Full name"/>
@@ -22,7 +22,7 @@
                                     <option value="agent">Property Agents</option>
                                 </select>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="form-outline mb-4">
                             <label class="form-label" for="emailAddress">Enter your email address</label>
@@ -37,11 +37,11 @@
 
                         <div class="row">
                             <div class="col-12 col-md-6">
-                                <p>Have an Account? <br><span style="color: #779341;">Sign in</span></p>
+                                <p>New User? <br><a href="/signup" style="color: #779341;">Sign up</a></p>
                             </div>
                             
                             <div class="col-12 col-md-6 d-flex justify-content-end">
-                                <button class="btn btn-default btn-block btn-lg" type="submit" style="background-color: #779341; color: white; width: 100%;">Sign Up</button>
+                                <button class="btn btn-default btn-block btn-lg" type="submit" style="background-color: #779341; color: white; width: 100%;">Sign In</button>
                             </div>
                         </div>
 
