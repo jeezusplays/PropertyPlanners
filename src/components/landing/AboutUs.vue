@@ -2,7 +2,7 @@
     <div id="about-us-container" class="container-fluid py-4 p-md-5">
         <div class="container">
             <div class="container mb-5">
-                <h1 class="t1">Find Out More About Us</h1>
+                <h1 class="t1">About Us</h1>
                 <h5>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque
                     vitae autem.</h5>
             </div>
