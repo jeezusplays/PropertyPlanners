@@ -37,7 +37,7 @@
 
                         <div class="row">
                             <div class="col-12 col-md-6">
-                                <p>Have an Account? <br><span style="color: #779341;">Sign in</span></p>
+                                <p>Have an Account? <br><a href="#" style="color: #779341;">Sign in</a></p>
                             </div>
                             
                             <div class="col-12 col-md-6 d-flex justify-content-end">
