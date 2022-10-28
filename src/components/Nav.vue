@@ -151,7 +151,7 @@ export default {
 
 .navbar {
   --bs-navbar-toggler-focus-width: 0rem;
-  background-color: rgba(var(--main-grey-rgb), 0.2);
+  background-color: rgb(244, 243, 241);
 }
 
 .navbar-toggler {
