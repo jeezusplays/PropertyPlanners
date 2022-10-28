@@ -1,47 +1,94 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import LoginView from '../views/LoginView.vue'
-import Sidebar from '../components/Sidebar.vue'
-import SeekerDashboardView from '../views/Seeker_Dashboard.vue'
-import Navbar from '../components/Nav.vue'
+import { createRouter, createWebHistory } from "vue-router";
+
+// Views
+import BasicView from "../views/BasicView.vue";
+import DashboardView from "../views/DashboardView.vue";
+
+// Top level Component
+import LoginView from "../components/Login.vue";
+
+// Agent
+import Agent_Dashboard from "../components/agent/Agent_Dashboard.vue"
+
+// Common
+import Chat from "../components/common/Chat.vue"
+
+// Landing
+import LandingPage from "../components/landing/LandingPage.vue";
+
+// Seeker
+import Seeker_Profile from "../components/seeker/Seeker_Profile.vue"
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes: [{
-            path: '/',
-            name: 'home',
-            components: {
-                default: HomeView,
-                navbar: Navbar
-            }
+  history: createWebHistory(),
+  routes: [
+    {
+      path: "/",
+      name: "main",
+      component:BasicView,
+      children: [
+        {
+          path: "login",
+          name: "login",
+          component: LoginView
         },
         {
-            path: '/about',
-            name: 'about',
-            // route level code-splitting
-            // this generates a separate chunk (About.[hash].js) for this route
-            // which is lazy-loaded when the route is visited.
-            component: () =>
-                import ('../views/AboutView.vue')
+          path: "signup",
+          name: "signup",
+          component: LoginView
         },
         {
-            path: '/login',
-            name: 'login',
-            components: {
-                default: LoginView,
-                navbar: Navbar
-            }
+          path: "home",
+          name: "home",
+          component: LandingPage
         },
-        {
-            path: '/seeker/dashboard',
-            name: 'SeekerDashboard',
-            components: {
-                default: SeekerDashboardView,
-                sidebar: Sidebar,
-                navbar: Navbar
-            }
-        }
-    ]
-})
+      ],
+    },
 
-export default router
+    {
+      path: "/seeker",
+      name: "seeker",
+      component: DashboardView,
+      children: [
+        {
+          path: "dashboard",
+          name: "dashboard",
+          component: Agent_Dashboard
+        },
+        {
+          path: "chat",
+          name: "chat",
+          component: Chat
+        },
+        {
+          path: "findagent",
+          name: "findagent",
+          component: LandingPage
+        },
+        {
+          path: "favourites",
+          name: "favourites",
+          component: LandingPage
+        },
+        {
+          path: "profile",
+          name: "profile",
+          component: Seeker_Profile
+        },
+        {
+          path: "region",
+          name: "region",
+          component: LandingPage
+        },
+        {
+          path: "general",
+          name: "general",
+          component: LandingPage
+        }
+
+      ],
+    },
+  ],
+});
+
+export default router;
