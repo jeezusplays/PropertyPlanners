@@ -8,43 +8,75 @@ import DashboardView from "../views/DashboardView.vue";
 import LoginView from "../components/Login.vue";
 
 // Agent
-import Agent_Dashboard from "../components/agent/Agent_Dashboard.vue"
+import AgentDashboard from "../components/agent/AgentDashboard.vue";
+import AgentProfile from "../components/agent/AgentProfile.vue";
 
 // Common
-import Chat from "../components/common/Chat.vue"
+import Chat from "../components/common/Chat.vue";
 
 // Landing
 import LandingPage from "../components/landing/LandingPage.vue";
 
 // Seeker
-import Seeker_Profile from "../components/seeker/Seeker_Profile.vue"
+import SeekerProfile from "../components/seeker/SeekerProfile.vue";
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: "/",
+      path: "/main",
       name: "main",
-      component:BasicView,
+      component: BasicView,
       children: [
         {
           path: "login",
           name: "login",
-          component: LoginView
+          component: LoginView,
         },
         {
           path: "signup",
           name: "signup",
-          component: LoginView
+          component: LoginView,
         },
         {
           path: "home",
           name: "home",
-          component: LandingPage
+          component: LandingPage,
         },
       ],
     },
-
+    {
+      path: "/agent",
+      name: "agent",
+      component: DashboardView,
+      children: [
+        {
+          path: "dashboard",
+          name: "agent-dashboard",
+          component: AgentDashboard,
+        },
+        {
+          path: "chat",
+          name: "agent-chat",
+          component: Chat,
+        },
+        {
+          path: "profile",
+          name: "agent-profile",
+          component: AgentProfile,
+        },
+        {
+          path: "region",
+          name: "agent-region",
+          component: LandingPage,
+        },
+        {
+          path: "general",
+          name: "agent-general",
+          component: LandingPage,
+        }
+      ]
+    },
     {
       path: "/seeker",
       name: "seeker",
@@ -53,42 +85,41 @@ const router = createRouter({
         {
           path: "dashboard",
           name: "dashboard",
-          component: Agent_Dashboard
+          component: AgentDashboard,
         },
         {
           path: "chat",
           name: "chat",
-          component: Chat
+          component: Chat,
         },
         {
           path: "findagent",
           name: "findagent",
-          component: LandingPage
+          component: LandingPage,
         },
         {
           path: "favourites",
           name: "favourites",
-          component: LandingPage
+          component: LandingPage,
         },
         {
           path: "profile",
           name: "profile",
-          component: Seeker_Profile
+          component: SeekerProfile,
         },
         {
           path: "region",
           name: "region",
-          component: LandingPage
+          component: LandingPage,
         },
         {
           path: "general",
           name: "general",
-          component: LandingPage
+          component: LandingPage,
         }
-
-      ],
-    },
-  ],
+      ]
+    }
+  ]
 });
 
 export default router;

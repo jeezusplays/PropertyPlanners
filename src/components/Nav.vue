@@ -80,13 +80,13 @@ export default {
     return {
       links: [
         {
-          to: "/login",
+          to: "/main/login",
           value: "Login",
           isDropdown: false,
           dropdown: [],
         },
         {
-          to: "/home",
+          to: "/main/home",
           value: "Home",
           isDropdown: false,
           dropdown: [],
