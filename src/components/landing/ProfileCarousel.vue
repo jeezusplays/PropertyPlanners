@@ -31,7 +31,7 @@
           </a>
         </div>
         <div class="carousel-item p-5 grow text-light text-center" data-bs-interval="3000">
-          <a href="https://www.linkedin.com/in/samuel-chung-339688154/" target="_blank" style="text-decoration: none">
+          <a href="https://www.linkedin.com/in/liowhongxiang/" target="_blank" style="text-decoration: none">
 
             <img src="../../assets/hx.jpg" class="prof-img rounded-circle" alt="">
             <h5 class="mt-3 mb-0">Liow Hong Xiang</h5>
