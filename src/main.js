@@ -20,7 +20,12 @@ import {
   faComment,
   faStar,
   faMagnifyingGlass,
-  faTag
+  faTag,
+  faSquarePhoneFlip,
+  faPen,
+  fa1,
+  fa2,
+  fa3
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faTwitter,
@@ -43,7 +48,12 @@ library.add(
   faComment,
   faStar,
   faMagnifyingGlass,
-  faTag
+  faTag,
+  faSquarePhoneFlip,
+  faPen,
+  fa1,
+  fa2,
+  fa3
 );
 
 const app = createApp(App);
