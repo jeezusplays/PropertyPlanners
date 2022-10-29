@@ -148,6 +148,7 @@ export default {
 .navbar {
   --bs-navbar-toggler-focus-width: 0rem;
   background-color: #f4f3f1;
+
 }
 
 .navbar-toggler {
