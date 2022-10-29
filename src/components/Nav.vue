@@ -1,10 +1,10 @@
 <script setup>
-import { RouterLink } from "vue-router";
+  import { RouterLink } from "vue-router";
 </script>
 
 <template>
 
-  <nav class="navbar sticky-top navbar-expand-md px-4 py-3">
+  <nav class="navbar sticky-top navbar-expand-md px-4 py-3" id="navbar">
     <div class="container-fluid">
       <a class="navbar-brand" href="/home">PropertyPlanners</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
@@ -19,25 +19,12 @@ import { RouterLink } from "vue-router";
         </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end ms-auto mb-2 mb-lg-0">
-            <template v-for="link in links" :key="link.id">
-              <li class="nav-item ms-auto" v-if="!link.isDropdown">
-                <RouterLink class="nav-link pp px-4 active" :to="link.to" aria-current="page">
-                  {{ link.value }}
-                </RouterLink>
-              </li>
-              <li class="nav-item ms-auto dropdown" v-else>
-                <a class="nav-link pp px-4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  {{ link.value }}
-                </a>
-                <ul class="dropdown-menu">
-                  <li v-for="dropdown in link.dropdown" :key="dropdown.id">
-                    <RouterLink class="dropdown-item p-3 text-center" :to="dropdown.to" aria-current="page">
-                      {{ dropdown.value }}
-                    </RouterLink>
-                  </li>
-                </ul>
-              </li>
-            </template>
+
+            <li class="nav-item ms-auto"><RouterLink :to="'/home'" class="nav-link pp px-4">Home</RouterLink></li>
+            <li class="nav-item ms-auto"><a href="#api-info" class="nav-link pp px-4 ">Features</a></li>
+            <li class="nav-item ms-auto"><a href="#about-us-container" class="nav-link pp px-4 ">About Us</a></li>
+            <li class="nav-item ms-auto"><a href="#testimonials" class="nav-link pp px-4 ">Testimonials</a></li>
+            <li class="nav-item ms-auto"><RouterLink :to="'/login'" class="nav-link pp px-4 ">Login</RouterLink></li>
           </ul>
         </div>
       </div>
@@ -45,14 +32,14 @@ import { RouterLink } from "vue-router";
   </nav>
 </template>
 
-<script>
+<!-- <script>
 export default {
   name: "Nav",
   data() {
     return {
       links: [
         {
-          to: "#banner",
+          to: "/home",
           value: "Home",
           isDropdown: false,
           dropdown: [],
@@ -64,7 +51,7 @@ export default {
           dropdown: [],
         },
         {
-          to: "/home/#about-us-container",
+          to: "/home",
           value: "About Us",
           isDropdown: false,
           dropdown: [],
@@ -84,7 +71,7 @@ export default {
         },
         {
           to: "/login",
-          value: "Sign Up",
+          value: "Login",
           isDropdown: false,
           dropdown: [],
         },
@@ -111,7 +98,7 @@ export default {
     };
   },
 };
-</script>
+</script> -->
 
 <style>
 .nav-item .nav-link.pp {
@@ -137,6 +124,15 @@ export default {
   width: 100%;
 }
 
+.nav-item.active .nav-link.pp {
+  display: inline-block;
+  color: var(--main-green);
+}
+
+.nav-item.active .nav-link.pp::after {
+  width: 100%;
+}
+
 .navbar-brand {
   font-family: "Poppins";
   font-size: 26px;
@@ -151,7 +147,8 @@ export default {
 
 .navbar {
   --bs-navbar-toggler-focus-width: 0rem;
-  background-color: rgb(244, 243, 241);
+  background-color: #f4f3f1;
+
 }
 
 .navbar-toggler {

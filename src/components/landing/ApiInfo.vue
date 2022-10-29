@@ -1,5 +1,5 @@
 <template>
-  <div id="api-info" class="container-fluid py-5 p-md-5">
+  <div class="container-fluid py-5 p-md-5">
     <div class="row mx-5">
       <h1 class="t1">Features</h1>
       <div v-for="api in APIs" :key="api.id" class="col-12 col-md-6 col-lg-3 p-3">
@@ -24,23 +24,23 @@ export default {
       APIs: [
         {
           Api_name: "Analytics",
-          Api_desc: "Description",
+          Api_desc: "Comprehensive analysis of Singapore's property market",
           Api_icon: "fa-solid fa-chart-pie",
         },
         {
           Api_name: "Map View",
-          Api_desc: "Description",
+          Api_desc: "Easily pinpoint areas in Singapore to view property data",
           Api_icon: "fa-solid fa-map",
         },
         {
-          Api_name: "name1",
-          Api_desc: "Description",
-          Api_icon: "fa-solid fa-user",
+          Api_name: "Simple Tracking",
+          Api_desc: "Keep track of all your places of interests with one click",
+          Api_icon: "fa-solid fa-pen",
         },
         {
-          Api_name: "name1",
-          Api_desc: "Description",
-          Api_icon: "fa-solid fa-user",
+          Api_name: "Connect",
+          Api_desc: "Reach out to property agents and view their records",
+          Api_icon: "fa-solid fa-square-phone-flip",
         },
       ],
     };
