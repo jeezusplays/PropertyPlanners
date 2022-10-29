@@ -65,7 +65,6 @@ export default {
       threshold: 0.9
     })
     document.querySelectorAll('section[id]').forEach((section)=>{
-      console.log(section)
       this.observer.observe(section)
     })
   },
@@ -76,7 +75,6 @@ export default {
     },
     onElementObserved(entries){
       entries.forEach(({target, isIntersecting})=>{
-        console.log(target)
         const id = target.getAttribute('id')
         if(isIntersecting){
           document.querySelector(`nav li a[href="#${id}"]`)

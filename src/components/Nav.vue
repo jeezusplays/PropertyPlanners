@@ -1,6 +1,6 @@
-<!-- <script setup>
+<script setup>
   import { RouterLink } from "vue-router";
-</script> -->
+</script>
 
 <template>
 
@@ -20,11 +20,11 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end ms-auto mb-2 mb-lg-0">
 
-            <li class="nav-item ms-auto"><a href="/home" class="nav-link pp px-4 active">Home</a></li>
+            <li class="nav-item ms-auto"><RouterLink :to="'/home'" class="nav-link pp px-4">Home</RouterLink></li>
             <li class="nav-item ms-auto"><a href="#api-info" class="nav-link pp px-4 ">Features</a></li>
             <li class="nav-item ms-auto"><a href="#about-us-container" class="nav-link pp px-4 ">About Us</a></li>
             <li class="nav-item ms-auto"><a href="#testimonials" class="nav-link pp px-4 ">Testimonials</a></li>
-            <li class="nav-item ms-auto"><a href="/login" class="nav-link pp px-4 ">Login</a></li>
+            <li class="nav-item ms-auto"><RouterLink :to="'/login'" class="nav-link pp px-4 ">Login</RouterLink></li>
           </ul>
         </div>
       </div>
