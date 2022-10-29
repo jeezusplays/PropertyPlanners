@@ -1,5 +1,5 @@
 <template>
-    <div id="about-us-container" class="container-fluid py-4 p-md-5">
+    <div class="container-fluid py-4 p-md-5">
         <div class="container">
             <div class="container mb-5">
                 <h1 class="t1">About Us</h1>

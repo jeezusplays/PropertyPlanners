@@ -1,5 +1,5 @@
 <template>
-  <div id="api-info" class="container-fluid py-5 p-md-5">
+  <div class="container-fluid py-5 p-md-5">
     <div class="row mx-5">
       <h1 class="t1">Features</h1>
       <div v-for="api in APIs" :key="api.id" class="col-12 col-md-6 col-lg-3 p-3">
