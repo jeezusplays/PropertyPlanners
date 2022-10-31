@@ -10,6 +10,7 @@
 <script>
 import { features } from "../../assets/labels.json";
 import { AreaLabel } from "../../scripts/label";
+import { Loader } from "@googlemaps/js-api-loader";
 import towns from "../../scripts/towns.json";
 import * as colours from "../../scripts/colours.json";
 
@@ -22,14 +23,23 @@ export default {
         zoom: 12,
         mapId: "2ea4a3a31dcf523",
       },
+
+      loaderSettings: {
+        apiKey: "AIzaSyAafbfhfA2m_VY2JnslznFw9pXvgdpwlMY",
+        version: "weekly",
+      },
+      loader: null
     };
+  },
+  mounted(){
+    this.loader = new Loader(this.loaderSettings)
   },
   methods: {
     async initMap() {
-      this.google = window.google;
-      var townNames = new Set(towns);
+      this.loader.load().then((google)=>{
+        var townNames = new Set(towns);
       var src = "https://project1-367104.as.r.appspot.com/getgeojson";
-      var map = new this.google.maps.Map(
+      var map = new google.maps.Map(
         document.getElementById("googleMap"),
         this.options
       );
@@ -73,7 +83,7 @@ export default {
           var label = AreaLabel(
             {
               text: text,
-              position: new this.google.maps.LatLng(latlong[1], latlong[0]),
+              position: new google.maps.LatLng(latlong[1], latlong[0]),
               map: map,
               fontSize: 1,
               fontColor: "red",
@@ -82,7 +92,7 @@ export default {
               maxZoom: 18,
               minZoom: 12,
             },
-            this.google
+            google
           );
         }
 
@@ -94,6 +104,8 @@ export default {
         let area = event.feature.getProperty("PLN_AREA_N");
         console.log(area);
       });
+      })
+
     },
   },
 };
