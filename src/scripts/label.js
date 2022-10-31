@@ -138,9 +138,39 @@ export function AreaLabel(opt_options, google){
         style["left"] = pos.x + "px";
 
         style["visibility"] = this.getVisible_();
+        
       };
       MapLabel.prototype["draw"] = MapLabel.prototype.draw;
 
+      MapLabel.prototype.forceDraw = function (remove) {
+        var projection = this.getProjection();
+
+        if (!projection) {
+          // The map projection is not ready yet so do nothing
+          return;
+        }
+
+        if (!this.canvas_) {
+          // onAdd has not been called yet.
+          return;
+        }
+
+        var latLng = /** @type {this.google.maps.LatLng} */ (
+          this.get("position")
+        );
+        if (!latLng) {
+          return;
+        }
+        var pos = projection.fromLatLngToDivPixel(latLng);
+
+        var style = this.canvas_.style;
+
+        style["top"] = pos.y + "px";
+        style["left"] = pos.x + "px";
+        
+        if(!remove) style["visibility"] = "";
+        else style["visibility"] = "hidden";
+      };
       /**
        * Get the visibility of the label.
        * @private
