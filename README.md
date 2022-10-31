@@ -20,11 +20,11 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
+<!-- [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
+[![Issues][issues-shield]][issues-url] -->
+<!-- [![MIT License][license-shield]][license-url] -->
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
@@ -96,7 +96,7 @@ Here's why:
 
 Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
 
-Use the `BLANK_README.md` to get started.
+<!-- Use the `BLANK_README.md` to get started. -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -104,14 +104,14 @@ Use the `BLANK_README.md` to get started.
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+This section lists any major frameworks/libraries used to bootstrap PropertyPlanners.
 
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
+<!-- * [![Next][Next.js]][Next-url]
+* [![React][React.js]][React-url] -->
 * [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
+<!-- * [![Angular][Angular.io]][Angular-url]
 * [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
+* [![Laravel][Laravel.com]][Laravel-url] -->
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 * [![JQuery][JQuery.com]][JQuery-url]
 
@@ -127,10 +127,10 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* Python libraries
+You will need the following software installed in your machine.
+* npm
   ```sh
-  pip install -r requirements.txt
+  npm install -g npm
   ```
 
 ### Installation
@@ -139,22 +139,23 @@ _Below is an example of how you can instruct your audience on installing and set
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/jeezusplays/PropertyPlanners
    ```
-2. Create a Firebase Project and add service account key json to api folder
-3. Change service account key json to "serviceAccountKey.json"
-4. Install NPM packages
+<!-- 2. Create a Firebase Project and add service account key json to api folder
+3. Change service account key json to "serviceAccountKey.json" -->
+2. Install NPM packages
    ```sh
    npm install
    ```
-5. Run vue
+3. Run vue
    ```sh
    npm run serve
    ```
-6. Start a new terminal and run API server
+4. Go to your local host
+<!-- 6. Start a new terminal and run API server
    ```sh
    python api\api.py
-   ```
+   ``` -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -258,7 +259,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [license-url]: https://github.com/jeezusplays/PropertyPlanners/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/joey-tan-zuyi
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: src/assets/product.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
