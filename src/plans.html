@@ -15,69 +15,34 @@
 </head>
 
 <body>
-    <div class="container-fluid p-5">
-        <h1 class="text-start">Plans</h1>
-
-        <div class="row m-5">
-            <div class="text-end">
-                <p>Days left</p>
+  <div class="container py-3">
+      <div class="p-3 pb-md-4 mx-auto ">
+        <h1 class="display-4 fw-normal">Plan</h1>
+        <p class="fs-5 text-muted my-3">Subscribe to our monthly plan to show off your portfolio to potential property buyers!</p>
+      </div>
+  
+      <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="col mx-auto">
+          <div class="card mb-4 rounded-3 shadow-sm border-primary">
+            <div class="card-header py-3 text-bg-success border-primary">
+              <h4 class="my-0 fw-normal">Monthly</h4>
             </div>
-            
-            <div class="col bg-light p-5">
-                <div class="d-flex align-items-start">
-                    <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist"
-                        aria-orientation="vertical">
-                        <button class="nav-link active" id="v-pills-basic-tab" data-bs-toggle="pill"
-                            data-bs-target="#v-pills-basic" type="button" role="tab" aria-controls="v-pills-basic"
-                            aria-selected="true">Basic </button>
-                        <button class="nav-link" id="v-pills-advance-tab" data-bs-toggle="pill"
-                            data-bs-target="#v-pills-advance" type="button" role="tab" aria-controls="v-pills-advance"
-                            aria-selected="false">Advanced </button>
-                    </div>
-                    <div class="tab-content" id="v-pills-tabContent">
-                        <div class="tab-pane fade show active" id="v-pills-basic" role="tabpanel"
-                            aria-labelledby="v-pills-basic-tab" tabindex="0">
-                            
-                            <div class="card mb-3">
-                                <div class="row g-0">
-                                  <div class="col-md-4">
-                                    <img src="assets/sam.jpg" class="img-fluid rounded-start" alt="...">
-                                  </div>
-                                  <div class="col-md-8">
-                                    <div class="card-body">
-                                      <h5 class="card-title">Basic Plan</h5>
-                                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                      <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-
-                        </div>
-                        <div class="tab-pane fade" id="v-pills-advance" role="tabpanel"
-                            aria-labelledby="v-pills-advance-tab" tabindex="0">
-                            <div class="card mb-3">
-                                <div class="row g-0">
-                                  <div class="col-md-4">
-                                    <img src="assets/sam.jpg" class="img-fluid rounded-start" alt="...">
-                                  </div>
-                                  <div class="col-md-8">
-                                    <div class="card-body">
-                                      <h5 class="card-title">Advanced Plan</h5>
-                                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                      <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title">$29<small class="text-muted fw-light">/mo</small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li class="fw-bold">Benefits:</li> <!--TODO: update to align with the other pages-->
+                <li>Increased Profile Visibility</li>
+                <li>Appear on Search</li>
+                <!-- <li>Phone and email support</li>
+                <li>Help center access</li> -->
+              </ul>
+              <button type="button" class="w-100 btn btn-lg btn-success">Subscribe</button>
             </div>
+          </div>
         </div>
-
-
+      </div>
     </div>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
