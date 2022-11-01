@@ -22,9 +22,11 @@
 -->
 <div>
   <p align="center">  
-    [Contributors][contributors-url]
-    ·[Forks][forks-url]
-    ·[LinkedIn][linkedin-url]
+    <a href="https://github.com/jeezusplays/PropertyPlanners/graphs/contributors">Contributors</a>
+    ·
+    <a href="https://github.com/jeezusplays/PropertyPlanners/network/members">Forks</a>
+    ·
+    <a href="https://linkedin.com/in/joey-tan-zuyi">LinkedIn</a>
   </p>
 </div>
 <!-- [![Stargazers][stars-shield]][stars-url]
