@@ -4,11 +4,16 @@ import { RouterView } from "vue-router";
 
 <template>
   <RouterView />
+  <Spinner/>
 </template>
 
 <script>
+import Spinner from "./components/CurserSpinner.vue"
 export default {
   name: "App",
+  components:{
+    Spinner
+  }
 };
 </script>
 
