@@ -1338,7 +1338,7 @@ export default {
   name: "AgentDashboard",
   data() {
     return {
-      hasProfile: true,
+      hasProfile: false,
       name: 'John Doe',
       registrationNo:'R003797H',
       registrationStartDate: '16/11/2018',

@@ -26,11 +26,18 @@
 
 <script>
 
+import {Spinner} from "../../scripts/spinner"
+import GovData from "../../scripts/data"
+
 export default {
     name: 'EmptyAgentProfile',
     methods:{
         test(){
-            console.log(this.$route)
+            var dg = new GovData()
+            Spinner(dg.getData({
+              years:[2019,2022],
+              limit: 300
+            }))
         }
     }
 }

@@ -3,9 +3,9 @@ const $ = require("jquery");
 //import $ from "jquery";
 
 export default class GovData {
-  constructor(url, resource_id) {
-    this.url = url;
-    this.resource_id = resource_id;
+  constructor() {
+    this.url = "https://data.gov.sg/api/action/datastore_search";
+    this.resource_id = "f1765b54-a209-4718-8d38-a39237f502b3";
   }
 
   yyyymm(years) {
@@ -66,7 +66,7 @@ export default class GovData {
     var q = "";
 
     var YYYYMMs = this.yyyymm(years);
-    var promises=[]
+    var promises = [];
 
     YYYYMMs.forEach((date) => {
       q = `q={"month":"${date}"}`;
@@ -75,33 +75,101 @@ export default class GovData {
       });
 
       var url = `${this.url}?resource_id=${this.resource_id}&limit=${limit}&${q}`;
-      console.log(url)
       var promise = $.ajax({
         url: url,
         contentType: "application/json",
         type: "GET",
         success: (data) => {
-          return data.result.records;
+          return { date: data.result.records };
         },
         error: (XMLHttpRequest, textStatus, errorThrow) => {
-          console.log(JSON.parse(XMLHttpRequest.responseText),textStatus,errorThrow);
+          console.log(
+            JSON.parse(XMLHttpRequest.responseText),
+            textStatus,
+            errorThrow
+          );
         },
       }).then((r) => {
         return r.result.records;
       });
-      promises.push(promise)
-
+      promises.push(promise);
     });
-    var r = []
-    console.log(promises.length)
-    Promise.all(promises).then(results=>{
-      results.forEach(result=>{
-        console.log(result.length)
-        r = r.concat(result)
-      })
-      console.log(r)
-      return r
-    })
-    
+    var r = [];
+    console.log(promises.length);
+    await Promise.all(promises).then((results) => {
+      try{
+        if (!results.length > 0) return r;
+        var obj = {};
+        var qTotal = 0;
+        var qMin = Number(results[0][0]["resale_price"]);
+        var qMax = Number(results[0][0]["resale_price"]);
+        var qResults = [];
+  
+        obj["byYear"] = {};
+        obj["byMonth"] = {};
+  
+        results.forEach((records) => {
+          if (!records.length) return;
+  
+          var total = 0;
+          var month = records[0]["month"];
+          var year = records[0]["month"].split("-")[0];
+          var min = Number(records[0]["resale_price"]);
+          var max = Number(records[0]["resale_price"]);
+  
+          records.forEach((record) => {
+            qResults.push(record);
+            var price = Number(record["resale_price"]);
+  
+            total += price;
+            qTotal += price;
+  
+            if (price < min) min = price;
+            if (price > max) max = price;
+            if (price > qMax) qMax = price;
+            if (price < qMin) qMin = price;
+  
+            if (typeof obj["byYear"][year] == "undefined") {
+              obj["byYear"][year] = {};
+              obj["byYear"][year]["total"] = price;
+              obj["byYear"][year]["min"] = price;
+              obj["byYear"][year]["max"] = price;
+              obj["byYear"][year]["avg"] = price;
+              obj["byYear"][year]["records"] = [record];
+            } else {
+  
+              obj["byYear"][year]["total"] += price;
+  
+              if (price < obj["byYear"][year]["min"]) obj["byYear"][year]["min"] = price;
+              if (price > obj["byYear"][year]["max"]) obj["byYear"][year]["max"] = price;
+              obj["byYear"][year]["records"].push(record);
+  
+              obj["byYear"][year]["avg"] = obj["byYear"][year]["total"]/obj["byYear"][year]["records"].length;
+              
+            }
+          });
+          var avg = total / records.length;
+  
+          obj["byMonth"][month] = {};
+          obj["byMonth"][month]["total"] = total;
+          obj["byMonth"][month]["min"] = min;
+          obj["byMonth"][month]["max"] = max;
+          obj["byMonth"][month]["avg"] = avg;
+          obj["byMonth"][month]["records"] = records;
+        });
+  
+        obj["avg"] = qTotal / qResults.length;
+        obj["min"] = qMin;
+        obj["max"] = qMax;
+        obj["results"] = qResults;
+  
+        console.log(obj);
+        return obj;  
+      }
+      catch(e){
+        console.log(e)
+        return e
+      }
+    });
   }
 }
