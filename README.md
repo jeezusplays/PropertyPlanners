@@ -232,9 +232,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contacts
 
-Joey - [@LinkedIn](https://linkedin.com/in/joey-tan-zuyi)
-Samuel - [@LinkedIn](https://www.linkedin.com/in/samuel-chung-339688154/)
-Hong Xiang - [@LinkedIn](https://www.linkedin.com/in/liowhongxiang/)
+Joey - [@LinkedIn](https://linkedin.com/in/joey-tan-zuyi)<br>
+Samuel - [@LinkedIn](https://www.linkedin.com/in/samuel-chung-339688154/)<br>
+Hong Xiang - [@LinkedIn](https://www.linkedin.com/in/liowhongxiang/)<br>
 
 Project Link: [https://github.com/jeezusplays/PropertyPlanners](https://github.com/jeezusplays/PropertyPlanners)
 
