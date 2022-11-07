@@ -239,13 +239,21 @@ success: function(data) {
     function resaleRoomTypeDistributionChart(){
     // Donut Chart Statistics
     // Format: CTX > Data > Options
+
+    const room_dict_2 = Object.keys(room_dict)
+    .sort()
+    .reduce((accumulator, key) => {
+    accumulator[key] = room_dict[key];
+    return accumulator;
+    }, {});
+
     var ctx = document.getElementById('pieChart').getContext('2d');
 
     var data = {
-    labels: Object.keys(room_dict),
+    labels: Object.keys(room_dict_2),
     datasets: [{
         label: 'Resale Flat Type',
-        data: Object.values(room_dict),
+        data: Object.values(room_dict_2),
         backgroundColor: [
         '#F47A1F',
         '#9552EA',
@@ -373,7 +381,7 @@ success: function(data) {
         label: 'Resale Flat Type',
         data: Object.values(new_story_dict2),
         backgroundColor: ["#ffa600", "#ff7c43", "#f95d6a", "#d45087", "#a05195", "#665191", "#2f4b7c", "#003f5c"
-                        ,"#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000","#000000"],
+                        ,"#808080","#808080","#808080","#808080","#808080","#808080","#808080","#808080","#808080"],
         hoverBorderColor: ["#000000"],
     }]
     };
