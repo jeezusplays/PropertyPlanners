@@ -792,7 +792,7 @@
       color: var(--fa-inverse, #fff);
     }
         </style>
-        <link rel="icon" href="favicon.ico">
+        <link rel="icon" href="../../public/favicon.ico">
         <title>
             Resale General Statistics
         </title>
@@ -1130,30 +1130,28 @@
                         <div id = "spinner_overlay"></div>
                       </div>
                       
-                      <br>
-
-                      <div class = "row">
-                        <div class = "col-md-3 border border-grey rounded">
+                      <div class = "row mt-3">
+                        <div class = "col-md-3 me-3 border border-grey rounded">
                           <h4 class = "text-start pt-3">2017 - Present Data Summary</h4>
                           <hr>
                           <ul id = "data_table" class = "text-start"></ul>
                         </div>
-                        &nbsp&nbsp&nbsp&nbsp&nbsp
-                        <div class = "col-md-2 border border-grey rounded">
+                        
+                        <div class = "col-md-2 me-3 border border-grey rounded">
                           <h4 class = "text-start pt-3">Price</h4>
                           <hr>
                           <h3 id = "resale_price_year_difference"></h3>
                           <p id = "year_vs_year"></p>
                         </div>
-                        &nbsp&nbsp&nbsp&nbsp&nbsp
-                        <div class = "col-md-2 border border-grey rounded">
+
+                        <div class = "col-md-2 me-3 border border-grey rounded">
                           <h4 class = "text-start pt-3">Volume</h4>
                           <hr>
                           <h3 id = "resale_volume_year_difference"></h3>
                           <p id = "year_vs_year_volume"></p>
                         </div>
-                        &nbsp&nbsp&nbsp&nbsp&nbsp
-                        <div class = "col-md-3 border border-grey rounded">
+
+                        <div class = "col-md-3 me-3 border border-grey rounded">
                           <h4 class = "text-start pt-3">Resale Price Forecast</h4>
                           <hr>
                           <ul id = "data_table_forecast" class = "text-start"></ul>
@@ -1161,15 +1159,13 @@
 
                       </div>
 
-                      <br>
-
-                      <div class = "row">
-                        <div class = "col-md-4 border border-grey rounded">
+                      <div class = "row mt-3">
+                        <div class = "col-md-4 me-3 border border-grey rounded">
                           <h4 class = "text-start pt-3">Room Type Distribution</h4>
                           <hr>
                           <canvas id="pieChart" style = "max-height: 300px"></canvas>
                         </div>
-                        &nbsp&nbsp&nbsp&nbsp&nbsp
+                        
                         <div class = "col-md-7 border border-grey rounded">
                           <h4 class = "text-start pt-3">Top 10 Cheapest Towns (By $/sqm)</h4>
                           <hr>
@@ -1177,15 +1173,13 @@
                         </div>
                       </div>
 
-                      <br>
-
-                      <div class = "row">
-                        <div class = "col-md-7 border border-grey rounded">
+                      <div class = "row mt-3">
+                        <div class = "col-md-7 me-3 border border-grey rounded">
                           <h4 class = "text-start pt-3">Price Trend (Year-MM)</h4>
                           <hr>
                           <canvas id = "lineChart_resale_yy_mm" style = "max-height: 300px"></canvas>
                         </div>
-                        &nbsp&nbsp&nbsp&nbsp&nbsp
+
                         <div class = "col-md-4 border border-grey rounded">
                           <h4 class = "text-start pt-3">Floor Distribution</h4>
                           <hr>
@@ -1194,22 +1188,20 @@
 
                       </div>
 
-                      <br>
-
-                      <div class = "row">
-                        <div class = "col-md-3 border border-grey rounded">
+                      <div class = "row mt-3">
+                        <div class = "col-md-3 me-3 border border-grey rounded">
                           <h4 class = "text-start pt-3">Price Trend (Year)</h4>
                           <hr>
                           <canvas id="barChartPriceYear" style = "max-height: 300px"></canvas>
                         </div>
-                        &nbsp&nbsp&nbsp&nbsp&nbsp
-                        <div class = "col-md-4 border border-grey rounded">
+
+                        <div class = "col-md-4 me-3 border border-grey rounded">
                           <h4 class = "text-start pt-3">Price Trend (By Lease Commence Date)</h4>
                           <hr>
                           <canvas id="leaseprice" style = "max-height: 300px"></canvas>
                         </div>
-                        &nbsp&nbsp&nbsp&nbsp&nbsp
-                        <div class = "col-md-4 border border-grey rounded">
+
+                        <div class = "col-md-4 me-3 border border-grey rounded">
                           <h4 class = "text-start pt-3">Price by Month</h4>
                           <hr>
                           <canvas id = "lineChart_leasedate" style = "max-height: 300px"></canvas>
