@@ -25,13 +25,13 @@
                         </div>
 
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="emailAddress">Enter your email address</label>
-                            <input type="email" id="emailAddress" class="form-control" placeholder="Email address"/>
+                            <label class="form-label" for="em   ailAddress">Enter your email address</label>
+                            <input type="email" id="emailAddress" v-model="email" class="form-control" placeholder="Email address"/>
                         </div>
 
                         <div class="form-outline mb-4">
                             <label class="form-label" for="password">Enter your password</label>
-                            <input type="password" id="password" class="form-control" placeholder="Password"/>
+                            <input type="password" id="password" v-model="password" class="form-control" placeholder="Password"/>
                         </div>
 
 
@@ -64,13 +64,15 @@ export default{
             type:"",
             email:"",
             password:"",
+            user: {}
 
         }
     },
     methods:{
         async signUp(){
             try{
-                createUserWithEmailAndPassword(auth,this.email,this.password)
+                var credential = await createUserWithEmailAndPassword(auth,this.email,this.password)
+                this.user = credential.user
             }
             catch(e){
                 console.log(e)
