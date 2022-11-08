@@ -1,9 +1,12 @@
+/* global $ */
+/* global Chart */
+/* eslint-disable no-unused-vars */
+
 // Spinner overlay
-spinner_overlay = "<div class='spinner-border text-success centerAll d-block' role='status' style='width: 5rem; height: 5rem; position: absolute; top: 50%; left: 50%'>";
+var spinner_overlay = "<div class='spinner-border text-success centerAll d-block' role='status' style='width: 5rem; height: 5rem; position: absolute; top: 50%; left: 50%'>";
 document.getElementById("spinner_overlay").innerHTML = spinner_overlay;
 
 // API Call
-var output = "";
 var overall_average = 0;
 var sqm = 0;
 var yearLeaseList = [];
@@ -127,8 +130,8 @@ success: function(data) {
 
     document.getElementById("data_table").innerHTML = 
     "<li>HDB Units Resold: <u>" + data.result.records.length + "</u></li>" +
-    "<li>HDB Unit Price: <u>$" + overall_average + "</u></li>" +
-    "<li>Price Per Square Meter ($/sqm): <u>$" + sqm + "</u></li>" ;
+    "<li>HDB Unit Mean Price: <u>$" + overall_average + "</u></li>" +
+    "<li>Price Per Square Meter: <u>$" + sqm + "/sqm</u></li>" ;
 
     // Compute previous year + current year average resale prices in percentage
     function computeYearOnYearAverageResalePrices (yearDict){
@@ -136,10 +139,10 @@ success: function(data) {
     var previous_year = current_year - 1;
     var image = "";
     
-    current_year_average_price = yearDict[current_year][0]/yearDict[current_year][1];
-    previous_year_average_price = yearDict[previous_year][0]/yearDict[previous_year][1];
+    var current_year_average_price = yearDict[current_year][0]/yearDict[current_year][1];
+    var previous_year_average_price = yearDict[previous_year][0]/yearDict[previous_year][1];
     
-    percentage_difference = ((current_year_average_price - previous_year_average_price) / current_year_average_price) * 100
+    var percentage_difference = ((current_year_average_price - previous_year_average_price) / current_year_average_price) * 100
     
     // Calculate HDB Resale price averages for current year + previous year 
     if (Math.sign(percentage_difference) === -1 )
@@ -164,11 +167,11 @@ success: function(data) {
     var current_year_dict_volume = 0;
     var previous_year_dict_volume = 0;
 
-    current_year_dict = Object.keys(year_mm_dict).
+    var current_year_dict = Object.keys(year_mm_dict).
         filter((key) => key.includes(current_year)).
         reduce((cur, key) => { return Object.assign(cur, { [key]: year_mm_dict[key] })}, {});
     
-    previous_year_dict = Object.keys(year_mm_dict).
+    var previous_year_dict = Object.keys(year_mm_dict).
         filter((key) => key.includes(previous_year)).
         reduce((cur, key) => { return Object.assign(cur, { [key]: year_mm_dict[key] })}, {});
     
@@ -203,12 +206,12 @@ success: function(data) {
     }
 
     function computePriceForecast(){
-    year_dict_new = {}
+    var year_dict_new = {}
 
 
     for (const key in yearDict) {
         year_dict_new[key] = Number((yearDict[key][0]/yearDict[key][1]).toFixed(0));
-    };
+    }
     var min = Object.values(year_dict_new)[0];
     var max = Object.values(year_dict_new)[0];
 
@@ -309,7 +312,7 @@ success: function(data) {
     function resaleTopTenCheapestTownsChart(){
     for (const key in town_dict) {
         town_dict[key] = Number((town_dict[key][1]/town_dict[key][0]).toFixed(0));
-    };
+    }
 
     var sorted_town_dict = Object.entries(town_dict)
         .sort(([, a], [, b]) => a - b)
@@ -321,7 +324,7 @@ success: function(data) {
         {}
     );
 
-    var sorted_town_dict = Object.fromEntries(Object.entries(sorted_town_dict).slice(0, 10));
+    sorted_town_dict = Object.fromEntries(Object.entries(sorted_town_dict).slice(0, 10));
 
     var ctx2 = document.getElementById("barChartTown").getContext("2d");
     var data2 = {
@@ -365,12 +368,11 @@ success: function(data) {
     function resaleFloorTypeDistributionChart(){
     // Donut Chart Statistics
     // Format: CTX > Data > Options
-    new_story_dict = {}
+    var new_story_dict = {}
     for (const key in story_dict) {
     new_story_dict[key] = Number(story_dict[key][0]);
-    };
+    }
 
-    
     var new_story_dict2 = Object.fromEntries(Object.entries(new_story_dict).sort((a,b)=>a[0].localeCompare(b[0])));
 
     var ctx5 = document.getElementById('floor_pieChart').getContext('2d');
@@ -626,10 +628,10 @@ success: function(data) {
     resaleYearMonthPriceTrendChart();
 
     function resaleYearChart(){
-    year_dict_new = {}
+    var year_dict_new = {}
     for (const key in yearDict) {
         year_dict_new[key] = Number((yearDict[key][0]/yearDict[key][1]).toFixed(0));
-    };
+    }
 
     var ctx2 = document.getElementById("barChartPriceYear").getContext("2d");
     var data2 = {
@@ -665,14 +667,16 @@ success: function(data) {
         type: 'bar',
         data: data2,
         options: options,
-    }); 
-    }
-    resaleYearChart();
+    });
 
-    // Exit spinner condition
+    // Exit spinner condition - Once last function has executed
     if(Object.keys(year_dict_new).length != 0){
         document.getElementById("spinner_overlay").innerHTML = "";
     }
+    }
+    resaleYearChart();
+
+
 }
 });
 
