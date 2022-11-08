@@ -300,7 +300,7 @@ success: function(data) {
         type: 'doughnut',
         data: data,
         options: options,
-        plugins: [ChartDataLabels]
+        // plugins: [ChartDataLabels]
     }
     );
 }
@@ -419,7 +419,7 @@ success: function(data) {
         type: 'doughnut',
         data: data5,
         options: options,
-        plugins: [ChartDataLabels]
+        // plugins: [ChartDataLabels]
     }
     );
 }
