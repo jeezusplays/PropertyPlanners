@@ -9,6 +9,7 @@ document.getElementById("spinner_overlay").innerHTML = spinner_overlay;
 // API Call
 var overall_average = 0;
 var sqm = 0;
+var sqm_average = 0;
 var yearLeaseList = [];
 var yearLeaseDict = {};
 var yearList = [];
@@ -41,6 +42,7 @@ success: function(data) {
     var current_record = data.result.records[x];
     overall_average += Number(current_record.resale_price);
     sqm += Number(current_record.resale_price)/Number(current_record.floor_area_sqm);
+    sqm_average += Number(current_record.floor_area_sqm);
 
     // Append resale prices by lease year
     if (!yearLeaseList.includes(current_record.lease_commence_date)){
@@ -125,13 +127,15 @@ success: function(data) {
     // Output statistics data summary
     overall_average = (overall_average/data.result.records.length).toFixed(0);
     sqm = (sqm/data.result.records.length).toFixed(0);
+    sqm_average = (sqm_average/data.result.records.length).toFixed(0);
     document.getElementById("resale_price_year_difference").innerHTML = computeYearOnYearAverageResalePrices(yearDict);
     document.getElementById("resale_volume_year_difference").innerHTML = computeYearOnYearVolumeTransacted(year_mm_dict);
 
     document.getElementById("data_table").innerHTML = 
     "<li>HDB Units Resold: <u>" + data.result.records.length + "</u></li>" +
     "<li>HDB Unit Mean Price: <u>$" + overall_average + "</u></li>" +
-    "<li>Price Per Square Meter: <u>$" + sqm + "/sqm</u></li>" ;
+    "<li>HDB Unit Mean Size: <u> "+ sqm_average +" sqm</u></li>"+
+    "<li>Mean Price Per Square Meter: <u>$" + sqm + "/sqm</u></li>" ;
 
     // Compute previous year + current year average resale prices in percentage
     function computeYearOnYearAverageResalePrices (yearDict){
