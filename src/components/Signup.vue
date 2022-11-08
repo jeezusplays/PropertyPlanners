@@ -53,6 +53,37 @@
     </div>
 </template>
 
+<script>
+import {auth} from '../scripts/fbauth'
+import {createUserWithEmailAndPassword } from 'firebase/auth'
+
+export default{
+    name:'signup',
+    data(){
+        return {
+            type:"",
+            email:"",
+            password:"",
+
+        }
+    },
+    methods:{
+        async signUp(){
+            try{
+                createUserWithEmailAndPassword(auth,this.email,this.password)
+            }
+            catch(e){
+                console.log(e)
+            }
+            
+        }
+    }
+}
+
+</script>
+
+
+
 <style>
 #login-fluid{
     background-image: url('../assets/loginbg.jpg');
