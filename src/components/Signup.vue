@@ -90,13 +90,18 @@ export default {
 
                 spinnerOn()
                 var credential = await createUserWithEmailAndPassword(auth, this.email, this.password)
-                spinnerOff()
                 this.user = credential.user
+                localStorage['uid'] = this.user.uid
+                localStorage['type'] = this.type
+                spinnerOff()
+                
                 await setDoc(doc(fsdb, "users", this.user.uid), {
                     name: this.name,
                     email: this.email,
                     type: this.type
                 });
+
+                this.$router.push({ path: `/${this.type}/dashboard` })
 
             }
             catch (e) {
