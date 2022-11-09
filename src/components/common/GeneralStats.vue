@@ -85,6 +85,9 @@
   </div>
 </template>
 <script>
+/* global Chart */
+/* eslint-disable no-unused-vars */
+
 import { $ } from 'jquery';
 
 export default {
@@ -207,18 +210,18 @@ export default {
           }
 
         }
-        displayData()
+        this.displayData()
       }
     })
   },
   methods: {
-    computeYearOnYearAverageResalePrices(yearDict) {
+    computeYearOnYearAverageResalePrices() {
       var current_year = new Date().getFullYear();
       var previous_year = current_year - 1;
       var image = "";
 
-      var current_year_average_price = yearDict[current_year][0] / yearDict[current_year][1];
-      var previous_year_average_price = yearDict[previous_year][0] / yearDict[previous_year][1];
+      var current_year_average_price = this.yearDict[current_year][0] / this.yearDict[current_year][1];
+      var previous_year_average_price = this.yearDict[previous_year][0] / this.yearDict[previous_year][1];
 
       var percentage_difference = ((current_year_average_price - previous_year_average_price) / current_year_average_price) * 100
 
@@ -235,20 +238,20 @@ export default {
 
       return percentage_difference.toFixed(1) + "%" + image + "<br>";
     },
-    computeYearOnYearVolumeTransacted(year_mm_dict) {
+    computeYearOnYearVolumeTransacted() {
       var current_year = new Date().getFullYear();
       var previous_year = current_year - 1;
       var image = "";
       var current_year_dict_volume = 0;
       var previous_year_dict_volume = 0;
 
-      var current_year_dict = Object.keys(year_mm_dict).
+      var current_year_dict = Object.keys(this.year_mm_dict).
         filter((key) => key.includes(current_year)).
-        reduce((cur, key) => { return Object.assign(cur, { [key]: year_mm_dict[key] }) }, {});
+        reduce((cur, key) => { return Object.assign(cur, { [key]: this.year_mm_dict[key] }) }, {});
 
-      var previous_year_dict = Object.keys(year_mm_dict).
+      var previous_year_dict = Object.keys(this.year_mm_dict).
         filter((key) => key.includes(previous_year)).
-        reduce((cur, key) => { return Object.assign(cur, { [key]: year_mm_dict[key] }) }, {});
+        reduce((cur, key) => { return Object.assign(cur, { [key]: this.year_mm_dict[key] }) }, {});
 
       Object.values(current_year_dict).forEach(myCurrSum);
       function myCurrSum(value) {
@@ -280,9 +283,8 @@ export default {
     computePriceForecast() {
       var year_dict_new = {}
 
-
-      for (const key in yearDict) {
-        year_dict_new[key] = Number((yearDict[key][0] / yearDict[key][1]).toFixed(0));
+      for (const key in this.yearDict) {
+        year_dict_new[key] = Number((this.yearDict[key][0] / this.yearDict[key][1]).toFixed(0));
       }
       var min = Object.values(year_dict_new)[0];
       var max = Object.values(year_dict_new)[0];
@@ -312,10 +314,10 @@ export default {
       // Donut Chart Statistics
       // Format: CTX > Data > Options
 
-      const room_dict_2 = Object.keys(room_dict)
+      const room_dict_2 = Object.keys(this.room_dict)
         .sort()
         .reduce((accumulator, key) => {
-          accumulator[key] = room_dict[key];
+          accumulator[key] = this.room_dict[key];
           return accumulator;
         }, {});
 
@@ -377,11 +379,11 @@ export default {
       );
     },
     resaleTopTenCheapestTownsChart() {
-      for (const key in town_dict) {
-        town_dict[key] = Number((town_dict[key][1] / town_dict[key][0]).toFixed(0));
+      for (const key in this.town_dict) {
+        this.town_dict[key] = Number((this.town_dict[key][1] / this.town_dict[key][0]).toFixed(0));
       }
 
-      var sorted_town_dict = Object.entries(town_dict)
+      var sorted_town_dict = Object.entries(this.town_dict)
         .sort(([, a], [, b]) => a - b)
         .reduce(
           (r, [k, v]) => ({
@@ -434,8 +436,8 @@ export default {
       // Donut Chart Statistics
       // Format: CTX > Data > Options
       var new_story_dict = {}
-      for (const key in story_dict) {
-        new_story_dict[key] = Number(story_dict[key][0]);
+      for (const key in this.story_dict) {
+        new_story_dict[key] = Number(this.story_dict[key][0]);
       }
 
       var new_story_dict2 = Object.fromEntries(Object.entries(new_story_dict).sort((a, b) => a[0].localeCompare(b[0])));
@@ -493,17 +495,17 @@ export default {
     resaleFlatPricesByLeaseDateChart() {
       // CTX > Label/Data > Config > Initalize
       // Extract dataset from stored dictionary api dataset
-      for (const key in yearLeaseDict) {
-        yearLeaseDict[key] = Number((yearLeaseDict[key][0] / yearLeaseDict[key][1]).toFixed(0));
+      for (const key in this.yearLeaseDict) {
+        this.yearLeaseDict[key] = Number((this.yearLeaseDict[key][0] / this.yearLeaseDict[key][1]).toFixed(0));
       }
 
       var ctx3 = document.getElementById("leaseprice").getContext("2d");
 
       var data3 = {
-        labels: Object.keys(yearLeaseDict),
+        labels: Object.keys(this.yearLeaseDict),
         datasets: [{
           label: 'Average resale price in $',
-          data: Object.values(yearLeaseDict),
+          data: Object.values(this.yearLeaseDict),
           borderColor: '#808080',
           pointRadius: 2,
           // pointBorderColor: '#FF0000'
@@ -558,8 +560,8 @@ export default {
       // CTX > Label/Data > Config > Initalize
       // Extract dataset from stored dictionary api dataset
       var newMonthDict = {};
-      for (var key in monthDict) {
-        var average_price_monthly = Number((monthDict[key][0] / monthDict[key][1]).toFixed(0));
+      for (var key in this.monthDict) {
+        var average_price_monthly = Number((this.monthDict[key][0] / this.monthDict[key][1]).toFixed(0));
         newMonthDict[Number(key)] = average_price_monthly;
       }
 
@@ -627,8 +629,8 @@ export default {
       // CTX > Label/Data > Config > Initalize
       // Extract dataset from stored dictionary api dataset
       var newDict = {};
-      for (var key in year_mm_dict_price) {
-        var average_price_monthly = Number((year_mm_dict_price[key][1] / year_mm_dict_price[key][0]).toFixed(0));
+      for (var key in this.year_mm_dict_price) {
+        var average_price_monthly = Number((this.year_mm_dict_price[key][1] / this.year_mm_dict_price[key][0]).toFixed(0));
         newDict[key] = average_price_monthly;
       }
 
@@ -686,8 +688,8 @@ export default {
     },
     resaleYearChart() {
       var year_dict_new = {}
-      for (const key in yearDict) {
-        year_dict_new[key] = Number((yearDict[key][0] / yearDict[key][1]).toFixed(0));
+      for (const key in this.yearDict) {
+        year_dict_new[key] = Number((this.yearDict[key][0] / this.yearDict[key][1]).toFixed(0));
       }
 
       var ctx2 = document.getElementById("barChartPriceYear").getContext("2d");
@@ -734,10 +736,10 @@ export default {
     displayData() {
       // Output statistics data summary
       this.overall_average = (this.overall_average / this.data.result.records.length).toFixed(0);
-      this.sqm = (thi.sqm / this.data.result.records.length).toFixed(0);
+      this.sqm = (this.sqm / this.data.result.records.length).toFixed(0);
       this.sqm_average = (this.sqm_average / this.data.result.records.length).toFixed(0);
-      document.getElementById("resale_price_year_difference").innerHTML = computeYearOnYearAverageResalePrices(yearDict);
-      document.getElementById("resale_volume_year_difference").innerHTML = computeYearOnYearVolumeTransacted(year_mm_dict);
+      document.getElementById("resale_price_year_difference").innerHTML = this.computeYearOnYearAverageResalePrices();
+      document.getElementById("resale_volume_year_difference").innerHTML = this.computeYearOnYearVolumeTransacted();
 
       document.getElementById("data_table").innerHTML =
         "<li>HDB Units Resold: <u>" + this.data.result.records.length + "</u></li>" +
@@ -745,14 +747,14 @@ export default {
         "<li>HDB Unit Mean Size: <u> " + this.sqm_average + " sqm</u></li>" +
         "<li>Mean Price Per Square Meter: <u>$" + this.sqm + "/sqm</u></li>";
 
-      computePriceForecast();
-      resaleRoomTypeDistributionChart();
-      resaleTopTenCheapestTownsChart();
-      resaleFloorTypeDistributionChart();
-      resaleFlatPricesByLeaseDateChart();
-      resaleMonthPriceTrendChart();
-      resaleYearMonthPriceTrendChart();
-      resaleYearChart();
+      this.computePriceForecast();
+      this.resaleRoomTypeDistributionChart();
+      this.resaleTopTenCheapestTownsChart();
+      this.resaleFloorTypeDistributionChart();
+      this.resaleFlatPricesByLeaseDateChart();
+      this.resaleMonthPriceTrendChart();
+      this.resaleYearMonthPriceTrendChart();
+      this.resaleYearChart();
 
     }
 
