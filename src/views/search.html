@@ -11,7 +11,7 @@
 
 <body>
 
-    <section class="py-2 text-center container">
+    <section class="py-2 container">
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
                 <!-- <div class="input-group py-3">
@@ -28,44 +28,58 @@
                 <div class="input-group rounded py-2">
                     <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
                         aria-describedby="search-addon" />
-                    <button class="btn btn-success border rounded pill"
-                        type="button">
+                    <button class="btn btn-success border rounded pill" type="button">
                         Search
                         <!-- <i class="fa fa-magnifying-glass"></i> -->
                     </button>
                 </div>
 
-                <div class="accordion accordion-flush" id="filterFlush">
+                <!-- <div class="accordion accordion-flush" id="filterFlush">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-filter">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#flush-collapseOne" aria-expanded="false"
                                 aria-controls="flush-collapseOne">
-                                <span class="float-end">Filter</span>
+                                <span class="float-end">Sort By</span>
                             </button>
                         </h2>
                         <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-filter"
                             data-bs-parent="#filterFlush">
                             <div class="accordion-body">
                                 <b>Price Range</b>
-                                <div class="btn-group px-3">
-                                    <button type="button" class="btn btn-light">Any</button>
+
+                                <button type="button px-3" class="btn btn-light">Alphabetical</button>
+                                <button type="button px-3" class="btn btn-light">Company Name</button>
+                                <button type="button" class="btn btn-light">Any</button>
                                     <button type="button" class="btn btn-light">$100-500K</button>
                                     <button type="button" class="btn btn-light">$500-1M</button>
                                     <button type="button" class="btn btn-light">$1M+</button>
-                                </div>
+
                             </div>
                         </div>
                     </div>
+                </div> -->
+
+                <div class="dropdown float-start">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Sort By:
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Alphabetical</a></li>
+                        <li><a class="dropdown-item" href="#">Company Name</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
                 </div>
             </div>
+
         </div>
     </section>
 
     <div class="album py-5 bg-light">
         <div class="container">
 
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
                 <div class="col">
                     <div class="card shadow-sm">
                         <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
@@ -77,7 +91,13 @@
 
                         <div class="card-body">
                             <h5 class="card-title">Agent Name</h5>
-                            <p class="card-text">Location Featured Agent</p>
+                            <p class="card-text">
+                                <ul style="list-style: none;">
+                                    <li><i>Location</i> Featured Agent</li>
+                                    <li>Company Name</li>
+                                    <li>Something Else</li>
+                                </ul>
+                            </p>
                             <div class="d-flex justify-content-around align-items-center">
                                 <div class="btn-group w-100">
                                     <button type="button" class="btn btn-lg btn-outline-success">View</button>
@@ -98,7 +118,13 @@
 
                         <div class="card-body">
                             <h5 class="card-title">Agent Name</h5>
-                            <p class="card-text">Location Featured Agent</p>
+                            <p class="card-text">
+                                <ul style="list-style: none;">
+                                    <li><i>Location</i> Featured Agent</li>
+                                    <li>Company Name</li>
+                                    <li>Something Else</li>
+                                </ul>
+                            </p>
                             <div class="d-flex justify-content-around align-items-center">
                                 <div class="btn-group w-100">
                                     <button type="button" class="btn btn-lg btn-outline-success">View</button>
@@ -119,74 +145,13 @@
 
                         <div class="card-body">
                             <h5 class="card-title">Agent Name</h5>
-                            <p class="card-text">Location Featured Agent</p>
-                            <div class="d-flex justify-content-around align-items-center">
-                                <div class="btn-group w-100">
-                                    <button type="button" class="btn btn-lg btn-outline-success">View</button>
-                                    <button type="button" class="btn btn-lg btn-outline-secondary">Chat</button>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                            preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Placeholder</title>
-                            <rect width="100%" height="100%" fill="#55595c" />
-                        </svg>
-
-                        <div class="card-body">
-                            <h5 class="card-title">Agent Name</h5>
-                            <p class="card-text">Location Featured Agent</p>
-                            <div class="d-flex justify-content-around align-items-center">
-                                <div class="btn-group w-100">
-                                    <button type="button" class="btn btn-lg btn-outline-success">View</button>
-                                    <button type="button" class="btn btn-lg btn-outline-secondary">Chat</button>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                            preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Placeholder</title>
-                            <rect width="100%" height="100%" fill="#55595c" />
-                        </svg>
-
-                        <div class="card-body">
-                            <h5 class="card-title">Agent Name</h5>
-                            <p class="card-text">Location Featured Agent</p>
-                            <div class="d-flex justify-content-around align-items-center">
-                                <div class="btn-group w-100">
-                                    <button type="button" class="btn btn-lg btn-outline-success">View</button>
-                                    <button type="button" class="btn btn-lg btn-outline-secondary">Chat</button>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                            preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Placeholder</title>
-                            <rect width="100%" height="100%" fill="#55595c" />
-                        </svg>
-
-                        <div class="card-body">
-                            <h5 class="card-title">Agent Name</h5>
-                            <p class="card-text">Location Featured Agent</p>
+                            <p class="card-text">
+                                <ul style="list-style: none;">
+                                    <li><i>Location</i> Featured Agent</li>
+                                    <li>Company Name</li>
+                                    <li>Something Else</li>
+                                </ul>
+                            </p>
                             <div class="d-flex justify-content-around align-items-center">
                                 <div class="btn-group w-100">
                                     <button type="button" class="btn btn-lg btn-outline-success">View</button>
@@ -209,7 +174,13 @@
 
                         <div class="card-body">
                             <h5 class="card-title">Agent Name</h5>
-                            <p class="card-text">Location Featured Agent</p>
+                            <p class="card-text">
+                                <ul style="list-style: none;">
+                                    <li><i>Location</i> Featured Agent</li>
+                                    <li>Company Name</li>
+                                    <li>Something Else</li>
+                                </ul>
+                            </p>
                             <div class="d-flex justify-content-around align-items-center">
                                 <div class="btn-group w-100">
                                     <button type="button" class="btn btn-lg btn-outline-success">View</button>
@@ -231,7 +202,98 @@
 
                         <div class="card-body">
                             <h5 class="card-title">Agent Name</h5>
-                            <p class="card-text">Location Featured Agent</p>
+                            <p class="card-text">
+                                <ul style="list-style: none;">
+                                    <li><i>Location</i> Featured Agent</li>
+                                    <li>Company Name</li>
+                                    <li>Something Else</li>
+                                </ul>
+                            </p>
+                            <div class="d-flex justify-content-around align-items-center">
+                                <div class="btn-group w-100">
+                                    <button type="button" class="btn btn-lg btn-outline-success">View</button>
+                                    <button type="button" class="btn btn-lg btn-outline-secondary">Chat</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
+                            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                            preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <title>Placeholder</title>
+                            <rect width="100%" height="100%" fill="#55595c" />
+                        </svg>
+
+                        <div class="card-body">
+                            <h5 class="card-title">Agent Name</h5>
+                            <p class="card-text">
+                                <ul style="list-style: none;">
+                                    <li><i>Location</i> Featured Agent</li>
+                                    <li>Company Name</li>
+                                    <li>Something Else</li>
+                                </ul>
+                            </p>
+                            <div class="d-flex justify-content-around align-items-center">
+                                <div class="btn-group w-100">
+                                    <button type="button" class="btn btn-lg btn-outline-success">View</button>
+                                    <button type="button" class="btn btn-lg btn-outline-secondary">Chat</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
+                            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                            preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <title>Placeholder</title>
+                            <rect width="100%" height="100%" fill="#55595c" />
+                        </svg>
+
+                        <div class="card-body">
+                            <h5 class="card-title">Agent Name</h5>
+                            <p class="card-text">
+                                <ul style="list-style: none;">
+                                    <li><i>Location</i> Featured Agent</li>
+                                    <li>Company Name</li>
+                                    <li>Something Else</li>
+                                </ul>
+                            </p>
+                            <div class="d-flex justify-content-around align-items-center">
+                                <div class="btn-group w-100">
+                                    <button type="button" class="btn btn-lg btn-outline-success">View</button>
+                                    <button type="button" class="btn btn-lg btn-outline-secondary">Chat</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
+                            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                            preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <title>Placeholder</title>
+                            <rect width="100%" height="100%" fill="#55595c" />
+                        </svg>
+
+                        <div class="card-body">
+                            <h5 class="card-title">Agent Name</h5>
+                            <p class="card-text">
+                                <ul style="list-style: none;">
+                                    <li><i>Location</i> Featured Agent</li>
+                                    <li>Company Name</li>
+                                    <li>Something Else</li>
+                                </ul>
+                            </p>
                             <div class="d-flex justify-content-around align-items-center">
                                 <div class="btn-group w-100">
                                     <button type="button" class="btn btn-lg btn-outline-success">View</button>
