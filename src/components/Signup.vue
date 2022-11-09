@@ -1,83 +1,109 @@
 <template>
     <div class="container-fluid" id="login-fluid">
         <div class="container py-5 h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-md-4 col-lg-6 col-xl-7"></div>
-            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                <div class="card text-start" style="border-radius: 1rem; background-color: rgba(255, 255, 255, 0.75);">
-                    <div class="card-body p-5">
-                        <h5>Welcome to <span style="color: #779341;">PropertyPlanners</span></h5>
-                        <h1 class="mb-5 fw-semibold">Sign up</h1>
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-md-4 col-lg-6 col-xl-7"></div>
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card text-start"
+                        style="border-radius: 1rem; background-color: rgba(255, 255, 255, 0.75);">
+                        <div class="card-body p-5">
+                            <h5>Welcome to <span style="color: #779341;">PropertyPlanners</span></h5>
+                            <h1 class="mb-5 fw-semibold">Sign up</h1>
 
-                        <div class="row form-outline mb-4">
-                            <div class="col-6">
-                                <label class="form-label" for="fullName">Full Name</label>
-                            <input type="text" id="fullName" class="form-control" placeholder="Full name"/>
+                            <div class="row form-outline mb-4">
+                                <div class="col-6">
+                                    <label class="form-label" for="fullName">Full Name</label>
+                                    <input type="text" id="fullName" v-model="name" class="form-control" placeholder="Full name" />
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label" for="role">Role</label>
+                                    <select id="role" v-model="type" class="form-control">
+                                        <option  disabled>Select Role</option>
+                                        <option value="seeker" selected>Property Seeker</option>
+                                        <option value="agent">Property Agents</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="col-6">
-                                <label class="form-label" for="role">Role</label>
-                                <select id="role" class="form-control">
-                                    <option selected disabled>Select Role</option>
-                                    <option value="seeker">Property Seeker</option>
-                                    <option value="agent">Property Agents</option>
-                                </select>
+
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="em   ailAddress">Enter your email address</label>
+                                <input type="email" id="emailAddress" v-model="email" class="form-control"
+                                    placeholder="Email address" />
                             </div>
-                        </div>
 
-                        <div class="form-outline mb-4">
-                            <label class="form-label" for="em   ailAddress">Enter your email address</label>
-                            <input type="email" id="emailAddress" v-model="email" class="form-control" placeholder="Email address"/>
-                        </div>
-
-                        <div class="form-outline mb-4">
-                            <label class="form-label" for="password">Enter your password</label>
-                            <input type="password" id="password" v-model="password" class="form-control" placeholder="Password"/>
-                        </div>
-
-
-                        <div class="row">
-                            <div class="col-12 col-md-6">
-                                <p>Have an Account? <br><a href="/login" style="color: #779341;">Sign in</a></p>
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="password">Enter your password</label>
+                                <input type="password" id="password" v-model="password" class="form-control"
+                                    placeholder="Password" />
                             </div>
-                            
-                            <div class="col-12 col-md-6 d-flex justify-content-end">
-                                <button class="btn btn-default btn-block btn-lg" type="submit" style="background-color: #779341; color: white; width: 100%;">Sign Up</button>
-                            </div>
-                        </div>
 
+
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <p>Have an Account? <br><a href="/login" style="color: #779341;">Sign in</a></p>
+                                </div>
+
+                                <div class="col-12 col-md-6 d-flex justify-content-end">
+                                    <button @click="signUp()" class="btn btn-default btn-block btn-lg" type="submit"
+                                        style="background-color: #779341; color: white; width: 100%;">Sign Up</button>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
 </template>
 
 <script>
-import {auth} from '../scripts/fbauth'
-import {createUserWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '../scripts/fbauth'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { spinnerOn, spinnerOff } from '../scripts/spinner'
+import { fsdb } from '../scripts/fb'
+import { doc, setDoc } from "firebase/firestore";
 
-export default{
-    name:'signup',
-    data(){
+export default {
+    name: 'signup',
+    data() {
         return {
-            type:"",
-            email:"",
-            password:"",
-            user: {}
+            type: "",
+            email: "",
+            password: "",
+            user: {},
+            name: ""
 
         }
     },
-    methods:{
-        async signUp(){
-            try{
-                var credential = await createUserWithEmailAndPassword(auth,this.email,this.password)
+    methods: {
+        async signUp() {
+            try {
+
+                if (this.type.trim().length < 1 ||
+                this.email.trim().length < 1 ||
+                this.password.trim().length < 1 ||
+                this.name.trim().length < 1 ) {
+                    alert('Please fill up all inputs')
+                    throw 'ValurError'
+                }
+
+                spinnerOn()
+                var credential = await createUserWithEmailAndPassword(auth, this.email, this.password)
+                spinnerOff()
                 this.user = credential.user
+                await setDoc(doc(fsdb, "users", this.user.uid), {
+                    name: this.name,
+                    email: this.email,
+                    type: this.type
+                });
+
             }
-            catch(e){
+            catch (e) {
                 console.log(e)
+                spinnerOff()
             }
-            
+
         }
     }
 }
@@ -87,12 +113,11 @@ export default{
 
 
 <style>
-#login-fluid{
+#login-fluid {
     background-image: url('../assets/loginbg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
     min-height: 800px;
 }
-
 </style>
