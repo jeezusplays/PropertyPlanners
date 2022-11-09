@@ -124,7 +124,7 @@ export default {
     $.ajax({
       url: 'https://data.gov.sg/api/action/datastore_search',
       data: data,
-      success: (d) => {
+      success: (data) => {
         for (var x = 0; x < data.result.records.length; x++) {
           var current_record = data.result.records[x];
           this.overall_average += Number(current_record.resale_price);
