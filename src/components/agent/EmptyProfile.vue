@@ -11,6 +11,9 @@
         <button type="button" class="mx-auto btn btn-primary rounded-pill btn-lg pp-button" v-on:click="getAgentData()">
           Verify
         </button>
+        <!-- <template id = "ehe">
+          <AgentProfile></AgentProfile>
+        </template> -->
       </div>
     </div>
   </div>
@@ -18,13 +21,14 @@
 
 <script>
 import { AgentData } from '../../scripts/agentdata'
-
+// import AgentProfile from "@/components/agent/AgentProfile.vue"
 
 export default {
   name: 'EmptyAgentProfile',
   data() {
     return {
-      agent_registration_no: 'R064253E'
+      agent_registration_no: '',
+      // profile_status: true,
     }
   },
   methods: {
@@ -32,13 +36,20 @@ export default {
       console.log(this.$route)
     },
     async getAgentData() {
+      // this.agent_registration_no = prompt('What is your registration no?', 'R045184G')
       var dataGetter = new AgentData(this.agent_registration_no)
       var sales = await dataGetter.getSales()
       console.log(sales)
       var profile = await dataGetter.getProfile()
       console.log(profile)
+      // document.getElementById("ehe").innerHTML = 
+      // "<AgentProfile :registrationNoPassed='this.agent_registration_no'></AgentProfile>" + 
+      // "<AgentProfile :hasProfilePassed='this.profile_status'></AgentProfile>"
     }
-  }
+  },
+  // components: {
+  //   AgentProfile
+  // },
 }
 
 </script>
