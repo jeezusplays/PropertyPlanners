@@ -148,7 +148,7 @@ You will need the following software installed in your machine.
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+_Instructions on how to install this respository onto your local machine._
 
 1. Clone the repo
    ```sh
