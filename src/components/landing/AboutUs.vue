@@ -1,42 +1,53 @@
 <template>
-    <div id="about-us-container" class="container-fluid py-4 p-md-5">
+    <div class="container-fluid py-4 p-md-5">
         <div class="container">
             <div class="container mb-5">
-                <h1 class="t1">Find Out More About Us</h1>
-                <h5>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque
-                    vitae autem.</h5>
+                <h1 class="t1">About Us</h1>
+                <h5>Founded in 2022, PropertyPlanners has only goal - make information about property simple.</h5>
             </div>
             <div class="row">
                 <div class="col-lg-6">
-                    <img id="about-us-img" src="../assets/singapore.jpg" alt="">
+                    <img id="about-us-img" src="../../assets/singapore.jpg" alt="">
                 </div>
                 <div class="col-lg-6 px-4 mt-3 mt-sm-2 mt-lg-0 py-2 text-start">
                     
-                    <h2 class="t2">Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h2>
-                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <h2 class="t2">Service you deserve, Data you can trust.</h2>
+                    <p class="mb-4">We understand that a choosing home is a big decision, which is why you need PropertyPlanners. Make an informed decision with our data for absolutely free!</p>
                     
                     <div class="row my-3">
                         <div class="col-3 col-xl-2">
                             <div class="icon-button mx-auto rounded-circle d-flex align-middle shadow text-center">
-                            <font-awesome-icon class="m-auto" icon="fa-solid fa-building" size="xl" />
+                            <font-awesome-icon class="m-auto" icon="fa-solid fa-1" size="xl" />
                         </div>
                         </div>
                         <div class="col">
-                            <h3 class="t3">Ullamco laboris nisi ut aliquip consequat</h3>
-                            <p>Magni facilis facilis repellendus cum excepturi quaerat praesentium libre trade</p>
+                            <h3 class="t3">Mission</h3>
+                            <p>To reinvent how people find properties.</p>
                         </div>
                     </div>
                     <div class="row my-3">
                         <div class="col-3 col-xl-2">
                             <div class="icon-button mx-auto rounded-circle d-flex align-middle shadow text-center">
-                            <font-awesome-icon class="m-auto" icon="fa-solid fa-building" size="xl"/>
+                            <font-awesome-icon class="m-auto" icon="fa-solid fa-2" size="xl"/>
                         </div>
                         </div>
                         <div class="col">
-                            <h3 class="t3">Ullamco laboris nisi ut aliquip consequat</h3>
-                            <p>Magni facilis facilis repellendus cum excepturi quaerat praesentium libre trade</p>
+                            <h3 class="t3">Values</h3>
+                            <p>Transparent, Adaptable, Simplicity</p>
                         </div>
                     </div>
+                    <div class="row my-3">
+                        <div class="col-3 col-xl-2">
+                            <div class="icon-button mx-auto rounded-circle d-flex align-middle shadow text-center">
+                            <font-awesome-icon class="m-auto" icon="fa-solid fa-3" size="xl" />
+                        </div>
+                        </div>
+                        <div class="col">
+                            <h3 class="t3">Goal</h3>
+                            <p>Easy, simple property data for everyone! </p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
