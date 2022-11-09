@@ -251,6 +251,8 @@
           </div>
         </div>
       </div>
+      <!-- Placeholder spinner -->
+      <div id = "spinner_overlay"></div>
     </section>
 
     <div class="row pt-3">
@@ -309,6 +311,9 @@ export default {
 
   methods: {
     async getAgentData() {
+      // Placeholder spinner
+      var spinner_overlay = "<div class='spinner-border text-success centerAll d-block' role='status' style='width: 5rem; height: 5rem; position: absolute; top: 50%; left: 50%'>";
+      document.getElementById("spinner_overlay").innerHTML = spinner_overlay;
       var dataGetter = new AgentData(this.registrationNo)
       var sales = await dataGetter.getSales()
       var profile = await dataGetter.getProfile()
@@ -327,6 +332,7 @@ export default {
       $(document).ready(function () {
           $('#example4').DataTable();
       });
+      document.getElementById("spinner_overlay").innerHTML = "";
     }
   },
 
