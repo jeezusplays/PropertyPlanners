@@ -122,8 +122,10 @@ This section lists any major frameworks/libraries used to bootstrap PropertyPlan
 <!-- * [![Next][Next.js]][Next-url]
 * [![React][React.js]][React-url] -->
 * [![Vue][Vue.js]][Vue-url]
+* [![Chart][Chart.js]][Chart-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 * [![JQuery][JQuery.com]][JQuery-url]
+* [![Firebase][Firebase]][Firebase-url]
 <!-- * [![Angular][Angular.io]][Angular-url]
 * [![Svelte][Svelte.dev]][Svelte-url]
 * [![Laravel][Laravel.com]][Laravel-url] -->
@@ -289,4 +291,8 @@ Credit to these helpful resources!
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
+[JQuery-url]: https://jquery.com
+[Chart.js]: https://img.shields.io/badge/Chart.js-ffffff?style=for-the-badge&logo=Chart.js&logoColor=dark
+[Chart-url]: https://www.chartjs.org/
+[Firebase]: https://img.shields.io/badge/Firebase-039be5?style=for-the-badge&logo=Firebase&logoColor=dark
+[Firebase-url]: https://firebase.google.com/
