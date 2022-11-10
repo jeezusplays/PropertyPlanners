@@ -17,19 +17,59 @@
     </div>
     <div class="d-flex me-5">
       <p class="pp-head text-start ms-5 mt-3 mb-0 pp-green">Dashboard</p>
-      <p class="opacity-50 pp-text ms-auto mt-auto grow pointer"><font-awesome-icon icon="fa-solid fa-plus" /> Add to favourites</p>
+      <p class="opacity-50 pp-text ms-auto mt-auto grow pointer">
+        <font-awesome-icon icon="fa-solid fa-plus" /> Add to favourites
+      </p>
     </div>
 
-    <div class="row">
-      <div class="col">
-        statistics
+    <div class="row mx-3">
+      <div class="col-12 col-md-4 order-2 order-md-1">
+        <!-- Stats 1 -->
+        <div class="card m-2 py-3">
+          <div class="card-body">
+            <h5 class="card-title">Median Price of Flats</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+          </div>
+        </div>
+        <!-- Stats 2 -->
+        <div class="card m-2 py-3">
+          <div class="card-body">
+            <h5 class="card-title">Price per sqm</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+          </div>
+        </div>
+        <!-- Stats 3 -->
+        <div class="card m-2 py-3">
+          <div class="card-body">
+            <h5 class="card-title">% in Price Difference</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Compared to last year</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+          </div>
+        </div>
       </div>
-      <div class="col">
-        chart
+
+      <div class="col-12 col-md-8 order-1 order-md-2">
+        <div class="row">
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Distribution of Flat Types Sold</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Another Chart</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Another Chart</a>
+            </li>
+          </ul>
+        </div>
+        <div class="my-2">
+          chart
+        </div>
       </div>
-      <div class="col">
-        filters
-      </div>
+
     </div>
     <div class="d-block d-md-none col-12 mx-5 mt-3">
       <p class="pp-text opacity-75 mb-3 text-start">Available agents</p>
