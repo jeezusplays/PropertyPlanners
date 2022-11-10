@@ -7,33 +7,17 @@ import { RouterLink } from "vue-router";
   <div class="d-flex flex-row h-100 p-0 m-0">
     <div class="d-flex flex-column p-0 m-0">
       <div class="collapse show collapse-horizontal h-100" id="sidebar">
-        <div
-          class="p-3 h-100 sidebar text-white bg-dark"
-          style="width: fit-content"
-        >
-          <div
-            class="d-flex justify-content-center mb-3 align-self-center w-100 text-white text-decoration-none"
-          >
+        <div class="p-3 h-100 sidebar text-white bg-dark" style="width: fit-content">
+          <div class="d-flex justify-content-center mb-3 align-self-center w-100 text-white text-decoration-none">
             <RouterLink :to="'/'" class="grow">
               <span class="pp-subhead py-2 mx-3 grow">PropertyPlanners</span>
             </RouterLink>
-            <button
-              class="btn-close btn-close-white ms-3 d-block d-md-none"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#sidebar"
-              aria-controls="sidebar"
-              aria-expanded="true"
-              aria-label="Close"
-            ></button>
+            <button class="btn-close btn-close-white ms-3 d-block d-md-none" type="button" data-bs-toggle="collapse"
+              data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="true" aria-label="Close"></button>
           </div>
           <div class="d-flex mx-3 my-4 grow">
-            <img
-              src="../assets/sam.jpg"
-              class="border-rounded rounded-circle border border-4"
-              alt=""
-              style="width: 56px; height: 56px; object-fit: cover"
-            />
+            <img src="../assets/sam.jpg" class="border-rounded rounded-circle border border-4" alt=""
+              style="width: 56px; height: 56px; object-fit: cover" />
             <div class="text-start ms-3">
               <span class="pp-fat-text"> John Doe</span>
               <br />
@@ -42,16 +26,9 @@ import { RouterLink } from "vue-router";
           </div>
           <ul class="navbar-nav nav nav-pills flex-column mb-auto">
             <li class="nav-item w-100 text-start">
-              <RouterLink
-                :to="'/' + userType + '/dashboard'"
-                class="nav-link grow text-colour-hover px-3 py-2"
-                aria-current="page"
-              >
-                <font-awesome-icon
-                  icon="fa-solid fa-house"
-                  class="me-3"
-                  size="md"
-                />
+              <RouterLink :to="'/' + userType + '/dashboard'" class="nav-link grow text-colour-hover px-3 py-2"
+                aria-current="page">
+                <font-awesome-icon icon="fa-solid fa-house" class="me-3" size="md" />
                 <text class="pp-fat-text">Dashboard</text>
               </RouterLink>
             </li>
@@ -59,51 +36,24 @@ import { RouterLink } from "vue-router";
               <div class="accordion" id="accordionExample">
                 <div class="accordion-item">
                   <div class="accordion-header">
-                    <button
-                      class="accordion-button collapsed grow text-colour-hover p-3 py-2 w-100"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseOne"
-                      aria-expanded="true"
-                      aria-controls="collapseOne"
-                    >
-                      <font-awesome-icon
-                        icon="fa-solid fa-chart-pie"
-                        class="me-3"
-                        size="md"
-                      />
+                    <button class="accordion-button collapsed grow text-colour-hover p-3 py-2 w-100" type="button"
+                      data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+                      aria-controls="collapseOne">
+                      <font-awesome-icon icon="fa-solid fa-chart-pie" class="me-3" size="md" />
                       <text class="pp-fat-text">Statistic</text>
                     </button>
                   </div>
-                  <div
-                    id="collapseOne"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="headingOne"
-                    data-bs-parent="#accordionExample"
-                  >
+                  <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample">
                     <div class="accordion-body mb-2 pt-0">
-                      <RouterLink
-                        :to="'/' + userType + '/region'"
-                        class="nav-link grow text-colour-hover py-1 ms-4"
-                        aria-current="page"
-                      >
-                        <font-awesome-icon
-                          icon="fa-solid fa-map"
-                          class="me-3"
-                          size="sm"
-                        />
+                      <RouterLink :to="'/' + userType + '/region'" class="nav-link grow text-colour-hover py-1 ms-4"
+                        aria-current="page">
+                        <font-awesome-icon icon="fa-solid fa-map" class="me-3" size="sm" />
                         <text class="pp-fat-text">By Region</text>
                       </RouterLink>
-                      <RouterLink
-                        :to="'/' + userType + '/general'"
-                        class="nav-link grow text-colour-hover py-1 ms-4"
-                        aria-current="page"
-                      >
-                        <font-awesome-icon
-                          icon="fa-solid fa-chart-column"
-                          class="me-3"
-                          size="sm"
-                        />
+                      <RouterLink :to="'/' + userType + '/general'" class="nav-link grow text-colour-hover py-1 ms-4"
+                        aria-current="page">
+                        <font-awesome-icon icon="fa-solid fa-chart-column" class="me-3" size="sm" />
                         <text class="pp-fat-text">General</text>
                       </RouterLink>
                     </div>
@@ -112,72 +62,37 @@ import { RouterLink } from "vue-router";
               </div>
             </li>
             <li class="nav-item w-100 text-start" v-if="isSeeker">
-              <RouterLink
-                :to="'/' + userType + '/findagent'"
-                class="nav-link grow text-colour-hover px-3 py-2"
-                aria-current="page"
-              >
-                <font-awesome-icon
-                  icon="fa-solid fa-magnifying-glass"
-                  class="me-3"
-                  size="md"
-                />
+              <RouterLink :to="'/' + userType + '/findagent'" class="nav-link grow text-colour-hover px-3 py-2"
+                aria-current="page">
+                <font-awesome-icon icon="fa-solid fa-magnifying-glass" class="me-3" size="md" />
                 <text class="pp-fat-text">Find Agents</text>
               </RouterLink>
             </li>
             <li class="nav-item w-100 text-start">
-              <RouterLink
-                :to="'/' + userType + '/chat'"
-                class="nav-link grow text-colour-hover px-3 py-2"
-                aria-current="page"
-              >
-                <font-awesome-icon
-                  icon="fa-solid fa-comment"
-                  class="me-3"
-                  size="md"
-                />
+              <RouterLink :to="'/' + userType + '/chat'" class="nav-link grow text-colour-hover px-3 py-2"
+                aria-current="page">
+                <font-awesome-icon icon="fa-solid fa-comment" class="me-3" size="md" />
                 <text class="pp-fat-text">Chats</text>
               </RouterLink>
             </li>
             <li class="nav-item w-100 text-start" v-if="isSeeker">
-              <RouterLink
-                :to="'/' + userType + '/favourites'"
-                class="nav-link grow text-colour-hover px-3 py-2"
-                aria-current="page"
-              >
-                <font-awesome-icon
-                  icon="fa-solid fa-star"
-                  class="me-3"
-                  size="md"
-                />
+              <RouterLink :to="'/' + userType + '/favourites'" class="nav-link grow text-colour-hover px-3 py-2"
+                aria-current="page">
+                <font-awesome-icon icon="fa-solid fa-star" class="me-3" size="md" />
                 <text class="pp-fat-text">Favourites</text>
               </RouterLink>
             </li>
             <li class="nav-item w-100 text-start" v-if="isAgent">
-              <RouterLink
-                :to="'/' + userType + '/plans'"
-                class="nav-link grow text-colour-hover px-3 py-2"
-                aria-current="page"
-              >
-                <font-awesome-icon
-                  icon="fa-solid fa-tag"
-                  class="me-3"
-                  size="md"
-                />
+              <RouterLink :to="'/' + userType + '/plans'" class="nav-link grow text-colour-hover px-3 py-2"
+                aria-current="page">
+                <font-awesome-icon icon="fa-solid fa-tag" class="me-3" size="md" />
                 <text class="pp-fat-text">Plans</text>
               </RouterLink>
             </li>
             <li class="nav-item w-100 text-start">
-              <RouterLink
-                :to="'/' + userType + '/profile'"
-                class="nav-link grow text-colour-hover px-3 py-2"
-                aria-current="page"
-              >
-                <font-awesome-icon
-                  icon="fa-solid fa-user"
-                  class="me-3"
-                  size="md"
-                />
+              <RouterLink :to="'/' + userType + '/profile'" class="nav-link grow text-colour-hover px-3 py-2"
+                aria-current="page">
+                <font-awesome-icon icon="fa-solid fa-user" class="me-3" size="md" />
                 <text class="pp-fat-text">Profile</text>
               </RouterLink>
             </li>
@@ -190,18 +105,17 @@ import { RouterLink } from "vue-router";
       <div id="main-component">
         <nav class="navbar sticky-top navbar-expand-md px-4 py-3">
           <div class="container-fluid">
-            <button
-              class="navbar-toggler d-block"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#sidebar"
-              aria-controls="sidebar"
-              aria-expanded="true"
-              aria-label="Toggle navigation"
-            >
+            <button class="navbar-toggler d-block" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar"
+              aria-controls="sidebar" aria-expanded="true" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
+            <ul class="navbar-nav justify-content-end ms-auto mb-2 mb-lg-0">
+              <li class="nav-item ms-auto">
+                <RouterLink :to="'/login'" class="nav-link pp p-0">Logout</RouterLink>
+              </li>
+            </ul>
           </div>
+
         </nav>
         <RouterView />
       </div>
@@ -218,7 +132,7 @@ export default {
       isAgent: false,
     };
   },
-  mounted(){
+  mounted() {
     localStorage['type'] == "seeker" ? this.isSeeker == true : this.isSeeker == false
     localStorage['type'] == "seeker" ? this.isAgent == false : this.isAgent == true
   },
@@ -237,10 +151,12 @@ export default {
 #main-view {
   overflow-x: auto;
 }
+
 #main-component {
   min-width: 70vw;
   width: 100%;
 }
+
 .accordion {
   --bs-accordion-color: white !important;
   --bs-accordion-bg: initial !important;
@@ -248,14 +164,17 @@ export default {
   --bs-accordion-border-width: initial !important;
   --bs-accordion-border-radius: initial !important;
 }
+
 .accordion-item:last-of-type {
   border-bottom-right-radius: initial !important;
   border-bottom-left-radius: initial !important;
 }
+
 .accordion-item:first-of-type {
   border-top-left-radius: initial !important;
   border-top-right-radius: initial !important;
 }
+
 .accordion-item {
   color: white !important;
   background-color: initial !important;
@@ -271,6 +190,7 @@ export default {
   border-bottom-right-radius: initial !important;
   border-bottom-left-radius: initial !important;
 }
+
 .accordion-item:first-of-type .accordion-button {
   border-top-left-radius: initial !important;
   border-top-right-radius: initial !important;
@@ -308,16 +228,19 @@ export default {
   overflow-anchor: none;
   transition: initial;
 }
+
 .accordion-button:focus {
   z-index: 3;
   border-color: initial;
   outline: 0;
   box-shadow: initial;
 }
+
 .accordion-button:not(.collapsed)::after {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
   transform: rotate(180deg);
 }
+
 .accordion-button::after {
   flex-shrink: 0;
   width: var(--bs-accordion-btn-icon-width);
