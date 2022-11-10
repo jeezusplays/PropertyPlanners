@@ -39,7 +39,8 @@
             </div>
           </template>
         </div>
-        <p class="text-end mt-2 me-2">Edit preferences</p>
+        <p class="text-end mt-2 me-2" v-if="!isEditing">Edit preferences</p>
+        <p class="text-end mt-2 me-2" v-if="isEditing">Save preferences</p>
       </div>
     </div>
   </div>
