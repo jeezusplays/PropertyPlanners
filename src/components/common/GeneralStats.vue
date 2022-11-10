@@ -86,7 +86,6 @@
 </template>
 <script>
 /* global Chart */
-/* eslint-disable no-unused-vars */
 
 import { $ } from 'jquery';
 
@@ -377,6 +376,7 @@ export default {
           // plugins: [ChartDataLabels]
         }
       );
+      console.log(myChart);
     },
     resaleTopTenCheapestTownsChart() {
       for (const key in this.town_dict) {
@@ -431,6 +431,7 @@ export default {
         data: data2,
         options: options,
       });
+      console.log(barChart);
     },
     resaleFloorTypeDistributionChart() {
       // Donut Chart Statistics
@@ -491,6 +492,7 @@ export default {
           // plugins: [ChartDataLabels]
         }
       );
+      console.log(myChart);
     },
     resaleFlatPricesByLeaseDateChart() {
       // CTX > Label/Data > Config > Initalize
@@ -554,7 +556,7 @@ export default {
           options: options,
           // plugins: [ChartDataLabels]
         });
-
+      console.log(lineChart);
     },
     resaleMonthPriceTrendChart() {
       // CTX > Label/Data > Config > Initalize
@@ -623,7 +625,7 @@ export default {
           options: options,
           // plugins: [ChartDataLabels]
         });
-
+      console.log(lineChart);
     },
     resaleYearMonthPriceTrendChart() {
       // CTX > Label/Data > Config > Initalize
@@ -684,7 +686,7 @@ export default {
           options: options,
           // plugins: [ChartDataLabels]
         });
-
+      console.log(lineChart);
     },
     resaleYearChart() {
       var year_dict_new = {}
@@ -727,7 +729,7 @@ export default {
         data: data2,
         options: options,
       });
-
+      console.log(barChart);
       // Exit spinner condition - Once last function has executed
       if (Object.keys(year_dict_new).length != 0) {
         document.getElementById("spinner_overlay").innerHTML = "";
