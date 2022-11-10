@@ -26,8 +26,14 @@
       <div class="col-12 col-md-7 col-lg-8 py-3 py-md-0 mb-3">
         <div class="profile-side rounded-4 py-4 px-5">
           <p class="pp-head text- me-auto">Preferences</p>
-          <template v-for="preference in preferences" :key="preference.id">
-            <div class="row pref-row text-start rounded-3 p-3 mt-3">
+          <template v-if="!isEditing">
+            <div v-for="preference in preferences" :key="preference.id" class="row pref-row text-start rounded-3 p-3 mt-3">
+              <span class="pp-subhead text-light">{{ preference.name }}</span>
+              <span class="pp-text text-light opacity-75">{{ preference.value }}</span>
+            </div>
+          </template>
+          <template v-if="isEditing">
+            <div v-for="preference in preferences" :key="preference.id" class="row pref-row text-start rounded-3 p-3 mt-3">
               <span class="pp-subhead text-light">{{ preference.name }}</span>
               <span class="pp-text text-light opacity-75">{{ preference.value }}</span>
             </div>
@@ -70,7 +76,8 @@ export default {
         name: "John Doe",
         email: "Johndoe@gmail.com",
         aboutme: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum gravida dolor sit amet condimentum."
-      }
+      },
+      isEditing:true
     };
   },
 };
