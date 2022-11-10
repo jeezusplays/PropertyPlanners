@@ -218,6 +218,10 @@ export default {
       isAgent: false,
     };
   },
+  mounted(){
+    localStorage['type'] == "seeker" ? this.isSeeker == true : this.isSeeker == false
+    localStorage['type'] == "seeker" ? this.isAgent == false : this.isAgent == true
+  },
   computed: {
     userType() {
       if (localStorage['userType']) {
