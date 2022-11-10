@@ -130,6 +130,13 @@ This section lists any major frameworks/libraries used to bootstrap PropertyPlan
 * [![Svelte][Svelte.dev]][Svelte-url]
 * [![Laravel][Laravel.com]][Laravel-url] -->
 
+APIs Used
+* [Resale Flat](https://data.gov.sg/dataset/resale-flat-prices)
+* [Resale Price Index](https://data.gov.sg/dataset/hdb-resale-price-index)
+* [CEA Salesperson Information](https://data.gov.sg/dataset/cea-salesperson-info)
+* [CEA Salesperson Property Transaction Records (Residential)](https://data.gov.sg/dataset/cea-salesperson-residential-transaction-record)
+* [Google Maps API](https://developers.google.com/maps)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -254,11 +261,7 @@ Credit to these helpful resources!
 * [Img Shields](https://shields.io) -->
 * [GitHub Pages](https://pages.github.com)
 * [Font Awesome](https://fontawesome.com)
-* [Resale Flat](https://data.gov.sg/dataset/resale-flat-prices)
-* [Resale Price Index](https://data.gov.sg/dataset/hdb-resale-price-index)
-* [CEA Salesperson Information](https://data.gov.sg/dataset/cea-salesperson-info)
-* [CEA Salesperson Property Transaction Records (Residential)](https://data.gov.sg/dataset/cea-salesperson-residential-transaction-record)
-* [Google Maps API](https://developers.google.com/maps)
+
 <!-- * [React Icons](https://react-icons.github.io/react-icons/search) -->
 <!-- * [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet) -->
 
