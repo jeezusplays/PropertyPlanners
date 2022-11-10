@@ -29,8 +29,8 @@
         <div class="row">
           <div class="container p-0 me-auto text-start">
             <p class="pp-head">{{name}}</p>
-            <p>Registration No. <b>{{registrationNo}}</b></p>
-            <p>Registration Date: <b>{{registrationStartDate}} ~ {{registrationEndDate}}</b></p>
+            <p>Registration No: <b>{{registrationNo}}</b></p>
+            <p>Registration Validity: <b>{{registrationStartDate}} ~ {{registrationEndDate}}</b></p>
             <p>Estate Agent Name: <b>{{estateAgentName}}</b></p>
             <p>Licence No: <b>{{licenceNo}}</b></p>
           </div>
