@@ -261,6 +261,10 @@ Credit to these helpful resources!
 * [Img Shields](https://shields.io) -->
 * [GitHub Pages](https://pages.github.com)
 * [Font Awesome](https://fontawesome.com)
+* [Firebase](https://firebase.google.com/)
+* [Geocoding/Reverse Geocoding](https://developers.google.com/maps/documentation/geocoding)
+* [DataTables Vue](https://datatables.net/blog/2022-06-22-vue)
+* [Chart.js](https://www.chartjs.org/docs/latest/)
 
 <!-- * [React Icons](https://react-icons.github.io/react-icons/search) -->
 <!-- * [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet) -->
