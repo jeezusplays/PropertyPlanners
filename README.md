@@ -137,7 +137,7 @@ This section lists any major frameworks/libraries used to bootstrap PropertyPlan
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
