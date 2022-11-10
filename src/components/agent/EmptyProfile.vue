@@ -20,7 +20,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                Agent Registration No: <input type = "text" name = "agent_no" id = "agent_no" style="width:100%; text-align: center;" placeholder="R045184G" v-model="agent_registration_no">
+                Agent Registration No: <input type = "text" name = "agent_no" id = "agent_no" style="width:100%; text-align: center;" placeholder="R045184G" v-model="agent_registration_no" v-on:keyup.enter="getAgentData()">
                 <p class = "pt-3" id = "error_message" style="color:red; font-style: italic;"></p>
               </div>
               <div class="modal-footer">
@@ -61,8 +61,6 @@ export default {
       console.log("Profile: ", profile,"Sales: ", sales)
 
       if (Object.keys(sales).length != 0){
-        localStorage.sales = sales
-        localStorage.profile = profile
         localStorage.agentStatus = true
         localStorage.isAgent = true
         localStorage.registrationNo = this.agent_registration_no
