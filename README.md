@@ -130,7 +130,7 @@ This section lists any major frameworks/libraries used to bootstrap PropertyPlan
 * [![Svelte][Svelte.dev]][Svelte-url]
 * [![Laravel][Laravel.com]][Laravel-url] -->
 
-APIs Used
+This are the APIs used to integrate meaningful data into PropertyPlanners.
 * [Resale Flat](https://data.gov.sg/dataset/resale-flat-prices)
 * [Resale Price Index](https://data.gov.sg/dataset/hdb-resale-price-index)
 * [CEA Salesperson Information](https://data.gov.sg/dataset/cea-salesperson-info)
