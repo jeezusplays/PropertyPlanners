@@ -17,7 +17,7 @@
           <div class="container p-0 me-auto text-start">
             <p class="pp-head">{{name}}</p>
             <p>Registration No. <b>{{registrationNo}}</b></p>
-            <p>Registration Date: <b>{{registrationStartDate}} - {{registrationEndDate}}</b></p>
+            <p>Registration Date: <b>{{registrationStartDate}} ~ {{registrationEndDate}}</b></p>
             <p>Estate Agent Name: <b>{{estateAgentName}}</b></p>
             <p>Licence No: <b>{{licenceNo}}</b></p>
           </div>
@@ -25,8 +25,8 @@
 
       </div>
       <div class="d-flex flex-row p-0 col-12 col-lg-3 justify-content-end">
-        <button class="p-3 btn me-auto me-lg-0 ms-lg-auto pp-button rounded-pill" style="background-color: #779341;color: #ffffff;border-radius: 15px;width: 150px;" v-on:click="resetAgentData()">
-          Log out
+        <button class="p-3 btn me-auto me-lg-0 ms-lg-auto pp-button rounded-pill" style="background-color: #779341;color: #ffffff;border-radius: 15px;width: 150px;" v-if="!isAgent">
+          Chat now
         </button>
       </div>
     </div>
@@ -277,6 +277,9 @@
         </li>
       </ol>
     </div>
+    <button class="p-3 btn me-auto me-lg-0 ms-lg-auto pp-button rounded-pill" style="background-color: #779341;color: #ffffff;border-radius: 15px;width: 150px;" v-if="isAgent" v-on:click = "resetAgentData()">
+      Log Out
+    </button>
   </div>
 
 </template>
@@ -292,15 +295,14 @@ export default {
   name: "AgentDashboard",
   data() {
     return {
-      // hasProfile: true,
+      isAgent: localStorage.isAgent,
       hasProfile: localStorage.agentStatus,
-      name: 'John Doe',
-      // registrationNo:'R045184G', 
+      name: '',
       registrationNo: localStorage.registrationNo, 
-      registrationStartDate: '16/11/2018',
-      registrationEndDate: '31/12/2022',
-      estateAgentName: 'ERA REALTY NETWORK PTE LTD',
-      licenceNo: 'L3002382K',
+      registrationStartDate: '',
+      registrationEndDate: '',
+      estateAgentName: '',
+      licenceNo: '',
       sales: {},
       profile: {},
     };
@@ -313,14 +315,19 @@ export default {
     },
     async getAgentData() {
       // Placeholder spinner
-      var spinner_overlay = "<div class='spinner-border text-success centerAll d-block' role='status' style='width: 5rem; height: 5rem; position: absolute; top: 50%; left: 50%'>";
-      document.getElementById("spinner_overlay").innerHTML = spinner_overlay;
+      var spinner_overlay = "<div class='spinner-border text-success centerAll d-block' role='status' style='width: 5rem; height: 5rem; position: absolute; top: 50%; left: 50%'>"
+      document.getElementById("spinner_overlay").innerHTML = spinner_overlay
       var dataGetter = new AgentData(this.registrationNo)
       var sales = await dataGetter.getSales()
       var profile = await dataGetter.getProfile()
       this.sales = sales
       this.profile = profile
-      console.log(this.profile, this.sales)
+
+      this.registrationEndDate = this.profile.registration_end_date
+      this.registrationStartDate = this.profile.registration_start_date
+      this.estateAgentName = this.profile.estate_agent_name
+      this.licenceNo = this.profile.estate_agent_license_no
+
       $(document).ready(function () {
           $('#example').DataTable();
       });
