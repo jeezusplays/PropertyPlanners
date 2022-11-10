@@ -7,7 +7,7 @@
               <br />
               <p class="opacity-50 pp-smol m-0">HDB: 12 sold<span class="dot-left m-0">Private: 15 sold</span></p>
               
-              <p class="opacity-50 pp-smol m-0">2 years<span class="dot-left m-0"></span>4 stars</p>
+              <p class="opacity-50 pp-smol m-0">2 years<span class="dot-left m-0"></span>Company name</p>
             </div>
           </div>
 </template>
