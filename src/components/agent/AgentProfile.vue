@@ -290,16 +290,13 @@ import $ from "jquery";
 
 export default {
   name: "AgentDashboard",
-  props: ['registrationNoPassed', 'hasProfilePassed'],
   data() {
     return {
-      // hasProfile: this.hasProfilePassed,
-      // registrationNo: this.registrationNoPassed, 
-
-      // Placeholder information, replace with dynamic input fetch through registrationNo
-      hasProfile: true,
+      // hasProfile: true,
+      hasProfile: localStorage.agentStatus,
       name: 'John Doe',
-      registrationNo:'R045184G', 
+      // registrationNo:'R045184G', 
+      registrationNo: localStorage.registrationNo, 
       registrationStartDate: '16/11/2018',
       registrationEndDate: '31/12/2022',
       estateAgentName: 'ERA REALTY NETWORK PTE LTD',
