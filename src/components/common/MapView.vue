@@ -23,7 +23,7 @@
     </div>
 
     <div class="row mx-3">
-      <div class="col-12 col-md-4 order-2 order-md-1">
+      <div class="col-12 col-md-3 order-2 order-md-1">
         <!-- Stats 1 -->
         <div class="card m-2 py-3">
           <div class="card-body">
@@ -54,7 +54,7 @@
         </div>
       </div>
 
-      <div class="col-12 col-md-8 order-1 order-md-2">
+      <div class="col-12 col-md-7 order-1 order-md-2">
         <div class="row">
           <ul class="nav nav-tabs">
             <li class="nav-item">
@@ -90,6 +90,7 @@ import towns from "../../scripts/towns.json";
 import * as colours from "../../scripts/colours.json";
 import AgentCard from './AgentCard.vue'
 import $ from 'jquery';
+
 
 export default {
   name: "mapview",
@@ -222,11 +223,30 @@ export default {
                 }
               }
               // Output statistics data summary
+              var green_triangle_down = require("../../assets/green_triangle_down.png");
+              var red_triangle_up = require("../../assets/red_triangle_up.png");
+              var green_triangle_up = require("../../assets/green_triangle_up.png");
+              var red_triangle_down = require("../../assets/red_triangle_down.png");
+              var picture = "";
+
               overall_average = (overall_average/data.result.records.length).toFixed(0);
               sqm = (sqm/data.result.records.length).toFixed(0);
               document.getElementById("median_price").innerText = "$"+overall_average;
               document.getElementById("ppsqm").innerText = "$"+sqm;
               document.getElementById("price_comparison").innerHTML = computeYearOnYearAverageResalePrices();
+
+              if(picture == "decrease_resale_price"){
+                document.getElementById(picture).src = green_triangle_down;
+              }
+              else if (picture == "increase_resale_price"){
+                document.getElementById(picture).src = red_triangle_up;
+              }
+              else if (picture == "increase_resale_quantity"){
+                document.getElementById(picture).src = green_triangle_up;
+              }
+              else if (picture == "decrease_resale_quantity"){
+                document.getElementById(picture).src = red_triangle_down;
+              }
               
               // Compute previous year + current year average resale prices in percentage
               function computeYearOnYearAverageResalePrices (){
@@ -243,11 +263,14 @@ export default {
 
               if (percentage_difference < 0 )
               {
-                  image = "<img id = 'decrease_resale_price' :src = '../../assets/green_triangle_down.png' width = 25px>";
+                  image = "<img id = 'decrease_resale_price' width = 25px>";
+                  picture = "decrease_resale_price";
               }
               else
               {
-                  image = "<img id = 'increase_resale_price' :src = '../../assets/red_triangle_up.png' width = 25px>";
+                  image = "<img id = 'increase_resale_price' width = 25px>";
+                  picture = "increase_resale_price";
+
               }
 
               return percentage_difference.toFixed(1) + "%" + image + "<br>";
