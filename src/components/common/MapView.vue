@@ -27,26 +27,29 @@
         <!-- Stats 1 -->
         <div class="card m-2 py-3">
           <div class="card-body">
-            <h5 class="card-title">Median Price of Flats</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
+            <h5 class="card-title">Mean Price of Flats</h5>
+            <p class="card-text" id = "median_price">
+
+            </p>
           </div>
         </div>
         <!-- Stats 2 -->
         <div class="card m-2 py-3">
           <div class="card-body">
             <h5 class="card-title">Price per sqm</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
+            <p class="card-text" id = "ppsqm">
+
+            </p>
           </div>
         </div>
         <!-- Stats 3 -->
         <div class="card m-2 py-3">
           <div class="card-body">
             <h5 class="card-title">% in Price Difference</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Compared to last year</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
+            <h6 class="card-subtitle mb-2 text-muted">(Compared to last year)</h6>
+            <p class="card-text" id = "price_comparison">
+              
+            </p>
           </div>
         </div>
       </div>
@@ -86,6 +89,7 @@ import { Loader } from "@googlemaps/js-api-loader";
 import towns from "../../scripts/towns.json";
 import * as colours from "../../scripts/colours.json";
 import AgentCard from './AgentCard.vue'
+import $ from 'jquery';
 
 export default {
   name: "mapview",
@@ -178,11 +182,81 @@ export default {
             labels[text] = label;
           }
         });
-        console.log(labels);
+        console.log("labels:", labels);
         map.data.addListener("click", function (event) {
           // in the geojson feature that was clicked, get the "place" and "mag" attributes
           let area = event.feature.getProperty("PLN_AREA_N");
-          console.log(area);
+          console.log("area selected: ",area);
+
+          // Here begins the statistics API
+          var data = {
+            resource_id: 'f1765b54-a209-4718-8d38-a39237f502b3', // the resource id
+            limit: 150000, // Set 150000 results
+            q: area
+          };
+
+          $.ajax({
+            url: 'https://data.gov.sg/api/action/datastore_search',
+            data: data,
+            success: function(data) {
+              console.log(data.result.records)
+              var overall_average = 0;
+              var sqm = 0;
+              var yearList = [];
+              var yearDict = {};
+
+              for (var x = 0; x < data.result.records.length; x++)
+              {
+                var current_record = data.result.records[x];
+                overall_average += Number(current_record.resale_price);
+                sqm += Number(current_record.resale_price)/Number(current_record.floor_area_sqm);
+
+                // Append resale prices by year
+                if (!yearList.includes(current_record.month.slice(0,4))){
+                    yearList.push(current_record.month.slice(0,4));
+                    yearDict[current_record.month.slice(0,4)] = [Number(current_record.resale_price), 1];
+                }
+                else {
+                    yearDict[current_record.month.slice(0,4)][0] += Number(current_record.resale_price);
+                    yearDict[current_record.month.slice(0,4)][1] += 1;
+                }
+              }
+              // Output statistics data summary
+              overall_average = (overall_average/data.result.records.length).toFixed(0);
+              sqm = (sqm/data.result.records.length).toFixed(0);
+              document.getElementById("median_price").innerText = "$"+overall_average;
+              document.getElementById("ppsqm").innerText = "$"+sqm;
+              document.getElementById("price_comparison").innerHTML = computeYearOnYearAverageResalePrices();
+              
+              // Compute previous year + current year average resale prices in percentage
+              function computeYearOnYearAverageResalePrices (){
+              var current_year = new Date().getFullYear();
+              var previous_year = current_year - 1;
+              var image = "";
+              
+              var current_year_average_price = yearDict[current_year][0]/yearDict[current_year][1];
+              var previous_year_average_price = yearDict[previous_year][0]/yearDict[previous_year][1];
+              
+              var percentage_difference = ((current_year_average_price - previous_year_average_price) / current_year_average_price) * 100
+              
+              // Calculate HDB Resale price averages for current year + previous year 
+
+              if (percentage_difference < 0 )
+              {
+                  image = "<img id = 'decrease_resale_price' :src = '../../assets/green_triangle_down.png' width = 25px>";
+              }
+              else
+              {
+                  image = "<img id = 'increase_resale_price' :src = '../../assets/red_triangle_up.png' width = 25px>";
+              }
+
+              return percentage_difference.toFixed(1) + "%" + image + "<br>";
+              }
+
+            }
+          })
+
+
         });
       });
     },
