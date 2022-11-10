@@ -28,18 +28,17 @@
         <div class="card m-2 py-3">
           <div class="card-body">
             <h5 class="card-title">Mean Price of Flats</h5>
-            <p class="card-text" id = "median_price">
-
-            </p>
+            <p class="card-text" id = "median_price"></p>
+            <p id = "placeholder1"><i>Click on a region (town) to display information!</i></p>
           </div>
         </div>
         <!-- Stats 2 -->
         <div class="card m-2 py-3">
           <div class="card-body">
             <h5 class="card-title">Price per sqm</h5>
-            <p class="card-text" id = "ppsqm">
+            <p class="card-text" id = "ppsqm"></p>
+            <p id = "placeholder2"><i>Click on a region (town) to display information!</i></p>
 
-            </p>
           </div>
         </div>
         <!-- Stats 3 -->
@@ -47,9 +46,8 @@
           <div class="card-body">
             <h5 class="card-title">% in Price Difference</h5>
             <h6 class="card-subtitle mb-2 text-muted">(Compared to last year)</h6>
-            <p class="card-text" id = "price_comparison">
-              
-            </p>
+            <p class="card-text" id = "price_comparison"></p>
+            <p id = "placeholder3"><i>Click on a region (town) to display information!</i></p>
           </div>
         </div>
       </div>
@@ -234,6 +232,9 @@ export default {
               document.getElementById("median_price").innerText = "$"+overall_average;
               document.getElementById("ppsqm").innerText = "$"+sqm;
               document.getElementById("price_comparison").innerHTML = computeYearOnYearAverageResalePrices();
+              document.getElementById("placeholder1").innerHTML = "";
+              document.getElementById("placeholder2").innerHTML = "";
+              document.getElementById("placeholder3").innerHTML = "";
 
               if(picture == "decrease_resale_price"){
                 document.getElementById(picture).src = green_triangle_down;
