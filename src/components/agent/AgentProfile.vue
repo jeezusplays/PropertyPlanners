@@ -25,8 +25,8 @@
 
       </div>
       <div class="d-flex flex-row p-0 col-12 col-lg-3 justify-content-end">
-        <button class="p-3 btn me-auto me-lg-0 ms-lg-auto pp-button rounded-pill" style="background-color: #779341;color: #ffffff;border-radius: 15px;width: 150px;">
-          Chat Now
+        <button class="p-3 btn me-auto me-lg-0 ms-lg-auto pp-button rounded-pill" style="background-color: #779341;color: #ffffff;border-radius: 15px;width: 150px;" v-on:click="resetAgentData()">
+          Log out
         </button>
       </div>
     </div>
@@ -307,6 +307,10 @@ export default {
   },
 
   methods: {
+    resetAgentData() {
+      this.registrationNo = ''
+      this.hasProfile = false
+    },
     async getAgentData() {
       // Placeholder spinner
       var spinner_overlay = "<div class='spinner-border text-success centerAll d-block' role='status' style='width: 5rem; height: 5rem; position: absolute; top: 50%; left: 50%'>";

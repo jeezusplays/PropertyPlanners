@@ -39,7 +39,7 @@ export default {
       localStorage.sales = sales
       localStorage.profile = profile
       localStorage.agentStatus = true
-      localStorage.registrationNo = this.agent_registration_no;
+      localStorage.registrationNo = this.agent_registration_no
       document.location.reload(true)
     }
   },
