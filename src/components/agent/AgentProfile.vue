@@ -7,10 +7,23 @@
     <hr />
     <div class="row p-3">
       <div class="col-12 col-lg-2 d-flex pb-4 px-0 pe-md-3 justify-content-start">
-        <img
-          src="../../assets/agent_face.jpeg"
+        <div class = "d-inline-block position-relative">
+          <img
+          src="../../assets/luffy_face.png"
           class="border border-dark img-fluid pp-pp"
+          id = "profile_picture"
+          alt = "Add your profile picture here!"
         />
+          <div class = "position-absolute" style = "top: 0px; right: 0px">
+            <span class="position-absolute badge badge-dark" id="OpenImgUpload" style = "color:black; top: 0px; right: 0px;">
+              <label for ='imgupload'>
+                <input type = "file" onchange="document.getElementById('profile_picture').src = window.URL.createObjectURL(this.files[0]);document.getElementById('profile_picture').alt = 'Your handsome/beautiful face!';" id = "imgupload" style="display:none;" accept = "image/x-png,image/gif,image/jpeg"/>
+                <font-awesome-icon class="m-auto" icon="fa fa-pen" size="xl"/>
+              </label>
+            </span>
+          </div>
+        </div>
+
       </div>
       <div class="col-12 col-lg-7 justify-content-start">
         <div class="row">
