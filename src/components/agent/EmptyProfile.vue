@@ -21,8 +21,7 @@
               </div>
               <div class="modal-body">
                 Agent Registration No: <input type = "text" name = "agent_no" id = "agent_no" style="width:100%; text-align: center;" placeholder="R045184G" v-model="agent_registration_no">
-              <br />
-                <p id = "error_message" style="color:red; font-style: italic;"></p>
+                <p class = "pt-3" id = "error_message" style="color:red; font-style: italic;"></p>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -52,7 +51,7 @@ export default {
     test() {
       console.log(this.$route)
     },
-    async getAgentData() {      
+    async getAgentData() {
       var dataGetter = new AgentData(this.agent_registration_no)
       var sales = await dataGetter.getSales()
       var profile = await dataGetter.getProfile()
