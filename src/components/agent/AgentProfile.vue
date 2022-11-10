@@ -251,8 +251,6 @@
           </div>
         </div>
       </div>
-      <!-- Placeholder spinner -->
-      <div id = "spinner_overlay"></div>
     </section>
 
     <div class="row pt-3">
@@ -277,7 +275,7 @@
         </li>
       </ol>
     </div>
-    <button class="p-3 btn me-auto me-lg-0 ms-lg-auto pp-button rounded-pill" style="background-color: #779341;color: #ffffff;border-radius: 15px;width: 150px;" v-if="isAgent" v-on:click = "resetAgentData()">
+    <button class="p-3 btn me-auto me-lg-0 ms-lg-auto pp-button rounded-pill d-none" style="background-color: #779341;color: #ffffff;border-radius: 15px;width: 150px;" v-if="isAgent" v-on:click = "resetAgentData()">
       Log Out
     </button>
   </div>
@@ -314,9 +312,7 @@ export default {
       this.hasProfile = false
     },
     async getAgentData() {
-      // Placeholder spinner
-      var spinner_overlay = "<div class='spinner-border text-success centerAll d-block' role='status' style='width: 5rem; height: 5rem; position: absolute; top: 50%; left: 50%'>"
-      document.getElementById("spinner_overlay").innerHTML = spinner_overlay
+
       var dataGetter = new AgentData(this.registrationNo)
       var sales = await dataGetter.getSales()
       var profile = await dataGetter.getProfile()
@@ -340,7 +336,6 @@ export default {
       $(document).ready(function () {
           $('#example4').DataTable();
       });
-      document.getElementById("spinner_overlay").innerHTML = "";
     }
   },
 

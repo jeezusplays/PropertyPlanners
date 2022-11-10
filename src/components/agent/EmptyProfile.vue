@@ -37,7 +37,7 @@
 
 <script>
 import { AgentData } from '../../scripts/agentdata'
-import { spinnerOn, spinneroff} from '../../scripts/spinner'
+import { spinnerOn, spinnerOff} from '../../scripts/spinner'
 
 export default {
   name: 'EmptyAgentProfile',
@@ -57,7 +57,7 @@ export default {
       var dataGetter = new AgentData(this.agent_registration_no)
       var sales = await dataGetter.getSales()
       var profile = await dataGetter.getProfile()
-      spinneroff()
+      spinnerOff()
       console.log("Profile: ", profile,"Sales: ", sales)
 
       if (Object.keys(sales).length != 0){
