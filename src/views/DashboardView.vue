@@ -111,7 +111,7 @@ import { RouterLink } from "vue-router";
             </button>
             <ul class="navbar-nav justify-content-end ms-auto mb-2 mb-lg-0">
               <li class="nav-item ms-auto">
-                <RouterLink :to="'/login'" class="nav-link pp p-0">Logout</RouterLink>
+                <a class="nav-link pp p-0" @click="logout()">Logout</a>
               </li>
             </ul>
           </div>
@@ -124,6 +124,9 @@ import { RouterLink } from "vue-router";
 </template>
 
 <script>
+import { signOut } from "firebase/auth";
+import { auth } from '../scripts/fbauth'
+
 export default {
   name: "DashboardNav",
   data() {
@@ -143,6 +146,17 @@ export default {
       }
       return 'seeker'
     },
+  },
+  methods: {
+    logout() {
+      signOut(auth).then(() => {
+        // Sign-out successful.
+        localStorage.clear();
+        this.$router.push({ path: `/home` })
+      }).catch((error) => {
+        console.log(error);
+      });
+    }
   }
 };
 </script>
