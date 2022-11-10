@@ -1,10 +1,41 @@
 <template>
-  <button v-on:click="initMap()">test url</button>
-  <div
-    id="googleMap"
-    style="width: 100%; height: 500px"
-    class="border border-dark"
-  ></div>
+  <div class="scrollable">
+    <p class="pp-head text-start  mx-5 me-md-0 ms-md-5 mt-3 mb-0">Dashboard</p>
+    <div class="row mx-0 px-0 mx-5 me-md-0 ms-md-5">
+      <div class="col-12 col-md-7 col-lg-8 p-0 m-0">
+        <div id="googleMap" style="height: 500px" class="conotainer-fluid rounded-3 border border-dark"></div>
+
+      </div>
+      <div class="col-12 col-md-5 col-lg-4 mt-3 mt-md-0 p-0 px-0 px-md-3 m-0 max-h-100">
+
+        <div class="d-none d-md-block">
+          <p class="pp-text opacity-75 mb-3 text-start">Available agents</p>
+          <AgentCard v-for="index in 4" :key="index" />
+        </div>
+
+      </div>
+    </div>
+    <div class="d-flex me-5">
+      <p class="pp-head text-start ms-5 mt-3 mb-0 pp-green">Dashboard</p>
+      <p class="opacity-50 pp-text ms-auto mt-auto grow pointer"><font-awesome-icon icon="fa-solid fa-plus" /> Add to favourites</p>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        statistics
+      </div>
+      <div class="col">
+        chart
+      </div>
+      <div class="col">
+        filters
+      </div>
+    </div>
+    <div class="d-block d-md-none col-12 mx-5 mt-3">
+      <p class="pp-text opacity-75 mb-3 text-start">Available agents</p>
+      <AgentCard v-for="index in 4" :key="index" />
+    </div>
+  </div>
 </template>
 
 <script>
@@ -14,6 +45,7 @@ import { AreaLabel } from "../../scripts/label";
 import { Loader } from "@googlemaps/js-api-loader";
 import towns from "../../scripts/towns.json";
 import * as colours from "../../scripts/colours.json";
+import AgentCard from './AgentCard.vue'
 
 export default {
   name: "mapview",
@@ -48,6 +80,7 @@ export default {
   },
   mounted() {
     this.loader = new Loader(this.loaderSettings);
+    this.initMap()
   },
   methods: {
     async initMap() {
@@ -74,7 +107,7 @@ export default {
         map.data.addListener("mouseover", function (event) {
           var name = event.feature.getProperty("PLN_AREA_N");
           if (townNames.has(name)) {
-            map.data.overrideStyle(event.feature,overrideStyle);
+            map.data.overrideStyle(event.feature, overrideStyle);
             labels[name].forceDraw();
           }
         });
@@ -114,5 +147,19 @@ export default {
       });
     },
   },
+  components: {
+    AgentCard
+  }
 };
 </script>
+
+<style>
+.scrollable {
+  overflow-x: hidden;
+  /* overflow-y:hidden; */
+}
+
+.max-h-100 {
+  max-height: 450px;
+}
+</style>
