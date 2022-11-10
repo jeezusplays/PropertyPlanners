@@ -212,9 +212,9 @@ If you have a suggestion that would make this better, please fork the repo and c
 Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
+2. Create your Feature Branch (`git checkout -b /newFeature`)
+3. Commit your Changes (`git commit -m 'Add some newFeature'`)
+4. Push to the Branch (`git push origin /newFeature`)
 5. Open a Pull Request
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -233,11 +233,11 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contacts
 
-Joey - [@LinkedIn](https://linkedin.com/in/joey-tan-zuyi)<br>
-Samuel - [@LinkedIn](https://www.linkedin.com/in/samuel-chung-339688154/)<br>
-Hong Xiang - [@LinkedIn](https://www.linkedin.com/in/liowhongxiang/)<br>
+* [Tan Zuyi Joey](https://linkedin.com/in/joey-tan-zuyi)<br>
+* [Samuel Chung](https://www.linkedin.com/in/samuel-chung-339688154/)<br>
+* [Liow Hong Xiang](https://www.linkedin.com/in/liowhongxiang/)<br>
 
-Project Link: [https://github.com/jeezusplays/PropertyPlanners](https://github.com/jeezusplays/PropertyPlanners)
+<!-- Project Link: [https://github.com/jeezusplays/PropertyPlanners](https://github.com/jeezusplays/PropertyPlanners) -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -254,6 +254,11 @@ Credit to these helpful resources!
 * [Img Shields](https://shields.io) -->
 * [GitHub Pages](https://pages.github.com)
 * [Font Awesome](https://fontawesome.com)
+* [Resale Flat](https://data.gov.sg/dataset/resale-flat-prices)
+* [Resale Price Index](https://data.gov.sg/dataset/hdb-resale-price-index)
+* [CEA Salesperson Information](https://data.gov.sg/dataset/cea-salesperson-info)
+* [CEA Salesperson Property Transaction Records (Residential)](https://data.gov.sg/dataset/cea-salesperson-residential-transaction-record)
+* [Google Maps API](https://developers.google.com/maps)
 <!-- * [React Icons](https://react-icons.github.io/react-icons/search) -->
 <!-- * [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet) -->
 
