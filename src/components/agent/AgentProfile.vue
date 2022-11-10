@@ -275,9 +275,6 @@
         </li>
       </ol>
     </div>
-    <button class="p-3 btn me-auto me-lg-0 ms-lg-auto pp-button rounded-pill d-none" style="background-color: #779341;color: #ffffff;border-radius: 15px;width: 150px;" v-if="isAgent" v-on:click = "resetAgentData()">
-      Log Out
-    </button>
   </div>
 
 </template>
