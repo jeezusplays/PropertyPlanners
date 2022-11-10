@@ -1,4 +1,4 @@
-import { fsdb } from "./fbapp";
+import { fsdb } from "./fb";
 import { collection, query, where, getDocs } from "firebase/firestore";
 
 async function test() {

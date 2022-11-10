@@ -8,25 +8,25 @@
                         style="border-radius: 1rem; background-color: rgba(255, 255, 255, 0.75);">
                         <div class="card-body p-5">
                             <h5>Welcome to <span style="color: #779341;">PropertyPlanners</span></h5>
-                            <h1 class="mb-5 fw-semibold">Sign In</h1>
+                            <h1 class="mb-5 fw-semibold">Sign up</h1>
 
-                            <!-- <div class="row form-outline mb-4">
-                            <div class="col-6">
-                                <label class="form-label" for="fullName">Full Name</label>
-                            <input type="text" id="fullName" class="form-control" placeholder="Full name"/>
+                            <div class="row form-outline mb-4">
+                                <div class="col-6">
+                                    <label class="form-label" for="fullName">Full Name</label>
+                                    <input type="text" id="fullName" v-model="name" class="form-control" placeholder="Full name" />
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label" for="role">Role</label>
+                                    <select id="role" v-model="type" class="form-control">
+                                        <option  disabled>Select Role</option>
+                                        <option value="seeker" selected>Property Seeker</option>
+                                        <option value="agent">Property Agents</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="col-6">
-                                <label class="form-label" for="role">Role</label>
-                                <select id="role" class="form-control">
-                                    <option selected disabled>Select Role</option>
-                                    <option value="seeker">Property Seeker</option>
-                                    <option value="agent">Property Agents</option>
-                                </select>
-                            </div>
-                        </div> -->
 
                             <div class="form-outline mb-4">
-                                <label class="form-label" for="emailAddress">Enter your email address</label>
+                                <label class="form-label" for="em   ailAddress">Enter your email address</label>
                                 <input type="email" id="emailAddress" v-model="email" class="form-control"
                                     placeholder="Email address" />
                             </div>
@@ -40,12 +40,12 @@
 
                             <div class="row">
                                 <div class="col-12 col-md-6">
-                                    <p>New User? <br><a href="/signup" style="color: #779341;">Sign up</a></p>
+                                    <p>Have an Account? <br><a href="/login" style="color: #779341;">Sign in</a></p>
                                 </div>
 
                                 <div class="col-12 col-md-6 d-flex justify-content-end">
-                                    <button class="btn btn-default btn-block btn-lg" @click="logIn()" type="submit"
-                                        style="background-color: #779341; color: white; width: 100%;">Sign In</button>
+                                    <button @click="signUp()" class="btn btn-default btn-block btn-lg" type="submit"
+                                        style="background-color: #779341; color: white; width: 100%;">Sign Up</button>
                                 </div>
                             </div>
 
@@ -59,66 +59,63 @@
 
 <script>
 import { auth } from '../scripts/fbauth'
-import { signInWithEmailAndPassword } from 'firebase/auth'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { spinnerOn, spinnerOff } from '../scripts/spinner'
 import { fsdb } from '../scripts/fb'
-import { doc, getDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 
 export default {
-    name: 'login',
+    name: 'signup',
     data() {
         return {
+            type: "",
             email: "",
             password: "",
-            user: "",
-            type: ""
+            user: {},
+            name: ""
+
         }
     },
     methods: {
-        async logIn() {
+        async signUp() {
             try {
 
-                if (this.email.trim().length < 1 ||
-                    this.password.trim().length < 1) {
+                if (this.type.trim().length < 1 ||
+                this.email.trim().length < 1 ||
+                this.password.trim().length < 1 ||
+                this.name.trim().length < 1 ) {
                     alert('Please fill up all inputs')
                     throw 'ValurError'
                 }
 
                 spinnerOn()
-                var credential = await signInWithEmailAndPassword(auth, this.email, this.password)
-                spinnerOff()
+                var credential = await createUserWithEmailAndPassword(auth, this.email, this.password)
                 this.user = credential.user
                 localStorage['uid'] = this.user.uid
+                localStorage['type'] = this.type
+                spinnerOff()
+                
+                await setDoc(doc(fsdb, "users", this.user.uid), {
+                    name: this.name,
+                    email: this.email,
+                    type: this.type
+                });
 
-                const docRef = doc(fsdb, "users", this.user.uid);
-                const docSnap = await getDoc(docRef);
-
-                if (docSnap.exists()) {
-                    var data = docSnap.data()
-
-                    this.type = data.type
-                    localStorage['type'] = this.type
-
-                    this.$router.push({ path: `/${this.type}/dashboard` })
-                } else {
-                    // doc.data() will be undefined in this case
-                    throw 'User dont exist'
-                }
-
+                this.$router.push({ path: `/${this.type}/dashboard` })
 
             }
             catch (e) {
                 console.log(e)
-                console.log(e.code)
-                console.log(e.message);
                 spinnerOff()
             }
+
         }
     }
-
 }
 
 </script>
+
+
 
 <style>
 #login-fluid {

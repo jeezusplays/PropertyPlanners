@@ -218,6 +218,10 @@ export default {
       isAgent: false,
     };
   },
+  mounted(){
+    localStorage['type'] == "seeker" ? this.isSeeker == true : this.isSeeker == false
+    localStorage['type'] == "seeker" ? this.isAgent == false : this.isAgent == true
+  },
   computed: {
     userType() {
       if (localStorage['userType']) {
@@ -376,7 +380,7 @@ export default {
 
 .navbar {
   --bs-navbar-toggler-focus-width: 0rem;
-  background-color: rgba(var(--main-grey-rgb), 0.2);
+  background-color: #f4f3f1;
 }
 
 .navbar-toggler {

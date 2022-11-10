@@ -6,6 +6,7 @@ import DashboardView from "../views/DashboardView.vue";
 
 // Top level Component
 import LoginView from "../components/Login.vue";
+import SignupView from "../components/Signup.vue";
 
 // Agent
 import AgentDashboard from "../components/agent/AgentDashboard.vue";
@@ -13,6 +14,7 @@ import AgentProfile from "../components/agent/AgentProfile.vue";
 
 // Common
 import Chat from "../components/common/Chat.vue";
+import MapView from "../components/common/MapView.vue";
 
 // Landing
 import LandingPage from "../components/landing/LandingPage.vue";
@@ -20,37 +22,42 @@ import LandingPage from "../components/landing/LandingPage.vue";
 // Seeker
 import SeekerProfile from "../components/seeker/SeekerProfile.vue";
 
-function navigationGuard(to, from, next) {
-  var local = localStorage;
-  var now = new Date();
-  var isExpired = (sessionEndDate) => {
-    return now > new Date(Number(sessionEndDate));
-  };
-  
-  if (to.name !== "login") {
-    if (local.sessionEndDate) {
-      if (isExpired(local.sessionEndDate)) next({ name: "login" });
-      else if (to.path.includes("/seeker") && local.userType == "seeker") {
-        next();
-      } else if (to.path.includes("/agent") && local.userType == "agent") {
-        next();
-      } else if (to.path.includes("/home")) next()
-      else {
-        next({ name: "login" });
-      }
-    } else {
-      next({ name: "login" });
-    }
-  } else {
-    next();
-  }
-}
+// function navigationGuard(to, from, next) {
+//   var local = localStorage;
+//   var now = new Date();
+//   var isExpired = (sessionEndDate) => {
+//     return now > new Date(Number(sessionEndDate));
+//   };
+
+//   if (to.name !== "login") {
+//     if (local.sessionEndDate) {
+//       if (isExpired(local.sessionEndDate)) next({ name: "login" });
+//       else if (to.path.includes("/seeker") && local.userType == "seeker") {
+//         next();
+//       } else if (to.path.includes("/agent") && local.userType == "agent") {
+//         next();
+//       } else if (to.path.includes("/home")) next()
+//       else {
+//         next({ name: "login" });
+//       }
+//     } else {
+//       next({ name: "login" });
+//     }
+//   } else {
+//     next();
+//   }
+// }
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
+      path: "",
+      redirect: "/home",
+    },
+    {
       path: "/",
+      redirect:"/home",
       name: "main",
       component: BasicView,
       children: [
@@ -62,7 +69,7 @@ const router = createRouter({
         {
           path: "signup",
           name: "signup",
-          component: LoginView,
+          component: SignupView,
         },
         {
           path: "home",
@@ -94,7 +101,7 @@ const router = createRouter({
         {
           path: "region",
           name: "agent-region",
-          component: LandingPage,
+          component: MapView,
         },
         {
           path: "general",
@@ -136,7 +143,7 @@ const router = createRouter({
         {
           path: "region",
           name: "region",
-          component: LandingPage,
+          component: MapView,
         },
         {
           path: "general",
@@ -147,6 +154,6 @@ const router = createRouter({
     },
   ],
 });
-
-router.beforeEach(navigationGuard);
+router.replace({ path: "/home", redirect: "/" });
+//router.beforeEach(navigationGuard);
 export default router;

@@ -8,11 +8,13 @@
         "lint": "vue-cli-service lint"
     },
     "dependencies": {
+        "@fawmi/vue-google-maps": "^0.9.79",
         "@fortawesome/fontawesome-svg-core": "^6.2.0",
         "@fortawesome/free-brands-svg-icons": "^6.2.0",
         "@fortawesome/free-regular-svg-icons": "^6.2.0",
         "@fortawesome/free-solid-svg-icons": "^6.2.0",
         "@fortawesome/vue-fontawesome": "^3.0.1",
+        "@googlemaps/js-api-loader": "^1.14.3",
         "core-js": "^3.8.3",
         "datatables.net": "^1.13.1",
         "datatables.net-buttons": "^2.3.2",
@@ -22,6 +24,7 @@
         "jquery": "^3.6.1",
         "lodash": "^4.17.21",
         "mysql": "^2.18.1",
+        "process": "^0.11.10",
         "vue": "^3.2.13",
         "vue-router": "^4.1.5"
     },
