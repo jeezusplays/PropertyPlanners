@@ -53,22 +53,29 @@
       </div>
 
       <div class="col-12 col-md-7 order-1 order-md-2">
-        <div class="row">
-          <ul class="nav nav-tabs">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Distribution of Flat Types Sold</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Another Chart</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Another Chart</a>
-            </li>
-          </ul>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Distribution of Flat Types Sold</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Mean Price by Flat Type</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Historical Mean Price</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <canvas id="room_dist_pieChart" style = "max-height: 300px"></canvas>
+          </div>
+          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            2
+          </div>
+          <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+            3
+          </div>
         </div>
-        <div class="my-2">
-          chart
-        </div>
+        
       </div>
 
     </div>
@@ -94,12 +101,12 @@ export default {
   name: "mapview",
   data() {
     return {
+      townname: '',
       options: {
         center: { lat: 1.3521, lng: 103.8198 },
         zoom: 12,
         mapId: "2ea4a3a31dcf523",
       },
-
       loaderSettings: {
         apiKey: "AIzaSyAafbfhfA2m_VY2JnslznFw9pXvgdpwlMY",
         version: "weekly",
@@ -187,6 +194,8 @@ export default {
           let area = event.feature.getProperty("PLN_AREA_N");
           console.log("area selected: ",area);
 
+          // this.townname = area;
+
           // Here begins the statistics API
           var data = {
             resource_id: 'f1765b54-a209-4718-8d38-a39237f502b3', // the resource id
@@ -203,6 +212,8 @@ export default {
               var sqm = 0;
               var yearList = [];
               var yearDict = {};
+              var room_list = [];
+              var room_dict = {};
 
               for (var x = 0; x < data.result.records.length; x++)
               {
@@ -218,6 +229,15 @@ export default {
                 else {
                     yearDict[current_record.month.slice(0,4)][0] += Number(current_record.resale_price);
                     yearDict[current_record.month.slice(0,4)][1] += 1;
+                }
+
+                // Append volume of transacted resale room type
+                if (!room_list.includes(current_record.flat_type)){
+                    room_list.push(current_record.flat_type);
+                    room_dict[current_record.flat_type] = 1
+                }
+                else {
+                    room_dict[current_record.flat_type] += 1;
                 }
               }
               // Output statistics data summary
@@ -276,6 +296,67 @@ export default {
 
               return percentage_difference.toFixed(1) + "%" + image + "<br>";
               }
+
+              // Charts 
+              function resaleRoomTypeDistributionChart(){
+                var ctx = document.getElementById('room_dist_pieChart').getContext('2d');
+                var data = {
+                labels: Object.keys(room_dict),
+                datasets: [{
+                    label: 'Resale Flat Type',
+                    data: Object.values(room_dict),
+                    backgroundColor: [
+                    '#F47A1F',
+                    '#9552EA',
+                    '#F54F52',
+                    '#7AC142',
+                    '#ffb63a',
+                    '#007CC3',
+                    '#00529B',
+                    ],
+                    hoverBorderColor: ["#000000"],
+                }]
+                };
+
+                var options = {
+                plugins: {
+                    labels: {
+                    position: 'outside'
+                    },
+                    legend: {
+                    position: 'right'
+                    },
+                    tooltips: {
+                    enabled: true
+                    },
+                    datalabels: {
+                    formatter: (value, ctx) => {
+                    let sum = 0;
+                    let dataArr = ctx.chart.data.datasets[0].data;
+                    dataArr.map(data => {
+                        sum += data;
+                    });
+                    let percentage = (value*100 / sum).toFixed(0)+"%";
+                    return percentage;
+                    },
+                    color: '#00000',
+                    align: 'center',
+                    }
+                }
+                };
+
+                var myChart = new Chart(
+                ctx,
+                {
+                    type: 'doughnut',
+                    data: data,
+                    options: options,
+                    plugins: [ChartDataLabels]
+                }
+                );
+                console.log(myChart);
+              }
+              resaleRoomTypeDistributionChart();
 
             }
           })
