@@ -1,22 +1,25 @@
 <template>
   <div class="scrollable">
-    <p class="pp-head text-start  mx-5 me-md-0 ms-md-5 mt-3 mb-0">Dashboard</p>
+    <p class="pp-head text-start mx-5 me-md-0 ms-md-5 mt-3 mb-0">Dashboard</p>
     <div class="row mx-0 px-0 mx-5 me-md-0 ms-md-5">
       <div class="col-12 col-md-7 col-lg-8 p-0 m-0">
-        <div id="googleMap" style="height: 500px" class="conotainer-fluid rounded-3 border border-dark"></div>
-
+        <div
+          id="googleMap"
+          style="height: 500px"
+          class="conotainer-fluid rounded-3 border border-dark"
+        ></div>
       </div>
-      <div class="col-12 col-md-5 col-lg-4 mt-3 mt-md-0 p-0 px-0 px-md-3 m-0 max-h-100">
-
+      <div
+        class="col-12 col-md-5 col-lg-4 mt-3 mt-md-0 p-0 px-0 px-md-3 m-0 max-h-100"
+      >
         <div class="d-none d-md-block">
           <p class="pp-text opacity-75 mb-3 text-start">Available agents</p>
           <AgentCard v-for="index in 4" :key="index" />
         </div>
-
       </div>
     </div>
     <div class="d-flex me-5">
-      <p class="pp-head text-start ms-5 mt-3 mb-0 pp-green">Dashboard</p>
+      <p class="pp-head text-start ms-5 mt-3 mb-0 pp-green">{{townname}} Dashboard</p>
       <p class="opacity-50 pp-text ms-auto mt-auto grow pointer">
         <font-awesome-icon icon="fa-solid fa-plus" /> Add to favourites
       </p>
@@ -28,26 +31,33 @@
         <div class="card m-2 py-3">
           <div class="card-body">
             <h5 class="card-title">Mean Price of Flats</h5>
-            <p class="card-text" id = "median_price"></p>
-            <p id = "placeholder1"><i>Click on a region (town) to display information!</i></p>
+            <p class="card-text" id="median_price"></p>
+            <p id="placeholder1">
+              <i>Click on a region (town) to display information!</i>
+            </p>
           </div>
         </div>
         <!-- Stats 2 -->
         <div class="card m-2 py-3">
           <div class="card-body">
             <h5 class="card-title">Price per sqm</h5>
-            <p class="card-text" id = "ppsqm"></p>
-            <p id = "placeholder2"><i>Click on a region (town) to display information!</i></p>
-
+            <p class="card-text" id="ppsqm"></p>
+            <p id="placeholder2">
+              <i>Click on a region (town) to display information!</i>
+            </p>
           </div>
         </div>
         <!-- Stats 3 -->
         <div class="card m-2 py-3">
           <div class="card-body">
             <h5 class="card-title">% in Price Difference</h5>
-            <h6 class="card-subtitle mb-2 text-muted">(Compared to last year)</h6>
-            <p class="card-text" id = "price_comparison"></p>
-            <p id = "placeholder3"><i>Click on a region (town) to display information!</i></p>
+            <h6 class="card-subtitle mb-2 text-muted">
+              (Compared to last year)
+            </h6>
+            <p class="card-text" id="price_comparison"></p>
+            <p id="placeholder3">
+              <i>Click on a region (town) to display information!</i>
+            </p>
           </div>
         </div>
       </div>
@@ -55,29 +65,76 @@
       <div class="col-12 col-md-7 order-1 order-md-2">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Distribution of Flat Types Sold</button>
+            <button
+              class="nav-link active"
+              id="home-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#home"
+              type="button"
+              role="tab"
+              aria-controls="home"
+              aria-selected="true"
+            >
+              Distribution of Flat Types Sold
+            </button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Mean Price by Flat Type</button>
+            <button
+              class="nav-link"
+              id="profile-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#profile"
+              type="button"
+              role="tab"
+              aria-controls="profile"
+              aria-selected="false"
+            >
+              Mean Price by Flat Type
+            </button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Historical Mean Price</button>
+            <button
+              class="nav-link"
+              id="contact-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#contact"
+              type="button"
+              role="tab"
+              aria-controls="contact"
+              aria-selected="false"
+            >
+              Historical Mean Price
+            </button>
           </li>
         </ul>
         <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <canvas id="room_dist_pieChart" style = "max-height: 300px"></canvas>
+          <div
+            class="tab-pane fade show active p-3"
+            id="home"
+            role="tabpanel"
+            aria-labelledby="home-tab"
+          >
+            <canvas id="room_dist_pieChart" style="max-height: 300px"></canvas>
           </div>
-          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            2
+          <div
+            class="tab-pane fade p-3"
+            id="profile"
+            role="tabpanel"
+            aria-labelledby="profile-tab"
+          >
+          <canvas id="barChartFlatType" style="max-height: 300px"></canvas>
+
           </div>
-          <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+          <div
+            class="tab-pane fade p-3"
+            id="contact"
+            role="tabpanel"
+            aria-labelledby="contact-tab"
+          >
             3
           </div>
         </div>
-        
       </div>
-
     </div>
     <div class="d-block d-md-none col-12 mx-5 mt-3">
       <p class="pp-text opacity-75 mb-3 text-start">Available agents</p>
@@ -88,20 +145,24 @@
 
 <script>
 /* eslint-disable */
+/* global Chart */
+
 import { features } from "../../assets/labels.json";
 import { AreaLabel } from "../../scripts/label";
 import { Loader } from "@googlemaps/js-api-loader";
 import towns from "../../scripts/towns.json";
 import * as colours from "../../scripts/colours.json";
-import AgentCard from './AgentCard.vue'
-import $ from 'jquery';
-
+import AgentCard from "./AgentCard.vue";
+import $ from "jquery";
+import { Chart, registerables } from "chart.js";
+Chart.register(...registerables);
 
 export default {
   name: "mapview",
   data() {
     return {
-      townname: '',
+      townname: "",
+      counter: 0,
       options: {
         center: { lat: 1.3521, lng: 103.8198 },
         zoom: 12,
@@ -130,16 +191,16 @@ export default {
   },
   mounted() {
     this.loader = new Loader(this.loaderSettings);
-    this.initMap()
+    this.initMap();
   },
   methods: {
     async initMap() {
       this.loader.load().then((google) => {
         var townNames = new Set(towns);
         var labels = this.labels;
-        var activeStyle = this.activeStyle
-        var inactiveStyle = this.inactiveStyle
-        var overrideStyle = this.overrideStyle
+        var activeStyle = this.activeStyle;
+        var inactiveStyle = this.inactiveStyle;
+        var overrideStyle = this.overrideStyle;
         var src = "https://project1-367104.as.r.appspot.com/getgeojson";
         var map = new google.maps.Map(
           document.getElementById("googleMap"),
@@ -189,186 +250,289 @@ export default {
           }
         });
         console.log("labels:", labels);
+
         map.data.addListener("click", function (event) {
           // in the geojson feature that was clicked, get the "place" and "mag" attributes
           let area = event.feature.getProperty("PLN_AREA_N");
-          console.log("area selected: ",area);
+          console.log("area selected: ", area);
 
-          // this.townname = area;
+          this.townname = area;
 
           // Here begins the statistics API
           var data = {
-            resource_id: 'f1765b54-a209-4718-8d38-a39237f502b3', // the resource id
+            resource_id: "f1765b54-a209-4718-8d38-a39237f502b3", // the resource id
             limit: 150000, // Set 150000 results
-            q: area
+            q: area,
           };
 
           $.ajax({
-            url: 'https://data.gov.sg/api/action/datastore_search',
+            url: "https://data.gov.sg/api/action/datastore_search",
             data: data,
-            success: function(data) {
-              console.log(data.result.records)
-              var overall_average = 0;
-              var sqm = 0;
-              var yearList = [];
-              var yearDict = {};
-              var room_list = [];
-              var room_dict = {};
+            success: function (data) {},
+          }).then((data) => {
+            console.log(data.result.records);
+            var picture = "";
+            var overall_average = 0;
+            var sqm = 0;
+            var yearList = [];
+            var yearDict = {};
+            var room_list = [];
+            var room_dict = {};
 
-              for (var x = 0; x < data.result.records.length; x++)
-              {
-                var current_record = data.result.records[x];
-                overall_average += Number(current_record.resale_price);
-                sqm += Number(current_record.resale_price)/Number(current_record.floor_area_sqm);
+            for (var x = 0; x < data.result.records.length; x++) {
+              var current_record = data.result.records[x];
+              overall_average += Number(current_record.resale_price);
+              sqm +=
+                Number(current_record.resale_price) /
+                Number(current_record.floor_area_sqm);
 
-                // Append resale prices by year
-                if (!yearList.includes(current_record.month.slice(0,4))){
-                    yearList.push(current_record.month.slice(0,4));
-                    yearDict[current_record.month.slice(0,4)] = [Number(current_record.resale_price), 1];
-                }
-                else {
-                    yearDict[current_record.month.slice(0,4)][0] += Number(current_record.resale_price);
-                    yearDict[current_record.month.slice(0,4)][1] += 1;
-                }
-
-                // Append volume of transacted resale room type
-                if (!room_list.includes(current_record.flat_type)){
-                    room_list.push(current_record.flat_type);
-                    room_dict[current_record.flat_type] = 1
-                }
-                else {
-                    room_dict[current_record.flat_type] += 1;
-                }
-              }
-              // Output statistics data summary
-              var green_triangle_down = require("../../assets/green_triangle_down.png");
-              var red_triangle_up = require("../../assets/red_triangle_up.png");
-              var green_triangle_up = require("../../assets/green_triangle_up.png");
-              var red_triangle_down = require("../../assets/red_triangle_down.png");
-              var picture = "";
-
-              overall_average = (overall_average/data.result.records.length).toFixed(0);
-              sqm = (sqm/data.result.records.length).toFixed(0);
-              document.getElementById("median_price").innerText = "$"+overall_average;
-              document.getElementById("ppsqm").innerText = "$"+sqm;
-              document.getElementById("price_comparison").innerHTML = computeYearOnYearAverageResalePrices();
-              document.getElementById("placeholder1").innerHTML = "";
-              document.getElementById("placeholder2").innerHTML = "";
-              document.getElementById("placeholder3").innerHTML = "";
-
-              if(picture == "decrease_resale_price"){
-                document.getElementById(picture).src = green_triangle_down;
-              }
-              else if (picture == "increase_resale_price"){
-                document.getElementById(picture).src = red_triangle_up;
-              }
-              else if (picture == "increase_resale_quantity"){
-                document.getElementById(picture).src = green_triangle_up;
-              }
-              else if (picture == "decrease_resale_quantity"){
-                document.getElementById(picture).src = red_triangle_down;
-              }
-              
-              // Compute previous year + current year average resale prices in percentage
-              function computeYearOnYearAverageResalePrices (){
-              var current_year = new Date().getFullYear();
-              var previous_year = current_year - 1;
-              var image = "";
-              
-              var current_year_average_price = yearDict[current_year][0]/yearDict[current_year][1];
-              var previous_year_average_price = yearDict[previous_year][0]/yearDict[previous_year][1];
-              
-              var percentage_difference = ((current_year_average_price - previous_year_average_price) / current_year_average_price) * 100
-              
-              // Calculate HDB Resale price averages for current year + previous year 
-
-              if (percentage_difference < 0 )
-              {
-                  image = "<img id = 'decrease_resale_price' width = 25px>";
-                  picture = "decrease_resale_price";
-              }
-              else
-              {
-                  image = "<img id = 'increase_resale_price' width = 25px>";
-                  picture = "increase_resale_price";
-
-              }
-
-              return percentage_difference.toFixed(1) + "%" + image + "<br>";
-              }
-
-              // Charts 
-              function resaleRoomTypeDistributionChart(){
-                var ctx = document.getElementById('room_dist_pieChart').getContext('2d');
-                var data = {
-                labels: Object.keys(room_dict),
-                datasets: [{
-                    label: 'Resale Flat Type',
-                    data: Object.values(room_dict),
-                    backgroundColor: [
-                    '#F47A1F',
-                    '#9552EA',
-                    '#F54F52',
-                    '#7AC142',
-                    '#ffb63a',
-                    '#007CC3',
-                    '#00529B',
-                    ],
-                    hoverBorderColor: ["#000000"],
-                }]
-                };
-
-                var options = {
-                plugins: {
-                    labels: {
-                    position: 'outside'
-                    },
-                    legend: {
-                    position: 'right'
-                    },
-                    tooltips: {
-                    enabled: true
-                    },
-                    datalabels: {
-                    formatter: (value, ctx) => {
-                    let sum = 0;
-                    let dataArr = ctx.chart.data.datasets[0].data;
-                    dataArr.map(data => {
-                        sum += data;
-                    });
-                    let percentage = (value*100 / sum).toFixed(0)+"%";
-                    return percentage;
-                    },
-                    color: '#00000',
-                    align: 'center',
-                    }
-                }
-                };
-
-                var myChart = new Chart(
-                ctx,
-                {
-                    type: 'doughnut',
-                    data: data,
-                    options: options,
-                    plugins: [ChartDataLabels]
-                }
+              // Append resale prices by year
+              if (!yearList.includes(current_record.month.slice(0, 4))) {
+                yearList.push(current_record.month.slice(0, 4));
+                yearDict[current_record.month.slice(0, 4)] = [
+                  Number(current_record.resale_price),
+                  1,
+                ];
+              } else {
+                yearDict[current_record.month.slice(0, 4)][0] += Number(
+                  current_record.resale_price
                 );
-                console.log(myChart);
+                yearDict[current_record.month.slice(0, 4)][1] += 1;
               }
-              resaleRoomTypeDistributionChart();
 
+              // Append volume of transacted resale room type
+              if (!room_list.includes(current_record.flat_type)) {
+                room_list.push(current_record.flat_type);
+                room_dict[current_record.flat_type] = [1, current_record.resale_price];
+              } else {
+                room_dict[current_record.flat_type][0] += 1;
+                room_dict[current_record.flat_type][1] += current_record.resale_price;
+
+              }
             }
-          })
+            // Output statistics data summary
+            overall_average = (
+              overall_average / data.result.records.length
+            ).toFixed(0);
+            sqm = (sqm / data.result.records.length).toFixed(0);
+
+            var current_year = new Date().getFullYear();
+            var previous_year = current_year - 1;
+            var image = "";
+            var current_year_average_price =
+              yearDict[current_year][0] / yearDict[current_year][1];
+            var previous_year_average_price =
+              yearDict[previous_year][0] / yearDict[previous_year][1];
+            var percentage_difference =
+              ((current_year_average_price - previous_year_average_price) /
+                current_year_average_price) *
+              100;
+            // Calculate HDB Resale price averages for current year + previous year
+            if (percentage_difference < 0) {
+              image = "<img id = 'decrease_resale_price' width = 25px>";
+              picture = "decrease_resale_price";
+            } else {
+              image = "<img id = 'increase_resale_price' width = 25px>";
+              picture = "increase_resale_price";
+            }
+            var price_diff =
+              percentage_difference.toFixed(1) + "%" + image + "<br>";
+
+            document.getElementById("median_price").innerText =
+              "$" + overall_average;
+            document.getElementById("ppsqm").innerText = "$" + sqm;
+            document.getElementById("price_comparison").innerHTML = price_diff;
+            document.getElementById("placeholder1").innerHTML = "";
+            document.getElementById("placeholder2").innerHTML = "";
+            document.getElementById("placeholder3").innerHTML = "";
+
+            if (picture == "decrease_resale_price") {
+              document.getElementById(
+                picture
+              ).src = require("../../assets/green_triangle_down.png");
+            } else if (picture == "increase_resale_price") {
+              document.getElementById(
+                picture
+              ).src = require("../../assets/red_triangle_up.png");
+            } else if (picture == "increase_resale_quantity") {
+              document.getElementById(
+                picture
+              ).src = require("../../assets/green_triangle_up.png");
+            } else if (picture == "decrease_resale_quantity") {
+              document.getElementById(
+                picture
+              ).src = require("../../assets/red_triangle_down.png");
+            }
+
+            // function resaleRoomTypeDistributionChart(room_dict) {
+            //   console.log(room_dict);
 
 
+            //   for (const key in room_dict) {
+            //     room_dict[key] = Number(room_dict[key][0]);
+            //   };
+
+            //   var ctx = document.getElementById("room_dist_pieChart").getContext("2d");
+            //   var data = {
+            //     labels: Object.keys(room_dict),
+            //     datasets: [
+            //       {
+            //         label: "Resale Flat Type",
+            //         data: Object.values(room_dict),
+            //         backgroundColor: [
+            //           "#F47A1F",
+            //           "#9552EA",
+            //           "#F54F52",
+            //           "#7AC142",
+            //           "#ffb63a",
+            //           "#007CC3",
+            //           "#00529B",
+            //         ],
+            //         hoverBorderColor: ["#000000"],
+            //       },
+            //     ],
+            //   };
+
+            //   var options = {
+            //     plugins: {
+            //       labels: {
+            //         position: "outside",
+            //       },
+            //       legend: {
+            //         position: "right",
+            //       },
+            //       tooltips: {
+            //         enabled: true,
+            //       },
+            //     },
+            //   };
+
+            //   var myRoomDistChart = new Chart(ctx, {
+            //     type: "doughnut",
+            //     data: data,
+            //     options: options,
+            //   });
+
+            //   console.log(myRoomDistChart);
+            //   return 1;
+            // }
+            // resaleRoomTypeDistributionChart(room_dict);
+            
+            // function resaleRoomTypeMeanPriceChart(){
+            //   for (const key in room_dict) {
+            //     room_dict[key] = Number(room_dict[key][1]) / Number(room_dict[key][0]);
+            //   };
+
+            //   var sorted_room_dict = Object.entries(room_dict)
+            //       .sort(([, a], [, b]) => a - b)
+            //       .reduce(
+            //       (r, [k, v]) => ({
+            //           ...r,
+            //           [k]: v
+            //       }),
+            //       {}
+            //   );
+
+            //   var ctx2 = document.getElementById("barChartFlatType").getContext("2d");
+            //   var data2 = {
+            //       labels: Object.keys(sorted_room_dict),
+            //       datasets: [{
+            //           label: "$",
+            //           data:  Object.values(sorted_room_dict),
+            //           backgroundColor: ["#4D8C57", "#4D8C57", "#78A161", "#78A161", "#A3B56B", "#A3B56B", "#CDCA74", "#CDCA74", "#F8DE7E", "#F8DE7E"],
+            //           hoverBorderColor: ["#000000"],
+            //       }]
+            //   };
+            //   var options = {
+            //       indexAxis: 'y',
+            //       legend: {display: false},
+            //       scales: {
+            //       x: {
+            //           grid: {
+            //           display: false
+            //           }
+            //       },
+            //       y: {
+            //           grid: {
+            //           display: false
+            //           }
+            //       }
+            //       },
+            //       plugins: {
+            //       legend: {
+            //           display: false,
+            //       }
+            //       }
+            //   }
+            //   var barChart = new Chart(ctx2, {
+            //       type: 'bar',
+            //       data: data2,
+            //       options: options,
+            //   }); 
+            // }
+            // resaleRoomTypeMeanPriceChart();
+
+            this.resaleRoomTypeDistributionChart(room_dict);
+          });
         });
       });
     },
+
+    resaleRoomTypeDistributionChart(room_dict) {
+      var ctx = document.getElementById("room_dist_pieChart").getContext("2d");
+      var data = {
+        labels: Object.keys(room_dict),
+        datasets: [
+          {
+            label: "Resale Flat Type",
+            data: Object.values(room_dict),
+            backgroundColor: [
+              "#F47A1F",
+              "#9552EA",
+              "#F54F52",
+              "#7AC142",
+              "#ffb63a",
+              "#007CC3",
+              "#00529B",
+            ],
+            hoverBorderColor: ["#000000"],
+          },
+        ],
+      };
+
+      var options = {
+        plugins: {
+          labels: {
+            position: "outside",
+          },
+          legend: {
+            position: "right",
+          },
+          tooltips: {
+            enabled: true,
+          },
+        },
+      };
+
+      console.log(this.firstRun);
+      if (this.firstRun) {
+        var myRoomDistChart = new Chart(ctx, {
+          type: "doughnut",
+          data: data,
+          options: options,
+        });
+      } else {
+        myRoomDistChart.update();
+      }
+
+      this.firstRun = false;
+
+      console.log(myRoomDistChart);
+    },
   },
   components: {
-    AgentCard
-  }
+    AgentCard,
+  },
 };
 </script>
 
