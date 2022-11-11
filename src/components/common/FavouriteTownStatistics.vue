@@ -2,8 +2,9 @@
     <!-- Template Start -->
     <div class="d-flex me-5">
       <p class="pp-head text-start ms-5 mt-3 mb-0 pp-green">
-        {{ townname }} Information
+        {{ mytownname }} Information
       </p>
+
       <p class="opacity-50 pp-text ms-auto mt-auto grow pointer">
         <font-awesome-icon icon="fa-solid fa-plus" /> Add to favourites
       </p>
@@ -133,6 +134,7 @@
 
 <script>
 export default {
-    name: 'FavouriteTownStatistics'
+    name: 'FavouriteTownStatistics',
+    props: ['mytownname']
 }
 </script>

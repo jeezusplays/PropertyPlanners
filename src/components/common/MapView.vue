@@ -20,7 +20,7 @@
     </div>
 
     <!-- Template Start -->
-    <FavouriteTownStatistics></FavouriteTownStatistics>
+    <FavouriteTownStatistics :mytownname = 'townname'></FavouriteTownStatistics>
     <!-- Template End -->
     
     <div class="d-block d-md-none col-12 mx-5 mt-3">
