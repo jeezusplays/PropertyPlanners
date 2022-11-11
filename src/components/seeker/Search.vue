@@ -70,42 +70,49 @@ export default {
                 {
                     name: "Agent Name",
                     location: "Location",
-                    company: "Company"
+                    company: "Company",
+                    // TODO: add image
                 },
                 {
                     name: "Agent Name",
                     location: "Location",
-                    company: "Company"
+                    company: "Company",
+                    // TODO: add image
                 },
                 {
                     name: "Agent Name",
                     location: "Location",
-                    company: "Company"
+                    company: "Company",
+                    // TODO: add image
                 },
                 {
                     name: "Agent Name",
                     location: "Location",
-                    company: "Company"
+                    company: "Company",
                 },
                 {
                     name: "Agent Name",
                     location: "Location",
-                    company: "Company"
+                    company: "Company",
+                    // TODO: add image
                 },
                 {
                     name: "Agent Name",
                     location: "Location",
-                    company: "Company"
+                    company: "Company",
+                    // TODO: add image
                 },
                 {
                     name: "Agent Name",
                     location: "Location",
-                    company: "Company"
+                    company: "Company",
+                    // TODO: add image
                 },
                 {
                     name: "Agent Name",
                     location: "Location",
-                    company: "Company"
+                    company: "Company",
+                    // TODO: add image
                 },
             ]
         };
