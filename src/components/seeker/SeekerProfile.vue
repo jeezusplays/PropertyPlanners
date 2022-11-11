@@ -20,8 +20,6 @@
               </div>
             </div>
 
-
-
             <p class="pp-subhead text-center m-0">{{ profile.name }}</p>
             <p class="pp-text text-center text-break">{{ profile.email }}</p>
           </div>
@@ -93,7 +91,7 @@ export default {
         email: "Johndoe@gmail.com",
         aboutme: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum gravida dolor sit amet condimentum."
       },
-      isEditing: true
+      isEditing: false
     };
   },
 };
