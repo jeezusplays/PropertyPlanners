@@ -5,19 +5,32 @@
       <div class="col-12 col-md-5 col-lg-4 py-3 py-md-0 mb-3">
         <div class="profile-side rounded-4 p-4">
           <div class="profile-head">
-            <img
-              class="profile-pic rounded-3 mb-3"
-              src="../../assets/HDB_banner.jpg"
-            />
-            <p class="pp-subhead text-center m-0">{{profile.name}}</p>
-            <p class="pp-text text-center text-break">{{profile.email}}</p>
+            <div class="position-relative">
+              <img class="profile-pic rounded-3 mb-3" src="../../assets/HDB_banner.jpg" />
+              <div class="position-absolute" style="top: 0px; right: 0px"
+                onclick="$('#imgupload').trigger('click'); return false;">
+                <span class="position-absolute badge badge-dark" id="OpenImgUpload"
+                  style="color:black; top: 0px; right: 0px;" onclick="$('#imgupload').trigger('click');">
+                  <label for='imgupload'>
+                    <input type="file" id="imgupload" style="display:none;" accept=".png, .jpg, .jpeg" />
+                    <font-awesome-icon class="m-auto" icon="fa fa-pen" size="xl"
+                      onclick="$('#imgupload').trigger('click');" />
+                  </label>
+                </span>
+              </div>
+            </div>
+
+
+
+            <p class="pp-subhead text-center m-0">{{ profile.name }}</p>
+            <p class="pp-text text-center text-break">{{ profile.email }}</p>
           </div>
 
           <div class="profile-body mt-5">
             <p class="pp-text text-start">
               <b>About me:</b>
               <br>
-              {{profile.aboutme}}
+              {{ profile.aboutme }}
             </p>
           </div>
         </div>
@@ -25,15 +38,17 @@
       </div>
       <div class="col-12 col-md-7 col-lg-8 py-3 py-md-0 mb-3">
         <div class="profile-side rounded-4 py-4 px-5">
-          <p class="pp-head me-auto">Preferences</p>
+          <p class="pp-head">Preferences</p>
           <template v-if="!isEditing">
-            <div v-for="preference in preferences" :key="preference.id" class="row pref-row text-start rounded-3 p-3 mt-3">
+            <div v-for="preference in preferences" :key="preference.id"
+              class="row pref-row text-start rounded-3 p-3 mt-3">
               <span class="pp-subhead text-light">{{ preference.name }}</span>
               <span class="pp-text text-light opacity-75">{{ preference.value }}</span>
             </div>
           </template>
           <template v-if="isEditing">
-            <div v-for="preference in preferences" :key="preference.id" class="row pref-row text-start rounded-3 p-3 mt-3">
+            <div v-for="preference in preferences" :key="preference.id"
+              class="row pref-row text-start rounded-3 p-3 mt-3">
               <span class="pp-subhead text-light">{{ preference.name }}</span>
               <span class="pp-text text-light opacity-75">{{ preference.value }}</span>
             </div>
@@ -73,12 +88,12 @@ export default {
           value: "value",
         },
       ],
-      profile:{
+      profile: {
         name: "John Doe",
         email: "Johndoe@gmail.com",
         aboutme: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum gravida dolor sit amet condimentum."
       },
-      isEditing:true
+      isEditing: true
     };
   },
 };
@@ -90,9 +105,11 @@ export default {
   height: 100%;
   background-color: rgba(var(--main-grey-rgb), 0.2);
 }
+
 .pref-row {
   background-color: rgba(var(--main-green-rgb), 1);
 }
+
 .profile-pic {
   width: 100%;
   max-height: 400px;
