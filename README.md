@@ -136,7 +136,6 @@ This section lists any major frameworks/libraries used to bootstrap PropertyPlan
 
 This are the APIs used to integrate meaningful data into PropertyPlanners.
 * [Resale Flat](https://data.gov.sg/dataset/resale-flat-prices)
-* [Resale Price Index](https://data.gov.sg/dataset/hdb-resale-price-index)
 * [CEA Salesperson Information](https://data.gov.sg/dataset/cea-salesperson-info)
 * [CEA Salesperson Property Transaction Records (Residential)](https://data.gov.sg/dataset/cea-salesperson-residential-transaction-record)
 * [Google Maps API](https://developers.google.com/maps)
