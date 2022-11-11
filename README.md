@@ -315,5 +315,5 @@ Credit to these helpful resources!
 [Flask-url]:https://flask.palletsprojects.com/en/2.2.x/
 [GeoJSON]:https://img.shields.io/twitter/url?color=white&label=GeoJSON&logo=json&logoColor=blue&style=for-the-badge&url=https%3A%2F%2Fgeojson.org%2F
 [GeoJSON-url]:https://geojson.org/
-[Google]:https://img.shields.io/twitter/url?color=white&label=Google%20Compute%20Engine&logo=google%20cloud&logoColor=red&style=for-the-badge&url=https%3A%2F%2Fcloud.google.com%2Fcompute
+[Google]:https://img.shields.io/twitter/url?label=Google%20Compute%20Engine&logo=google%20cloud&logoColor=red&style=for-the-badge&url=https%3A%2F%2Fcloud.google.com%2Fcompute
 [Google-url]:https://cloud.google.com/compute
