@@ -98,11 +98,11 @@ Property Planners is a platform for resale flat buyers to understand the propert
 
 Without comprehensive, interactive, and free statistical data on resale flats, the process of purchasing a flat is often tedious and buyers have little sensing on a reasonable price. Most individuals would be unable to understand the landscape of the resale market at a glance, and would have to spend hours and days researching. Others may rely on property agents, who may not always provide the most accurate information to benefit themselves financially. To give property seekers a leverage, Property Planners aims to provide meaningful data such as (but not limited to):
 
-* summary statistics
-* drill down charts 
-* regional maps
-* distribution tables
-* resale price forecast 
+* Summary statistics
+* Drill down charts 
+* Regional maps
+* Distribution tables
+* Resale price forecast 
 
 By aggregating resale flat prices around Singapore, users can understand the market much quicker instead of having to read numerous complex reports on property websites. This helps users create a simpler and better overview of their property purchasing journey. Researching for prices and prospecting for the ideal flat becomes much easier with the data we provide.
 
@@ -135,7 +135,7 @@ This section lists any major frameworks/libraries used to bootstrap PropertyPlan
 * [![Laravel][Laravel.com]][Laravel-url] -->
 
 This are the APIs used to integrate meaningful data into PropertyPlanners.
-* [Resale Flat](https://data.gov.sg/dataset/resale-flat-prices)
+* [Resale Flat Prices](https://data.gov.sg/dataset/resale-flat-prices)
 * [CEA Salesperson Information](https://data.gov.sg/dataset/cea-salesperson-info)
 * [CEA Salesperson Property Transaction Records (Residential)](https://data.gov.sg/dataset/cea-salesperson-residential-transaction-record)
 * [Google Maps API](https://developers.google.com/maps)
