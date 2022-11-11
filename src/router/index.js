@@ -21,6 +21,7 @@ import LandingPage from "../components/landing/LandingPage.vue";
 
 // Seeker
 import SeekerProfile from "../components/seeker/SeekerProfile.vue";
+import Search from "../components/seeker/Search.vue"
 
 // function navigationGuard(to, from, next) {
 //   var local = localStorage;
@@ -57,7 +58,7 @@ const router = createRouter({
     },
     {
       path: "/",
-      redirect:"/home",
+      redirect: "/home",
       name: "main",
       component: BasicView,
       children: [
@@ -149,6 +150,11 @@ const router = createRouter({
           path: "general",
           name: "general",
           component: LandingPage,
+        },
+        {
+          path: "search",
+          name: "search",
+          component: Search,
         },
       ],
     },
