@@ -11,6 +11,7 @@ import SignupView from "../components/Signup.vue";
 // Agent
 import AgentDashboard from "../components/agent/AgentDashboard.vue";
 import AgentProfile from "../components/agent/AgentProfile.vue";
+import Payment from "../views/PaymentPage.vue";
 
 // Common
 import Chat from "../components/common/Chat.vue";
@@ -57,7 +58,7 @@ const router = createRouter({
     },
     {
       path: "/",
-      redirect:"/home",
+      redirect: "/home",
       name: "main",
       component: BasicView,
       children: [
@@ -107,6 +108,11 @@ const router = createRouter({
           path: "general",
           name: "agent-general",
           component: LandingPage,
+        },
+        {
+          path: "payment",
+          name: "payment",
+          component: Payment, 
         },
       ],
     },
