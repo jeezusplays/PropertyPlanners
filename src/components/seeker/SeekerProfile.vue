@@ -25,7 +25,7 @@
       </div>
       <div class="col-12 col-md-7 col-lg-8 py-3 py-md-0 mb-3">
         <div class="profile-side rounded-4 py-4 px-5">
-          <p class="pp-head text- me-auto">Preferences</p>
+          <p class="pp-head me-auto">Preferences</p>
           <template v-if="!isEditing">
             <div v-for="preference in preferences" :key="preference.id" class="row pref-row text-start rounded-3 p-3 mt-3">
               <span class="pp-subhead text-light">{{ preference.name }}</span>
