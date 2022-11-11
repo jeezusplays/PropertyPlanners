@@ -20,7 +20,7 @@
     </div>
     <div class="d-flex me-5">
       <p class="pp-head text-start ms-5 mt-3 mb-0 pp-green">
-        {{ townname }} Dashboard
+        {{ townname }} Information
       </p>
       <p class="opacity-50 pp-text ms-auto mt-auto grow pointer">
         <font-awesome-icon icon="fa-solid fa-plus" /> Add to favourites
@@ -117,6 +117,9 @@
             aria-labelledby="distribution-tab"
           >
             <canvas id="room_dist_pieChart" style="max-height: 300px"></canvas>
+            <p id="placeholder4">
+                <i>Click on a region (town) to display information!</i>
+            </p>
           </div>
           <div
             class="tab-pane fade p-3"
@@ -125,6 +128,9 @@
             aria-labelledby="price_barChart-tab"
           >
             <canvas id="barChartFlatType" style="max-height: 300px"></canvas>
+            <p id="placeholder5">
+                <i>Click on a region (town) to display information!</i>
+            </p>
           </div>
           <div
             class="tab-pane fade p-3"
@@ -133,7 +139,9 @@
             aria-labelledby="mean_price_year-tab"
           >
           <canvas id="barChartPriceYear" style="max-height: 300px"></canvas>
-
+          <p id="placeholder6">
+              <i>Click on a region (town) to display information!</i>
+          </p>
           </div>
         </div>
       </div>
@@ -258,7 +266,12 @@ export default {
           let area = event.feature.getProperty("PLN_AREA_N");
           console.log("Area selected: ", area);
 
-          this.townname = area.charAt(0) + area.toLowerCase().slice(1);
+          area = area.toLowerCase()
+            .split(' ')
+            .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+            .join(' ');
+
+          this.townname = area;
 
           // Here begins the statistics API
           var data = {
@@ -347,9 +360,12 @@ export default {
               "$" + overall_average;
             document.getElementById("ppsqm").innerText = "$" + sqm;
             document.getElementById("price_comparison").innerHTML = price_diff;
-            document.getElementById("placeholder1").innerHTML = "";
-            document.getElementById("placeholder2").innerHTML = "";
-            document.getElementById("placeholder3").innerHTML = "";
+            if (this.counter == 0){
+              for (let x = 1; x < 7; x++){
+              let name = "placeholder" + x;
+              document.getElementById(name).remove();
+            }
+            }
 
             if (picture == "decrease_resale_price") {
               document.getElementById(
@@ -494,7 +510,7 @@ export default {
         var data2 = {
             labels: Object.keys(year_dict_new),
             datasets: [{
-                label: "$ per sqm",
+                label: "Mean Price",
                 data:  Object.values(year_dict_new),
                 backgroundColor: ["#4D8C57", "#4D8C57", "#78A161", "#78A161", "#A3B56B", "#A3B56B", "#CDCA74", "#CDCA74", "#F8DE7E", "#F8DE7E"],
                 hoverBorderColor: ["#000000"],
@@ -534,7 +550,7 @@ export default {
         var data2 = {
             labels: Object.keys(year_dict_new),
             datasets: [{
-                label: "$ per sqm",
+                label: "Mean Price",
                 data:  Object.values(year_dict_new),
                 backgroundColor: ["#4D8C57", "#4D8C57", "#78A161", "#78A161", "#A3B56B", "#A3B56B", "#CDCA74", "#CDCA74", "#F8DE7E", "#F8DE7E"],
                 hoverBorderColor: ["#000000"],
@@ -620,7 +636,7 @@ export default {
         var data3 = {
             labels: Object.keys(year_dict_new),
             datasets: [{
-                label: "$ per sqm",
+                label: "Mean Price",
                 data:  Object.values(year_dict_new),
                 backgroundColor: ["#4D8C57", "#4D8C57", "#78A161", "#78A161", "#A3B56B", "#A3B56B", "#CDCA74", "#CDCA74", "#F8DE7E", "#F8DE7E"],
                 hoverBorderColor: ["#000000"],
