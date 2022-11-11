@@ -126,6 +126,10 @@ This section lists any major frameworks/libraries used to bootstrap PropertyPlan
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 * [![JQuery][JQuery.com]][JQuery-url]
 * [![Firebase][Firebase]][Firebase-url]
+* [![GeoJSON][GeoJSON]][GeoJSON-url]
+* [![Flask][Flask]][Flask-url]
+* [![Google][Google]][Google-url]
+
 <!-- * [![Angular][Angular.io]][Angular-url]
 * [![Svelte][Svelte.dev]][Svelte-url]
 * [![Laravel][Laravel.com]][Laravel-url] -->
@@ -264,7 +268,6 @@ Credit to these helpful resources!
 * [Firebase](https://firebase.google.com/)
 * [Geocoding/Reverse Geocoding](https://developers.google.com/maps/documentation/geocoding)
 * [DataTables Vue](https://datatables.net/blog/2022-06-22-vue)
-* [Chart.js](https://www.chartjs.org/docs/latest/)
 
 <!-- * [React Icons](https://react-icons.github.io/react-icons/search) -->
 <!-- * [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet) -->
@@ -308,3 +311,9 @@ Credit to these helpful resources!
 [Chart-url]: https://www.chartjs.org/
 [Firebase]: https://img.shields.io/badge/Firebase-039be5?style=for-the-badge&logo=Firebase&logoColor=dark
 [Firebase-url]: https://firebase.google.com/
+[Flask]: https://img.shields.io/twitter/url?color=white&label=Flask&logo=Flask&style=for-the-badge&url=https%3A%2F%2Fflask.palletsprojects.com%2Fen%2F2.2.x%2F
+[Flask-url]:https://flask.palletsprojects.com/en/2.2.x/
+[GeoJSON]:https://img.shields.io/twitter/url?color=white&label=GeoJSON&logo=json&logoColor=blue&style=for-the-badge&url=https%3A%2F%2Fgeojson.org%2F
+[GeoJSON-url]:https://geojson.org/
+[Google]:https://img.shields.io/twitter/url?color=white&label=Google%20Compute%20Engine&logo=google%20cloud&logoColor=red&style=for-the-badge&url=https%3A%2F%2Fcloud.google.com%2Fcompute
+[Google-url]:https://cloud.google.com/compute
