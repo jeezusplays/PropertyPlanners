@@ -19,7 +19,9 @@
       </div>
     </div>
     <div class="d-flex me-5">
-      <p class="pp-head text-start ms-5 mt-3 mb-0 pp-green">{{townname}} Dashboard</p>
+      <p class="pp-head text-start ms-5 mt-3 mb-0 pp-green">
+        {{ townname }} Dashboard
+      </p>
       <p class="opacity-50 pp-text ms-auto mt-auto grow pointer">
         <font-awesome-icon icon="fa-solid fa-plus" /> Add to favourites
       </p>
@@ -67,12 +69,12 @@
           <li class="nav-item" role="presentation">
             <button
               class="nav-link active"
-              id="home-tab"
+              id="distribution-tab"
               data-bs-toggle="tab"
-              data-bs-target="#home"
+              data-bs-target="#distribution"
               type="button"
               role="tab"
-              aria-controls="home"
+              aria-controls="distribution"
               aria-selected="true"
             >
               Distribution of Flat Types Sold
@@ -81,12 +83,12 @@
           <li class="nav-item" role="presentation">
             <button
               class="nav-link"
-              id="profile-tab"
+              id="price_barChart-tab"
               data-bs-toggle="tab"
-              data-bs-target="#profile"
+              data-bs-target="#price_barChart"
               type="button"
               role="tab"
-              aria-controls="profile"
+              aria-controls="price_barChart"
               aria-selected="false"
             >
               Mean Price by Flat Type
@@ -95,12 +97,12 @@
           <li class="nav-item" role="presentation">
             <button
               class="nav-link"
-              id="contact-tab"
+              id="mean_price_year-tab"
               data-bs-toggle="tab"
-              data-bs-target="#contact"
+              data-bs-target="#mean_price_year"
               type="button"
               role="tab"
-              aria-controls="contact"
+              aria-controls="mean_price_year"
               aria-selected="false"
             >
               Historical Mean Price
@@ -110,28 +112,28 @@
         <div class="tab-content" id="myTabContent">
           <div
             class="tab-pane fade show active p-3"
-            id="home"
+            id="distribution"
             role="tabpanel"
-            aria-labelledby="home-tab"
+            aria-labelledby="distribution-tab"
           >
             <canvas id="room_dist_pieChart" style="max-height: 300px"></canvas>
           </div>
           <div
             class="tab-pane fade p-3"
-            id="profile"
+            id="price_barChart"
             role="tabpanel"
-            aria-labelledby="profile-tab"
+            aria-labelledby="price_barChart-tab"
           >
-          <canvas id="barChartFlatType" style="max-height: 300px"></canvas>
-
+            <canvas id="barChartFlatType" style="max-height: 300px"></canvas>
           </div>
           <div
             class="tab-pane fade p-3"
-            id="contact"
+            id="mean_price_year"
             role="tabpanel"
-            aria-labelledby="contact-tab"
+            aria-labelledby="mean_price_year-tab"
           >
-            3
+          <canvas id="barChartPriceYear" style="max-height: 300px"></canvas>
+
           </div>
         </div>
       </div>
@@ -251,12 +253,12 @@ export default {
         });
         console.log("labels:", labels);
 
-        map.data.addListener("click", function (event) {
+        map.data.addListener("click", (event) => {
           // in the geojson feature that was clicked, get the "place" and "mag" attributes
           let area = event.feature.getProperty("PLN_AREA_N");
-          console.log("area selected: ", area);
+          console.log("Area selected: ", area);
 
-          this.townname = area;
+          this.townname = area.charAt(0) + area.toLowerCase().slice(1);
 
           // Here begins the statistics API
           var data = {
@@ -270,7 +272,7 @@ export default {
             data: data,
             success: function (data) {},
           }).then((data) => {
-            console.log(data.result.records);
+            // console.log(data.result.records);
             var picture = "";
             var overall_average = 0;
             var sqm = 0;
@@ -303,11 +305,14 @@ export default {
               // Append volume of transacted resale room type
               if (!room_list.includes(current_record.flat_type)) {
                 room_list.push(current_record.flat_type);
-                room_dict[current_record.flat_type] = [1, current_record.resale_price];
+                room_dict[current_record.flat_type] = [
+                  1,
+                  Number(current_record.resale_price),
+                ];
               } else {
                 room_dict[current_record.flat_type][0] += 1;
-                room_dict[current_record.flat_type][1] += current_record.resale_price;
-
+                room_dict[current_record.flat_type][1] +=
+                  Number(current_record.resale_price);
               }
             }
             // Output statistics data summary
@@ -364,128 +369,32 @@ export default {
               ).src = require("../../assets/red_triangle_down.png");
             }
 
-            // function resaleRoomTypeDistributionChart(room_dict) {
-            //   console.log(room_dict);
-
-
-            //   for (const key in room_dict) {
-            //     room_dict[key] = Number(room_dict[key][0]);
-            //   };
-
-            //   var ctx = document.getElementById("room_dist_pieChart").getContext("2d");
-            //   var data = {
-            //     labels: Object.keys(room_dict),
-            //     datasets: [
-            //       {
-            //         label: "Resale Flat Type",
-            //         data: Object.values(room_dict),
-            //         backgroundColor: [
-            //           "#F47A1F",
-            //           "#9552EA",
-            //           "#F54F52",
-            //           "#7AC142",
-            //           "#ffb63a",
-            //           "#007CC3",
-            //           "#00529B",
-            //         ],
-            //         hoverBorderColor: ["#000000"],
-            //       },
-            //     ],
-            //   };
-
-            //   var options = {
-            //     plugins: {
-            //       labels: {
-            //         position: "outside",
-            //       },
-            //       legend: {
-            //         position: "right",
-            //       },
-            //       tooltips: {
-            //         enabled: true,
-            //       },
-            //     },
-            //   };
-
-            //   var myRoomDistChart = new Chart(ctx, {
-            //     type: "doughnut",
-            //     data: data,
-            //     options: options,
-            //   });
-
-            //   console.log(myRoomDistChart);
-            //   return 1;
-            // }
-            // resaleRoomTypeDistributionChart(room_dict);
-            
-            // function resaleRoomTypeMeanPriceChart(){
-            //   for (const key in room_dict) {
-            //     room_dict[key] = Number(room_dict[key][1]) / Number(room_dict[key][0]);
-            //   };
-
-            //   var sorted_room_dict = Object.entries(room_dict)
-            //       .sort(([, a], [, b]) => a - b)
-            //       .reduce(
-            //       (r, [k, v]) => ({
-            //           ...r,
-            //           [k]: v
-            //       }),
-            //       {}
-            //   );
-
-            //   var ctx2 = document.getElementById("barChartFlatType").getContext("2d");
-            //   var data2 = {
-            //       labels: Object.keys(sorted_room_dict),
-            //       datasets: [{
-            //           label: "$",
-            //           data:  Object.values(sorted_room_dict),
-            //           backgroundColor: ["#4D8C57", "#4D8C57", "#78A161", "#78A161", "#A3B56B", "#A3B56B", "#CDCA74", "#CDCA74", "#F8DE7E", "#F8DE7E"],
-            //           hoverBorderColor: ["#000000"],
-            //       }]
-            //   };
-            //   var options = {
-            //       indexAxis: 'y',
-            //       legend: {display: false},
-            //       scales: {
-            //       x: {
-            //           grid: {
-            //           display: false
-            //           }
-            //       },
-            //       y: {
-            //           grid: {
-            //           display: false
-            //           }
-            //       }
-            //       },
-            //       plugins: {
-            //       legend: {
-            //           display: false,
-            //       }
-            //       }
-            //   }
-            //   var barChart = new Chart(ctx2, {
-            //       type: 'bar',
-            //       data: data2,
-            //       options: options,
-            //   }); 
-            // }
-            // resaleRoomTypeMeanPriceChart();
-
             this.resaleRoomTypeDistributionChart(room_dict);
+            this.resaleYearChart(yearDict);
+            this.resaleRoomTypePriceChart(room_dict);
+            this.counter += 1;
+            console.log(room_dict);
           });
         });
       });
     },
 
     resaleRoomTypeDistributionChart(room_dict) {
+      var room_dict_sorted = {...room_dict};
+      for (const key in room_dict) {
+        room_dict_sorted[key] = Number(room_dict[key][0]);
+      };
+      console.log("test",room_dict_sorted);
+
+
+      if (this.counter == 0){
       var ctx = document.getElementById("room_dist_pieChart").getContext("2d");
       var data = {
-        labels: Object.keys(room_dict),
+        labels: Object.keys(room_dict_sorted),
         datasets: [
           {
-            label: "Resale Flat Type",
-            data: Object.values(room_dict),
+            label: "Flat Type",
+            data: Object.values(room_dict_sorted),
             backgroundColor: [
               "#F47A1F",
               "#9552EA",
@@ -514,21 +423,238 @@ export default {
         },
       };
 
-      console.log(this.firstRun);
-      if (this.firstRun) {
+      
+      var myRoomDistChart = new Chart(ctx, {
+        type: "doughnut",
+        data: data,
+        options: options,
+      });
+      
+      console.log(myRoomDistChart);
+      }
+
+      else {
+        $('#room_dist_pieChart').remove();
+        $('#distribution').append('<canvas id="room_dist_pieChart" style="max-height: 300px"></canvas>');
+
+        var ctx = document.getElementById("room_dist_pieChart").getContext("2d");
+        var data = {
+          labels: Object.keys(room_dict_sorted),
+          datasets: [
+            {
+              label: "Flat Type",
+              data: Object.values(room_dict_sorted),
+              backgroundColor: [
+                "#F47A1F",
+                "#9552EA",
+                "#F54F52",
+                "#7AC142",
+                "#ffb63a",
+                "#007CC3",
+                "#00529B",
+              ],
+              hoverBorderColor: ["#000000"],
+            },
+          ],
+        };
+
+        var options = {
+          plugins: {
+            labels: {
+              position: "outside",
+            },
+            legend: {
+              position: "right",
+            },
+            tooltips: {
+              enabled: true,
+            },
+          },
+        };
+
+        
         var myRoomDistChart = new Chart(ctx, {
           type: "doughnut",
           data: data,
           options: options,
         });
-      } else {
-        myRoomDistChart.update();
-      }
-
-      this.firstRun = false;
-
-      console.log(myRoomDistChart);
+        
+        console.log(myRoomDistChart);
+      }    
     },
+
+    resaleRoomTypePriceChart(room_dict){
+      var year_dict_new = {...room_dict};
+      for (const key in room_dict) {
+          year_dict_new[key] = Number((room_dict[key][1]/room_dict[key][0]).toFixed(0));
+      };
+
+      if (this.counter == 0){
+        var ctx2 = document.getElementById("barChartFlatType").getContext("2d");
+        var data2 = {
+            labels: Object.keys(year_dict_new),
+            datasets: [{
+                label: "$ per sqm",
+                data:  Object.values(year_dict_new),
+                backgroundColor: ["#4D8C57", "#4D8C57", "#78A161", "#78A161", "#A3B56B", "#A3B56B", "#CDCA74", "#CDCA74", "#F8DE7E", "#F8DE7E"],
+                hoverBorderColor: ["#000000"],
+            }]
+        };
+        var options = {
+            indexAxis: 'y',
+            legend: {display: false},
+            scales: {
+            x: {
+                grid: {
+                display: false
+                }
+            },
+            y: {
+                grid: {
+                display: false
+                }
+            }
+            },
+            plugins: {
+            legend: {
+                display: false,
+            }
+            }
+        }
+        var barChartFlat = new Chart(ctx2, {
+            type: 'bar',
+            data: data2,
+            options: options,
+        }); 
+      }
+      else {
+        $('#barChartFlatType').remove();
+        $('#price_barChart').append('<canvas id="barChartFlatType" style="max-height: 300px"></canvas>');
+        var ctx2 = document.getElementById("barChartFlatType").getContext("2d");
+        var data2 = {
+            labels: Object.keys(year_dict_new),
+            datasets: [{
+                label: "$ per sqm",
+                data:  Object.values(year_dict_new),
+                backgroundColor: ["#4D8C57", "#4D8C57", "#78A161", "#78A161", "#A3B56B", "#A3B56B", "#CDCA74", "#CDCA74", "#F8DE7E", "#F8DE7E"],
+                hoverBorderColor: ["#000000"],
+            }]
+        };
+        var options = {
+            indexAxis: 'y',
+            legend: {display: false},
+            scales: {
+            x: {
+                grid: {
+                display: false
+                }
+            },
+            y: {
+                grid: {
+                display: false
+                }
+            }
+            },
+            plugins: {
+            legend: {
+                display: false,
+            }
+            }
+        }
+        var barChartFlat = new Chart(ctx2, {
+            type: 'bar',
+            data: data2,
+            options: options,
+        }); 
+      }
+      console.log (barChartFlat);
+    },
+
+    resaleYearChart(yearDict){
+      var year_dict_new = {}
+      for (const key in yearDict) {
+          year_dict_new[key] = Number((yearDict[key][0]/yearDict[key][1]).toFixed(0));
+      };
+
+      if (this.counter == 0){
+        var ctx3 = document.getElementById("barChartPriceYear").getContext("2d");
+        var data3 = {
+            labels: Object.keys(year_dict_new),
+            datasets: [{
+                label: "Mean price",
+                data:  Object.values(year_dict_new),
+                backgroundColor: ["#4D8C57", "#4D8C57", "#78A161", "#78A161", "#A3B56B", "#A3B56B", "#CDCA74", "#CDCA74", "#F8DE7E", "#F8DE7E"],
+                hoverBorderColor: ["#000000"],
+            }]
+        };
+        var options = {
+            legend: {display: false},
+            scales: {
+            x: {
+                grid: {
+                display: false
+                }
+            },
+            y: {
+                grid: {
+                display: false
+                }
+            }
+            },
+            plugins: {
+            legend: {
+                display: false,
+            }
+            }
+        }
+        var barChart = new Chart(ctx3, {
+            type: 'bar',
+            data: data3,
+            options: options,
+        }); 
+      }
+      else {
+        $('#barChartPriceYear').remove();
+        $('#mean_price_year').append('<canvas id="barChartPriceYear" style="max-height: 300px"></canvas>');
+        var ctx3 = document.getElementById("barChartPriceYear").getContext("2d");
+        var data3 = {
+            labels: Object.keys(year_dict_new),
+            datasets: [{
+                label: "$ per sqm",
+                data:  Object.values(year_dict_new),
+                backgroundColor: ["#4D8C57", "#4D8C57", "#78A161", "#78A161", "#A3B56B", "#A3B56B", "#CDCA74", "#CDCA74", "#F8DE7E", "#F8DE7E"],
+                hoverBorderColor: ["#000000"],
+            }]
+        };
+        var options = {
+            legend: {display: false},
+            scales: {
+            x: {
+                grid: {
+                display: false
+                }
+            },
+            y: {
+                grid: {
+                display: false
+                }
+            }
+            },
+            plugins: {
+            legend: {
+                display: false,
+            }
+            }
+        }
+        var barChart = new Chart(ctx3, {
+            type: 'bar',
+            data: data3,
+            options: options,
+        }); 
+      }
+      console.log (barChart);
+    }
+
   },
   components: {
     AgentCard,
