@@ -15,6 +15,7 @@ import AgentProfile from "../components/agent/AgentProfile.vue";
 // Common
 import Chat from "../components/common/Chat.vue";
 import MapView from "../components/common/MapView.vue"
+import GeneralStats from "../components/common/GeneralStats.vue"
 
 // Landing
 import LandingPage from "../components/landing/LandingPage.vue";
@@ -102,7 +103,7 @@ const router = createRouter({
         {
           path: "general",
           name: "agent-general",
-          component: LandingPage,
+          component: GeneralStats,
         },
       ],
     },
@@ -144,7 +145,7 @@ const router = createRouter({
         {
           path: "general",
           name: "general",
-          component: LandingPage,
+          component: GeneralStats,
         },
       ],
     },

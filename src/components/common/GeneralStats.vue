@@ -87,7 +87,7 @@
 <script>
 /* global Chart */
 
-import { $ } from 'jquery';
+import $ from 'jquery';
 
 export default {
   name: 'generalstats',
@@ -112,6 +112,7 @@ export default {
       town_dict: {},
       story_list: [],
       story_dict: [],
+      data:{}
     }
   },
   mounted() {
@@ -124,6 +125,7 @@ export default {
       url: 'https://data.gov.sg/api/action/datastore_search',
       data: data,
       success: (data) => {
+        this.data = data
         for (var x = 0; x < data.result.records.length; x++) {
           var current_record = data.result.records[x];
           this.overall_average += Number(current_record.resale_price);
