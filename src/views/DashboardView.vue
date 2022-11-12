@@ -139,8 +139,8 @@ export default {
   },
   computed: {
     userType() {
-      if (localStorage['userType']) {
-        return localStorage['userType']
+      if (localStorage['type']) {
+        return localStorage['type']
       }
       return 'seeker'
     },
