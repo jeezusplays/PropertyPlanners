@@ -83,7 +83,7 @@ import { RouterLink } from "vue-router";
               </RouterLink>
             </li>
             <li class="nav-item w-100 text-start" v-if="isAgent">
-              <RouterLink :to="'/' + userType + '/plans'" class="nav-link grow text-colour-hover px-3 py-2"
+              <RouterLink :to="'/' + userType + '/payment'" class="nav-link grow text-colour-hover px-3 py-2"
                 aria-current="page">
                 <font-awesome-icon icon="fa-solid fa-tag" class="me-3" size="md" />
                 <text class="pp-fat-text">Plans</text>

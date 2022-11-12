@@ -11,7 +11,7 @@ import SignupView from "../components/Signup.vue";
 // Agent
 import AgentDashboard from "../components/agent/AgentDashboard.vue";
 import AgentProfile from "../components/agent/AgentProfile.vue";
-import Payment from "../views/PaymentPage.vue";
+import Payment from "../components/agent/PaymentPage.vue";
 
 // Common
 import Chat from "../components/common/Chat.vue";
