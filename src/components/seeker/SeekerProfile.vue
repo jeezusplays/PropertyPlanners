@@ -69,7 +69,7 @@ export default {
   name: "Chat",
   data() {
     return {
-      preferences: [
+      preferences: localStorage['preferences'] ? localStorage['preferences'] : [
         {
           name: "Region",
           value: "Toa Payoh",
