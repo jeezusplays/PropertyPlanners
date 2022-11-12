@@ -66,9 +66,11 @@
                             <div class="d-flex flex-column px-md-5 px-4 mb-4"> <span>Credit Card</span>
                                 <div class="inputWithIcon">
                                     <input class="form-control" type="text" placeholder="5136 1845 5468 3894">
-                                    <span class="">
+                                    <!-- <span><font-awesome-icon icon="fa-solid fa-credit-card"></font-awesome-icon></span> -->
+
+                                    <span>
                                         <img src="https://www.freepnglogos.com/uploads/mastercard-png/mastercard-logo-logok-15.png"
-                                            alt="" style="width:100px;">
+                                            alt="" style="width:30px;">
                                     </span>
                                 </div>
                             </div>
@@ -76,7 +78,10 @@
                         <div class="col-md-6">
                             <div class="d-flex flex-column ps-md-5 px-md-0 px-4 mb-4"> 
                                 <span>Expiration Date</span>
-                                <div class="inputWithIcon"> <input type="text" class="form-control" placeholder="05/20"></div>
+                                <div class="inputWithIcon"> 
+                                    <input type="text" class="form-control" placeholder="05/20">
+                                    <span><font-awesome-icon icon="fa-solid fa-calendar"></font-awesome-icon></span>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -84,15 +89,16 @@
                                 <span>CVV</span>
                                 <div class="inputWithIcon"> 
                                     <input type="password" class="form-control" placeholder="123">
+                                    <span><font-awesome-icon icon="fa-solid fa-lock"></font-awesome-icon></span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="d-flex flex-column px-md-5 px-4 mb-4"> 
                                 <span>Name</span>
-                                <div> 
+                                <div class="inputWithIcon"> 
                                     <input class="form-control text-uppercase" type="text" placeholder="Gold D. Roger"> 
-                                    <!-- <span><font-awesome-icon icon="fa-solid fa-user"></font-awesome-icon></span> -->
+                                    <span><font-awesome-icon icon="fa-solid fa-user"></font-awesome-icon></span>
                                 </div>
                             </div>
                         </div>
@@ -127,3 +133,19 @@ export default {
     }
 }
 </script>
+
+<style>
+.inputWithIcon {
+    position: relative;
+}
+
+.inputWithIcon span {
+    position: absolute;
+    right: 10px;
+    bottom: 8px;
+    color: #547B58;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 14px
+}
+</style>
