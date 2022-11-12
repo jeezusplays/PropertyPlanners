@@ -19,7 +19,6 @@
         </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end ms-auto mb-2 mb-lg-0">
-
             <li class="nav-item ms-auto"><RouterLink :to="'/home'" class="nav-link pp px-4">Home</RouterLink></li>
             <li class="nav-item ms-auto"><a onclick="return false" href="#about-us-container" class="nav-link pp px-4 ">About Us</a></li>
             <li class="nav-item ms-auto"><a onclick="return false" href="#api-info" class="nav-link pp px-4 ">Features</a></li>

@@ -22,6 +22,7 @@
         "mysql": "^2.18.1",
         "process": "^0.11.10",
         "vue": "^3.2.13",
+        "vue-advanced-chat": "^2.0.4",
         "vue-router": "^4.1.5"
     },
     "devDependencies": {
