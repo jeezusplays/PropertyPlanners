@@ -48,12 +48,12 @@
             <div v-for="preference in preferences" :key="preference.id"
               class="row pref-row text-start rounded-3 p-3 mt-3">
               <span class="pp-subhead text-light">{{ preference.name }}</span>
-              <span class="pp-text text-light opacity-75">{{ preference.value }}</span>
+              <input type="text" class="form-control" v-model="preference.value">
             </div>
           </template>
         </div>
-        <p class="text-end mt-2 me-2 pointer" v-if="!isEditing">Edit preferences</p>
-        <p class="text-end mt-2 me-2 pointer" v-if="isEditing">Save preferences</p>
+        <p class="text-end mt-2 me-2 pointer" v-if="!isEditing" @click="isEditing=true">Edit preferences</p>
+        <p class="text-end mt-2 me-2 pointer" v-if="isEditing" @click="isEditing=false">Save preferences</p>
       </div>
     </div>
   </div>
