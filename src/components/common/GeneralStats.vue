@@ -359,7 +359,7 @@ export default {
         ((max - min) / max / (Object.values(year_dict_new).length - 1)) * 100;
 
       document.getElementById("data_table_forecast").innerHTML =
-        "<li>Average YoY % Change in Prices: <u>" +
+        "<li>Mean YoY % Change in Prices: <u>" +
         percentage_year_diff_conv.toFixed(2) +
         "%</u></li>" +
         "<li>2023: $" +
