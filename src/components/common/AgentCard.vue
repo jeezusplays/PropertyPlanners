@@ -17,13 +17,15 @@ export default {
 }
 </script>
 <style>
-.fit-content{
-  min-width: fit-content;
+.fit-content {
+    min-width: fit-content;
 }
-.bg-light-dark{
+
+.bg-light-dark {
     background-color: rgba(var(--main-green-rgb), 0.2);
 }
-.card-img{
+
+.card-img {
     object-fit: cover;
     /* background-position: center center; */
     min-width: 80px;
@@ -31,15 +33,18 @@ export default {
     width: 80px;
     height: 80px;
 }
-.dot-left::before{
+
+.dot-left::before {
     content: '•';
     margin: 0 4px;
 }
-.chat-more{
+
+.chat-more {
     position: relative;
     transition: 400ms;
 }
-.chat-more::after{
+
+.chat-more::after {
     position: absolute;
     padding: 0 6px 0 6px;
     border-radius: 6px;
@@ -52,10 +57,10 @@ export default {
     float: left;
     transition: 300ms;
     opacity: 0;
-    background-color: rgba(var(--main-green-rgb),0.2);
-}
-.chat-more:hover::after{
-    opacity: 1;
+    background-color: rgba(var(--main-green-rgb), 0.2);
 }
 
+.chat-more:hover::after {
+    opacity: 1;
+}
 </style>
