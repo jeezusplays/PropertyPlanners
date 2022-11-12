@@ -92,9 +92,9 @@ export default {
         },
       ],
       profile: {
-        name: "John Doe",
-        email: "Johndoe@gmail.com",
-        aboutme: "Write a short introduction so agents can understand you better!"
+        name: localStorage['name'] ? localStorage['name'] :"John Doe",
+        email: localStorage['email'] ? localStorage['email'] : "Johndoe@gmail.com",
+        aboutme: localStorage['aboutme'] ? localStorage['aboutme'] : "Write a short introduction so agents can understand you better!"
       },
       isEditing: false
     };
