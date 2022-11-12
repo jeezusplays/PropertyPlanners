@@ -6,3 +6,10 @@ export async function Spinner(f){
     $('#spinner').addClass('d-none')
     return
 }
+
+export function spinnerOn(){
+    $('#spinner').removeClass('d-none')
+}
+export function spinnerOff(){
+    $('#spinner').addClass('d-none')
+}

@@ -86,7 +86,7 @@
 </template>
 <script>
 /* global Chart */
-
+import { spinnerOn, spinnerOff} from '../../scripts/spinner'
 import $ from "jquery";
 
 export default {
@@ -118,6 +118,9 @@ export default {
     };
   },
   mounted() {
+    spinnerOn()
+    var spinner_overlay = "<div class='spinner-border text-success centerAll d-block' role='status' style='width: 5rem; height: 5rem; position: absolute; top: 50%; left: 50%'>";
+    document.getElementById("spinner_overlay").innerHTML = spinner_overlay;
     var data = {
       resource_id: "f1765b54-a209-4718-8d38-a39237f502b3", // the resource id
       limit: 150000, // Set 150000 results
@@ -240,6 +243,8 @@ export default {
         this.displayData();
       },
     });
+    spinnerOff();
+
   },
   methods: {
     computeYearOnYearAverageResalePrices() {
@@ -884,10 +889,7 @@ export default {
         options: options,
       });
       console.log(barChart);
-      // Exit spinner condition - Once last function has executed
-      if (Object.keys(year_dict_new).length != 0) {
-        document.getElementById("spinner_overlay").innerHTML = "";
-      }
+
     },
     displayData() {
       // Output statistics data summary
@@ -945,6 +947,7 @@ export default {
       this.resaleMonthPriceTrendChart();
       this.resaleYearMonthPriceTrendChart();
       this.resaleYearChart();
+      $('#spinner_overlay').addClass('d-none')
     },
   },
 };
