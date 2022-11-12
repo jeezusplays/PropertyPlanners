@@ -188,11 +188,13 @@ _Instructions on how to install this respository onto your local machine._
 
 
 <!-- USAGE EXAMPLES -->
-## Usage
+## Usage & Testing
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Here of some useful examples of how you can use/test PropertyPlanners. Additional screenshots, code examples and demos may be provided. 
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+Some login details you can try:
+|User|Email|Password|
+|:-----:|:-----:|:-----:|
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
