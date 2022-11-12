@@ -142,43 +142,71 @@ export default {
             email: this.email,
             type: this.type,
             profilepic: this.luffy,
-            aboutme:'',
-            preferences: {
-                region:'',
-                property_type:'',
-                budget:'',
-                non_negotiables:'',
-                good_to_have:''
-            }
+            aboutme: "",
+            preferences: [
+              {
+                name: "Region",
+                value: "",
+              },
+              {
+                name: "Property Type",
+                value: "",
+              },
+              {
+                name: "Budget",
+                value: "",
+              },
+              {
+                name: "Non-Negotiables",
+                value: "",
+              },
+              {
+                name: "Good to haves",
+                value: "",
+              }],
           });
 
-          localStorage['name'] = this.name
-          localStorage['email'] = this.email
-          localStorage['type'] = this.type
-          localStorage['profilepic'] = this.profilepic
-          localStorage['aboutme'] = ''
-          localStorage['preferences'] = {
-                region:'',
-                property_type:'',
-                budget:'',
-                non_negotiables:'',
-                good_to_have:''
-            }
-            this.$router.push({path:'/seeker/dashboard'})
-        }else{
-            await setDoc(doc(fsdb, "users", this.user.uid), {
+          localStorage["name"] = this.name;
+          localStorage["email"] = this.email;
+          localStorage["type"] = this.type;
+          localStorage["profilepic"] = this.profilepic;
+          localStorage["aboutme"] = "";
+          localStorage["preferences"] = [
+            {
+              name: "Region",
+              value: "",
+            },
+            {
+              name: "Property Type",
+              value: "",
+            },
+            {
+              name: "Budget",
+              value: "",
+            },
+            {
+              name: "Non-Negotiables",
+              value: "",
+            },
+            {
+              name: "Good to haves",
+              value: "",
+            }];
+          this.$router.push({ path: "/seeker/dashboard" });
+        } else {
+          await setDoc(doc(fsdb, "users", this.user.uid), {
             name: this.name,
             email: this.email,
             type: this.type,
             profilepic: this.boa,
-            regNum:''
+            regNum: "",
           });
-          localStorage['name'] = this.name
-          localStorage['email'] = this.email
-          localStorage['type'] = this.type
-          localStorage['profilepic'] = this.profilepic
-          localStorage['regNum'] = ''
-          this.$router.push({path:'/agent/dashboard'})
+          localStorage["name"] = this.name;
+          localStorage["email"] = this.email;
+          localStorage["type"] = this.type;
+          localStorage["profilepic"] = this.profilepic;
+          localStorage["regNum"] = "";
+          this.$router.push({ path: "/agent/dashboard" });
         }
       } catch (e) {
         console.log(e);
