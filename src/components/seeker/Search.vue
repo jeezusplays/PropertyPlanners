@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import AgentCard from "./AgentCard.vue"
+import AgentCard from "./SearchAgentCard.vue"
 
 export default {
     name: "Search",
