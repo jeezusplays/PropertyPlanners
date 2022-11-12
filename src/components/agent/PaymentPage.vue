@@ -1,3 +1,6 @@
+<script setup>
+import { RouterLink } from "vue-router";
+</script>
 <template>
     <div class="container bg-light d-md-flex align-items-center mt-5">
         <div class="row row-cols-1 row-cols-md-2">
@@ -106,7 +109,7 @@
                             </div>
                         </div>
                         <div class="col-12 px-md-5 px-4 mt-3 mb-3">
-                            <div class="btn btn-primary w-100">Pay ${{totalPrice}}</div>
+                            <div class="btn btn-primary w-100"><RouterLink :to="'dashboard'">Pay ${{totalPrice}}</RouterLink></div>
                         </div>
                     </div>
                 </form>
