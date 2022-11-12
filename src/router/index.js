@@ -22,6 +22,7 @@ import LandingPage from "../components/landing/LandingPage.vue";
 
 // Seeker
 import SeekerProfile from "../components/seeker/SeekerProfile.vue";
+import Search from "../components/seeker/Search.vue"
 
 // function navigationGuard(to, from, next) {
 //   var local = localStorage;
@@ -134,7 +135,7 @@ const router = createRouter({
         {
           path: "findagent",
           name: "findagent",
-          component: LandingPage,
+          component: Search,
         },
         {
           path: "favourites",
