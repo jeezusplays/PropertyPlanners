@@ -1,3 +1,5 @@
+
+
 <template>
   <div class="container-fluid py-3 px-5">
     <p class="pp-head text-start me-auto">My Profile</p>
@@ -8,13 +10,13 @@
             <div class="position-relative">
               <img class="profile-pic rounded-3 mb-3" src="../../assets/HDB_banner.jpg" />
               <div class="position-absolute" style="top: 0px; right: 0px"
-                onclick="$('#imgupload').trigger('click'); return false;">
+                >
                 <span class="position-absolute badge badge-dark" id="OpenImgUpload"
-                  style="color:black; top: 0px; right: 0px;" onclick="$('#imgupload').trigger('click');">
+                  style="color:black; top: 0px; right: 0px;" @click="upload();">
                   <label for='imgupload'>
                     <input type="file" id="imgupload" style="display:none;" accept=".png, .jpg, .jpeg" />
                     <font-awesome-icon class="m-auto" icon="fa fa-pen" size="xl"
-                      onclick="$('#imgupload').trigger('click');" />
+                    @click="upload()" />
                   </label>
                 </span>
               </div>
@@ -60,6 +62,9 @@
 </template>
 
 <script>
+import $ from 'jquery'
+import {uploadProfilePic} from "../../scripts/fbstorage"
+
 export default {
   name: "Chat",
   data() {
@@ -94,6 +99,16 @@ export default {
       isEditing: false
     };
   },
+  mounted(){
+    $("#imgupload").change(function(){
+      uploadProfilePic($(this).prop('files')[0],localStorage['uid'])
+    })
+  },
+  methods:{
+    upload(){
+      $('#imgupload').trigger('click');
+    }
+  }
 };
 </script>
 
