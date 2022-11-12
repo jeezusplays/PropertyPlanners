@@ -60,7 +60,7 @@
               aria-controls="distribution"
               aria-selected="true"
             >
-              Distribution of Flat Types Sold
+              Distribution of Flat Types
             </button>
           </li>
           <li class="nav-item" role="presentation">
@@ -89,6 +89,20 @@
               aria-selected="false"
             >
               Historical Mean Price
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="mean_lease_year-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#mean_lease"
+              type="button"
+              role="tab"
+              aria-controls="mean_lease"
+              aria-selected="false"
+            >
+              Remaining Lease Price
             </button>
           </li>
         </ul>
@@ -123,6 +137,17 @@
           >
           <canvas id="barChartPriceYear" style="max-height: 300px"></canvas>
           <p id="placeholder6">
+              <i>Click on a region (town) to display information!</i>
+          </p>
+          </div>
+          <div
+            class="tab-pane fade p-3"
+            id="mean_lease"
+            role="tabpanel"
+            aria-labelledby="mean_lease-tab"
+          >
+          <canvas id="lineChart_mean_lease" style="max-height: 300px"></canvas>
+          <p id="placeholder7">
               <i>Click on a region (town) to display information!</i>
           </p>
           </div>

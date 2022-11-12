@@ -20,15 +20,14 @@
     </div>
 
     <!-- Template Start -->
-    <FavouriteTownStatistics :mytownname = 'townname'></FavouriteTownStatistics>
+    <FavouriteTownStatistics :mytownname="townname"></FavouriteTownStatistics>
     <!-- Template End -->
-    
+
     <div class="d-block d-md-none col-12 mx-5 mt-3">
       <p class="pp-text opacity-75 mb-3 text-start">Available agents</p>
       <AgentCard v-for="index in 4" :key="index" />
     </div>
   </div>
-
 </template>
 
 <script>
@@ -43,7 +42,7 @@ import * as colours from "../../scripts/colours.json";
 import AgentCard from "./AgentCard.vue";
 import $ from "jquery";
 import { Chart, registerables } from "chart.js";
-import FavouriteTownStatistics from './FavouriteTownStatistics.vue';
+import FavouriteTownStatistics from "./FavouriteTownStatistics.vue";
 Chart.register(...registerables);
 
 export default {
@@ -145,10 +144,11 @@ export default {
           let area = event.feature.getProperty("PLN_AREA_N");
           console.log("Area selected: ", area);
 
-          area = area.toLowerCase()
-            .split(' ')
+          area = area
+            .toLowerCase()
+            .split(" ")
             .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
-            .join(' ');
+            .join(" ");
 
           this.townname = area;
 
@@ -172,6 +172,8 @@ export default {
             var yearDict = {};
             var room_list = [];
             var room_dict = {};
+            var yearLeaseList = [];
+            var yearLeaseDict = {};
 
             for (var x = 0; x < data.result.records.length; x++) {
               var current_record = data.result.records[x];
@@ -203,10 +205,26 @@ export default {
                 ];
               } else {
                 room_dict[current_record.flat_type][0] += 1;
-                room_dict[current_record.flat_type][1] +=
-                  Number(current_record.resale_price);
+                room_dict[current_record.flat_type][1] += Number(
+                  current_record.resale_price
+                );
+              }
+
+              // Append resale prices by lease year
+              if (!yearLeaseList.includes(current_record.lease_commence_date)) {
+                yearLeaseList.push(current_record.lease_commence_date);
+                yearLeaseDict[current_record.lease_commence_date] = [
+                  Number(current_record.resale_price),
+                  1,
+                ];
+              } else {
+                yearLeaseDict[current_record.lease_commence_date][0] += Number(
+                  current_record.resale_price
+                );
+                yearLeaseDict[current_record.lease_commence_date][1] += 1;
               }
             }
+
             // Output statistics data summary
             overall_average = (
               overall_average / data.result.records.length
@@ -239,11 +257,12 @@ export default {
               "$" + overall_average;
             document.getElementById("ppsqm").innerText = "$" + sqm;
             document.getElementById("price_comparison").innerHTML = price_diff;
-            if (this.counter == 0){
-              for (let x = 1; x < 7; x++){
-              let name = "placeholder" + x;
-              document.getElementById(name).remove();
-            }
+            
+            if (this.counter == 0) {
+              for (let x = 1; x < 8; x++) {
+                let name = "placeholder" + x;
+                document.getElementById(name).remove();
+              }
             }
 
             if (picture == "decrease_resale_price") {
@@ -267,6 +286,7 @@ export default {
             this.resaleRoomTypeDistributionChart(room_dict);
             this.resaleYearChart(yearDict);
             this.resaleRoomTypePriceChart(room_dict);
+            this.resaleLeaseYearChart(yearLeaseDict);
             this.counter += 1;
             console.log(room_dict);
           });
@@ -275,64 +295,16 @@ export default {
     },
 
     resaleRoomTypeDistributionChart(room_dict) {
-      var room_dict_sorted = {...room_dict};
+      var room_dict_sorted = { ...room_dict };
       for (const key in room_dict) {
         room_dict_sorted[key] = Number(room_dict[key][0]);
-      };
-      console.log("test",room_dict_sorted);
-
-
-      if (this.counter == 0){
-      var ctx = document.getElementById("room_dist_pieChart").getContext("2d");
-      var data = {
-        labels: Object.keys(room_dict_sorted),
-        datasets: [
-          {
-            label: "Flat Type",
-            data: Object.values(room_dict_sorted),
-            backgroundColor: [
-              "#F47A1F",
-              "#9552EA",
-              "#F54F52",
-              "#7AC142",
-              "#ffb63a",
-              "#007CC3",
-              "#00529B",
-            ],
-            hoverBorderColor: ["#000000"],
-          },
-        ],
-      };
-
-      var options = {
-        plugins: {
-          labels: {
-            position: "outside",
-          },
-          legend: {
-            position: "right",
-          },
-          tooltips: {
-            enabled: true,
-          },
-        },
-      };
-
-      
-      var myRoomDistChart = new Chart(ctx, {
-        type: "doughnut",
-        data: data,
-        options: options,
-      });
-      
-      console.log(myRoomDistChart);
       }
+      console.log("test", room_dict_sorted);
 
-      else {
-        $('#room_dist_pieChart').remove();
-        $('#distribution').append('<canvas id="room_dist_pieChart" style="max-height: 300px"></canvas>');
-
-        var ctx = document.getElementById("room_dist_pieChart").getContext("2d");
+      if (this.counter == 0) {
+        var ctx = document
+          .getElementById("room_dist_pieChart")
+          .getContext("2d");
         var data = {
           labels: Object.keys(room_dict_sorted),
           datasets: [
@@ -367,189 +339,371 @@ export default {
           },
         };
 
-        
         var myRoomDistChart = new Chart(ctx, {
           type: "doughnut",
           data: data,
           options: options,
         });
-        
+
         console.log(myRoomDistChart);
-      }    
+      } else {
+        $("#room_dist_pieChart").remove();
+        $("#distribution").append(
+          '<canvas id="room_dist_pieChart" style="max-height: 300px"></canvas>'
+        );
+
+        var ctx = document
+          .getElementById("room_dist_pieChart")
+          .getContext("2d");
+        var data = {
+          labels: Object.keys(room_dict_sorted),
+          datasets: [
+            {
+              label: "Flat Type",
+              data: Object.values(room_dict_sorted),
+              backgroundColor: [
+                "#F47A1F",
+                "#9552EA",
+                "#F54F52",
+                "#7AC142",
+                "#ffb63a",
+                "#007CC3",
+                "#00529B",
+              ],
+              hoverBorderColor: ["#000000"],
+            },
+          ],
+        };
+
+        var options = {
+          plugins: {
+            labels: {
+              position: "outside",
+            },
+            legend: {
+              position: "right",
+            },
+            tooltips: {
+              enabled: true,
+            },
+          },
+        };
+
+        var myRoomDistChart = new Chart(ctx, {
+          type: "doughnut",
+          data: data,
+          options: options,
+        });
+
+        console.log(myRoomDistChart);
+      }
     },
 
-    resaleRoomTypePriceChart(room_dict){
-      var year_dict_new = {...room_dict};
+    resaleRoomTypePriceChart(room_dict) {
+      var year_dict_new = { ...room_dict };
       for (const key in room_dict) {
-          year_dict_new[key] = Number((room_dict[key][1]/room_dict[key][0]).toFixed(0));
-      };
+        year_dict_new[key] = Number(
+          (room_dict[key][1] / room_dict[key][0]).toFixed(0)
+        );
+      }
 
-      if (this.counter == 0){
+      if (this.counter == 0) {
         var ctx2 = document.getElementById("barChartFlatType").getContext("2d");
         var data2 = {
-            labels: Object.keys(year_dict_new),
-            datasets: [{
-                label: "Mean Price",
-                data:  Object.values(year_dict_new),
-                backgroundColor: ["#4D8C57", "#4D8C57", "#78A161", "#78A161", "#A3B56B", "#A3B56B", "#CDCA74", "#CDCA74", "#F8DE7E", "#F8DE7E"],
-                hoverBorderColor: ["#000000"],
-            }]
+          labels: Object.keys(year_dict_new),
+          datasets: [
+            {
+              label: "Mean Price",
+              data: Object.values(year_dict_new),
+              backgroundColor: [
+                "#4D8C57",
+                "#4D8C57",
+                "#78A161",
+                "#78A161",
+                "#A3B56B",
+                "#A3B56B",
+                "#CDCA74",
+                "#CDCA74",
+                "#F8DE7E",
+                "#F8DE7E",
+              ],
+              hoverBorderColor: ["#000000"],
+            },
+          ],
         };
         var options = {
-            indexAxis: 'y',
-            legend: {display: false},
-            scales: {
+          indexAxis: "y",
+          legend: { display: false },
+          scales: {
             x: {
-                grid: {
-                display: false
-                }
+              grid: {
+                display: false,
+              },
             },
             y: {
-                grid: {
-                display: false
-                }
-            }
-            },
-            plugins: {
-            legend: {
+              grid: {
                 display: false,
-            }
-            }
-        }
+              },
+            },
+          },
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+        };
         var barChartFlat = new Chart(ctx2, {
-            type: 'bar',
-            data: data2,
-            options: options,
-        }); 
-      }
-      else {
-        $('#barChartFlatType').remove();
-        $('#price_barChart').append('<canvas id="barChartFlatType" style="max-height: 300px"></canvas>');
+          type: "bar",
+          data: data2,
+          options: options,
+        });
+      } else {
+        $("#barChartFlatType").remove();
+        $("#price_barChart").append(
+          '<canvas id="barChartFlatType" style="max-height: 300px"></canvas>'
+        );
         var ctx2 = document.getElementById("barChartFlatType").getContext("2d");
         var data2 = {
-            labels: Object.keys(year_dict_new),
-            datasets: [{
-                label: "Mean Price",
-                data:  Object.values(year_dict_new),
-                backgroundColor: ["#4D8C57", "#4D8C57", "#78A161", "#78A161", "#A3B56B", "#A3B56B", "#CDCA74", "#CDCA74", "#F8DE7E", "#F8DE7E"],
-                hoverBorderColor: ["#000000"],
-            }]
+          labels: Object.keys(year_dict_new),
+          datasets: [
+            {
+              label: "Mean Price",
+              data: Object.values(year_dict_new),
+              backgroundColor: [
+                "#4D8C57",
+                "#4D8C57",
+                "#78A161",
+                "#78A161",
+                "#A3B56B",
+                "#A3B56B",
+                "#CDCA74",
+                "#CDCA74",
+                "#F8DE7E",
+                "#F8DE7E",
+              ],
+              hoverBorderColor: ["#000000"],
+            },
+          ],
         };
         var options = {
-            indexAxis: 'y',
-            legend: {display: false},
-            scales: {
+          indexAxis: "y",
+          legend: { display: false },
+          scales: {
             x: {
-                grid: {
-                display: false
-                }
+              grid: {
+                display: false,
+              },
             },
             y: {
-                grid: {
-                display: false
-                }
-            }
-            },
-            plugins: {
-            legend: {
+              grid: {
                 display: false,
-            }
-            }
-        }
+              },
+            },
+          },
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+        };
         var barChartFlat = new Chart(ctx2, {
-            type: 'bar',
-            data: data2,
-            options: options,
-        }); 
+          type: "bar",
+          data: data2,
+          options: options,
+        });
       }
-      console.log (barChartFlat);
+      console.log(barChartFlat);
     },
 
-    resaleYearChart(yearDict){
-      var year_dict_new = {}
+    resaleYearChart(yearDict) {
+      var year_dict_new = {};
       for (const key in yearDict) {
-          year_dict_new[key] = Number((yearDict[key][0]/yearDict[key][1]).toFixed(0));
+        year_dict_new[key] = Number(
+          (yearDict[key][0] / yearDict[key][1]).toFixed(0)
+        );
+      }
+
+      if (this.counter == 0) {
+        var ctx3 = document
+          .getElementById("barChartPriceYear")
+          .getContext("2d");
+        var data3 = {
+          labels: Object.keys(year_dict_new),
+          datasets: [
+            {
+              label: "Mean price",
+              data: Object.values(year_dict_new),
+              backgroundColor: [
+                "#4D8C57",
+                "#4D8C57",
+                "#78A161",
+                "#78A161",
+                "#A3B56B",
+                "#A3B56B",
+                "#CDCA74",
+                "#CDCA74",
+                "#F8DE7E",
+                "#F8DE7E",
+              ],
+              hoverBorderColor: ["#000000"],
+            },
+          ],
+        };
+        var options = {
+          legend: { display: false },
+          scales: {
+            x: {
+              grid: {
+                display: false,
+              },
+            },
+            y: {
+              grid: {
+                display: false,
+              },
+            },
+          },
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+        };
+        var barChart = new Chart(ctx3, {
+          type: "bar",
+          data: data3,
+          options: options,
+        });
+      } else {
+        $("#barChartPriceYear").remove();
+        $("#mean_price_year").append(
+          '<canvas id="barChartPriceYear" style="max-height: 300px"></canvas>'
+        );
+        var ctx3 = document
+          .getElementById("barChartPriceYear")
+          .getContext("2d");
+        var data3 = {
+          labels: Object.keys(year_dict_new),
+          datasets: [
+            {
+              label: "Mean Price",
+              data: Object.values(year_dict_new),
+              backgroundColor: [
+                "#4D8C57",
+                "#4D8C57",
+                "#78A161",
+                "#78A161",
+                "#A3B56B",
+                "#A3B56B",
+                "#CDCA74",
+                "#CDCA74",
+                "#F8DE7E",
+                "#F8DE7E",
+              ],
+              hoverBorderColor: ["#000000"],
+            },
+          ],
+        };
+        var options = {
+          legend: { display: false },
+          scales: {
+            x: {
+              grid: {
+                display: false,
+              },
+            },
+            y: {
+              grid: {
+                display: false,
+              },
+            },
+          },
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+        };
+        var barChart = new Chart(ctx3, {
+          type: "bar",
+          data: data3,
+          options: options,
+        });
+      }
+      console.log(barChart);
+    },
+
+    resaleLeaseYearChart(yearLeaseDict) {
+
+      for (const key in yearLeaseDict) {
+        yearLeaseDict[key] = Number(
+          (yearLeaseDict[key][0] / yearLeaseDict[key][1]).toFixed(0)
+        );
+      }
+      if (this.counter != 0){
+        $("#lineChart_mean_lease").remove();
+        $("#mean_lease").append(
+          '<canvas id="lineChart_mean_lease" style="max-height: 300px"></canvas>');
+      }
+
+      var ctx3 = document.getElementById("lineChart_mean_lease").getContext("2d");
+
+      var data3 = {
+        labels: Object.keys(yearLeaseDict),
+        datasets: [
+          {
+            label: "Average resale price in $",
+            data: Object.values(yearLeaseDict),
+            borderColor: "#808080",
+            pointRadius: 2,
+            // pointBorderColor: '#FF0000'
+          },
+        ],
       };
 
-      if (this.counter == 0){
-        var ctx3 = document.getElementById("barChartPriceYear").getContext("2d");
-        var data3 = {
-            labels: Object.keys(year_dict_new),
-            datasets: [{
-                label: "Mean price",
-                data:  Object.values(year_dict_new),
-                backgroundColor: ["#4D8C57", "#4D8C57", "#78A161", "#78A161", "#A3B56B", "#A3B56B", "#CDCA74", "#CDCA74", "#F8DE7E", "#F8DE7E"],
-                hoverBorderColor: ["#000000"],
-            }]
-        };
-        var options = {
-            legend: {display: false},
-            scales: {
-            x: {
-                grid: {
-                display: false
-                }
+      var options = {
+        scales: {
+          x: {
+            grid: {
+              display: false,
             },
-            y: {
-                grid: {
-                display: false
-                }
-            }
+          },
+          y: {
+            grid: {
+              display: false,
             },
-            plugins: {
-            legend: {
-                display: false,
-            }
-            }
-        }
-        var barChart = new Chart(ctx3, {
-            type: 'bar',
-            data: data3,
-            options: options,
-        }); 
-      }
-      else {
-        $('#barChartPriceYear').remove();
-        $('#mean_price_year').append('<canvas id="barChartPriceYear" style="max-height: 300px"></canvas>');
-        var ctx3 = document.getElementById("barChartPriceYear").getContext("2d");
-        var data3 = {
-            labels: Object.keys(year_dict_new),
-            datasets: [{
-                label: "Mean Price",
-                data:  Object.values(year_dict_new),
-                backgroundColor: ["#4D8C57", "#4D8C57", "#78A161", "#78A161", "#A3B56B", "#A3B56B", "#CDCA74", "#CDCA74", "#F8DE7E", "#F8DE7E"],
-                hoverBorderColor: ["#000000"],
-            }]
-        };
-        var options = {
-            legend: {display: false},
-            scales: {
-            x: {
-                grid: {
-                display: false
-                }
+            ticks: {
+              // stepValue: 450000,
+              stepSize: 100000,
             },
-            y: {
-                grid: {
-                display: false
-                }
-            }
+            beginAtZero: false,
+          },
+        },
+        plugins: {
+          tooltips: {
+            enabled: true,
+          },
+          datalabels: {
+            color: "#00000",
+            align: "top",
+          },
+          legend: {
+            display: false,
+            labels: {
+              usePointStyle: true,
             },
-            plugins: {
-            legend: {
-                display: false,
-            }
-            }
-        }
-        var barChart = new Chart(ctx3, {
-            type: 'bar',
-            data: data3,
-            options: options,
-        }); 
-      }
-      console.log (barChart);
-    }
+          },
+        },
+      };
 
+      var lineChart = new Chart(ctx3, {
+        type: "line",
+        data: data3,
+        options: options,
+        // plugins: [ChartDataLabels]
+      });
+
+    },
   },
   components: {
     AgentCard,
