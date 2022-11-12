@@ -159,7 +159,7 @@
 
 <script>
 export default {
-    name: 'FavouriteTownStatistics',
-    props: ['mytownname']
+  name: 'FavouriteTownStatistics',
+  props: ['mytownname']
 }
 </script>
