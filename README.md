@@ -217,25 +217,6 @@ These are a non-exhaustive list of agents you can search for in the "Find Agents
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
-<!-- ROADMAP -->
-<!-- ## Roadmap
-
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
-
-See the [open issues](https://github.com/jeezusplays/PropertyPlanners/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
-
-
-
 <!-- CONTRIBUTING -->
 ## Contributing
 
@@ -252,17 +233,6 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
-<!-- LICENSE -->
-<!-- ## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
-
-
-
 <!-- CONTACT -->
 ## Contacts
 
@@ -270,10 +240,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 * [Samuel Chung](https://www.linkedin.com/in/samuel-chung-339688154/)<br>
 * [Liow Hong Xiang](https://www.linkedin.com/in/liowhongxiang/)<br>
 
-<!-- Project Link: [https://github.com/jeezusplays/PropertyPlanners](https://github.com/jeezusplays/PropertyPlanners) -->
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- ACKNOWLEDGMENTS -->
@@ -282,17 +249,12 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 Credit to these helpful resources!
 
 <!-- * [Choose an Open Source License](https://choosealicense.com) -->
-<!-- * [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io) -->
+* [Img Shields](https://shields.io)
 * [GitHub Pages](https://pages.github.com)
 * [Font Awesome](https://fontawesome.com)
 * [Firebase](https://firebase.google.com/)
 * [Geocoding/Reverse Geocoding](https://developers.google.com/maps/documentation/geocoding)
 * [DataTables Vue](https://datatables.net/blog/2022-06-22-vue)
-
-<!-- * [React Icons](https://react-icons.github.io/react-icons/search) -->
-<!-- * [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet) -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
