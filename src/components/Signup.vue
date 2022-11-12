@@ -18,9 +18,9 @@
                                 <div class="col-6">
                                     <label class="form-label" for="role">Role</label>
                                     <select id="role" v-model="type" class="form-control">
-                                        <option  disabled>Select Role</option>
-                                        <option value="seeker" selected>Property Seeker</option>
-                                        <option value="agent">Property Agents</option>
+                                        <option disabled>Select Role</option>
+                                        <option value="seeker">Property Seeker</option>
+                                        <option value="agent">Property Agent</option>
                                     </select>
                                 </div>
                             </div>
@@ -68,7 +68,7 @@ export default {
     name: 'signup',
     data() {
         return {
-            type: "",
+            type: "seeker",
             email: "",
             password: "",
             user: {},

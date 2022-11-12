@@ -7,8 +7,8 @@
         <!-- <h5>Section</h5> -->
         <ul class="nav flex-column">
           <li class="nav-item mb-2"><a href="#banner" class="nav-link p-0 ">Home</a></li>
-          <li class="nav-item mb-2"><a href="#api-info" class="nav-link p-0 ">Features</a></li>
           <li class="nav-item mb-2"><a href="#about-us-container" class="nav-link p-0 ">About Us</a></li>
+          <li class="nav-item mb-2"><a href="#api-info" class="nav-link p-0 ">Features</a></li>
           <li class="nav-item mb-2"><a href="#testimonials" class="nav-link p-0 ">Testimonials</a></li>
           <li class="nav-item mb-2"><a href="/login" class="nav-link p-0 ">Login</a></li>
           <!-- <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">About</a></li> -->
