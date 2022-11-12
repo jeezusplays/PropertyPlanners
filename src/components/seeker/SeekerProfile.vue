@@ -32,11 +32,11 @@
             </p>
           </div>
         </div>
-        <p class="text-end mt-2 me-2">Edit profile</p>
+        <p class="text-end mt-2 me-2 pointer">Edit profile</p>
       </div>
       <div class="col-12 col-md-7 col-lg-8 py-3 py-md-0 mb-3">
         <div class="profile-side rounded-4 py-4 px-5">
-          <p class="pp-head">Preferences</p>
+          <p class="pp-head">Property Preferences</p>
           <template v-if="!isEditing">
             <div v-for="preference in preferences" :key="preference.id"
               class="row pref-row text-start rounded-3 p-3 mt-3">
@@ -52,8 +52,8 @@
             </div>
           </template>
         </div>
-        <p class="text-end mt-2 me-2" v-if="!isEditing">Edit preferences</p>
-        <p class="text-end mt-2 me-2" v-if="isEditing">Save preferences</p>
+        <p class="text-end mt-2 me-2 pointer" v-if="!isEditing">Edit preferences</p>
+        <p class="text-end mt-2 me-2 pointer" v-if="isEditing">Save preferences</p>
       </div>
     </div>
   </div>
@@ -67,23 +67,23 @@ export default {
       preferences: [
         {
           name: "Region",
-          value: "value",
+          value: "Toa Payoh",
         },
         {
-          name: "Region",
-          value: "value",
+          name: "Property Type",
+          value: "4 room HDB",
         },
         {
-          name: "Region",
-          value: "value",
+          name: "Budget",
+          value: "$550,000 to $700,000",
         },
         {
-          name: "Region",
-          value: "value",
+          name: "Non-Negotiables",
+          value: "1 Guest Toilet, North South Facing",
         },
         {
-          name: "Region",
-          value: "value",
+          name: "Good to haves",
+          value: "Single loading unit",
         },
       ],
       profile: {

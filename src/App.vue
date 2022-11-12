@@ -135,4 +135,8 @@ a:active {
   height: auto;
   object-fit: cover;
 }
+
+.pointer{
+  cursor: pointer;
+}
 </style>
