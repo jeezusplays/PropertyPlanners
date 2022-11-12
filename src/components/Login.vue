@@ -98,14 +98,11 @@ export default {
 
                     this.type = data.type
                     localStorage['type'] = this.type
-<<<<<<< Updated upstream
-=======
                     localStorage['name'] = data.name
                     localStorage['email'] = data.email
                     localStorage['aboutme'] = data.name
                     localStorage['preferences'] = data.preferences
 
->>>>>>> Stashed changes
 
                     this.$router.push({ path: `/${this.type}/dashboard` })
                 } else {
