@@ -129,7 +129,7 @@ const router = createRouter({
         {
           path: "findagent",
           name: "findagent",
-          component: LandingPage,
+          component: Search,
         },
         {
           path: "favourites",
@@ -150,11 +150,6 @@ const router = createRouter({
           path: "general",
           name: "general",
           component: LandingPage,
-        },
-        {
-          path: "search",
-          name: "search",
-          component: Search,
         },
       ],
     },
