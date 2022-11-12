@@ -1,6 +1,6 @@
 <template>
   <!-- Banner -->
-  <div class="scroll"  data-bs-spy="scroll" data-bs-target="#navbar" data-bs-smooth-scroll="true" tabindex="0">
+  <div class="scrollable"  data-bs-spy="scroll" data-bs-target="#navbar" data-bs-smooth-scroll="true" tabindex="0">
     <section>
       <Banner/>
     </section>
@@ -94,7 +94,7 @@ green {
   color: var(--main-green);
 }
 
-.scroll {
+.scrollable {
   overflow: auto;
 }
 

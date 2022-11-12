@@ -27,13 +27,14 @@
 
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="emailAddress">Enter your email address</label>
-                                <input type="email" id="emailAddress" class="form-control"
+                                <input type="email" id="emailAddress" v-model="email" class="form-control"
                                     placeholder="Email address" />
                             </div>
 
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="password">Enter your password</label>
-                                <input type="password" id="password" class="form-control" placeholder="Password" />
+                                <input type="password" id="password" v-model="password" class="form-control"
+                                    placeholder="Password" />
                             </div>
 
 
@@ -43,7 +44,7 @@
                                 </div>
 
                                 <div class="col-12 col-md-6 d-flex justify-content-end">
-                                    <button class="btn btn-default btn-block btn-lg" type="submit"
+                                    <button class="btn btn-default btn-block btn-lg" @click="logIn()" type="submit"
                                         style="background-color: #779341; color: white; width: 100%;">Sign In</button>
                                 </div>
                             </div>
@@ -57,13 +58,62 @@
 </template>
 
 <script>
+import { auth } from '../scripts/fbauth'
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import { spinnerOn, spinnerOff } from '../scripts/spinner'
+import { fsdb } from '../scripts/fb'
+import { doc, getDoc } from "firebase/firestore";
 
 export default {
     name: 'login',
-    mounted() {
-        localStorage['userType'] = 'agent'
-        localStorage['sessionEndDate'] = new Date('December 23 2022').getTime()
-        console.log(localStorage)
+    data() {
+        return {
+            email: "",
+            password: "",
+            user: "",
+            type: ""
+        }
+    },
+    methods: {
+        async logIn() {
+            try {
+
+                if (this.email.trim().length < 1 ||
+                    this.password.trim().length < 1) {
+                    alert('Please fill up all inputs')
+                    throw 'ValurError'
+                }
+
+                spinnerOn()
+                var credential = await signInWithEmailAndPassword(auth, this.email, this.password)
+                spinnerOff()
+                this.user = credential.user
+                localStorage['uid'] = this.user.uid
+
+                const docRef = doc(fsdb, "users", this.user.uid);
+                const docSnap = await getDoc(docRef);
+
+                if (docSnap.exists()) {
+                    var data = docSnap.data()
+
+                    this.type = data.type
+                    localStorage['type'] = this.type
+
+                    this.$router.push({ path: `/${this.type}/dashboard` })
+                } else {
+                    // doc.data() will be undefined in this case
+                    throw 'User dont exist'
+                }
+
+
+            }
+            catch (e) {
+                console.log(e)
+                console.log(e.code)
+                console.log(e.message);
+                spinnerOff()
+            }
+        }
     }
 
 }

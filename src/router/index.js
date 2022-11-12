@@ -29,7 +29,7 @@ import SeekerProfile from "../components/seeker/SeekerProfile.vue";
 //   var isExpired = (sessionEndDate) => {
 //     return now > new Date(Number(sessionEndDate));
 //   };
-  
+
 //   if (to.name !== "login") {
 //     if (local.sessionEndDate) {
 //       if (isExpired(local.sessionEndDate)) next({ name: "login" });
@@ -53,7 +53,12 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
+      path: "",
+      redirect: "/home",
+    },
+    {
       path: "/",
+      redirect:"/home",
       name: "main",
       component: BasicView,
       children: [
@@ -65,8 +70,7 @@ const router = createRouter({
         {
           path: "signup",
           name: "signup",
-          component: SignupView
-
+          component: SignupView,
         },
         {
           path: "home",
@@ -151,6 +155,6 @@ const router = createRouter({
     },
   ],
 });
-
+router.replace({ path: "/home", redirect: "/" });
 //router.beforeEach(navigationGuard);
 export default router;

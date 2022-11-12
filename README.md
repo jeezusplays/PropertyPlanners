@@ -25,8 +25,6 @@
     <a href="https://github.com/jeezusplays/PropertyPlanners/graphs/contributors">Contributors</a>
     ·
     <a href="https://github.com/jeezusplays/PropertyPlanners/network/members">Forks</a>
-    ·
-    <a href="https://linkedin.com/in/joey-tan-zuyi">LinkedIn</a>
   </p>
 </div>
 <!-- [![Stargazers][stars-shield]][stars-url]
@@ -98,11 +96,11 @@ Property Planners is a platform for resale flat buyers to understand the propert
 
 Without comprehensive, interactive, and free statistical data on resale flats, the process of purchasing a flat is often tedious and buyers have little sensing on a reasonable price. Most individuals would be unable to understand the landscape of the resale market at a glance, and would have to spend hours and days researching. Others may rely on property agents, who may not always provide the most accurate information to benefit themselves financially. To give property seekers a leverage, Property Planners aims to provide meaningful data such as (but not limited to):
 
-* summary statistics
-* drill down charts 
-* regional maps
-* distribution tables
-* resale price forecast 
+* Summary statistics
+* Drill down charts 
+* Regional maps
+* Distribution tables
+* Resale price forecast 
 
 By aggregating resale flat prices around Singapore, users can understand the market much quicker instead of having to read numerous complex reports on property websites. This helps users create a simpler and better overview of their property purchasing journey. Researching for prices and prospecting for the ideal flat becomes much easier with the data we provide.
 
@@ -122,11 +120,23 @@ This section lists any major frameworks/libraries used to bootstrap PropertyPlan
 <!-- * [![Next][Next.js]][Next-url]
 * [![React][React.js]][React-url] -->
 * [![Vue][Vue.js]][Vue-url]
+* [![Chart][Chart.js]][Chart-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 * [![JQuery][JQuery.com]][JQuery-url]
+* [![Firebase][Firebase]][Firebase-url]
+* [![GeoJSON][GeoJSON]][GeoJSON-url]
+* [![Flask][Flask]][Flask-url]
+* [![Google][Google]][Google-url]
+
 <!-- * [![Angular][Angular.io]][Angular-url]
 * [![Svelte][Svelte.dev]][Svelte-url]
 * [![Laravel][Laravel.com]][Laravel-url] -->
+
+This are the APIs used to integrate meaningful data into PropertyPlanners.
+* [Resale Flat Prices](https://data.gov.sg/dataset/resale-flat-prices)
+* [CEA Salesperson Information](https://data.gov.sg/dataset/cea-salesperson-info)
+* [CEA Salesperson Property Transaction Records (Residential)](https://data.gov.sg/dataset/cea-salesperson-residential-transaction-record)
+* [Google Maps API](https://developers.google.com/maps)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -135,8 +145,7 @@ This section lists any major frameworks/libraries used to bootstrap PropertyPlan
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
@@ -148,7 +157,7 @@ You will need the following software installed in your machine.
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+_Instructions on how to install this respository onto your local machine._
 
 1. Clone the repo
    ```sh
@@ -165,6 +174,10 @@ _Below is an example of how you can instruct your audience on installing and set
    npm run serve
    ```
 4. Go to your local host
+   ```sh
+   http://localhost:8080 or https://localhost:8081
+   ```
+
 <!-- 6. Start a new terminal and run API server
    ```sh
    python api\api.py
@@ -211,9 +224,9 @@ If you have a suggestion that would make this better, please fork the repo and c
 Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
+2. Create your Feature Branch (`git checkout -b /newFeature`)
+3. Commit your Changes (`git commit -m 'Add some newFeature'`)
+4. Push to the Branch (`git push origin /newFeature`)
 5. Open a Pull Request
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -232,11 +245,11 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contacts
 
-Joey - [@LinkedIn](https://linkedin.com/in/joey-tan-zuyi)<br>
-Samuel - [@LinkedIn](https://www.linkedin.com/in/samuel-chung-339688154/)<br>
-Hong Xiang - [@LinkedIn](https://www.linkedin.com/in/liowhongxiang/)<br>
+* [Tan Zuyi Joey](https://linkedin.com/in/joey-tan-zuyi)<br>
+* [Samuel Chung](https://www.linkedin.com/in/samuel-chung-339688154/)<br>
+* [Liow Hong Xiang](https://www.linkedin.com/in/liowhongxiang/)<br>
 
-Project Link: [https://github.com/jeezusplays/PropertyPlanners](https://github.com/jeezusplays/PropertyPlanners)
+<!-- Project Link: [https://github.com/jeezusplays/PropertyPlanners](https://github.com/jeezusplays/PropertyPlanners) -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -253,6 +266,10 @@ Credit to these helpful resources!
 * [Img Shields](https://shields.io) -->
 * [GitHub Pages](https://pages.github.com)
 * [Font Awesome](https://fontawesome.com)
+* [Firebase](https://firebase.google.com/)
+* [Geocoding/Reverse Geocoding](https://developers.google.com/maps/documentation/geocoding)
+* [DataTables Vue](https://datatables.net/blog/2022-06-22-vue)
+
 <!-- * [React Icons](https://react-icons.github.io/react-icons/search) -->
 <!-- * [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet) -->
 
@@ -290,4 +307,14 @@ Credit to these helpful resources!
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
+[JQuery-url]: https://jquery.com
+[Chart.js]: https://img.shields.io/badge/Chart.js-ffffff?style=for-the-badge&logo=Chart.js&logoColor=dark
+[Chart-url]: https://www.chartjs.org/
+[Firebase]: https://img.shields.io/badge/Firebase-039be5?style=for-the-badge&logo=Firebase&logoColor=dark
+[Firebase-url]: https://firebase.google.com/
+[Flask]: https://img.shields.io/twitter/url?color=white&label=Flask&logo=Flask&style=for-the-badge&url=https%3A%2F%2Fflask.palletsprojects.com%2Fen%2F2.2.x%2F
+[Flask-url]:https://flask.palletsprojects.com/en/2.2.x/
+[GeoJSON]:https://img.shields.io/twitter/url?color=white&label=GeoJSON&logo=json&logoColor=blue&style=for-the-badge&url=https%3A%2F%2Fgeojson.org%2F
+[GeoJSON-url]:https://geojson.org/
+[Google]:https://img.shields.io/twitter/url?label=Google%20Compute%20Engine&logo=google%20cloud&logoColor=red&style=for-the-badge&url=https%3A%2F%2Fcloud.google.com%2Fcompute
+[Google-url]:https://cloud.google.com/compute
