@@ -25,8 +25,6 @@
     <a href="https://github.com/jeezusplays/PropertyPlanners/graphs/contributors">Contributors</a>
     ·
     <a href="https://github.com/jeezusplays/PropertyPlanners/network/members">Forks</a>
-    ·
-    <a href="https://linkedin.com/in/joey-tan-zuyi">LinkedIn</a>
   </p>
 </div>
 <!-- [![Stargazers][stars-shield]][stars-url]
@@ -176,6 +174,10 @@ _Instructions on how to install this respository onto your local machine._
    npm run serve
    ```
 4. Go to your local host
+   ```sh
+   http://localhost:8080
+   ```
+
 <!-- 6. Start a new terminal and run API server
    ```sh
    python api\api.py
