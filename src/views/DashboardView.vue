@@ -62,7 +62,7 @@ import { RouterLink } from "vue-router";
               </div>
             </li>
             <li class="nav-item w-100 text-start" v-if="isSeeker">
-              <RouterLink :to="'/' + userType + '/findagent'" class="nav-link grow text-colour-hover px-3 py-2"
+              <RouterLink :to="'/' + userType + '/search'" class="nav-link grow text-colour-hover px-3 py-2"
                 aria-current="page">
                 <font-awesome-icon icon="fa-solid fa-magnifying-glass" class="me-3" size="md" />
                 <text class="pp-fat-text">Find Agents</text>
