@@ -30,7 +30,7 @@
             <p class="pp-text text-start">
               <b>About me:</b>
               <br>
-              {{ profile.aboutme }}
+              <text class="opacity-75">{{ profile.aboutme }}</text>
             </p>
           </div>
         </div>
@@ -94,7 +94,7 @@ export default {
       profile: {
         name: "John Doe",
         email: "Johndoe@gmail.com",
-        aboutme: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum gravida dolor sit amet condimentum."
+        aboutme: "Write a short introduction so agents can understand you better!"
       },
       isEditing: false
     };
