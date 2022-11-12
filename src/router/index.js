@@ -15,13 +15,15 @@ import Payment from "../components/agent/PaymentPage.vue";
 
 // Common
 import Chat from "../components/common/Chat.vue";
-import MapView from "../components/common/MapView.vue";
+import MapView from "../components/common/MapView.vue"
+import GeneralStats from "../components/common/GeneralStats.vue"
 
 // Landing
 import LandingPage from "../components/landing/LandingPage.vue";
 
 // Seeker
 import SeekerProfile from "../components/seeker/SeekerProfile.vue";
+import Search from "../components/seeker/Search.vue"
 
 // function navigationGuard(to, from, next) {
 //   var local = localStorage;
@@ -107,7 +109,7 @@ const router = createRouter({
         {
           path: "general",
           name: "agent-general",
-          component: LandingPage,
+          component: GeneralStats,
         },
         {
           path: "payment",
@@ -134,7 +136,7 @@ const router = createRouter({
         {
           path: "findagent",
           name: "findagent",
-          component: LandingPage,
+          component: Search,
         },
         {
           path: "favourites",
@@ -154,7 +156,7 @@ const router = createRouter({
         {
           path: "general",
           name: "general",
-          component: LandingPage,
+          component: GeneralStats,
         },
       ],
     },
