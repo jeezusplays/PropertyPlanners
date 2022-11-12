@@ -200,7 +200,7 @@ Some <b>login details</b> you can try:
 ### Property Agent Verification 
 Some <b>Property Agent CEA</b> you can use when creating an agent profile:
 |Agent CEA|Name|Registration Period|Company|
-|:-----:|:-----:|:-----:|:-----:|
+|R045184G|KOH JIN MIN (ADRIAN KOH)|2019-02-12 ~ 2022-12-31|PROPNEX REALTY PTE. LTD.|
 
 CEA allows the property agent to become "verified" on PropertyPlanners. All information above will be displayed on their profile, except their image.
 
