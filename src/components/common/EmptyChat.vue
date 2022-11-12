@@ -8,7 +8,8 @@
           Search for agents and start a chat with one that suits you!
         </p>
         <!-- <button class="btn btn-success mx-auto">Find Agents</button> -->
-        <button type="button" class="mx-auto btn btn-primary rounded-pill btn-lg pp-button" onclick="window.location='search'">
+        <button type="button" class="mx-auto btn btn-primary rounded-pill btn-lg pp-button"
+          onclick="window.location='search'">
           Find Agents
         </button>
       </div>
