@@ -134,8 +134,8 @@ const router = createRouter({
           component: Chat,
         },
         {
-          path: "findagent",
-          name: "findagent",
+          path: "search",
+          name: "search",
           component: Search,
         },
         {
