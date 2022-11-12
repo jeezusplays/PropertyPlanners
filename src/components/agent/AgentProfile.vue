@@ -1,3 +1,6 @@
+<script setup>
+import { RouterLink } from "vue-router";
+</script>
 <template>
   <EmptyProfile v-if="!hasProfile" />
   <div class="container-fluid px-5 py-3" v-else>
@@ -39,7 +42,7 @@
       </div>
       <div class="d-flex flex-row p-0 col-12 col-lg-3 justify-content-end">
         <button class="p-3 btn me-auto me-lg-0 ms-lg-auto pp-button rounded-pill" style="background-color: #779341;color: #ffffff;border-radius: 15px;width: 150px;" v-if="!isAgent">
-          Chat now
+          <RouterLink :to="'chat'">Chat now</RouterLink>
         </button>
       </div>
     </div>
