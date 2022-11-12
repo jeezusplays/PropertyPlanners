@@ -131,13 +131,11 @@ export default {
   name: "DashboardNav",
   data() {
     return {
-      isSeeker: true,
-      isAgent: false,
+      isSeeker: localStorage['type'] == "seeker",
+      isAgent: localStorage['type'] == "agent",
     };
   },
   mounted() {
-    localStorage['type'] == "seeker" ? this.isSeeker == true : this.isSeeker == false
-    localStorage['type'] == "seeker" ? this.isAgent == false : this.isAgent == true
   },
   computed: {
     userType() {

@@ -28,13 +28,16 @@
                         <span>${{totalPrice}}</span>
                     </div>
                     <div class="border-bottom mb-4"></div>
-                    <div class="d-flex flex-column mb-4">
+                    <div class="row">
+                        <div class="d-flex flex-column  col-12 col-md-6 mb-4">
                         <span>Order ID:</span>
                         <span>{{order}}</span>
                     </div>
-                    <div class="d-flex flex-column mb-5">
+                    <div class="d-flex flex-column col-12 col-md-6 mb-5">
                         <span>Days Left:</span>
                         <span>{{daysleft}}</span>
+                        <span class="opacity-50">({{daysleft+30}} after purchase)</span>
+                    </div>
                     </div>
                 </div>
             </div>
