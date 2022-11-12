@@ -194,8 +194,9 @@ Here of some useful examples of how you can use/test PropertyPlanners. Additiona
 
 ### Login 
 Some <b>login details</b> you can try:
-|User|Email|Password|
+|User Type|Email|Password|
 |:-----:|:-----:|:-----:|
+|Agent|huai2@gmail.com|password123|
 
 ### Property Agent Verification 
 Some <b>Property Agent CEA</b> you can use when creating an agent profile:
