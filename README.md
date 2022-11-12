@@ -175,7 +175,7 @@ _Instructions on how to install this respository onto your local machine._
    ```
 4. Go to your local host
    ```sh
-   http://localhost:8080
+   http://localhost:8080 or https://localhost:8081
    ```
 
 <!-- 6. Start a new terminal and run API server
