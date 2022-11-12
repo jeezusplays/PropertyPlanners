@@ -152,149 +152,154 @@ export default {
 
           this.townname = area;
 
-          // Here begins the statistics API
-          var data = {
-            resource_id: "f1765b54-a209-4718-8d38-a39237f502b3", // the resource id
-            limit: 150000, // Set 150000 results
-            q: area,
-          };
+          this.populateChart(area)
 
-          $.ajax({
-            url: "https://data.gov.sg/api/action/datastore_search",
-            data: data,
-            success: function (data) {},
-          }).then((data) => {
-            // console.log(data.result.records);
-            var picture = "";
-            var overall_average = 0;
-            var sqm = 0;
-            var yearList = [];
-            var yearDict = {};
-            var room_list = [];
-            var room_dict = {};
-            var yearLeaseList = [];
-            var yearLeaseDict = {};
-
-            for (var x = 0; x < data.result.records.length; x++) {
-              var current_record = data.result.records[x];
-              overall_average += Number(current_record.resale_price);
-              sqm +=
-                Number(current_record.resale_price) /
-                Number(current_record.floor_area_sqm);
-
-              // Append resale prices by year
-              if (!yearList.includes(current_record.month.slice(0, 4))) {
-                yearList.push(current_record.month.slice(0, 4));
-                yearDict[current_record.month.slice(0, 4)] = [
-                  Number(current_record.resale_price),
-                  1,
-                ];
-              } else {
-                yearDict[current_record.month.slice(0, 4)][0] += Number(
-                  current_record.resale_price
-                );
-                yearDict[current_record.month.slice(0, 4)][1] += 1;
-              }
-
-              // Append volume of transacted resale room type
-              if (!room_list.includes(current_record.flat_type)) {
-                room_list.push(current_record.flat_type);
-                room_dict[current_record.flat_type] = [
-                  1,
-                  Number(current_record.resale_price),
-                ];
-              } else {
-                room_dict[current_record.flat_type][0] += 1;
-                room_dict[current_record.flat_type][1] += Number(
-                  current_record.resale_price
-                );
-              }
-
-              // Append resale prices by lease year
-              if (!yearLeaseList.includes(current_record.lease_commence_date)) {
-                yearLeaseList.push(current_record.lease_commence_date);
-                yearLeaseDict[current_record.lease_commence_date] = [
-                  Number(current_record.resale_price),
-                  1,
-                ];
-              } else {
-                yearLeaseDict[current_record.lease_commence_date][0] += Number(
-                  current_record.resale_price
-                );
-                yearLeaseDict[current_record.lease_commence_date][1] += 1;
-              }
-            }
-
-            // Output statistics data summary
-            overall_average = (
-              overall_average / data.result.records.length
-            ).toFixed(0);
-            sqm = (sqm / data.result.records.length).toFixed(0);
-
-            var current_year = new Date().getFullYear();
-            var previous_year = current_year - 1;
-            var image = "";
-            var current_year_average_price =
-              yearDict[current_year][0] / yearDict[current_year][1];
-            var previous_year_average_price =
-              yearDict[previous_year][0] / yearDict[previous_year][1];
-            var percentage_difference =
-              ((current_year_average_price - previous_year_average_price) /
-                current_year_average_price) *
-              100;
-            // Calculate HDB Resale price averages for current year + previous year
-            if (percentage_difference < 0) {
-              image = "<img id = 'decrease_resale_price' width = 25px>";
-              picture = "decrease_resale_price";
-            } else {
-              image = "<img id = 'increase_resale_price' width = 25px>";
-              picture = "increase_resale_price";
-            }
-            var price_diff =
-              percentage_difference.toFixed(1) + "%" + image + "<br>";
-
-            document.getElementById("median_price").innerText =
-              "$" + overall_average;
-            document.getElementById("ppsqm").innerText = "$" + sqm;
-            document.getElementById("price_comparison").innerHTML = price_diff;
-
-            if (this.counter == 0) {
-              for (let x = 1; x < 8; x++) {
-                let name = "placeholder" + x;
-                document.getElementById(name).remove();
-              }
-            }
-
-            if (picture == "decrease_resale_price") {
-              document.getElementById(
-                picture
-              ).src = require("../../assets/green_triangle_down.png");
-            } else if (picture == "increase_resale_price") {
-              document.getElementById(
-                picture
-              ).src = require("../../assets/red_triangle_up.png");
-            } else if (picture == "increase_resale_quantity") {
-              document.getElementById(
-                picture
-              ).src = require("../../assets/green_triangle_up.png");
-            } else if (picture == "decrease_resale_quantity") {
-              document.getElementById(
-                picture
-              ).src = require("../../assets/red_triangle_down.png");
-            }
-
-            this.resaleRoomTypeDistributionChart(room_dict);
-            this.resaleYearChart(yearDict);
-            this.resaleRoomTypePriceChart(room_dict);
-            this.resaleLeaseYearChart(yearLeaseDict);
-            this.counter += 1;
-            console.log(room_dict);
-          });
         });
       });
     },
 
-    resaleRoomTypeDistributionChart(room_dict) {
+    populateChart(area) {
+      // Here begins the statistics API
+      var data = {
+        resource_id: "f1765b54-a209-4718-8d38-a39237f502b3", // the resource id
+        limit: 150000, // Set 150000 results
+        q: area,
+      };
+
+      $.ajax({
+        url: "https://data.gov.sg/api/action/datastore_search",
+        data: data,
+        success: function (data) {},
+      }).then((data) => {
+        // console.log(data.result.records);
+        var picture = "";
+        var overall_average = 0;
+        var sqm = 0;
+        var yearList = [];
+        var yearDict = {};
+        var room_list = [];
+        var room_dict = {};
+        var yearLeaseList = [];
+        var yearLeaseDict = {};
+
+        for (var x = 0; x < data.result.records.length; x++) {
+          var current_record = data.result.records[x];
+          overall_average += Number(current_record.resale_price);
+          sqm +=
+            Number(current_record.resale_price) /
+            Number(current_record.floor_area_sqm);
+
+          // Append resale prices by year
+          if (!yearList.includes(current_record.month.slice(0, 4))) {
+            yearList.push(current_record.month.slice(0, 4));
+            yearDict[current_record.month.slice(0, 4)] = [
+              Number(current_record.resale_price),
+              1,
+            ];
+          } else {
+            yearDict[current_record.month.slice(0, 4)][0] += Number(
+              current_record.resale_price
+            );
+            yearDict[current_record.month.slice(0, 4)][1] += 1;
+          }
+
+          // Append volume of transacted resale room type
+          if (!room_list.includes(current_record.flat_type)) {
+            room_list.push(current_record.flat_type);
+            room_dict[current_record.flat_type] = [
+              1,
+              Number(current_record.resale_price),
+            ];
+          } else {
+            room_dict[current_record.flat_type][0] += 1;
+            room_dict[current_record.flat_type][1] += Number(
+              current_record.resale_price
+            );
+          }
+
+          // Append resale prices by lease year
+          if (!yearLeaseList.includes(current_record.lease_commence_date)) {
+            yearLeaseList.push(current_record.lease_commence_date);
+            yearLeaseDict[current_record.lease_commence_date] = [
+              Number(current_record.resale_price),
+              1,
+            ];
+          } else {
+            yearLeaseDict[current_record.lease_commence_date][0] += Number(
+              current_record.resale_price
+            );
+            yearLeaseDict[current_record.lease_commence_date][1] += 1;
+          }
+        }
+
+        // Output statistics data summary
+        overall_average = (
+          overall_average / data.result.records.length
+        ).toFixed(0);
+        sqm = (sqm / data.result.records.length).toFixed(0);
+
+        var current_year = new Date().getFullYear();
+        var previous_year = current_year - 1;
+        var image = "";
+        var current_year_average_price =
+          yearDict[current_year][0] / yearDict[current_year][1];
+        var previous_year_average_price =
+          yearDict[previous_year][0] / yearDict[previous_year][1];
+        var percentage_difference =
+          ((current_year_average_price - previous_year_average_price) /
+            current_year_average_price) *
+          100;
+        // Calculate HDB Resale price averages for current year + previous year
+        if (percentage_difference < 0) {
+          image = "<img id = 'decrease_resale_price' width = 25px>";
+          picture = "decrease_resale_price";
+        } else {
+          image = "<img id = 'increase_resale_price' width = 25px>";
+          picture = "increase_resale_price";
+        }
+        var price_diff =
+          percentage_difference.toFixed(1) + "%" + image + "<br>";
+
+        document.getElementById("median_price").innerText =
+          "$" + overall_average;
+        document.getElementById("ppsqm").innerText = "$" + sqm;
+        document.getElementById("price_comparison").innerHTML = price_diff;
+
+        if (this.counter == 0) {
+          for (let x = 1; x < 8; x++) {
+            let name = "placeholder" + x;
+            document.getElementById(name).remove();
+          }
+        }
+
+        if (picture == "decrease_resale_price") {
+          document.getElementById(
+            picture
+          ).src = require("../../assets/green_triangle_down.png");
+        } else if (picture == "increase_resale_price") {
+          document.getElementById(
+            picture
+          ).src = require("../../assets/red_triangle_up.png");
+        } else if (picture == "increase_resale_quantity") {
+          document.getElementById(
+            picture
+          ).src = require("../../assets/green_triangle_up.png");
+        } else if (picture == "decrease_resale_quantity") {
+          document.getElementById(
+            picture
+          ).src = require("../../assets/red_triangle_down.png");
+        }
+
+        this.resaleRoomTypeDistributionChart(room_dict);
+        this.resaleYearChart(yearDict);
+        this.resaleRoomTypePriceChart(room_dict);
+        this.resaleLeaseYearChart(yearLeaseDict);
+        this.counter += 1;
+        console.log(room_dict);
+      });
+    },
+
+    resaleRoomTypeDistributionChart(id, room_dict) {
       var room_dict_sorted = { ...room_dict };
       for (const key in room_dict) {
         room_dict_sorted[key] = Number(room_dict[key][0]);
@@ -308,9 +313,7 @@ export default {
         );
       }
 
-      var ctx = document
-        .getElementById("room_dist_pieChart")
-        .getContext("2d");
+      var ctx = document.getElementById("room_dist_pieChart").getContext("2d");
 
       var data = {
         labels: Object.keys(room_dict_sorted),
@@ -353,10 +356,9 @@ export default {
       });
 
       console.log(myRoomDistChart);
-    
     },
 
-    resaleRoomTypePriceChart(room_dict) {
+    resaleRoomTypePriceChart(id, room_dict) {
       var year_dict_new = { ...room_dict };
       for (const key in room_dict) {
         year_dict_new[key] = Number(
@@ -369,7 +371,7 @@ export default {
         $("#price_barChart").append(
           '<canvas id="barChartFlatType" style="max-height: 300px"></canvas>'
         );
-      } 
+      }
 
       var ctx2 = document.getElementById("barChartFlatType").getContext("2d");
       var data2 = {
@@ -424,7 +426,7 @@ export default {
       console.log(barChartFlat);
     },
 
-    resaleYearChart(yearDict) {
+    resaleYearChart(id, yearDict) {
       var year_dict_new = {};
       for (const key in yearDict) {
         year_dict_new[key] = Number(
@@ -439,9 +441,7 @@ export default {
         );
       }
 
-      var ctx3 = document
-        .getElementById("barChartPriceYear")
-        .getContext("2d");
+      var ctx3 = document.getElementById("barChartPriceYear").getContext("2d");
 
       var data3 = {
         labels: Object.keys(year_dict_new),
@@ -494,21 +494,23 @@ export default {
       console.log(barChart);
     },
 
-    resaleLeaseYearChart(yearLeaseDict) {
-
+    resaleLeaseYearChart(id, yearLeaseDict) {
       for (const key in yearLeaseDict) {
         yearLeaseDict[key] = Number(
           (yearLeaseDict[key][0] / yearLeaseDict[key][1]).toFixed(0)
         );
       }
 
-      if (this.counter != 0){
+      if (this.counter != 0) {
         $("#lineChart_mean_lease").remove();
         $("#mean_lease").append(
-          '<canvas id="lineChart_mean_lease" style="max-height: 300px"></canvas>');
+          '<canvas id="lineChart_mean_lease" style="max-height: 300px"></canvas>'
+        );
       }
 
-      var ctx3 = document.getElementById("lineChart_mean_lease").getContext("2d");
+      var ctx3 = document
+        .getElementById("lineChart_mean_lease")
+        .getContext("2d");
 
       var data3 = {
         labels: Object.keys(yearLeaseDict),
