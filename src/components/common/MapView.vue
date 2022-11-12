@@ -536,7 +536,7 @@ export default {
             },
             ticks: {
               // stepValue: 450000,
-              stepSize: 100000,
+              stepSize: 50000,
             },
             beginAtZero: false,
           },
