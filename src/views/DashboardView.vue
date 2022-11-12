@@ -75,13 +75,13 @@ import { RouterLink } from "vue-router";
                 <text class="pp-fat-text">Chats</text>
               </RouterLink>
             </li>
-            <li class="nav-item w-100 text-start" v-if="isSeeker">
+            <!-- <li class="nav-item w-100 text-start" v-if="isSeeker">
               <RouterLink :to="'/' + userType + '/favourites'" class="nav-link grow text-colour-hover px-3 py-2"
                 aria-current="page">
                 <font-awesome-icon icon="fa-solid fa-star" class="me-3" size="md" />
                 <text class="pp-fat-text">Favourites</text>
               </RouterLink>
-            </li>
+            </li> -->
             <li class="nav-item w-100 text-start" v-if="isAgent">
               <RouterLink :to="'/' + userType + '/payment'" class="nav-link grow text-colour-hover px-3 py-2"
                 aria-current="page">
