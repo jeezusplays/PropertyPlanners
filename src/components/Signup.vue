@@ -20,7 +20,7 @@
                                     <select id="role" v-model="type" class="form-control">
                                         <option disabled>Select Role</option>
                                         <option value="seeker">Property Seeker</option>
-                                        <option value="agent">Property Agents</option>
+                                        <option value="agent">Property Agent</option>
                                     </select>
                                 </div>
                             </div>
