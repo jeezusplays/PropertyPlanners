@@ -25,3 +25,8 @@ export default {
   },
 };
 </script>
+<style>
+#spinner{
+  z-index: 1056;
+}
+</style>
