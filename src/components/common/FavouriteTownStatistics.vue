@@ -6,7 +6,7 @@
       </p>
 
       <p class="opacity-50 pp-text ms-auto mt-auto grow pointer">
-        <font-awesome-icon icon="fa-solid fa-plus" /> Add to favourites
+        <font-awesome-icon icon="fa-solid fa-plus" /> Add to Dashboard
       </p>
     </div>
 
