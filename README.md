@@ -193,7 +193,7 @@ _Instructions on how to install this respository onto your local machine._
 Here of some useful examples of how you can use/test PropertyPlanners. Additional screenshots, code examples and demos may be provided. 
 
 ### Login 
-Some <b>login details</b> you can try:
+Some <b>login details</b> you can try. Feel free to make your own Seeker account!
 |User Type|Email|Password|
 |:-----:|:-----:|:-----:|
 |Agent|boahancock@onepiece.com|password123|
