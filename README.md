@@ -192,9 +192,21 @@ _Instructions on how to install this respository onto your local machine._
 
 Here of some useful examples of how you can use/test PropertyPlanners. Additional screenshots, code examples and demos may be provided. 
 
-Some login details you can try:
+Some <b>login details</b> you can try:
 |User|Email|Password|
 |:-----:|:-----:|:-----:|
+
+Some <b>Property Agent CEA</b> you can use when creating an agent profile:
+|Agent CEA|Name|Registration Period|Company|
+|:-----:|:-----:|:-----:|:-----:|
+
+CEA allows the property agent to become "verified" on PropertyPlanners. All information above will be displayed on their profile, except their image.
+
+This also retrieves their:
+* HDB Resale Records
+* HDB Rental Records
+* Private Rental Records
+* Private Sale Records
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
