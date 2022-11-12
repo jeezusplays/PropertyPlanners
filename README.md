@@ -197,7 +197,8 @@ Some <b>login details</b> you can try:
 |User Type|Email|Password|
 |:-----:|:-----:|:-----:|
 |Agent|huai2@gmail.com|password123|
-|Seeker|boahancock@onepiece.com|password123|
+|Agent|boahancock@onepiece.com|password123|
+|Seeker|nicorobin@onepiece.com|password123|
 
 ### Property Agent Verification 
 Some <b>Property Agent CEA</b> you can use when creating an agent profile:
