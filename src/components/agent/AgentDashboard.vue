@@ -52,7 +52,7 @@ export default {
     }
   },
   mounted() {
-    // Query for visits/clicks
+    // Local storage OR database query for visits/clicks/chats
     if (localStorage.planDaysLeft === undefined) {
       this.planDaysLeft = 0
     }
