@@ -28,13 +28,13 @@
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="emailAddress">Enter your email address</label>
                                 <input type="email" id="emailAddress" v-model="email" class="form-control"
-                                    placeholder="Email address" />
+                                    placeholder="Email address" @keyup.enter="logIn()" />
                             </div>
 
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="password">Enter your password</label>
                                 <input type="password" id="password" v-model="password" class="form-control"
-                                    placeholder="Password" />
+                                    placeholder="Password" @keyup.enter="logIn()" />
                             </div>
 
 
@@ -98,6 +98,12 @@ export default {
 
                     this.type = data.type
                     localStorage['type'] = this.type
+                    localStorage['name'] = data.name
+                    localStorage['email'] = data.email
+                    localStorage['aboutme'] = data.name
+                    localStorage['profilepic'] = data.profilepic
+                    localStorage['preferences'] = JSON.stringify(data.preferences)
+
 
                     this.$router.push({ path: `/${this.type}/dashboard` })
                 } else {

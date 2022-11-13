@@ -25,7 +25,11 @@ import {
   faPen,
   fa1,
   fa2,
-  fa3
+  fa3,
+  faCalendar,
+  faCreditCard,
+  faLock,
+  faPlus
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faTwitter,
@@ -53,7 +57,11 @@ library.add(
   faPen,
   fa1,
   fa2,
-  fa3
+  fa3,
+  faCalendar,
+  faCreditCard,
+  faLock,
+  faPlus
 );
 
 const app = createApp(App);

@@ -1,40 +1,14 @@
 # PropertyPlanners
 
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
 
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 <div>
   <p align="center">  
     <a href="https://github.com/jeezusplays/PropertyPlanners/graphs/contributors">Contributors</a>
     ·
     <a href="https://github.com/jeezusplays/PropertyPlanners/network/members">Forks</a>
-    ·
-    <a href="https://linkedin.com/in/joey-tan-zuyi">LinkedIn</a>
   </p>
 </div>
-<!-- [![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url] -->
-<!-- [![MIT License][license-shield]][license-url] -->
-
-
-
 
 <!-- PROJECT LOGO -->
 <br />
@@ -78,10 +52,9 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <!-- <li><a href="#roadmap">Roadmap</a></li> -->
+    <li><a href="#usage-&-testing">Usage and Testing</a></li>
+    <li><a href="#known-issues">Known Issues</a></li>
     <li><a href="#contributing">Contributing</a></li>
-    <!-- <li><a href="#license">License</a></li> -->
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
@@ -92,17 +65,17 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+!["Homepage"][homepage-screenshot]
 
 Property Planners is a platform for resale flat buyers to understand the properties landscape and help locate suitable resale properties. Based on research, 60% of individuals surveyed feel that properties in Singapore are unaffordable. The spike came from high demands and low supplies due to construction setbacks from COVID-19. With the fierce competition for BTO flats, some end up looking for resale flats (which could be more expensive). 
 
 Without comprehensive, interactive, and free statistical data on resale flats, the process of purchasing a flat is often tedious and buyers have little sensing on a reasonable price. Most individuals would be unable to understand the landscape of the resale market at a glance, and would have to spend hours and days researching. Others may rely on property agents, who may not always provide the most accurate information to benefit themselves financially. To give property seekers a leverage, Property Planners aims to provide meaningful data such as (but not limited to):
 
-* summary statistics
-* drill down charts 
-* regional maps
-* distribution tables
-* resale price forecast 
+* Summary statistics
+* Drill down charts 
+* Regional maps
+* Distribution tables
+* Resale price forecast 
 
 By aggregating resale flat prices around Singapore, users can understand the market much quicker instead of having to read numerous complex reports on property websites. This helps users create a simpler and better overview of their property purchasing journey. Researching for prices and prospecting for the ideal flat becomes much easier with the data we provide.
 
@@ -126,13 +99,16 @@ This section lists any major frameworks/libraries used to bootstrap PropertyPlan
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 * [![JQuery][JQuery.com]][JQuery-url]
 * [![Firebase][Firebase]][Firebase-url]
+* [![GeoJSON][GeoJSON]][GeoJSON-url]
+* [![Flask][Flask]][Flask-url]
+* [![Google][Google]][Google-url]
+
 <!-- * [![Angular][Angular.io]][Angular-url]
 * [![Svelte][Svelte.dev]][Svelte-url]
 * [![Laravel][Laravel.com]][Laravel-url] -->
 
 This are the APIs used to integrate meaningful data into PropertyPlanners.
-* [Resale Flat](https://data.gov.sg/dataset/resale-flat-prices)
-* [Resale Price Index](https://data.gov.sg/dataset/hdb-resale-price-index)
+* [Resale Flat Prices](https://data.gov.sg/dataset/resale-flat-prices)
 * [CEA Salesperson Information](https://data.gov.sg/dataset/cea-salesperson-info)
 * [CEA Salesperson Property Transaction Records (Residential)](https://data.gov.sg/dataset/cea-salesperson-residential-transaction-record)
 * [Google Maps API](https://developers.google.com/maps)
@@ -173,6 +149,10 @@ _Instructions on how to install this respository onto your local machine._
    npm run serve
    ```
 4. Go to your local host
+   ```sh
+   http://localhost:8080 or https://localhost:8081
+   ```
+
 <!-- 6. Start a new terminal and run API server
    ```sh
    python api\api.py
@@ -182,33 +162,67 @@ _Instructions on how to install this respository onto your local machine._
 
 
 
-<!-- USAGE EXAMPLES -->
-## Usage
+<!-- USAGE -->
+## Usage & Testing
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Here of some useful examples of how you can use/test PropertyPlanners. Additional screenshots, code examples and demos may be provided. 
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+### Login 
+Some <b>login details</b> you can try. Feel free to make your own Seeker account!
+|User Type|Email|Password|
+|:-----:|:-----:|:-----:|
+|Agent|boahancock@onepiece.com|password123|
+|Agent|usopp@onepiece.com|password123|
+|Agent|sanji@onepiece.com|password123|
+|Agent|franky@onepiece.com|password123|
+|Agent|brook@onepiece.com|password123|
+|Seeker|nami@onepiece.com|password123|
+|Seeker|nicorobin@onepiece.com|password123|
+|Seeker|luffy@onepiece.com|password123|
+
+### Property Agent Verification 
+Some <b>Property Agent CEA</b> you can use when creating an agent profile. Simply copy and paste the CEA in the "Profile" section if prompted.
+
+|Agent CEA|Name|Registration Period|Company|
+|:-----:|:-----:|:-----:|:-----:|
+|R045184G|KOH JIN MIN (ADRIAN KOH)|2019-02-12 ~ 2022-12-31|PROPNEX REALTY PTE. LTD|
+|R056016F|TAN JIN RUI (OLIVER TAN)|2016-03-29 ~ 2022-12-31|HUTTONS ASIA PTE. LTD.|
+|R051812G|AARON WAN|2017-10-06 ~ 2022-12-31|PROPNEX REALTY PTE. LTD|
+
+CEA allows the property agent to become "verified" on PropertyPlanners. All information above will be displayed on their profile, except their image.
+
+This also retrieves their:
+* HDB Resale Records
+* HDB Rental Records
+* Private Rental Records
+* Private Sale Records
+
+### Searchable Property Agents
+These are a non-exhaustive list of agents you can search for in the "Find Agents" page.
+
+* 
+
+### Statistics
+
+This is a preview of the property information that users can view. It provides them useful information about the property market. Firstly, we have the general statistics. This provides a general overview of the property market as shown below.
+
+!["General"][general-screenshot]
+
+Secondly, we have the statistic by region. The Singapore map is sectioned by clickable regions that provides regional data of the area they selected.
+
+!["Regional"][regional-screenshot]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- KNOWN ISSUES -->
+## Known Issues
 
+This is the rough list of the issues that we noticed but did not manage to fix (due to time constraints). These issues are non-major to the performance and usage of PropertyPlanners. Any resolved issues has also been marked with a tick.
 
-<!-- ROADMAP -->
-<!-- ## Roadmap
+- [ ] By changing the route, agents may be able to see what seekers see and vice versa
+- [x] Checked example
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
-
-See the [open issues](https://github.com/jeezusplays/PropertyPlanners/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
-
-
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -226,17 +240,6 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
-<!-- LICENSE -->
-<!-- ## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
-
-
-
 <!-- CONTACT -->
 ## Contacts
 
@@ -244,10 +247,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 * [Samuel Chung](https://www.linkedin.com/in/samuel-chung-339688154/)<br>
 * [Liow Hong Xiang](https://www.linkedin.com/in/liowhongxiang/)<br>
 
-<!-- Project Link: [https://github.com/jeezusplays/PropertyPlanners](https://github.com/jeezusplays/PropertyPlanners) -->
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- ACKNOWLEDGMENTS -->
@@ -256,18 +256,12 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 Credit to these helpful resources!
 
 <!-- * [Choose an Open Source License](https://choosealicense.com) -->
-<!-- * [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io) -->
+* [Img Shields](https://shields.io)
 * [GitHub Pages](https://pages.github.com)
 * [Font Awesome](https://fontawesome.com)
 * [Firebase](https://firebase.google.com/)
 * [Geocoding/Reverse Geocoding](https://developers.google.com/maps/documentation/geocoding)
 * [DataTables Vue](https://datatables.net/blog/2022-06-22-vue)
-* [Chart.js](https://www.chartjs.org/docs/latest/)
-
-<!-- * [React Icons](https://react-icons.github.io/react-icons/search) -->
-<!-- * [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet) -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -287,7 +281,11 @@ Credit to these helpful resources!
 [license-url]: https://github.com/jeezusplays/PropertyPlanners/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/joey-tan-zuyi
-[product-screenshot]: src/assets/product.png
+
+[homepage-screenshot]: src/assets/product.png
+[general-screenshot]: src/assets/general_stats.png
+[regional-screenshot]: src/assets/regional_stats.png
+
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
@@ -308,3 +306,9 @@ Credit to these helpful resources!
 [Chart-url]: https://www.chartjs.org/
 [Firebase]: https://img.shields.io/badge/Firebase-039be5?style=for-the-badge&logo=Firebase&logoColor=dark
 [Firebase-url]: https://firebase.google.com/
+[Flask]: https://img.shields.io/twitter/url?color=white&label=Flask&logo=Flask&style=for-the-badge&url=https%3A%2F%2Fflask.palletsprojects.com%2Fen%2F2.2.x%2F
+[Flask-url]:https://flask.palletsprojects.com/en/2.2.x/
+[GeoJSON]:https://img.shields.io/twitter/url?color=white&label=GeoJSON&logo=json&logoColor=blue&style=for-the-badge&url=https%3A%2F%2Fgeojson.org%2F
+[GeoJSON-url]:https://geojson.org/
+[Google]:https://img.shields.io/twitter/url?label=Google%20Compute%20Engine&logo=google%20cloud&logoColor=red&style=for-the-badge&url=https%3A%2F%2Fcloud.google.com%2Fcompute
+[Google-url]:https://cloud.google.com/compute

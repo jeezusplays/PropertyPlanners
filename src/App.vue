@@ -100,6 +100,10 @@ a:active {
   font-size: 1rem;
 }
 
+.pp-smol{
+  font-size: 0.75rem;
+}
+
 .illustration {
   max-width: 400px;
   min-width: 150px;
@@ -133,5 +137,10 @@ a:active {
   max-width: 100%;
   height: auto;
   object-fit: cover;
+}
+.pointer {cursor: pointer;}
+
+.pp-green{
+  color: var(--main-green);
 }
 </style>

@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+        <!-- Scripts Required-->
+        <!-- Vue -->
+        <script src="https://unpkg.com/vue@next"></script>
+        <!-- Ajax Query -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- Chart.JS & Datalabels -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.0/dist/chart.min.js"></script>
+        <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script> 
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-piechart-outlabels"></script> -->
+       
+       <style type="text/css">
+
+    .centerAll{
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      place-items: center;
+      vertical-align: middle;
+      /* line-height: 0px; */
+      margin: auto;
+      /* display: flex;
+      display: block; */
+      /* position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); */
+      /* Bootstrap */
+      /* <div class = "mx-auto">*/
+      /* <div class = "row-justify-content-center/end/around/between"> */
+      /* <p class = "text-center"> */
+    }
+    
+    :root, :host {
+      --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Solid";
+      --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Regular";
+      --fa-font-light: normal 300 1em/1 "Font Awesome 6 Light";
+      --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Thin";
+      --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
+      --fa-font-sharp-solid: normal 900 1em/1 "Font Awesome 6 Sharp";
+      --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
+    }
+    
+    svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
+      overflow: visible;
+      box-sizing: content-box;
+    }
+    
+    .svg-inline--fa {
+      display: var(--fa-display, inline-block);
+      height: 1em;
+      overflow: visible;
+      vertical-align: -0.125em;
+    }
+    .svg-inline--fa.fa-2xs {
+      vertical-align: 0.1em;
+    }
+    .svg-inline--fa.fa-xs {
+      vertical-align: 0em;
+    }
+    .svg-inline--fa.fa-sm {
+      vertical-align: -0.0714285705em;
+    }
+    .svg-inline--fa.fa-lg {
+      vertical-align: -0.2em;
+    }
+    .svg-inline--fa.fa-xl {
+      vertical-align: -0.25em;
+    }
+    .svg-inline--fa.fa-2xl {
+      vertical-align: -0.3125em;
+    }
+    .svg-inline--fa.fa-pull-left {
+      margin-right: var(--fa-pull-margin, 0.3em);
+      width: auto;
+    }
+    .svg-inline--fa.fa-pull-right {
+      margin-left: var(--fa-pull-margin, 0.3em);
+      width: auto;
+    }
+    .svg-inline--fa.fa-li {
+      width: var(--fa-li-width, 2em);
+      top: 0.25em;
+    }
+    .svg-inline--fa.fa-fw {
+      width: var(--fa-fw-width, 1.25em);
+    }
+    
+    .fa-layers svg.svg-inline--fa {
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    
+    .fa-layers-counter, .fa-layers-text {
+      display: inline-block;
+      position: absolute;
+      text-align: center;
+    }
+    
+    .fa-layers {
+      display: inline-block;
+      height: 1em;
+      position: relative;
+      text-align: center;
+      vertical-align: -0.125em;
+      width: 1em;
+    }
+    .fa-layers svg.svg-inline--fa {
+      -webkit-transform-origin: center center;
+              transform-origin: center center;
+    }
+    
+    .fa-layers-text {
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+      -webkit-transform-origin: center center;
+              transform-origin: center center;
+    }
+    
+    .fa-layers-counter {
+      background-color: var(--fa-counter-background-color, #ff253a);
+      border-radius: var(--fa-counter-border-radius, 1em);
+      box-sizing: border-box;
+      color: var(--fa-inverse, #fff);
+      line-height: var(--fa-counter-line-height, 1);
+      max-width: var(--fa-counter-max-width, 5em);
+      min-width: var(--fa-counter-min-width, 1.5em);
+      overflow: hidden;
+      padding: var(--fa-counter-padding, 0.25em 0.5em);
+      right: var(--fa-right, 0);
+      text-overflow: ellipsis;
+      top: var(--fa-top, 0);
+      -webkit-transform: scale(var(--fa-counter-scale, 0.25));
+              transform: scale(var(--fa-counter-scale, 0.25));
+      -webkit-transform-origin: top right;
+              transform-origin: top right;
+    }
+    
+    .fa-layers-bottom-right {
+      bottom: var(--fa-bottom, 0);
+      right: var(--fa-right, 0);
+      top: auto;
+      -webkit-transform: scale(var(--fa-layers-scale, 0.25));
+              transform: scale(var(--fa-layers-scale, 0.25));
+      -webkit-transform-origin: bottom right;
+              transform-origin: bottom right;
+    }
+    
+    .fa-layers-bottom-left {
+      bottom: var(--fa-bottom, 0);
+      left: var(--fa-left, 0);
+      right: auto;
+      top: auto;
+      -webkit-transform: scale(var(--fa-layers-scale, 0.25));
+              transform: scale(var(--fa-layers-scale, 0.25));
+      -webkit-transform-origin: bottom left;
+              transform-origin: bottom left;
+    }
+    
+    .fa-layers-top-right {
+      top: var(--fa-top, 0);
+      right: var(--fa-right, 0);
+      -webkit-transform: scale(var(--fa-layers-scale, 0.25));
+              transform: scale(var(--fa-layers-scale, 0.25));
+      -webkit-transform-origin: top right;
+              transform-origin: top right;
+    }
+    
+    .fa-layers-top-left {
+      left: var(--fa-left, 0);
+      right: auto;
+      top: var(--fa-top, 0);
+      -webkit-transform: scale(var(--fa-layers-scale, 0.25));
+              transform: scale(var(--fa-layers-scale, 0.25));
+      -webkit-transform-origin: top left;
+              transform-origin: top left;
+    }
+    
+    .fa-1x {
+      font-size: 1em;
+    }
+    
+    .fa-2x {
+      font-size: 2em;
+    }
+    
+    .fa-3x {
+      font-size: 3em;
+    }
+    
+    .fa-4x {
+      font-size: 4em;
+    }
+    
+    .fa-5x {
+      font-size: 5em;
+    }
+    
+    .fa-6x {
+      font-size: 6em;
+    }
+    
+    .fa-7x {
+      font-size: 7em;
+    }
+    
+    .fa-8x {
+      font-size: 8em;
+    }
+    
+    .fa-9x {
+      font-size: 9em;
+    }
+    
+    .fa-10x {
+      font-size: 10em;
+    }
+    
+    .fa-2xs {
+      font-size: 0.625em;
+      line-height: 0.1em;
+      vertical-align: 0.225em;
+    }
+    
+    .fa-xs {
+      font-size: 0.75em;
+      line-height: 0.0833333337em;
+      vertical-align: 0.125em;
+    }
+    
+    .fa-sm {
+      font-size: 0.875em;
+      line-height: 0.0714285718em;
+      vertical-align: 0.0535714295em;
+    }
+    
+    .fa-lg {
+      font-size: 1.25em;
+      line-height: 0.05em;
+      vertical-align: -0.075em;
+    }
+    
+    .fa-xl {
+      font-size: 1.5em;
+      line-height: 0.0416666682em;
+      vertical-align: -0.125em;
+    }
+    
+    .fa-2xl {
+      font-size: 2em;
+      line-height: 0.03125em;
+      vertical-align: -0.1875em;
+    }
+    
+    .fa-fw {
+      text-align: center;
+      width: 1.25em;
+    }
+    
+    .fa-ul {
+      list-style-type: none;
+      margin-left: var(--fa-li-margin, 2.5em);
+      padding-left: 0;
+    }
+    .fa-ul > li {
+      position: relative;
+    }
+    
+    .fa-li {
+      left: calc(var(--fa-li-width, 2em) * -1);
+      position: absolute;
+      text-align: center;
+      width: var(--fa-li-width, 2em);
+      line-height: inherit;
+    }
+    
+    .fa-border {
+      border-color: var(--fa-border-color, #eee);
+      border-radius: var(--fa-border-radius, 0.1em);
+      border-style: var(--fa-border-style, solid);
+      border-width: var(--fa-border-width, 0.08em);
+      padding: var(--fa-border-padding, 0.2em 0.25em 0.15em);
+    }
+    
+    .fa-pull-left {
+      float: left;
+      margin-right: var(--fa-pull-margin, 0.3em);
+    }
+    
+    .fa-pull-right {
+      float: right;
+      margin-left: var(--fa-pull-margin, 0.3em);
+    }
+    
+    .fa-beat {
+      -webkit-animation-name: fa-beat;
+              animation-name: fa-beat;
+      -webkit-animation-delay: var(--fa-animation-delay, 0s);
+              animation-delay: var(--fa-animation-delay, 0s);
+      -webkit-animation-direction: var(--fa-animation-direction, normal);
+              animation-direction: var(--fa-animation-direction, normal);
+      -webkit-animation-duration: var(--fa-animation-duration, 1s);
+              animation-duration: var(--fa-animation-duration, 1s);
+      -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+              animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+      -webkit-animation-timing-function: var(--fa-animation-timing, ease-in-out);
+              animation-timing-function: var(--fa-animation-timing, ease-in-out);
+    }
+    
+    .fa-bounce {
+      -webkit-animation-name: fa-bounce;
+              animation-name: fa-bounce;
+      -webkit-animation-delay: var(--fa-animation-delay, 0s);
+              animation-delay: var(--fa-animation-delay, 0s);
+      -webkit-animation-direction: var(--fa-animation-direction, normal);
+              animation-direction: var(--fa-animation-direction, normal);
+      -webkit-animation-duration: var(--fa-animation-duration, 1s);
+              animation-duration: var(--fa-animation-duration, 1s);
+      -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+              animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+      -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
+              animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
+    }
+    
+    .fa-fade {
+      -webkit-animation-name: fa-fade;
+              animation-name: fa-fade;
+      -webkit-animation-delay: var(--fa-animation-delay, 0s);
+              animation-delay: var(--fa-animation-delay, 0s);
+      -webkit-animation-direction: var(--fa-animation-direction, normal);
+              animation-direction: var(--fa-animation-direction, normal);
+      -webkit-animation-duration: var(--fa-animation-duration, 1s);
+              animation-duration: var(--fa-animation-duration, 1s);
+      -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+              animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+      -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+              animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+    }
+    
+    .fa-beat-fade {
+      -webkit-animation-name: fa-beat-fade;
+              animation-name: fa-beat-fade;
+      -webkit-animation-delay: var(--fa-animation-delay, 0s);
+              animation-delay: var(--fa-animation-delay, 0s);
+      -webkit-animation-direction: var(--fa-animation-direction, normal);
+              animation-direction: var(--fa-animation-direction, normal);
+      -webkit-animation-duration: var(--fa-animation-duration, 1s);
+              animation-duration: var(--fa-animation-duration, 1s);
+      -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+              animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+      -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+              animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+    }
+    
+    .fa-flip {
+      -webkit-animation-name: fa-flip;
+              animation-name: fa-flip;
+      -webkit-animation-delay: var(--fa-animation-delay, 0s);
+              animation-delay: var(--fa-animation-delay, 0s);
+      -webkit-animation-direction: var(--fa-animation-direction, normal);
+              animation-direction: var(--fa-animation-direction, normal);
+      -webkit-animation-duration: var(--fa-animation-duration, 1s);
+              animation-duration: var(--fa-animation-duration, 1s);
+      -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+              animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+      -webkit-animation-timing-function: var(--fa-animation-timing, ease-in-out);
+              animation-timing-function: var(--fa-animation-timing, ease-in-out);
+    }
+    
+    .fa-shake {
+      -webkit-animation-name: fa-shake;
+              animation-name: fa-shake;
+      -webkit-animation-delay: var(--fa-animation-delay, 0s);
+              animation-delay: var(--fa-animation-delay, 0s);
+      -webkit-animation-direction: var(--fa-animation-direction, normal);
+              animation-direction: var(--fa-animation-direction, normal);
+      -webkit-animation-duration: var(--fa-animation-duration, 1s);
+              animation-duration: var(--fa-animation-duration, 1s);
+      -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+              animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+      -webkit-animation-timing-function: var(--fa-animation-timing, linear);
+              animation-timing-function: var(--fa-animation-timing, linear);
+    }
+    
+    .fa-spin {
+      -webkit-animation-name: fa-spin;
+              animation-name: fa-spin;
+      -webkit-animation-delay: var(--fa-animation-delay, 0s);
+              animation-delay: var(--fa-animation-delay, 0s);
+      -webkit-animation-direction: var(--fa-animation-direction, normal);
+              animation-direction: var(--fa-animation-direction, normal);
+      -webkit-animation-duration: var(--fa-animation-duration, 2s);
+              animation-duration: var(--fa-animation-duration, 2s);
+      -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+              animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+      -webkit-animation-timing-function: var(--fa-animation-timing, linear);
+              animation-timing-function: var(--fa-animation-timing, linear);
+    }
+    
+    .fa-spin-reverse {
+      --fa-animation-direction: reverse;
+    }
+    
+    .fa-pulse,
+    .fa-spin-pulse {
+      -webkit-animation-name: fa-spin;
+              animation-name: fa-spin;
+      -webkit-animation-direction: var(--fa-animation-direction, normal);
+              animation-direction: var(--fa-animation-direction, normal);
+      -webkit-animation-duration: var(--fa-animation-duration, 1s);
+              animation-duration: var(--fa-animation-duration, 1s);
+      -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+              animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+      -webkit-animation-timing-function: var(--fa-animation-timing, steps(8));
+              animation-timing-function: var(--fa-animation-timing, steps(8));
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .fa-beat,
+    .fa-bounce,
+    .fa-fade,
+    .fa-beat-fade,
+    .fa-flip,
+    .fa-pulse,
+    .fa-shake,
+    .fa-spin,
+    .fa-spin-pulse {
+        -webkit-animation-delay: -1ms;
+                animation-delay: -1ms;
+        -webkit-animation-duration: 1ms;
+                animation-duration: 1ms;
+        -webkit-animation-iteration-count: 1;
+                animation-iteration-count: 1;
+        transition-delay: 0s;
+        transition-duration: 0s;
+      }
+    }
+    @-webkit-keyframes fa-beat {
+      0%, 90% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+      }
+      45% {
+        -webkit-transform: scale(var(--fa-beat-scale, 1.25));
+                transform: scale(var(--fa-beat-scale, 1.25));
+      }
+    }
+    @keyframes fa-beat {
+      0%, 90% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+      }
+      45% {
+        -webkit-transform: scale(var(--fa-beat-scale, 1.25));
+                transform: scale(var(--fa-beat-scale, 1.25));
+      }
+    }
+    @-webkit-keyframes fa-bounce {
+      0% {
+        -webkit-transform: scale(1, 1) translateY(0);
+                transform: scale(1, 1) translateY(0);
+      }
+      10% {
+        -webkit-transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+                transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+      }
+      30% {
+        -webkit-transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+                transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+      }
+      50% {
+        -webkit-transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+                transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+      }
+      57% {
+        -webkit-transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+                transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+      }
+      64% {
+        -webkit-transform: scale(1, 1) translateY(0);
+                transform: scale(1, 1) translateY(0);
+      }
+      100% {
+        -webkit-transform: scale(1, 1) translateY(0);
+                transform: scale(1, 1) translateY(0);
+      }
+    }
+    @keyframes fa-bounce {
+      0% {
+        -webkit-transform: scale(1, 1) translateY(0);
+                transform: scale(1, 1) translateY(0);
+      }
+      10% {
+        -webkit-transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+                transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+      }
+      30% {
+        -webkit-transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+                transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+      }
+      50% {
+        -webkit-transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+                transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+      }
+      57% {
+        -webkit-transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+                transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+      }
+      64% {
+        -webkit-transform: scale(1, 1) translateY(0);
+                transform: scale(1, 1) translateY(0);
+      }
+      100% {
+        -webkit-transform: scale(1, 1) translateY(0);
+                transform: scale(1, 1) translateY(0);
+      }
+    }
+    @-webkit-keyframes fa-fade {
+      50% {
+        opacity: var(--fa-fade-opacity, 0.4);
+      }
+    }
+    @keyframes fa-fade {
+      50% {
+        opacity: var(--fa-fade-opacity, 0.4);
+      }
+    }
+    @-webkit-keyframes fa-beat-fade {
+      0%, 100% {
+        opacity: var(--fa-beat-fade-opacity, 0.4);
+        -webkit-transform: scale(1);
+                transform: scale(1);
+      }
+      50% {
+        opacity: 1;
+        -webkit-transform: scale(var(--fa-beat-fade-scale, 1.125));
+                transform: scale(var(--fa-beat-fade-scale, 1.125));
+      }
+    }
+    @keyframes fa-beat-fade {
+      0%, 100% {
+        opacity: var(--fa-beat-fade-opacity, 0.4);
+        -webkit-transform: scale(1);
+                transform: scale(1);
+      }
+      50% {
+        opacity: 1;
+        -webkit-transform: scale(var(--fa-beat-fade-scale, 1.125));
+                transform: scale(var(--fa-beat-fade-scale, 1.125));
+      }
+    }
+    @-webkit-keyframes fa-flip {
+      50% {
+        -webkit-transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+                transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+      }
+    }
+    @keyframes fa-flip {
+      50% {
+        -webkit-transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+                transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+      }
+    }
+    @-webkit-keyframes fa-shake {
+      0% {
+        -webkit-transform: rotate(-15deg);
+                transform: rotate(-15deg);
+      }
+      4% {
+        -webkit-transform: rotate(15deg);
+                transform: rotate(15deg);
+      }
+      8%, 24% {
+        -webkit-transform: rotate(-18deg);
+                transform: rotate(-18deg);
+      }
+      12%, 28% {
+        -webkit-transform: rotate(18deg);
+                transform: rotate(18deg);
+      }
+      16% {
+        -webkit-transform: rotate(-22deg);
+                transform: rotate(-22deg);
+      }
+      20% {
+        -webkit-transform: rotate(22deg);
+                transform: rotate(22deg);
+      }
+      32% {
+        -webkit-transform: rotate(-12deg);
+                transform: rotate(-12deg);
+      }
+      36% {
+        -webkit-transform: rotate(12deg);
+                transform: rotate(12deg);
+      }
+      40%, 100% {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+      }
+    }
+    @keyframes fa-shake {
+      0% {
+        -webkit-transform: rotate(-15deg);
+                transform: rotate(-15deg);
+      }
+      4% {
+        -webkit-transform: rotate(15deg);
+                transform: rotate(15deg);
+      }
+      8%, 24% {
+        -webkit-transform: rotate(-18deg);
+                transform: rotate(-18deg);
+      }
+      12%, 28% {
+        -webkit-transform: rotate(18deg);
+                transform: rotate(18deg);
+      }
+      16% {
+        -webkit-transform: rotate(-22deg);
+                transform: rotate(-22deg);
+      }
+      20% {
+        -webkit-transform: rotate(22deg);
+                transform: rotate(22deg);
+      }
+      32% {
+        -webkit-transform: rotate(-12deg);
+                transform: rotate(-12deg);
+      }
+      36% {
+        -webkit-transform: rotate(12deg);
+                transform: rotate(12deg);
+      }
+      40%, 100% {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+      }
+    }
+    @-webkit-keyframes fa-spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+      }
+    }
+    @keyframes fa-spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+      }
+    }
+    .fa-rotate-90 {
+      -webkit-transform: rotate(90deg);
+              transform: rotate(90deg);
+    }
+    
+    .fa-rotate-180 {
+      -webkit-transform: rotate(180deg);
+              transform: rotate(180deg);
+    }
+    
+    .fa-rotate-270 {
+      -webkit-transform: rotate(270deg);
+              transform: rotate(270deg);
+    }
+    
+    .fa-flip-horizontal {
+      -webkit-transform: scale(-1, 1);
+              transform: scale(-1, 1);
+    }
+    
+    .fa-flip-vertical {
+      -webkit-transform: scale(1, -1);
+              transform: scale(1, -1);
+    }
+    
+    .fa-flip-both,
+    .fa-flip-horizontal.fa-flip-vertical {
+      -webkit-transform: scale(-1, -1);
+              transform: scale(-1, -1);
+    }
+    
+    .fa-rotate-by {
+      -webkit-transform: rotate(var(--fa-rotate-angle, none));
+              transform: rotate(var(--fa-rotate-angle, none));
+    }
+    
+    .fa-stack {
+      display: inline-block;
+      vertical-align: middle;
+      height: 2em;
+      position: relative;
+      width: 2.5em;
+    }
+    
+    .fa-stack-1x,
+    .fa-stack-2x {
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: var(--fa-stack-z-index, auto);
+    }
+    
+    .svg-inline--fa.fa-stack-1x {
+      height: 1em;
+      width: 1.25em;
+    }
+    .svg-inline--fa.fa-stack-2x {
+      height: 2em;
+      width: 2.5em;
+    }
+    
+    .fa-inverse {
+      color: var(--fa-inverse, #fff);
+    }
+    
+    .sr-only,
+    .fa-sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+    
+    .sr-only-focusable:not(:focus),
+    .fa-sr-only-focusable:not(:focus) {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+    
+    .svg-inline--fa .fa-primary {
+      fill: var(--fa-primary-color, currentColor);
+      opacity: var(--fa-primary-opacity, 1);
+    }
+    
+    .svg-inline--fa .fa-secondary {
+      fill: var(--fa-secondary-color, currentColor);
+      opacity: var(--fa-secondary-opacity, 0.4);
+    }
+    
+    .svg-inline--fa.fa-swap-opacity .fa-primary {
+      opacity: var(--fa-secondary-opacity, 0.4);
+    }
+    
+    .svg-inline--fa.fa-swap-opacity .fa-secondary {
+      opacity: var(--fa-primary-opacity, 1);
+    }
+    
+    .svg-inline--fa mask .fa-primary,
+    .svg-inline--fa mask .fa-secondary {
+      fill: black;
+    }
+    
+    .fad.fa-inverse,
+    .fa-duotone.fa-inverse {
+      color: var(--fa-inverse, #fff);
+    }
+        </style>
+        <link rel="icon" href="../../public/favicon.ico">
+        <title>
+            Resale General Statistics
+        </title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+        <!-- <script defer="" src="/js/chunk-vendors.js"> -->
+        <!-- </script> -->
+        <!-- <script defer="" src="/js/app.js"></script> -->
+        <style type="text/css">
+        #app {
+          font-family: Avenir, Helvetica, Arial, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          text-align: center;
+          display: flex;
+          flex-flow: column;
+          height: 100vh;
+        }
+        :root {
+          --main-dark-green: #547B58;
+          --main-green: #779341;
+          --main-grey: #C6C5B9;
+          --main-white: #FDFDFF;
+          --main-dark: #393D3F;
+        
+          --main-dark-green-rgb: 84, 123, 88;
+          --main-green-rgb: 119, 147, 65;
+          --main-grey-rgb: 198, 197, 185;
+          --main-white-rgb: 253, 253, 255;
+          --main-dark-rgb: 57, 61, 63;
+        }
+        * {
+          font-family: 'Poppins';
+        }
+        #footer {
+          height: 30vh;
+          background-color: var(--main-grey);
+        }
+        .grow {
+          transition: 300ms;
+        }
+        .grow:hover {
+          transform: scale(1.1);
+        }
+        a,
+        a:hover,
+        a:visited,
+        a:active {
+          color: inherit;
+          text-decoration: none;
+        }
+        #sidebar {
+          max-width: -webkit-fit-content;
+          max-width: -moz-fit-content;
+          max-width: fit-content;
+        }
+        </style><style type="text/css">
+        footer{
+          background-color: var(--main-white);
+        }
+        footer h5{
+          color: var(--main-dark-green);
+        }
+        footer li a,footer p{
+          color: rgba(var(--main-dark-green-rgb),0.7) !important
+        }
+        footer,#line{
+          border-top: 1px solid rgba(var(--main-dark-green-rgb),0.5);
+        }
+        </style><style type="text/css">
+        .pp-icon {
+          color: var(--main-dark-green);
+        }
+        </style><style type="text/css">
+        .profile-carousel {
+          background-image: linear-gradient(0deg,
+              rgba(0, 0, 0, 0.9),
+              rgba(0, 0, 0, 0.9)),
+            url(http://localhost:8080/img/HDB_banner.1c83054f.jpg);
+        }
+        
+        .prof-img {
+          width: 120px;
+          height: 120px;
+          -o-object-fit: cover;
+            object-fit: cover;
+          border: 5px solid rgba(255, 255, 255, 0.4);
+        }
+        .prof-desc {
+          max-width: 800px;
+        }
+        .carousel-indicators button {
+          width: 12px !important;
+          height: 12px !important;
+          border-radius: 50%;
+        }
+        </style><style type="text/css">
+        #about-us-container {
+            background-color: rgba(var(--main-green-rgb), 0.2);
+        }
+        #about-us-img {
+            width: 100%;
+            min-height: 400px;
+            max-height: 600px;
+        
+            -o-object-fit: cover;
+        
+              object-fit: cover;
+        }
+        .icon-button{
+            width: 72px;
+            height: 72px;
+            background-color: white;
+        }
+        h1, h2,h3,h4,h5,h6{
+            font-family: "Roboto", sans-serif;
+        }
+        .t1{
+            font-size: 32px;
+            font-weight: 700;
+        }
+        .t2{
+            font-weight: 600;
+            font-size: 26px;
+        }
+        .t3{
+            font-weight: 550;
+            font-size: 18px;
+        }
+        </style><style type="text/css">@import url(https://fonts.googleapis.com/css?family=Lato:400,300,100,700,900);</style><style type="text/css">
+        .banner {
+          background-image: linear-gradient(
+              0deg,
+              rgba(var(--main-dark-rgb), 0.7),
+              rgba(var(--main-dark-rgb), 1)
+            ),
+            url(http://localhost:8080/img/profile_carousel.b4a2e7c0.jpg);
+          /* object-fit: cover; */
+          background-size:cover;
+        }
+        .title {
+          font-family: "Lato";
+          font-weight: 900;
+          font-size: 4rem;
+        }
+        #signup_banner {
+          width: 120px;
+          background-color: var(--main-green);
+          border-color: var(--main-green);
+          transition: 300ms;
+        }
+        #signup_banner:hover {
+        
+          /* color: var(--main-green); */
+          background-color: rgba(var(--main-green-rgb),0);
+        }
+        green{
+          color: var(--main-green);
+        }
+        .scroll{
+          overflow: auto;
+        }
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent; /* make scrollbar transparent */
+        }
+        </style><style type="text/css">
+        #login-fluid{
+            background-image: url(http://localhost:8080/img/loginbg.bbb2a5fc.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100%;
+            min-height: 800px;
+        }
+        
+        </style><style type="text/css">
+
+        </style><style type="text/css">
+        .nav-item .nav-link.pp {
+          color: var(--main-dark);
+          font-weight: 700;
+        }
+        .nav-item .nav-link.pp::after {
+          content: "";
+          width: 0px;
+          height: 2px;
+          display: block;
+          background: var(--main-green);
+          transition: 300ms;
+        }
+        .nav-item .nav-link.pp:hover {
+          display: inline-block;
+          color: var(--main-green);
+        }
+        .nav-item .nav-link.pp:hover::after {
+          width: 100%;
+        }
+        .navbar-brand {
+          font-family: "Poppins";
+          font-size: 26px;
+          color: var(--main-green) !important;
+          font-weight: 900;
+          transition: 300ms;
+        }
+        .navbar-brand:hover {
+          color: var(--main-dark) !important;
+        }
+        .navbar {
+          background-color: var(--main-white);
+        }
+        .dropdown-menu.show {
+          padding: 0px;
+          position: absolute;
+          right: 0;
+          left: initial !important;
+        }
+        .dropdown-menu[data-bs-popper] {
+          left: initial;
+        }
+        .navbar-collapse.collapse.show ul {
+          margin-top: 1rem;
+        }
+        .dropdown-item {
+          transition: 300ms;
+        }
+        .dropdown-item:hover {
+          background-color: var(--main-grey);
+        }
+        </style>
+    
+    </head>
+    
+    <body>
+        <div id="app" data-v-app="">
+            <div class="d-flex flex-row h-100 p-0 m-0">
+                <div class="d-flex flex-column p-0 m-0" id="sidebar">
+                    <div class="d-flex h-100 flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
+                        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                            <svg class="bi me-2" width="40" height="32">
+                                <use xlink:href="#bootstrap"></use>
+                            </svg>
+                            <span class="fs-4">Sidebar</span>
+                        </a>
+                        <hr>
+                        <ul class="nav nav-pills flex-column mb-auto">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">
+                                    <svg class="bi me-2" width="16" height="16">
+                                        <use xlink:href="#home"></use>
+                                    </svg>
+                                    Home 
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link text-white">
+                                    <svg class="bi me-2" width="16" height="16">
+                                        <use xlink:href="#speedometer2"></use>
+                                    </svg>
+                                    Dashboard 
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link text-white">
+                                    <svg class="bi me-2" width="16" height="16">
+                                        <use xlink:href="#table"></use>
+                                    </svg>
+                                    Orders 
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link text-white">
+                                    <svg class="bi me-2" width="16" height="16">
+                                        <use xlink:href="#grid"></use>
+                                    </svg>
+                                    Products 
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link text-white">
+                                    <svg class="bi me-2" width="16" height="16">
+                                        <use xlink:href="#people-circle"></use>
+                                    </svg>
+                                    Customers 
+                                </a>
+                            </li>
+                        </ul>
+                        <hr>
+                        <div class="dropdown">
+                            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false"><img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2"><strong>mdo</strong></a>
+                            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                                <li><a class="dropdown-item" href="#">New project...</a></li>
+                                <li><a class="dropdown-item" href="#">Settings</a></li>
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Sign out</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-column flex-fill p-0 m-0">
+                    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+                    <nav class="navbar sticky-top navbar-expand-md px-4 py-3 border-bottom">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="#">PropertyPlanners</a><button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"><span class="navbar-toggler-icon"></span></button>
+                            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                                <div class="offcanvas-header border-bottom"><a class="navbar-brand" href="#">PropertyPlanners</a><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button></div>
+                                <div class="offcanvas-body">
+                                    <ul class="navbar-nav justify-content-end ms-auto mb-2 mb-lg-0">
+                                        <li class="nav-item ms-auto"><a aria-current="page" href="/login" class="nav-link pp px-4 active">Login</a></li>
+                                        <li class="nav-item ms-auto"><a aria-current="page" href="/" class="nav-link pp px-4 active">Home</a></li>
+                                        <li class="nav-item ms-auto"><a aria-current="page" href="/seeker/dashboard" class="router-link-active router-link-exact-active nav-link pp px-4 active">Dashboard</a></li>
+                                        <li class="nav-item ms-auto dropdown">
+                                            <a class="nav-link pp px-4" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a aria-current="page" href="/Action" class="dropdown-item p-3 text-center">Action</a></li>
+                                                <li><a aria-current="page" href="/" class="dropdown-item p-3 text-center">Another action</a></li>
+                                                <li><a aria-current="page" href="/" class="dropdown-item p-3 text-center">Something else here</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <!-- Start of statistics dashboard -->
+
+                    <div class = "container-fluid px-5">
+                      <br>
+                      <div class = "row">
+                        <h2 class = "text-start">Resale General Statistics</h2>
+                        <div id = "spinner_overlay"></div>
+                      </div>
+                      
+                      <div class = "row mt-3">
+                        <div class = "col-md-3 me-3 border border-grey rounded">
+                          <h4 class = "text-start pt-3">2017 - Present Data Summary</h4>
+                          <hr>
+                          <ul id = "data_table" class = "text-start"></ul>
+                        </div>
+                        
+                        <div class = "col-md-2 me-3 border border-grey rounded">
+                          <h4 class = "text-start pt-3">Price</h4>
+                          <hr>
+                          <h3 id = "resale_price_year_difference"></h3>
+                          <p id = "year_vs_year"></p>
+                        </div>
+
+                        <div class = "col-md-2 me-3 border border-grey rounded">
+                          <h4 class = "text-start pt-3">Volume</h4>
+                          <hr>
+                          <h3 id = "resale_volume_year_difference"></h3>
+                          <p id = "year_vs_year_volume"></p>
+                        </div>
+
+                        <div class = "col-md-3 me-3 border border-grey rounded">
+                          <h4 class = "text-start pt-3">Resale Price Forecast</h4>
+                          <hr>
+                          <ul id = "data_table_forecast" class = "text-start"></ul>
+                        </div>
+
+                      </div>
+
+                      <div class = "row mt-3">
+                        <div class = "col-md-4 me-3 border border-grey rounded">
+                          <h4 class = "text-start pt-3">Room Type Distribution</h4>
+                          <hr>
+                          <canvas id="pieChart" style = "max-height: 300px"></canvas>
+                        </div>
+                        
+                        <div class = "col-md-7 border border-grey rounded">
+                          <h4 class = "text-start pt-3">Top 10 Cheapest Towns (By $/sqm)</h4>
+                          <hr>
+                          <canvas id="barChartTown" style = "max-height: 300px"></canvas>
+                        </div>
+                      </div>
+
+                      <div class = "row mt-3">
+                        <div class = "col-md-7 me-3 border border-grey rounded">
+                          <h4 class = "text-start pt-3">Price Trend (Year-MM)</h4>
+                          <hr>
+                          <canvas id = "lineChart_resale_yy_mm" style = "max-height: 300px"></canvas>
+                        </div>
+
+                        <div class = "col-md-4 border border-grey rounded">
+                          <h4 class = "text-start pt-3">Floor Distribution</h4>
+                          <hr>
+                          <canvas id="floor_pieChart" style = "max-height: 300px"></canvas>
+                        </div>
+
+                      </div>
+
+                      <div class = "row mt-3">
+                        <div class = "col-md-3 me-3 border border-grey rounded">
+                          <h4 class = "text-start pt-3">Price Trend (Year)</h4>
+                          <hr>
+                          <canvas id="barChartPriceYear" style = "max-height: 300px"></canvas>
+                        </div>
+
+                        <div class = "col-md-4 me-3 border border-grey rounded">
+                          <h4 class = "text-start pt-3">Price Trend (By Lease Commence Date)</h4>
+                          <hr>
+                          <canvas id="leaseprice" style = "max-height: 300px"></canvas>
+                        </div>
+
+                        <div class = "col-md-4 me-3 border border-grey rounded">
+                          <h4 class = "text-start pt-3">Price by Month</h4>
+                          <hr>
+                          <canvas id = "lineChart_leasedate" style = "max-height: 300px"></canvas>
+                        </div>
+                      </div>
+                      <br>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+
+    <script src = "../scripts/statistic_chart_data_summary.js"></script>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+ </html>

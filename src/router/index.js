@@ -11,16 +11,21 @@ import SignupView from "../components/Signup.vue";
 // Agent
 import AgentDashboard from "../components/agent/AgentDashboard.vue";
 import AgentProfile from "../components/agent/AgentProfile.vue";
+import Payment from "../components/agent/PaymentPage.vue";
+import ViewSeeker from "../components/agent/ViewSeeker.vue"
 
 // Common
 import Chat from "../components/common/Chat.vue";
-import MapView from "../components/common/MapView.vue";
+import MapView from "../components/common/MapView.vue"
+import GeneralStats from "../components/common/GeneralStats.vue"
 
 // Landing
 import LandingPage from "../components/landing/LandingPage.vue";
 
 // Seeker
 import SeekerProfile from "../components/seeker/SeekerProfile.vue";
+import Search from "../components/seeker/Search.vue"
+import ViewAgent from "../components/seeker/ViewAgent.vue"
 
 // function navigationGuard(to, from, next) {
 //   var local = localStorage;
@@ -57,7 +62,7 @@ const router = createRouter({
     },
     {
       path: "/",
-      redirect:"/home",
+      redirect: "/home",
       name: "main",
       component: BasicView,
       children: [
@@ -106,7 +111,18 @@ const router = createRouter({
         {
           path: "general",
           name: "agent-general",
-          component: LandingPage,
+          component: GeneralStats,
+        },
+        {
+          path: "payment",
+          name: "payment",
+          component: Payment, 
+        },
+        {
+          path: "viewseeker/:seekeruid",
+          name: "viewseeker",
+          component: ViewSeeker,
+          props: true
         },
       ],
     },
@@ -126,9 +142,9 @@ const router = createRouter({
           component: Chat,
         },
         {
-          path: "findagent",
-          name: "findagent",
-          component: LandingPage,
+          path: "search",
+          name: "search",
+          component: Search,
         },
         {
           path: "favourites",
@@ -148,8 +164,14 @@ const router = createRouter({
         {
           path: "general",
           name: "general",
-          component: LandingPage,
+          component: GeneralStats,
         },
+        {
+          path: "search/viewagent/:agentuid",
+          name: "viewagent",
+          component: ViewAgent,
+          props: true
+        }
       ],
     },
   ],
