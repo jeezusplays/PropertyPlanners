@@ -20,11 +20,27 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end ms-auto mb-2 mb-lg-0">
             <!-- <li class="nav-item ms-auto"><RouterLink :to="'/home'" class="nav-link pp px-4">Home</RouterLink></li> -->
-            <li class="nav-item ms-auto"><a onclick="return false" href="#banner" class="nav-link pp px-4">Home</a></li>
-            <li class="nav-item ms-auto"><a onclick="return false" href="#about-us-container" class="nav-link pp px-4 ">About Us</a></li>
-            <li class="nav-item ms-auto"><a onclick="return false" href="#api-info" class="nav-link pp px-4 ">Features</a></li>
-            <li class="nav-item ms-auto"><a onclick="return false" href="#testimonials" class="nav-link pp px-4 ">Testimonials</a></li>
-            <li class="nav-item ms-auto"><RouterLink :to="'/login'" class="nav-link pp px-4 ">Login</RouterLink></li>
+            <li class="nav-item ms-auto" v-if="this.currentPage != 'not_landing_page'">
+              <a onclick="return false" href="#banner" class="nav-link pp px-4">Home</a>
+            </li>
+            <li class="nav-item ms-auto " v-if="this.currentPage != 'not_landing_page'">
+              <a onclick="return false" href="#about-us-container" class="nav-link pp px-4 ">About Us</a>
+            </li>
+            <li class="nav-item ms-auto" v-if="this.currentPage != 'not_landing_page'">
+              <a onclick="return false" href="#api-info" class="nav-link pp px-4 ">Features</a>
+            </li>
+            <li class="nav-item ms-auto" v-if="this.currentPage != 'not_landing_page'">
+              <a onclick="return false" href="#testimonials" class="nav-link pp px-4 ">Testimonials</a>
+            </li>
+            <li class="nav-item ms-auto" v-if="this.currentPage == 'not_landing_page' && this.isSignup">
+              <RouterLink :to="'/login'" class="nav-link pp px-4">Login</RouterLink>
+            </li>
+            <li class="nav-item ms-auto" v-if="this.currentPage == 'not_landing_page' && !this.isSignup">
+              <RouterLink :to="'/signup'" class="nav-link pp px-4">Sign up</RouterLink>
+            </li>
+            <li class="nav-item ms-auto" v-if="this.currentPage != 'not_landing_page'">
+              <RouterLink :to="'/login'" class="nav-link pp px-4">Login</RouterLink>
+            </li>
           </ul>
         </div>
       </div>
@@ -32,49 +48,64 @@
   </nav>
 </template>
 
-<!-- <script>
+
+<!-- Consider $emits? -->
+
+<script>
 export default {
+  beforeCreate() {
+    // Check if current page is login or signup
+    if (window.location.pathname.split('/')[1] == "login" || window.location.pathname.split('/')[1] == "signup") {
+      localStorage.currentPage = "not_landing_page";
+      this.currentPage = "not_landing_page";
+      }
+    if (window.location.pathname.split('/')[1] == "signup"){
+      this.isSignup = true;
+    }
+  },
   name: "Nav",
   data() {
     return {
       links: [
         {
-          to: "/home",
-          value: "Home",
-          isDropdown: false,
-          dropdown: [],
+          currentPage: '',
+          isSignup: false,
+          // to: "/home",
+          // value: "Home",
+          // isDropdown: false,
+          // dropdown: [],
         },
-        {
-          to: "/home",
-          value: "Features",
-          isDropdown: false,
-          dropdown: [],
-        },
-        {
-          to: "/home",
-          value: "About Us",
-          isDropdown: false,
-          dropdown: [],
-        },
-        {
-          to: "/home",
-          value: "Testimonials",
-          isDropdown: false,
-          dropdown: [],
-        },
+        // {
+        //   to: "/home",
+        //   value: "Features",
+        //   isDropdown: false,
+        //   dropdown: [],
+        // },
+        // {
+        //   to: "/home",
+        //   value: "About Us",
+        //   isDropdown: false,
+        //   dropdown: [],
+        // },
+        // {
+        //   to: "/home",
+        //   value: "Testimonials",
+        //   isDropdown: false,
+        //   dropdown: [],
+        // },
 
-        {
-          to: "/seeker/dashboard",
-          value: "Dashboard",
-          isDropdown: false,
-          dropdown: [],
-        },
-        {
-          to: "/login",
-          value: "Login",
-          isDropdown: false,
-          dropdown: [],
-        },
+        // {
+        //   to: "/seeker/dashboard",
+        //   value: "Dashboard",
+        //   isDropdown: false,
+        //   dropdown: [],
+        // },
+        // {
+        //   to: "/login",
+        //   value: "Login",
+        //   isDropdown: false,
+        //   dropdown: [],
+        // },
         // {
         //   to: "/",
         //   value: "Dropdown",
@@ -98,7 +129,7 @@ export default {
     };
   },
 };
-</script> -->
+</script>
 
 <style>
 .nav-item .nav-link.pp {
