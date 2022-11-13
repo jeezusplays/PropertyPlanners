@@ -175,6 +175,7 @@ Some <b>login details</b> you can try. Feel free to make your own Seeker account
 |Agent|sanji@onepiece.com|password123|
 |Agent|franky@onepiece.com|password123|
 |Agent|brook@onepiece.com|password123|
+|Agent|zoro@onepiece.com|password123|
 |Seeker|nami@onepiece.com|password123|
 |Seeker|nicorobin@onepiece.com|password123|
 |Seeker|luffy@onepiece.com|password123|
