@@ -12,8 +12,32 @@
           <p class="pp-subhead my-3 mx-auto" id="ill-subhead">
             Start adding components to your dashboard to view them in one look!
           </p>
+          <button
+          type="button"
+          class="mx-auto btn btn-primary rounded-pill btn-lg pp-button"
+          @click="getStarted()"
+        >
+          Start
+        </button>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: "EmptyAgentProfile",
+  data() {
+    return {
+      agent_registration_no: "R045184G",
+    };
+  },
+  methods: {
+    getStarted(){
+      localStorage.hasComponents = true
+      document.location.reload(true);
+    }
+  }
+}
+</script>

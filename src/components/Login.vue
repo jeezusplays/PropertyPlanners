@@ -110,7 +110,7 @@ export default {
                     localStorage['preferences'] = JSON.stringify(data.preferences)
 
 
-                    this.$router.push({ path: `/${this.type}/dashboard` })
+                    this.$router.push({ path: `/${this.type}/general` })
                 } else {
                     // doc.data() will be undefined in this case
                     throw 'User dont exist'

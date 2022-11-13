@@ -193,7 +193,7 @@ export default {
         await setDoc(doc(fsdb, "users", this.user.uid), data);
         spinnerOff();
         
-        this.$router.push({ path: `/${this.type}/dashboard` });
+        this.$router.push({ path: `/${this.type}/general` });
       } catch (e) {
         console.log(e);
         spinnerOff();
