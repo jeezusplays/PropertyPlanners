@@ -22,7 +22,7 @@ import { RouterLink } from "vue-router";
                 <div class="d-flex flex-column">
                     <div class="d-flex align-items-center justify-content-between text mt-4 mb-4">
                         <span>{{plan}}</span>
-                        <span><input style="width:20%" type="number" v-model="quantity"/></span>
+                        <span><input style="width:20%" type="number" v-model="quantity" min="1"/></span>
                         <span>${{price}}</span>
                     </div>
                     <div class="border-bottom mb-4"></div>
