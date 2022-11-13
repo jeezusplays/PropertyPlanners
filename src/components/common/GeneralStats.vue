@@ -905,14 +905,29 @@ export default {
       document.getElementById("resale_volume_year_difference").innerHTML =
         this.computeYearOnYearVolumeTransacted();
 
-      if (this.picture_price == "decrease_resale_price") {
+      if(document.URL.includes("agent")){
+        if (this.picture_price == "decrease_resale_price") {
+        document.getElementById(
+          this.picture_price
+        ).src = require("../../assets/red_triangle_down.png");
+        } 
+        else if (this.picture_price == "increase_resale_price") {
+          document.getElementById(
+            this.picture_price
+          ).src = require("../../assets/green_triangle_up.png");
+        }
+      }
+      else {
+        if (this.picture_price == "decrease_resale_price") {
         document.getElementById(
           this.picture_price
         ).src = require("../../assets/green_triangle_down.png");
-      } else if (this.picture_price == "increase_resale_price") {
-        document.getElementById(
-          this.picture_price
-        ).src = require("../../assets/red_triangle_up.png");
+        } 
+        else if (this.picture_price == "increase_resale_price") {
+          document.getElementById(
+            this.picture_price
+          ).src = require("../../assets/red_triangle_up.png");
+        }
       }
 
       if (this.picture_volume == "increase_resale_volume") {
