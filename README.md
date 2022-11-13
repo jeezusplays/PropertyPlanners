@@ -200,7 +200,9 @@ This also retrieves their:
 ### Searchable Property Agents
 These are a non-exhaustive list of agents you can search for in the "Find Agents" page.
 
-* 
+* KOH JIN MIN (ADRIAN KOH)
+* TAN JIN RUI (OLIVER TAN)
+* AARON WAN	
 
 ### Statistics
 
