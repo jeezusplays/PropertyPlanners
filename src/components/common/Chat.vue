@@ -27,7 +27,7 @@ export default {
   data() {
     return {
       chats: {},
-      currentUserId: "WILo7EOJrtPRMXAHAZQtnyF8onH3",
+      currentUserId: localStorage['uid'],
       rooms: [
       ],
       messages: [],
@@ -96,7 +96,7 @@ export default {
       var newMessage = {
         _id: this.messages.length,
         content: message.content,
-        senderId: this.currentUserId,
+        senderId: localStorage['uid'],
         timestamp: new Date().toString().substring(16, 21),
         date: new Date().toDateString(),
       };

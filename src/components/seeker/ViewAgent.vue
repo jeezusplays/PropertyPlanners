@@ -241,7 +241,7 @@
 <script>
 import { AgentData } from '../../scripts/agentdata'
 import { fsdb } from '@/scripts/fb';
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc, increment } from "firebase/firestore";
 import { spinnerOn, spinnerOff } from "../../scripts/spinner";
 import $ from "jquery"
 import { CreateChat } from '@/scripts/chat';
@@ -256,6 +256,7 @@ export default {
   async mounted() {
     console.log('mounted');
     await this.getUserData()
+    this.viewAgent()
     this.getAgentData()
   },
   methods: {
@@ -300,6 +301,13 @@ export default {
     },
     async createChat(agentuid){
       await CreateChat(localStorage['uid'],agentuid)
+    },
+    async viewAgent(){
+      const userRef = doc(fsdb, "users", this.agentuid);
+      // Atomically add a new region to the "regions" array field.
+      await updateDoc(userRef, {
+        views: increment(1),
+      });
     }
   },
 };

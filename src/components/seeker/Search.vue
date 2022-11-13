@@ -83,7 +83,8 @@ export default {
   async mounted() {
     const q = query(
       collection(fsdb, "users"),
-      where("registration_no", "!=", "")
+      where("registration_no", "!=", ""),
+      where("hasPlans", "==", true)
     );
 
     const querySnapshot = await getDocs(q);

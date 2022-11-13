@@ -189,6 +189,10 @@ export default {
             email: this.email,
             type: this.type,
             profilepic: this.boa,
+            hasPlans: false,
+            daysLeft: 0,
+            endDate: new Date(),
+            views: 0
           };
         }
 
