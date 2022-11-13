@@ -101,6 +101,7 @@ export default {
                     localStorage['name'] = data.name
                     localStorage['email'] = data.email
                     localStorage['aboutme'] = data.name
+                    localStorage['profilepic'] = data.profilepic
                     localStorage['preferences'] = data.preferences
 
 
