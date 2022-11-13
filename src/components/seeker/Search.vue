@@ -5,14 +5,15 @@
         <div class="input-group rounded py-2">
           <input
             type="search"
-            class="form-control rounded"
+            class="form-control outline-secondary"
             placeholder="Search"
             aria-label="Search"
             aria-describedby="search-addon"
             v-model="searchValue"
+            @keyup.enter="filterSearch()"
           />
           <button
-            class="btn btn-success border rounded pill"
+            class="btn btn-success border outline-secondary"
             type="button"
             @click="filterSearch()"
           >
@@ -42,7 +43,7 @@
             </li>
             <li>
               <a class="dropdown-item" @click="sortBy('years')"
-                >Something else here</a
+                >Years</a
               >
             </li>
           </ul>
@@ -154,7 +155,7 @@ export default {
           this.agents.sort(c2);
           break;
         case "years":
-          this.agents.sort(c3);
+          this.agents.sort(c3).reverse();
           break;
 
         default:
