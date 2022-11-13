@@ -7,30 +7,72 @@
         <small><i>Your current profile summary:</i></small>
       </div>
 
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 g-3">
-        <div class="col" v-if="type == 'agent'">
-          <div class="card shadow-sm bg-light">
-            <h5 class="card-header">Profile views</h5>
-            <img class="card-img-top p-5" src="../../assets/profile_placeholder.png" alt="Profile Picture" />
-            <h3 class="card-text py-3"> {{ clicked }} views </h3>
-          </div>
-        </div>
-        <div class="col" v-if="type == 'agent'">
-          <div class="card shadow-sm bg-light">
-            <h5 class="card-header">Plan Subscription</h5>
-            <img class="card-img-top p-5" src="../../assets/price_tag.png" alt="Plan" />
-            <h3 class="card-text py-3"> {{ planDaysLeft }} days left </h3>
+      <div class="row g-1 justify-content-around" > 
+        <!--  row-cols-1 row-cols-lg-3 row-cols-xl-5  -->
+
+        <div class="col-12 col-lg-4" v-if="type == 'agent'">
+          <div class="card mb-3 my-auto"  style="max-height: 130px">
+            <div class="row g-0 my-2">
+              <div class="col-4">
+                <img class="img-fluid my-3 " src="../../assets/profile_placeholder.png" alt="Profile Picture" />
+              </div>
+              <div class="col-8">
+                <div class="card-body">
+                  <h5 class="card-title">Profile Views</h5>
+                  <p class="card-text py-3">
+                    {{ clicked }} views
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="col">
-          <div class="card shadow-sm bg-light">
-            <h5 class="card-header">Chats</h5>
-            <img class="card-img-top p-5" src="../../assets/chat.png" alt="Chat" />
-            <h3 class="card-text py-3"> {{ chat }} ongoing chats</h3>
+        <div class="col-12 col-lg-4" v-if="type == 'agent'">
+          <div class="card mb-3"  style="max-height: 130px">
+            <div class="row g-0 my-2">
+              <div class="col-4">
+                <img class="img-fluid my-4" src="../../assets/price_tag.png" alt="Plan" />
+              </div>
+              <div class="col-8">
+                <div class="card-body">
+                  <h5 class="card-title">Plan Subscription</h5>
+                  <p class="card-text py-2">
+                    {{ planDaysLeft }} days left
+
+                    <template v-if="planDaysLeft <= 10">
+                      <br>
+                      Purchase Plan <RouterLink :to="'payment'"><u>here</u></RouterLink>
+                    </template>
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
+        <div class="col-12 col-lg-4" v-if="type == 'agent'">
+          <div class="card mb-3" style="max-height: 130px">
+            <div class="row g-0 my-2">
+              <div class="col-4">
+                <img class="img-fluid my-4" src="../../assets/chat.png" alt="Chat" />
+              </div>
+              <div class="col-8">
+                <div class="card-body">
+                  <h5 class="card-title">Chats</h5>
+                  <p class="card-text py-2">
+                    {{ chat }} ongoing chats
+
+                    <template v-if="chat <= 0">
+                      <br>
+                      Start Chat <RouterLink :to="'chat'"><u>here</u></RouterLink>
+                    </template>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
