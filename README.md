@@ -171,14 +171,11 @@ Some <b>login details</b> you can try. Feel free to make your own Seeker account
 |User Type|Email|Password|
 |:-----:|:-----:|:-----:|
 |Agent|boahancock@onepiece.com|password123|
-|Agent|usopp@onepiece.com|password123|
-|Agent|sanji@onepiece.com|password123|
-|Agent|franky@onepiece.com|password123|
-|Agent|brook@onepiece.com|password123|
 |Agent|zoro@onepiece.com|password123|
-|Seeker|nami@onepiece.com|password123|
-|Seeker|nicorobin@onepiece.com|password123|
-|Seeker|luffy@onepiece.com|password123|
+|Agent|liowhongxiang@gmail.com|password123|
+|Seeker|tonytonychopper@onepiece.com|password123|
+|Seeker|peterpan@gmail.com|password123|
+|Seeker|johncena@gmail.com|password123|
 
 ### Property Agent Verification 
 Some <b>Property Agent CEA</b> you can use when creating an agent profile. Simply copy and paste the CEA in the "Profile" section when prompted. Do note that this may result in multiple agents with the same details. This is purely for testing.

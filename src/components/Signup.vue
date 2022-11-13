@@ -148,6 +148,8 @@ export default {
         this.user = credential.user;
         localStorage["uid"] = this.user.uid;
         localStorage["type"] = this.type;
+        localStorage["name"] = this.name;
+        localStorage["email"] = this.email;
 
         var data = {};
         if (this.type == "seeker") {
