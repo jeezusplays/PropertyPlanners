@@ -28,13 +28,13 @@
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="em   ailAddress">Enter your email address</label>
                                 <input type="email" id="emailAddress" v-model="email" class="form-control"
-                                    placeholder="Email address" />
+                                    placeholder="Email address" @keyup.enter="signUp()"/>
                             </div>
 
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="password">Enter your password</label>
                                 <input type="password" id="password" v-model="password" class="form-control"
-                                    placeholder="Password" />
+                                    placeholder="Password" @keyup.enter="signUp()" />
                             </div>
 
 
