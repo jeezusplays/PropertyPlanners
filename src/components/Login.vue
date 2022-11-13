@@ -35,6 +35,7 @@
                                 <label class="form-label" for="password">Enter your password</label>
                                 <input type="password" id="password" v-model="password" class="form-control"
                                     placeholder="Password" @keyup.enter="logIn()" />
+                                <p class="pt-3" id="error_message" style="color: red; font-style: italic"></p>
                             </div>
 
 
@@ -80,10 +81,10 @@ export default {
 
                 if (this.email.trim().length < 1 ||
                     this.password.trim().length < 1) {
-                    alert('Please fill up all inputs')
+                    document.getElementById("error_message").innerText = "Please fill up all inputs";
                     throw 'ValurError'
                 }
-
+                document.getElementById("error_message").innerText = ""
                 spinnerOn()
                 var credential = await signInWithEmailAndPassword(auth, this.email, this.password)
                 spinnerOff()
@@ -117,6 +118,9 @@ export default {
                 console.log(e)
                 console.log(e.code)
                 console.log(e.message);
+                if(document.getElementById("error_message").innerText != "Please fill up all inputs"){
+                    document.getElementById("error_message").innerText = "Invalid Email Address or Password!";
+                }
                 spinnerOff()
             }
         }
