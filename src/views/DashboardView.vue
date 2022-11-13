@@ -41,7 +41,7 @@ import { RouterLink } from "vue-router";
             </div>
           </div>
           <ul class="navbar-nav nav nav-pills flex-column mb-auto">
-            <li class="nav-item w-100 text-start">
+            <li class="nav-item w-100 text-start" v-if="isAgent">
               <RouterLink
                 :to="'/' + userType + '/dashboard'"
                 class="nav-link grow text-colour-hover px-3 py-2"
