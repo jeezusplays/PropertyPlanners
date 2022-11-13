@@ -8,7 +8,7 @@
       </div>
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 g-3">
-        <div class = "col">
+        <div class = "col" v-if="type=='agent'">
           <div class = "card shadow-sm bg-light">
             <h5 class="card-header">Profile views</h5>
             <img
@@ -19,7 +19,7 @@
             <h3 class = "card-text py-3"> {{ clicked }} views </h3>
           </div>
         </div>
-        <div class = "col">
+        <div class = "col" v-if="type=='agent'">
           <div class = "card shadow-sm bg-light">
             <h5 class="card-header">Plan Subscription</h5>
             <img
@@ -56,6 +56,7 @@ export default{
   data(){
     return{
       name: "",
+      type: localStorage.type,
       clicked: 0,
       planDaysLeft: 30,
       chat: 0,
