@@ -11,7 +11,7 @@ import { RouterLink } from "vue-router";
         <small><i>Your current profile summary:</i></small>
       </div>
 
-      <div class="row g-1 justify-content-around">
+      <div class="row g-3 justify-content-around" > 
         <!--  row-cols-1 row-cols-lg-3 row-cols-xl-5  -->
 
         <div class="col-12 col-lg-4" v-if="type == 'agent'">
