@@ -55,7 +55,7 @@
           class="px-3 btn me-auto me-lg-0 ms-lg-auto pp-button rounded-pill"
           v-if="!isAgent"
         >
-          <RouterLink :to="'chat'">Chat now</RouterLink>
+          <RouterLink @click="createChat(agentuid)" :to="'../../chat'">Chat now</RouterLink>
         </button>
       </div>
     </div>
@@ -337,7 +337,7 @@ import { fsdb } from '@/scripts/fb';
 import { doc, getDoc } from "firebase/firestore";
 import { spinnerOn,spinnerOff } from "../../scripts/spinner";
 import $ from "jquery"
-
+import { CreateChat } from '@/scripts/chat';
 export default {
   props: ["agentuid"],
   data() {
@@ -347,6 +347,7 @@ export default {
     };
   },
   async mounted() {
+    console.log('mounted');
     await this.getUserData()
     this.getAgentData()
   },
@@ -390,6 +391,9 @@ export default {
 
       return docSnap;
     },
+    async createChat(agentuid){
+      await CreateChat(localStorage['uid'],agentuid)
+    }
   },
 };
 </script>

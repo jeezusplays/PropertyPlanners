@@ -14,7 +14,7 @@
                 <div class="d-flex justify-content-around align-items-center">
                     <div class="btn-group w-100">
                         <button type="button" class="btn btn-lg btn-outline-success" @click="getAgent(agent.uid)">View</button>
-                        <button type="button" class="btn btn-lg btn-outline-secondary">Chat</button>
+                        <button type="button" class="btn btn-lg btn-outline-secondary" @click="startChat(agent.uid)">Chat</button>
                     </div>
 
                 </div>
@@ -24,15 +24,16 @@
 </template>
 
 <script>
+import { CreateChat } from '@/scripts/chat';
 export default {
     name: "AgentCard",
     props:['agents'],
     methods:{
         getAgent(uid){
             console.log(uid);
-            var route = `search/viewagent/${uid}`
+            var route = `viewagent/${uid}`
             console.log(route);
-            this.$router.push({path:route})
+            this.$router.push({ name: 'viewagent', params: { agentuid: uid } })
         },
         year(agent){
             var end_date = agent.registration_end_date.split('-')
@@ -42,6 +43,10 @@ export default {
             var years = end-start == 0 ? 1 : end-start
             console.log(years);
             return  years + (years > 1 ? ' years' : ' year')
+        },
+        async startChat(agentuid){
+            await CreateChat(localStorage['uid'],agentuid)
+            this.$router.push({path:'chat'})
         }
     }
 };

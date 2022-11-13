@@ -1,103 +1,117 @@
 <template>
   <EmptyChat v-if="rooms.length == 0" />
   <div v-else>
-
-    <vue-advanced-chat height="calc(100vh - 20px)" 
-    :current-user-id="currentUserId" 
-    :rooms="JSON.stringify(rooms)" 
-    :rooms-loaded="true" 
-    :messages="JSON.stringify(messages)" 
-    :messages-loaded="messagesLoaded"
-    :room-actions="JSON.stringify(roomActions)" 
-    @send-message="sendMessage($event.detail[0])"
-    @fetch-messages="fetchMessages($event.detail[0])" />
-
+    <vue-advanced-chat
+      height="calc(100vh - 70px)"
+      :current-user-id="currentUserId"
+      :rooms="JSON.stringify(rooms)"
+      :rooms-loaded="true"
+      :messages="JSON.stringify(messages)"
+      :messages-loaded="messagesLoaded"
+      :room-actions="JSON.stringify(roomActions)"
+      @room-action-handler="userHandler($event.detail[0])"
+      @send-message="sendMessage($event.detail[0])"
+      @fetch-messages="fetchMessages($event.detail[0])"
+    />
   </div>
 </template>
 
 <script>
-import EmptyChat from "./EmptyChat.vue"
-import { register } from 'vue-advanced-chat'
-import { rtdb } from '../../scripts/fb'
-import { ref, onValue, get, child, } from 'firebase/database'
+import EmptyChat from "./EmptyChat.vue";
+import { register } from "vue-advanced-chat";
+import { GetAllChat, updateMessage, subscribeChat } from "../../scripts/chat";
 
-
-register()
+register();
 export default {
   name: "Chat",
   data() {
     return {
       chats: {},
-      currentUserId: 'WILo7EOJrtPRMXAHAZQtnyF8onH3',
+      currentUserId: "WILo7EOJrtPRMXAHAZQtnyF8onH3",
       rooms: [
         {
-          roomId: '1',
-          roomName: 'Room 1',
-          avatar: 'assets/imgs/people.png',
+          roomId: "1",
+          roomName: "Room 1",
+          avatar: "assets/imgs/people.png",
           unreadCount: 4,
           index: 3,
           lastMessage: {
-            _id: 'xyz',
-            content: 'Last message received',
-            senderId: '1234',
-            username: 'John Doe',
-            timestamp: '10:20',
+            _id: "xyz",
+            content: "Last message received",
+            senderId: "1234",
+            username: "John Doe",
+            timestamp: "10:20",
             saved: true,
             distributed: false,
             seen: false,
-            new: true
+            new: true,
           },
           users: [
             {
-              _id: 'WILo7EOJrtPRMXAHAZQtnyF8onH3',
-              username: 'John Doe',
-              avatar: 'assets/imgs/doe.png',
+              _id: "WILo7EOJrtPRMXAHAZQtnyF8onH3",
+              username: "John Doe",
+              avatar: "assets/imgs/doe.png",
               status: {
-                state: 'online',
-                lastChanged: 'today, 14:30'
-              }
+                state: "online",
+                lastChanged: "today, 14:30",
+              },
             },
             {
-              _id: 'beqVUSicdWRuab6mMxUD5NeGHqG2',
-              username: 'John Doe',
-              avatar: 'assets/imgs/doe.png',
+              _id: "beqVUSicdWRuab6mMxUD5NeGHqG2",
+              username: "John Doe",
+              avatar: "assets/imgs/doe.png",
               status: {
-                state: 'online',
-                lastChanged: 'today, 14:30'
-              }
+                state: "online",
+                lastChanged: "today, 14:30",
+              },
             },
           ],
-          typingUsers: [4321]
-        }
+          typingUsers: [4321],
+        },
       ],
       messages: [],
       messagesLoaded: false,
-    }
+      rooms_obj: {},
+      roomActions: [{ name: "viewUser", title: "View User" }],
+    };
   },
   components: {
-    EmptyChat
+    EmptyChat,
   },
   methods: {
     fetchMessages({ room, options = {} }) {
-      console.log(room);
-      console.log(options);
-      this.messagesLoaded = false
+      console.log("fetchMessages", room, options);
+      this.messagesLoaded = false;
+
       if (options.reset) {
         setTimeout(() => {
-
-        })
-
+          subscribeChat(room.chatID, this.updateMessages);
+          this.messagesLoaded = true;
+        });
       } else {
         setTimeout(() => {
-
-          this.messagesLoaded = true
-        })
+          subscribeChat(room.chatID, this.updateMessages);
+          this.messagesLoaded = true;
+        });
       }
-
+    },
+    userHandler(event) {
+      console.log('userHandler',event);
+      var uid = event.roomId
+      if(localStorage['type'] == 'seeker') this.$router.push({path: `search/viewagent/${uid}`})
+      else this.$router.push({path:`viewseeker/${uid}`})
+      // switch (action.name) {
+        // case "archiveRoom":
+        // call a method to archive the room
+      // }
+    },
+    updateMessages(val) {
+      console.log(val);
+      this.messages = val;
     },
 
     addMessages(reset) {
-      const messages = []
+      const messages = [];
       console.log(reset);
       // for (let i = 0; i < 30; i++) {
       // messages.push({
@@ -110,22 +124,23 @@ export default {
       // })
       // }
 
-      return messages
+      return messages;
     },
 
-    sendMessage(message) {
-      console.log(message);
-      var send = [
-        ...this.messages,
-        {
-          _id: this.messages.length,
-          content: message.content,
-          senderId: this.currentUserId,
-          timestamp: new Date().toString().substring(16, 21),
-          date: new Date().toDateString()
-        }
-      ]
-      this.updateDB(send)
+    async sendMessage(message) {
+      var roomId = message.roomId;
+      var room = this.rooms_obj[roomId];
+      var chatID = room["chatID"];
+      console.log(chatID);
+      var newMessage = {
+        _id: this.messages.length,
+        content: message.content,
+        senderId: this.currentUserId,
+        timestamp: new Date().toString().substring(16, 21),
+        date: new Date().toDateString(),
+      };
+      var allMessages = await updateMessage(chatID, newMessage);
+      console.log(allMessages);
     },
 
     addNewMessage() {
@@ -134,56 +149,67 @@ export default {
           ...this.messages,
           {
             _id: this.messages.length,
-            content: 'NEW MESSAGE',
-            senderId: '1234',
+            content: "NEW MESSAGE",
+            senderId: "1234",
             timestamp: new Date().toString().substring(16, 21),
-            date: new Date().toDateString()
-          }
-        ]
-      }, 2000)
+            date: new Date().toDateString(),
+          },
+        ];
+      }, 2000);
     },
-    async updateDB() {
-      // var updates = {}
-      console.log(this.chats);
-      console.log(this.currentUserId);
-      console.log(this.chats[this.currentUserId]);
-      // updates['chats/'+this.chats[this.currentUserId]+'/messages'] = postdata
-      // var r = await update(ref(rtdb), updates)
-      // console.log(r);
-    }
-  },
-  mounted() {
+    createRooms() {
+      var rooms = [];
+      var rooms_obj = {};
+      for (const chatID in this.chats) {
+        if (Object.hasOwnProperty.call(this.chats, chatID)) {
+          const chat = this.chats[chatID];
+          var usersList = [];
+          var messages = chat["messages"];
+          var users = chat["users"];
 
-    var route = `${localStorage['uid']}/chats`
-    var dbref = ref(rtdb)
-    console.log(route);
-    get(child(dbref, route)).then((ss) => {
-      console.log(ss);
-      console.log(ss.val());
-      if (ss.exists()) {
-        this.chats = ss.val()
-        for (const uid in this.chats) {
-          if (Object.hasOwnProperty.call(this.chats, uid)) {
-            const chatID = this.chats[uid];
-            const chatRoute = `chats/${chatID}`
-            onValue(ref(rtdb, chatRoute), (chat) => {
-              var data = chat.val()
-              setTimeout(() => {
-                this.messages = data.messages
-              })
-                console.log(this.messages);
-            })
+          if (messages) {
+            console.log(messages);
+          } else {
+            messages = [];
           }
+
+          for (const user in users) {
+            if (Object.hasOwnProperty.call(users, user)) {
+              const profile = users[user];
+              let avatar = profile["avatar"];
+              let name = profile["username"];
+
+              let user_obj = {};
+              user_obj["_id"] = user;
+              user_obj["username"] = name;
+              user_obj["avatar"] = avatar;
+              usersList.push(user_obj);
+
+              if (localStorage["uid"] != user) {
+                var room = {};
+                room["roomId"] = user;
+                room["roomName"] = name;
+                room["avatar"] = avatar;
+                room["messages"] = messages;
+                room["users"] = usersList;
+                room["chatID"] = chatID;
+                rooms.push(room);
+                rooms_obj[user] = room;
+              }
+            }
+          }
+          console.log(rooms_obj);
+          console.log(rooms);
+          this.rooms_obj = rooms_obj;
+          this.rooms = rooms;
         }
-      } else {
-        console.log("No data available");
       }
-    }).catch((error) => {
-      console.error(error);
-    });
-
-
-  }
-}
+    },
+  },
+  async mounted() {
+    this.chats = await GetAllChat(localStorage["uid"]);
+    console.log(this.chats);
+    this.createRooms();
+  },
+};
 </script>
-
