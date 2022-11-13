@@ -188,6 +188,7 @@ Some <b>Property Agent CEA</b> you can use when creating an agent profile. Simpl
 |R045184G|KOH JIN MIN (ADRIAN KOH)|2019-02-12 ~ 2022-12-31|PROPNEX REALTY PTE. LTD|
 |R056016F|TAN JIN RUI (OLIVER TAN)|2016-03-29 ~ 2022-12-31|HUTTONS ASIA PTE. LTD.|
 |R051812G|AARON WAN|2017-10-06 ~ 2022-12-31|PROPNEX REALTY PTE. LTD|
+|R019187Z|GIAN KWAN HWEE (SAMUEL GIAN)|2018-10-30 ~ 2022-12-31|SRI PTE. LTD.|
 
 CEA allows the property agent to become "verified" on PropertyPlanners. All information above will be displayed on their profile, except their image.
 
