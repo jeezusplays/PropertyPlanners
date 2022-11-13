@@ -4,7 +4,7 @@ import { RouterLink } from "vue-router";
 
 <template>
   <!-- <EmptyDashboard v-if="!hasComponents" /> -->
-  <div class="album pt-5">
+  <div class="album py-5">
     <div class="container">
       <div class="text-start mb-3">
         <h2>Welcome {{ name }}!</h2>
@@ -79,6 +79,11 @@ import { RouterLink } from "vue-router";
         </div>
       </div>
     </div>
+  </div>
+
+  <hr/>
+  <div class="text-start px-5">
+    <h2>Profile Details</h2>
   </div>
 
   <EmptyProfile v-if="!hasProfile" />
