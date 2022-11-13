@@ -109,7 +109,6 @@ export default {
                     localStorage['profilepic'] = data.profilepic
                     localStorage['preferences'] = JSON.stringify(data.preferences)
 
-
                     this.$router.push({ path: `/${this.type}/general` })
                 } else {
                     // doc.data() will be undefined in this case

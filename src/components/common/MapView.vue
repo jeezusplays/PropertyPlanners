@@ -1,12 +1,12 @@
 <template>
   <div class="scrollable">
     <p class="pp-head text-start mx-5 me-md-0 ms-md-5 mt-3 mb-3">Statistic - By Region</p>
-    <div class="row mx-0 px-0 mx-5 me-md-0 ms-md-5">
-      <div class="col-12 col-md-7 col-lg-8 p-0 m-0">
+    <div class="row mx-0 px-0 mx-5 me-lg-0 ms-md-5">
+      <div class="col-12 col-lg-8 p-0 m-0">
         <div id="googleMap" style="height: 500px" class="conotainer-fluid rounded-3 border border-dark"></div>
       </div>
-      <div class="col-12 col-md-5 col-lg-4 mt-3 mt-md-0 p-0 px-0 px-md-3 m-0 max-h-100">
-        <div class="d-none d-md-block">
+      <div class="col-12 col-lg-4 mt-3 mt-md-0 p-0 px-0 px-md-3 m-0 max-h-100">
+        <div class="d-none d-lg-block">
           <p class="pp-text opacity-75 mb-3 text-start">Available agents</p>
           <AgentCard v-for="index in 4" :key="index" />
         </div>
@@ -17,7 +17,7 @@
     <FavouriteTownStatistics :mytownname="townname"></FavouriteTownStatistics>
     <!-- Template End -->
 
-    <div class="d-block d-md-none col-12 mx-5 mt-3">
+    <div class="d-block d-lg-none col-12 mx-5 mt-3">
       <p class="pp-text opacity-75 mb-3 text-start">Available agents</p>
       <AgentCard v-for="index in 4" :key="index" />
     </div>

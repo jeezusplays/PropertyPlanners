@@ -1,6 +1,6 @@
 <template lang="">
     <div class="d-flex mb-3 me-3 pointer fit-content rounded-3 chat-more">
-            <img src="../../assets/sam.jpg" class="card-img rounded-start" alt="">
+            <img :src="imgsrc" class="card-img rounded-start" alt="">
             <div class="text-start text-wrap ms-2 fit-content"
             style="min-width: 200px">
               <span class="pp-fat-text text-wrap"> John Doe</span>
@@ -13,7 +13,12 @@
 </template>
 <script>
 export default {
-    name: 'agentcard'
+    name: 'agentcard',
+    data(){
+        return{
+            imgsrc: 'https://firebasestorage.googleapis.com/v0/b/propertyplanners-93ebc.appspot.com/o/images%2Fboa.jpg?alt=media&token=e1b95b58-269d-4b9b-b23d-1309c942287f'
+        }
+    }
 }
 </script>
 <style>
