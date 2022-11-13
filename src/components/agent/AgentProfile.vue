@@ -12,7 +12,7 @@ import { RouterLink } from "vue-router";
       <div class="col-12 col-lg-2 d-flex pb-4 px-0 pe-md-3 justify-content-start">
         <div class = "d-inline-block position-relative">
           <img
-          src="../../assets/luffy_face.png"
+          :src="profile.profilepic"
           class="border border-dark img-fluid pp-pp"
           id = "profile_picture"
           alt = "Add your profile picture here!"
@@ -20,7 +20,7 @@ import { RouterLink } from "vue-router";
           <div class = "position-absolute" style = "top: 0px; right: 0px">
             <span class="position-absolute badge badge-dark" id="OpenImgUpload" style = "color:black; top: 0px; right: 0px;">
               <label for ='imgupload'>
-                <input type = "file" onchange="document.getElementById('profile_picture').src = window.URL.createObjectURL(this.files[0]);document.getElementById('profile_picture').alt = 'Your handsome/beautiful face!';" id = "imgupload" style="display:none;" accept = "image/x-png,image/gif,image/jpeg"/>
+                <input type = "file" id = "imgupload" style="display:none;" accept = "image/x-png,image/jpg,image/jpeg"/>
                 <font-awesome-icon class="m-auto" icon="fa fa-pen" size="xl"/>
               </label>
             </span>
@@ -41,12 +41,15 @@ import { RouterLink } from "vue-router";
 
       </div>
       <div class="d-flex flex-row p-0 col-12 col-lg-3 justify-content-end">
-        <button class="p-3 btn me-auto me-lg-0 ms-lg-auto pp-button rounded-pill" style="background-color: #779341;color: #ffffff;border-radius: 15px;width: 150px;" v-if="!isAgent">
+        <button
+        class="px-3 btn me-auto me-lg-0 ms-lg-auto pp-button rounded-pill"
+      
+        v-if="!isAgent">
           <RouterLink :to="'chat'">Chat now</RouterLink>
         </button>
       </div>
     </div>
-
+    
     <hr class="d-lg-none">
 
     <div class="row py-3">
@@ -301,6 +304,10 @@ import { AgentData } from '../../scripts/agentdata';
 import "datatables.net-dt/js/dataTables.dataTables";
 import "datatables.net-dt/css/jquery.dataTables.min.css";
 import $ from "jquery";
+import { uploadProfilePic } from "../../scripts/fbstorage";
+import { doc, getDoc } from "firebase/firestore";
+import { spinnerOn,spinnerOff } from "../../scripts/spinner";
+import { fsdb } from "@/scripts/fb";
 
 export default {
   name: "AgentDashboard",
@@ -315,7 +322,9 @@ export default {
       estateAgentName: '',
       licenceNo: '',
       sales: {},
-      profile: {},
+      profile: {
+        profilepic: localStorage['profilepic'] ? localStorage['profilepic'] : require('../../assets/luffy_face.png')
+      },
     };
   },
 
@@ -326,11 +335,14 @@ export default {
     },
     async getAgentData() {
 
+      spinnerOn()
       var dataGetter = new AgentData(this.registrationNo)
       var sales = await dataGetter.getSales()
       var profile = await dataGetter.getProfile()
+
       this.sales = sales
       this.profile = profile
+      this.profile['profilepic'] = localStorage['profilepic'] ? localStorage['profilepic'] : require('../../assets/luffy_face.png')
 
       this.registrationEndDate = this.profile.registration_end_date
       this.registrationStartDate = this.profile.registration_start_date
@@ -349,6 +361,30 @@ export default {
       $(document).ready(function () {
           $('#example4').DataTable();
       });
+      spinnerOff()
+    },
+    async getUserData(){
+      spinnerOn()
+      const docRef = doc(fsdb, "users", localStorage['uid']);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        var data = docSnap.data()
+        var profilepic = data.profilepic
+        var regnum = data.registration_no?data.registration_no:''
+
+        if (regnum) this.hasProfile = true, this.isAgent = true
+
+        localStorage['profilepic'] = profilepic
+        this.profile['profilepic'] = localStorage['profilepic'] ? localStorage['profilepic'] : require('../../assets/luffy_face.png')
+        this.registrationNo = regnum
+        spinnerOff()
+      } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+      }
+
+      return docSnap
     }
   },
 
@@ -356,8 +392,20 @@ export default {
     EmptyProfile, //Idk if this is needed
   },
 
-  mounted(){
-    this.getAgentData()
+  async mounted(){
+
+    await this.getUserData()
+    this.getAgentData(this)
+    var that = this;
+    $("#imgupload").change(async function () {
+      console.log(this);
+      spinnerOn();
+      await uploadProfilePic(
+        $(this).prop("files")[0],
+        localStorage["uid"],
+        that
+      );
+    });
   }
 };
 
