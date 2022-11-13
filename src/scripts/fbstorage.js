@@ -4,10 +4,11 @@ import {
     getDownloadURL 
 } from "firebase/storage";
 import { doc, updateDoc } from "firebase/firestore";
+import { spinnerOn } from "./spinner";
 
 import {fbstorage,fsdb} from "./fb"
 
-export function uploadProfilePic(file,uid) {
+export async function uploadProfilePic(file,uid,context) {
     console.log(file.name);
     if (!file) {
         alert("Please choose a file first!")
@@ -15,7 +16,7 @@ export function uploadProfilePic(file,uid) {
     var format = file.name.split('.')[1]
     const storageRef = ref(fbstorage,`${uid}/files/profilepic.${format}`)
     const uploadTask = uploadBytesResumable(storageRef, file);
- 
+    spinnerOn()
     uploadTask.on(
         "state_changed",
         (snapshot) => {
@@ -35,6 +36,8 @@ export function uploadProfilePic(file,uid) {
                 await updateDoc(userRef, {
                   profilepic: url
                 });
+                localStorage['profilepic']=url
+                context.$router.go()
                 
             });
         }
