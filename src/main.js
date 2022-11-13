@@ -28,7 +28,8 @@ import {
   fa3,
   faCalendar,
   faCreditCard,
-  faLock
+  faLock,
+  faPlus
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faTwitter,
@@ -59,7 +60,8 @@ library.add(
   fa3,
   faCalendar,
   faCreditCard,
-  faLock
+  faLock,
+  faPlus
 );
 
 const app = createApp(App);

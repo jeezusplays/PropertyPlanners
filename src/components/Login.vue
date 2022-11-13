@@ -98,6 +98,11 @@ export default {
 
                     this.type = data.type
                     localStorage['type'] = this.type
+                    localStorage['name'] = data.name
+                    localStorage['email'] = data.email
+                    localStorage['aboutme'] = data.name
+                    localStorage['preferences'] = data.preferences
+
 
                     this.$router.push({ path: `/${this.type}/dashboard` })
                 } else {

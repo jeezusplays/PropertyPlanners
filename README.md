@@ -193,9 +193,17 @@ _Instructions on how to install this respository onto your local machine._
 Here of some useful examples of how you can use/test PropertyPlanners. Additional screenshots, code examples and demos may be provided. 
 
 ### Login 
-Some <b>login details</b> you can try:
-|User|Email|Password|
+Some <b>login details</b> you can try. Feel free to make your own Seeker account!
+|User Type|Email|Password|
 |:-----:|:-----:|:-----:|
+|Agent|boahancock@onepiece.com|password123|
+|Agent|usopp@onepiece.com|password123|
+|Agent|sanji@onepiece.com|password123|
+|Agent|franky@onepiece.com|password123|
+|Agent|brook@onepiece.com|password123|
+|Seeker|nami@onepiece.com|password123|
+|Seeker|nicorobin@onepiece.com|password123|
+|Seeker|luffy@onepiece.com|password123|
 
 ### Property Agent Verification 
 Some <b>Property Agent CEA</b> you can use when creating an agent profile:

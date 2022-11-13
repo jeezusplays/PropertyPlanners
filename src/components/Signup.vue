@@ -18,9 +18,9 @@
                                 <div class="col-6">
                                     <label class="form-label" for="role">Role</label>
                                     <select id="role" v-model="type" class="form-control">
-                                        <option  disabled>Select Role</option>
-                                        <option value="seeker" selected>Property Seeker</option>
-                                        <option value="agent">Property Agents</option>
+                                        <option disabled>Select Role</option>
+                                        <option value="seeker">Property Seeker</option>
+                                        <option value="agent">Property Agent</option>
                                     </select>
                                 </div>
                             </div>
@@ -68,12 +68,13 @@ export default {
     name: 'signup',
     data() {
         return {
-            type: "",
+            type: "seeker",
             email: "",
             password: "",
             user: {},
-            name: ""
-
+            name: "",
+            boa:'https://firebasestorage.googleapis.com/v0/b/propertyplanners-93ebc.appspot.com/o/images%2Fboa.jpg?alt=media&token=e1b95b58-269d-4b9b-b23d-1309c942287f',
+            luffy:'https://firebasestorage.googleapis.com/v0/b/propertyplanners-93ebc.appspot.com/o/images%2Fluffy.jpg?alt=media&token=c1c97139-fd1d-4f0a-8fe6-ab41af4449be'
         }
     },
     methods: {
@@ -98,7 +99,8 @@ export default {
                 await setDoc(doc(fsdb, "users", this.user.uid), {
                     name: this.name,
                     email: this.email,
-                    type: this.type
+                    type: this.type,
+                    profilepic: this.type == 'seeker' ? this.luffy : this.boa
                 });
 
                 this.$router.push({ path: `/${this.type}/dashboard` })
