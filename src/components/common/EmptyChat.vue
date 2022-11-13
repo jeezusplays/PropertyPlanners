@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid py-3 px-5">
+  <div class="container-fluid py-3 px-5"  v-if="isSeeker">
     <p class="pp-head text-start">Chats</p>
     <div class="flex-row d-flex justify-content-center">
       <div class="border-0 text-center">
@@ -15,4 +15,29 @@
       </div>
     </div>
   </div>
+
+  <div class="container-fluid py-3 px-5"  v-if="isAgent">
+    <p class="pp-head text-start">Chats</p>
+    <div class="flex-row d-flex justify-content-center">
+      <div class="border-0 text-center">
+        <img class="p-3 mx-auto illustration" src="../../assets/Chat_Empty.svg" alt="Empty Dashboard" />
+        <p class="pp-subhead my-3 mx-auto" id="ill-subhead">
+          Aw! No chats yet!
+        </p>
+      </div>
+    </div>
+  </div>
 </template>
+
+<script>
+export default {
+  name: "EmptyChat",
+  data() {
+    return {
+      isSeeker: localStorage["type"] == "seeker",
+      isAgent: localStorage["type"] == "agent",
+    };
+  }
+}
+
+</script>
