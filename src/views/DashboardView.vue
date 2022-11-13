@@ -83,18 +83,6 @@ import { RouterLink } from "vue-router";
                   >
                     <div class="accordion-body mb-2 pt-0">
                       <RouterLink
-                        :to="'/' + userType + '/region'"
-                        class="nav-link grow text-colour-hover py-1 ms-4"
-                        aria-current="page"
-                      >
-                        <font-awesome-icon
-                          icon="fa-solid fa-map"
-                          class="me-3"
-                          size="sm"
-                        />
-                        <text class="pp-fat-text">By Region</text>
-                      </RouterLink>
-                      <RouterLink
                         :to="'/' + userType + '/general'"
                         class="nav-link grow text-colour-hover py-1 ms-4"
                         aria-current="page"
@@ -105,6 +93,18 @@ import { RouterLink } from "vue-router";
                           size="sm"
                         />
                         <text class="pp-fat-text">General</text>
+                      </RouterLink>
+                      <RouterLink
+                        :to="'/' + userType + '/region'"
+                        class="nav-link grow text-colour-hover py-1 ms-4"
+                        aria-current="page"
+                      >
+                        <font-awesome-icon
+                          icon="fa-solid fa-map"
+                          class="me-3"
+                          size="sm"
+                        />
+                        <text class="pp-fat-text">By Region</text>
                       </RouterLink>
                     </div>
                   </div>
