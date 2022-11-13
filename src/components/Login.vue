@@ -1,3 +1,6 @@
+<script setup>
+  import { RouterLink } from "vue-router";
+</script>
 <template>
     <div class="container-fluid" id="login-fluid">
         <div class="container py-5 h-100">
@@ -41,7 +44,7 @@
 
                             <div class="row">
                                 <div class="col-12 col-md-6">
-                                    <p>New User? <br><a href="/signup" style="color: #779341;">Sign up</a></p>
+                                    <p>New User? <br><RouterLink @click="goSignup()" :to="'/signup'" style="color: #779341;">Sign up</RouterLink></p>
                                 </div>
 
                                 <div class="col-12 col-md-6 d-flex justify-content-end">
@@ -124,10 +127,10 @@ export default {
                 }
                 spinnerOff()
             }
+        },
+        goSignup(){
+            this.$emit('goSignupFromLogin')
         }
-    },
-    mounted(){
-        localStorage['currentPage'] = 'login'
     }
 
 }

@@ -3,8 +3,8 @@ import { RouterView } from "vue-router";
 </script>
 
 <template>
-    <Nav/>
-    <RouterView/>
+    <Nav :newPage="newPage" @changenewpage="changePage" />
+    <RouterView @goSignupFromLogin="goSignupFromLogin" @goLoginFromSignup="goLoginFromSignup"/>
 </template>
 
 <script>
@@ -14,6 +14,23 @@ export default{
     name:'NormalView',
     components:{
         Nav
+    },
+    data(){
+        return{
+            newPage:'landing'
+        }
+    },
+    methods:{
+        goSignupFromLogin(){
+            this.newPage='signup'
+        },
+        goLoginFromSignup(){
+            this.newPage='login'
+        },
+        changePage(data){
+            this.newPage=data
+        }
+
     }
 }
 

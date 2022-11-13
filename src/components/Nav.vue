@@ -1,12 +1,12 @@
 <script setup>
-  import { RouterLink } from "vue-router";
+import { RouterLink } from "vue-router";
 </script>
 
 <template>
 
   <nav class="navbar sticky-top navbar-expand-md px-4 py-3" id="navbar">
     <div class="container-fluid">
-      <a class="navbar-brand" @click="goLanding()" href="/home">PropertyPlanners</a>
+      <RouterLink class="navbar-brand" @click="goLanding()" :to="'/home'">PropertyPlanners</RouterLink>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
         aria-controls="offcanvasNavbar">
         <span class="navbar-toggler-icon"></span>
@@ -51,6 +51,7 @@
 <script>
 export default {
   name: "Nav",
+  props:['newPage'],
   data() {
     return {
       links: [
@@ -113,7 +114,7 @@ export default {
         //   ],
         // },
       ],
-      currentPage: localStorage['currentPage'] ? localStorage['currentPage'] : 'landing'
+      currentPage: 'landing'
     };
   },
   computed:{
@@ -127,18 +128,22 @@ export default {
       return this.currentPage == 'landing'
     }
   },
-  mounted(){
-    console.log(this.currentPage);
-  },
   methods:{
     goLogin(){
       this.currentPage = 'login'
+      this.$emit('changenewpage',this.currentPage)
     },
     goSignup(){
       this.currentPage = 'signup'
+      this.$emit('changenewpage',this.currentPage)
     },
     goLanding(){
       this.currentPage = 'landing'
+    }
+  },
+  watch:{
+    newPage(newpage){
+      this.currentPage = newpage
     }
   }
 };

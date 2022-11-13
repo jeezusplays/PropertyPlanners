@@ -1,3 +1,7 @@
+<script setup>
+  import { RouterLink } from "vue-router";
+</script>
+
 <template>
   <div class="container-fluid" id="login-fluid">
     <div class="container py-5 h-100">
@@ -69,10 +73,11 @@
               <div class="row">
                 <div class="col-12 col-md-6">
                   <p>
-                    Have an Account? <br /><a
-                      href="/login"
+                    Have an Account? <br /><RouterLink
+                      @click="goLogin()"
+                      :to="'/login'"
                       style="color: #779341"
-                      >Sign in</a
+                      >Sign in</RouterLink
                     >
                   </p>
                 </div>
@@ -116,6 +121,9 @@ export default {
       luffy:
         "https://firebasestorage.googleapis.com/v0/b/propertyplanners-93ebc.appspot.com/o/images%2Fluffy.jpg?alt=media&token=c1c97139-fd1d-4f0a-8fe6-ab41af4449be",
     };
+  },
+  mounted(){
+    this.$emit('goLogin')
   },
   methods: {
     async signUp() {
@@ -191,9 +199,9 @@ export default {
         spinnerOff();
       }
     },
-  },
-  mounted(){
-    localStorage['currentPage'] = 'login'
+        goLogin(){
+            this.$emit('goLoginFromSignup')
+        }
   }
 };
 </script>
