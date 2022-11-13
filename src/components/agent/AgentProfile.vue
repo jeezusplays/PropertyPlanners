@@ -272,6 +272,7 @@ export default {
 
       this.sales = sales
       this.profile = profile
+      console.log(this.profile);
       this.profile['profilepic'] = localStorage['profilepic'] ? localStorage['profilepic'] : require('../../assets/luffy_face.png')
 
       this.name = this.profile.salesperson_name
@@ -327,7 +328,7 @@ export default {
   async mounted() {
 
     await this.getUserData()
-    this.getAgentData(this)
+    this.getAgentData()
     var that = this;
     $("#imgupload").change(async function () {
       console.log(this);

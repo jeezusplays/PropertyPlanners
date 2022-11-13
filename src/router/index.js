@@ -12,6 +12,7 @@ import SignupView from "../components/Signup.vue";
 import AgentDashboard from "../components/agent/AgentDashboard.vue";
 import AgentProfile from "../components/agent/AgentProfile.vue";
 import Payment from "../components/agent/PaymentPage.vue";
+import ViewSeeker from "../components/agent/ViewSeeker.vue"
 
 // Common
 import Chat from "../components/common/Chat.vue";
@@ -24,6 +25,7 @@ import LandingPage from "../components/landing/LandingPage.vue";
 // Seeker
 import SeekerProfile from "../components/seeker/SeekerProfile.vue";
 import Search from "../components/seeker/Search.vue"
+import ViewAgent from "../components/seeker/ViewAgent.vue"
 
 // function navigationGuard(to, from, next) {
 //   var local = localStorage;
@@ -116,6 +118,12 @@ const router = createRouter({
           name: "payment",
           component: Payment, 
         },
+        {
+          path: "viewseeker/:seekeruid",
+          name: "viewseeker",
+          component: ViewSeeker,
+          props: true
+        },
       ],
     },
     {
@@ -158,6 +166,12 @@ const router = createRouter({
           name: "general",
           component: GeneralStats,
         },
+        {
+          path: "search/viewagent/:agentuid",
+          name: "viewagent",
+          component: ViewAgent,
+          props: true
+        }
       ],
     },
   ],

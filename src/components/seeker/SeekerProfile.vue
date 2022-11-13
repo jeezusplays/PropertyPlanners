@@ -135,7 +135,7 @@ export default {
   data() {
     return {
       preferences: localStorage["preferences"]
-        ? JSON.parse(localStorage["preferences"])
+        ? localStorage["preferences"]
         : [
             {
               name: "Region",
@@ -202,13 +202,15 @@ export default {
         var email = data.email
         var profilepic = data.profilepic
 
+        console.log(localStorage["preferences"]);
+
         this.preferences = preferences ? preferences :this.preferences
         localStorage["preferences"] = preferences ? JSON.stringify(preferences) : localStorage['preferences']
         this.profile.aboutme = aboutme ? aboutme :this.profile.aboutme
         this.profile.name = name ? name :this.profile.name
         this.profile.email = email ? email :this.profile.email
         this.profile.profilepic = profilepic ? profilepic :this.profile.profilepic
-        console.log(localStorage["preferences"]);
+        
         spinnerOff()
       } else {
         // doc.data() will be undefined in this case
