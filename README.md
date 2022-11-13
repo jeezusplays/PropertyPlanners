@@ -90,7 +90,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[homepage-screenshot]
 
 Property Planners is a platform for resale flat buyers to understand the properties landscape and help locate suitable resale properties. Based on research, 60% of individuals surveyed feel that properties in Singapore are unaffordable. The spike came from high demands and low supplies due to construction setbacks from COVID-19. With the fierce competition for BTO flats, some end up looking for resale flats (which could be more expensive). 
 
@@ -206,7 +206,8 @@ Some <b>login details</b> you can try. Feel free to make your own Seeker account
 |Seeker|luffy@onepiece.com|password123|
 
 ### Property Agent Verification 
-Some <b>Property Agent CEA</b> you can use when creating an agent profile:
+Some <b>Property Agent CEA</b> you can use when creating an agent profile. Simply copy and paste the CEA in the "Profile" section if prompted.
+
 |Agent CEA|Name|Registration Period|Company|
 |:-----:|:-----:|:-----:|:-----:|
 |R045184G| ... |2019-02-12 ~ 2022-12-31|PROPNEX REALTY PTE. LTD|
@@ -223,6 +224,16 @@ This also retrieves their:
 These are a non-exhaustive list of agents you can search for in the "Find Agents" page.
 
 * 
+
+### Statistics
+
+This is a preview of the property information that users can view. It provides them useful information about the property market. Firstly, we have the general statistics. This provides a general overview of the property market as shown below.
+
+[general-screenshot]
+
+Secondly, we have the statistic by region. The Singapore map is sectioned by clickable regions that provides regional data of the area they selected.
+
+[regional-screenshot]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -283,7 +294,11 @@ Credit to these helpful resources!
 [license-url]: https://github.com/jeezusplays/PropertyPlanners/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/joey-tan-zuyi
-[product-screenshot]: src/assets/product.png
+
+[homepage-screenshot]: src/assets/product.png
+[general-screenshot]: src/assets/general_stats.png
+[regional-screenshot]: src/assets/regional_stats.png
+
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
