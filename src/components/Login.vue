@@ -119,7 +119,7 @@ export default {
                 console.log(e)
                 console.log(e.code)
                 console.log(e.message);
-                if(document.getElementById("error_message").innerText != "Please fill up all inputs"){
+                if(document.getElementById("error_message").innerText != "Please fill up all fields"){
                     document.getElementById("error_message").innerText = "Invalid Email Address or Password!";
                 }
                 spinnerOff()
