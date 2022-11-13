@@ -12,6 +12,7 @@ import SignupView from "../components/Signup.vue";
 import AgentDashboard from "../components/agent/AgentDashboard.vue";
 import AgentProfile from "../components/agent/AgentProfile.vue";
 import Payment from "../components/agent/PaymentPage.vue";
+import ViewSeeker from "../components/agent/ViewSeeker.vue"
 
 // Common
 import Chat from "../components/common/Chat.vue";
@@ -116,6 +117,12 @@ const router = createRouter({
           path: "payment",
           name: "payment",
           component: Payment, 
+        },
+        {
+          path: "viewseeker/:seekeruid",
+          name: "viewseeker",
+          component: ViewSeeker,
+          props: true
         },
       ],
     },

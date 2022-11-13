@@ -52,7 +52,7 @@ import { fsdb } from "@/scripts/fb";
 
 export default {
   name: "Chat",
-  props: ["seerkeruid"],
+  props: ["seekeruid"],
   data() {
     return {
       seeker: {},
@@ -63,8 +63,9 @@ export default {
       this.$router.go();
     },
     async getProfile() {
+      console.log(this.seekeruid);
       spinnerOn();
-      const docRef = doc(fsdb, "users", this.seerkeruid);
+      const docRef = doc(fsdb, "users", this.seekeruid);
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
