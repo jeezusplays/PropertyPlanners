@@ -189,6 +189,9 @@ export default {
       }
     },
   },
+  mounted(){
+    localStorage['currentPage'] = 'login'
+  }
 };
 </script>
 

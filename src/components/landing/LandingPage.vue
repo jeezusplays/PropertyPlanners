@@ -49,7 +49,7 @@ export default {
       years: [2017, 2022],
       url: "https://data.gov.sg/api/action/datastore_search",
       resource_id: "f1765b54-a209-4718-8d38-a39237f502b3",
-      observer: null,
+      observer: null
     };
   },
   created(){
@@ -67,6 +67,7 @@ export default {
     document.querySelectorAll('section[id]').forEach((section)=>{
       this.observer.observe(section)
     })
+    localStorage['currentPage'] = 'landing'
   },
   methods: {
     testData() {

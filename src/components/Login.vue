@@ -71,7 +71,7 @@ export default {
             email: "",
             password: "",
             user: "",
-            type: ""
+            type: "",
         }
     },
     methods: {
@@ -120,6 +120,9 @@ export default {
                 spinnerOff()
             }
         }
+    },
+    mounted(){
+        localStorage['currentPage'] = 'login'
     }
 
 }

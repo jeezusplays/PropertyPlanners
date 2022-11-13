@@ -6,7 +6,7 @@
 
   <nav class="navbar sticky-top navbar-expand-md px-4 py-3" id="navbar">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/home">PropertyPlanners</a>
+      <a class="navbar-brand" @click="goLanding()" href="/home">PropertyPlanners</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
         aria-controls="offcanvasNavbar">
         <span class="navbar-toggler-icon"></span>
@@ -20,26 +20,23 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end ms-auto mb-2 mb-lg-0">
             <!-- <li class="nav-item ms-auto"><RouterLink :to="'/home'" class="nav-link pp px-4">Home</RouterLink></li> -->
-            <li class="nav-item ms-auto" v-if="this.currentPage != 'not_landing_page'">
+            <li class="nav-item ms-auto" v-if="isLanding">
               <a onclick="return false" href="#banner" class="nav-link pp px-4">Home</a>
             </li>
-            <li class="nav-item ms-auto " v-if="this.currentPage != 'not_landing_page'">
+            <li class="nav-item ms-auto " v-if="isLanding">
               <a onclick="return false" href="#about-us-container" class="nav-link pp px-4 ">About Us</a>
             </li>
-            <li class="nav-item ms-auto" v-if="this.currentPage != 'not_landing_page'">
+            <li class="nav-item ms-auto" v-if="isLanding">
               <a onclick="return false" href="#api-info" class="nav-link pp px-4 ">Features</a>
             </li>
-            <li class="nav-item ms-auto" v-if="this.currentPage != 'not_landing_page'">
+            <li class="nav-item ms-auto" v-if="isLanding">
               <a onclick="return false" href="#testimonials" class="nav-link pp px-4 ">Testimonials</a>
             </li>
-            <li class="nav-item ms-auto" v-if="this.currentPage == 'not_landing_page' && this.isSignup">
-              <RouterLink :to="'/login'" class="nav-link pp px-4">Login</RouterLink>
+            <li class="nav-item ms-auto" v-if="isLogin">
+              <RouterLink :to="'/signup'" @click="goSignup()" class="nav-link pp px-4">Sign up</RouterLink>
             </li>
-            <li class="nav-item ms-auto" v-if="this.currentPage == 'not_landing_page' && !this.isSignup">
-              <RouterLink :to="'/signup'" class="nav-link pp px-4">Sign up</RouterLink>
-            </li>
-            <li class="nav-item ms-auto" v-if="this.currentPage != 'not_landing_page'">
-              <RouterLink :to="'/login'" class="nav-link pp px-4">Login</RouterLink>
+            <li class="nav-item ms-auto" v-if="isLanding || isSignup">
+              <RouterLink :to="'/login'" @click="goLogin()" class="nav-link pp px-4">Login</RouterLink>
             </li>
           </ul>
         </div>
@@ -53,16 +50,6 @@
 
 <script>
 export default {
-  beforeCreate() {
-    // Check if current page is login or signup
-    if (window.location.pathname.split('/')[1] == "login" || window.location.pathname.split('/')[1] == "signup") {
-      localStorage.currentPage = "not_landing_page";
-      this.currentPage = "not_landing_page";
-      }
-    if (window.location.pathname.split('/')[1] == "signup"){
-      this.isSignup = true;
-    }
-  },
   name: "Nav",
   data() {
     return {
@@ -126,8 +113,34 @@ export default {
         //   ],
         // },
       ],
+      currentPage: localStorage['currentPage'] ? localStorage['currentPage'] : 'landing'
     };
   },
+  computed:{
+    isLogin(){
+      return this.currentPage == 'login'
+    },
+    isSignup(){
+      return this.currentPage == 'signup'
+    },
+    isLanding(){
+      return this.currentPage == 'landing'
+    }
+  },
+  mounted(){
+    console.log(this.currentPage);
+  },
+  methods:{
+    goLogin(){
+      this.currentPage = 'login'
+    },
+    goSignup(){
+      this.currentPage = 'signup'
+    },
+    goLanding(){
+      this.currentPage = 'landing'
+    }
+  }
 };
 </script>
 
