@@ -181,13 +181,15 @@ Some <b>login details</b> you can try. Feel free to make your own Seeker account
 |Seeker|luffy@onepiece.com|password123|
 
 ### Property Agent Verification 
-Some <b>Property Agent CEA</b> you can use when creating an agent profile. Simply copy and paste the CEA in the "Profile" section if prompted.
+Some <b>Property Agent CEA</b> you can use when creating an agent profile. Simply copy and paste the CEA in the "Profile" section when prompted.
 
 |Agent CEA|Name|Registration Period|Company|
 |:-----:|:-----:|:-----:|:-----:|
-|R045184G|KOH JIN MIN (ADRIAN KOH)|2019-02-12 ~ 2022-12-31|PROPNEX REALTY PTE. LTD|
-|R056016F|TAN JIN RUI (OLIVER TAN)|2016-03-29 ~ 2022-12-31|HUTTONS ASIA PTE. LTD.|
-|R051812G|AARON WAN|2017-10-06 ~ 2022-12-31|PROPNEX REALTY PTE. LTD|
+|R051812G|WAN WEIXIONG AARON|2017-10-06 ~ 2022-12-31|PROPNEX REALTY PTE. LTD|
+|R057094C|TAN LI WEI, TIMOTHY	|2017-01-01 ~ 2023-12-31|ORANGETEE & TIE PTE. LTD.|
+|R045184G|KOH JIN MIN|2019-02-12 ~ 2022-12-31|PROPNEX REALTY PTE. LTD|
+|R056016F|TAN JIN RUI|2016-03-29 ~ 2022-12-31|HUTTONS ASIA PTE. LTD.|
+|R019187Z|GIAN KWAN HWEE|2018-10-30 ~ 2022-12-31|SRI PTE. LTD.|
 
 CEA allows the property agent to become "verified" on PropertyPlanners. All information above will be displayed on their profile, except their image.
 

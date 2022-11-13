@@ -1,3 +1,6 @@
+<script setup>
+  import { RouterLink } from "vue-router";
+</script>
 <template>
     <div class="container-fluid" id="login-fluid">
         <div class="container py-5 h-100">
@@ -35,12 +38,13 @@
                                 <label class="form-label" for="password">Enter your password</label>
                                 <input type="password" id="password" v-model="password" class="form-control"
                                     placeholder="Password" @keyup.enter="logIn()" />
+                                <p class="pt-3 d-none" id="error_message" style="color: red; font-style: italic"></p>
                             </div>
 
 
                             <div class="row">
                                 <div class="col-12 col-md-6">
-                                    <p>New User? <br><a href="/signup" style="color: #779341;">Sign up</a></p>
+                                    <p>New User? <br><RouterLink @click="goSignup()" :to="'/signup'" style="color: #779341;">Sign up</RouterLink></p>
                                 </div>
 
                                 <div class="col-12 col-md-6 d-flex justify-content-end">
@@ -71,7 +75,7 @@ export default {
             email: "",
             password: "",
             user: "",
-            type: ""
+            type: "",
         }
     },
     methods: {
@@ -80,10 +84,11 @@ export default {
 
                 if (this.email.trim().length < 1 ||
                     this.password.trim().length < 1) {
-                    alert('Please fill up all inputs')
+                    document.getElementById("error_message").innerText = "Please fill up all fields";
+                    document.getElementById("error_message").classList.remove("d-none");
                     throw 'ValurError'
                 }
-
+                document.getElementById("error_message").innerText = ""
                 spinnerOn()
                 var credential = await signInWithEmailAndPassword(auth, this.email, this.password)
                 spinnerOff()
@@ -117,8 +122,14 @@ export default {
                 console.log(e)
                 console.log(e.code)
                 console.log(e.message);
+                if(document.getElementById("error_message").innerText != "Please fill up all fields"){
+                    document.getElementById("error_message").innerText = "Invalid Email Address or Password!";
+                }
                 spinnerOff()
             }
+        },
+        goSignup(){
+            this.$emit('goSignupFromLogin')
         }
     }
 
