@@ -217,7 +217,7 @@ Secondly, we have the statistic by region. The Singapore map is sectioned by cli
 
 This is the rough list of the issues that we noticed but did not manage to fix (due to time constraints). These issues are non-major to the performance and usage of PropertyPlanners. Any resolved issues has also been marked with a tick.
 
-- [] By changing the route, agents may be able to see what seekers see and vice versa
+- [ ] By changing the route, agents may be able to see what seekers see and vice versa
 - [x] Checked example
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
