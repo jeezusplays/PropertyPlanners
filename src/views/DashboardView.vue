@@ -194,9 +194,9 @@ import { RouterLink } from "vue-router";
             >
               <span class="navbar-toggler-icon"></span>
             </button>
-            <ul class="navbar-nav justify-content-end ms-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav justify-content-end ms-auto my-auto">
               <li class="nav-item ms-auto">
-                <a class="nav-link pp p-0" @click="logout()">Logout</a>
+                <a class="nav-link pp p-0 pointer" @click="logout()">Logout</a>
               </li>
             </ul>
           </div>
