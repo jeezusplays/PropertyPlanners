@@ -53,7 +53,6 @@
       </ul>
     </li>
     <li><a href="#usage-&-testing">Usage and Testing</a></li>
-    <li><a href="#known-issues">Known Issues</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -213,16 +212,6 @@ This is a preview of the property information that users can view. It provides t
 Secondly, we have the statistic by region. The Singapore map is sectioned by clickable regions that provides regional data of the area they selected.
 
 !["Regional"][regional-screenshot]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- KNOWN ISSUES -->
-## Known Issues
-
-This is the rough list of the issues that we noticed but did not manage to fix (due to time constraints). These issues are non-major to the performance and usage of PropertyPlanners. Any resolved issues has also been marked with a tick.
-
-- [ ] By changing the route, agents may be able to see what seekers see and vice versa
-- [x] Checked example
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
