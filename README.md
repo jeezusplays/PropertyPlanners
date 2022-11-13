@@ -170,18 +170,12 @@ Here of some useful examples of how you can use/test PropertyPlanners. Additiona
 Some <b>login details</b> you can try. Feel free to make your own Seeker account!
 |User Type|Email|Password|
 |:-----:|:-----:|:-----:|
-|Agent|boahancock@onepiece.com|password123|
-|Agent|zoro@onepiece.com|password123|
-|Agent|liowhongxiang@gmail.com|password123|
-|Agent|koby@onepiece.com|password123|
-|Agent|jiaqi@propertyagent.com|password123|
-|Agent|usopp@onepiece.com|password123|
-|Agent|sanji@onepiece.com|password123|
-|Agent|franky@onepiece.com|password123|
-|Agent|brook@onepiece.com|password123|
-|Seeker|tonytonychopper@onepiece.com|password123|
-|Seeker|peterpan@gmail.com|password123|
-|Seeker|johncena@gmail.com|password123|
+|Agent|mockagent1@gmail.com|mockagent1|
+|Agent|mockagent2@gmail.com|mockagent2|
+|Agent|mockagent3@gmail.com|mockagent3|
+|Agent|mockagent4@gmail.com|mockagent4|
+|Agent|mockagent5@gmail.com|mockagent5|
+|Seeker|mockseeker1@gmail.com|mockseeker1|
 
 ### Property Agent Verification 
 Some <b>Property Agent CEA</b> you can use when creating an agent profile. Simply copy and paste the CEA in the "Profile" section when prompted. Do note that this may result in multiple agents with the same details. This is purely for testing.
