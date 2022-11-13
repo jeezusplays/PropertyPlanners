@@ -90,7 +90,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[homepage-screenshot]
+[!["Homepage"][homepage-screenshot]]
 
 Property Planners is a platform for resale flat buyers to understand the properties landscape and help locate suitable resale properties. Based on research, 60% of individuals surveyed feel that properties in Singapore are unaffordable. The spike came from high demands and low supplies due to construction setbacks from COVID-19. With the fierce competition for BTO flats, some end up looking for resale flats (which could be more expensive). 
 
