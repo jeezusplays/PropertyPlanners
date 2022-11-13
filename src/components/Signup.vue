@@ -169,7 +169,7 @@ export default {
             profilepic: this.luffy,
             preferences: preferences
           };
-          localStorage["preferences"] = preferences
+          localStorage["preferences"] = JSON.stringify(preferences)
         }else{
             data = {
             name: this.name,
