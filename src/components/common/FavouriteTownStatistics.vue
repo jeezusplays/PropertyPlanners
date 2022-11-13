@@ -5,9 +5,9 @@
         {{ mytownname }} Information
       </p>
 
-      <p class="opacity-50 pp-text ms-auto mt-auto grow pointer">
+      <!-- <p class="opacity-50 pp-text ms-auto mt-auto grow pointer">
         <font-awesome-icon icon="fa-solid fa-plus" /> Add to Dashboard
-      </p>
+      </p> -->
     </div>
 
     <div class="row mx-3">
