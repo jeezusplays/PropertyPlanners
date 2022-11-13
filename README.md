@@ -181,7 +181,7 @@ Some <b>login details</b> you can try. Feel free to make your own Seeker account
 |Seeker|luffy@onepiece.com|password123|
 
 ### Property Agent Verification 
-Some <b>Property Agent CEA</b> you can use when creating an agent profile. Simply copy and paste the CEA in the "Profile" section if prompted.
+Some <b>Property Agent CEA</b> you can use when creating an agent profile. Simply copy and paste the CEA in the "Profile" section when prompted.
 
 |Agent CEA|Name|Registration Period|Company|
 |:-----:|:-----:|:-----:|:-----:|
@@ -202,9 +202,7 @@ This also retrieves their:
 ### Searchable Property Agents
 These are a non-exhaustive list of agents you can search for in the "Find Agents" page.
 
-* KOH JIN MIN (ADRIAN KOH)
-* TAN JIN RUI (OLIVER TAN)
-* AARON WAN	
+* 
 
 ### Statistics
 
