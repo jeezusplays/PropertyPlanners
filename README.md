@@ -179,7 +179,6 @@ Some <b>login details</b> you can try. Feel free to make your own Seeker account
 |Agent|sanji@onepiece.com|password123|
 |Agent|franky@onepiece.com|password123|
 |Agent|brook@onepiece.com|password123|
-
 |Seeker|tonytonychopper@onepiece.com|password123|
 |Seeker|peterpan@gmail.com|password123|
 |Seeker|johncena@gmail.com|password123|
