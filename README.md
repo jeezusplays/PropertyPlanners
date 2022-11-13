@@ -199,7 +199,7 @@ This also retrieves their:
 * Private Sale Records
 
 ### Searchable Property Agents
-These are a non-exhaustive list of agents you can search for in the "Find Agents" page.
+These are a non-exhaustive list of agents you can search for in the "Find Agents" page. You may notice that there may be duplicates of the same property agents. Do note that they are different accounts and were used during testing. These were also used to general results in the search section and advertisement section.
 
 * GIAN KWAN HWEE (SAMUEL GIAN)
 * KOH JIN MIN (ADRIAN KOH)
