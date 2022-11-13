@@ -29,45 +29,6 @@ export default {
       chats: {},
       currentUserId: "WILo7EOJrtPRMXAHAZQtnyF8onH3",
       rooms: [
-        {
-          roomId: "1",
-          roomName: "Room 1",
-          avatar: "assets/imgs/people.png",
-          unreadCount: 4,
-          index: 3,
-          lastMessage: {
-            _id: "xyz",
-            content: "Last message received",
-            senderId: "1234",
-            username: "John Doe",
-            timestamp: "10:20",
-            saved: true,
-            distributed: false,
-            seen: false,
-            new: true,
-          },
-          users: [
-            {
-              _id: "WILo7EOJrtPRMXAHAZQtnyF8onH3",
-              username: "John Doe",
-              avatar: "assets/imgs/doe.png",
-              status: {
-                state: "online",
-                lastChanged: "today, 14:30",
-              },
-            },
-            {
-              _id: "beqVUSicdWRuab6mMxUD5NeGHqG2",
-              username: "John Doe",
-              avatar: "assets/imgs/doe.png",
-              status: {
-                state: "online",
-                lastChanged: "today, 14:30",
-              },
-            },
-          ],
-          typingUsers: [4321],
-        },
       ],
       messages: [],
       messagesLoaded: false,
