@@ -24,6 +24,7 @@ import LandingPage from "../components/landing/LandingPage.vue";
 // Seeker
 import SeekerProfile from "../components/seeker/SeekerProfile.vue";
 import Search from "../components/seeker/Search.vue"
+import ViewAgent from "../components/seeker/ViewAgent.vue"
 
 // function navigationGuard(to, from, next) {
 //   var local = localStorage;
@@ -158,6 +159,12 @@ const router = createRouter({
           name: "general",
           component: GeneralStats,
         },
+        {
+          path: "search/viewagent/:agentuid",
+          name: "viewagent",
+          component: ViewAgent,
+          props: true
+        }
       ],
     },
   ],

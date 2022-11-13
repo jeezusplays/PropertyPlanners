@@ -30,6 +30,9 @@ export default {
     methods:{
         getAgent(uid){
             console.log(uid);
+            var route = `search/viewagent/${uid}`
+            console.log(route);
+            this.$router.push({path:route})
         },
         year(agent){
             var end_date = agent.registration_end_date.split('-')

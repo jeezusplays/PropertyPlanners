@@ -102,7 +102,7 @@ export default {
                     localStorage['email'] = data.email
                     localStorage['aboutme'] = data.name
                     localStorage['profilepic'] = data.profilepic
-                    localStorage['preferences'] = data.preferences
+                    localStorage['preferences'] = JSON.stringify(data.preferences)
 
 
                     this.$router.push({ path: `/${this.type}/dashboard` })

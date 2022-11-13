@@ -6,7 +6,7 @@
       >
         <div class="d-inline-block position-relative">
           <img
-            :src="profile.profilepic"
+            :src="agent.profilepic"
             class="border border-dark img-fluid pp-pp"
             id="profile_picture"
             alt="Add your profile picture here!"
@@ -336,31 +336,27 @@ import {AgentData} from '../../scripts/agentdata'
 import { fsdb } from '@/scripts/fb';
 import { doc, getDoc } from "firebase/firestore";
 import { spinnerOn,spinnerOff } from "../../scripts/spinner";
+import $ from "jquery"
 
 export default {
   props: ["agentuid"],
   data() {
     return {
       agent: {},
+      sales:[]
     };
   },
-  mounted() {},
+  async mounted() {
+    await this.getUserData()
+    this.getAgentData()
+  },
   methods: {
     async getAgentData() {
       spinnerOn();
-      var dataGetter = new AgentData(this.agent.registrationNo);
+      var dataGetter = new AgentData(this.agent.registration_no);
       var sales = await dataGetter.getSales();
-
-      this.agent.sales = sales;
-      this.agent.profile = profile;
-      this.agent.profile["profilepic"] = localStorage["profilepic"]
-        ? localStorage["profilepic"]
-        : require("../../assets/luffy_face.png");
-
-      this.agent.registrationEndDate = this.profile.registration_end_date;
-      this.agent.registrationStartDate = this.profile.registration_start_date;
-      this.agent.estateAgentName = this.profile.estate_agent_name;
-      this.agent.licenceNo = this.profile.estate_agent_license_no;
+      
+      this.sales = sales;
 
       $(document).ready(function () {
         $("#example").DataTable();
@@ -383,20 +379,14 @@ export default {
 
       if (docSnap.exists()) {
         var data = docSnap.data();
-        var profilepic = data.profilepic;
-        var regnum = data.registration_no ? data.registration_no : "";
-
-        if (regnum) (this.hasProfile = true), (this.isAgent = true);
-
-        this.agent.profile["profilepic"] = profilepic
-          ? profilepic
-          : require("../../assets/luffy_face.png");
-        this.agent.registrationNo = regnum;
-        spinnerOff();
+        this.agent = data
+        
       } else {
         // doc.data() will be undefined in this case
         console.log("No such document!");
       }
+
+      spinnerOff();
 
       return docSnap;
     },
