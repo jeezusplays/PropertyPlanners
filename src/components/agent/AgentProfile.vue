@@ -34,7 +34,7 @@ import { RouterLink } from "vue-router";
             <p class="pp-head">{{name}}</p>
             <p>Registration No: <b>{{registrationNo}}</b></p>
             <p>Registration Validity: <b>{{registrationStartDate}} ~ {{registrationEndDate}}</b></p>
-            <p>Estate Agent Name: <b>{{estateAgentName}}</b></p>
+            <p>Company Name: <b>{{estateAgentName}}</b></p>
             <p>Licence No: <b>{{licenceNo}}</b></p>
           </div>
         </div>
