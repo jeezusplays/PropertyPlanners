@@ -336,9 +336,13 @@ export default {
     async getAgentData() {
 
       spinnerOn()
+      if (!this.registrationNo) {spinnerOff(); return}
+    
       var dataGetter = new AgentData(this.registrationNo)
       var sales = await dataGetter.getSales()
       var profile = await dataGetter.getProfile()
+
+      console.log(profile);
 
       this.sales = sales
       this.profile = profile
@@ -370,6 +374,7 @@ export default {
 
       if (docSnap.exists()) {
         var data = docSnap.data()
+        console.log(data);
         var profilepic = data.profilepic
         var regnum = data.registration_no?data.registration_no:''
 
