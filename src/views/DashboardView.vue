@@ -160,7 +160,7 @@ import { RouterLink } from "vue-router";
                 <text class="pp-fat-text">Plans</text>
               </RouterLink>
             </li>
-            <li class="nav-item w-100 text-start">
+            <li class="nav-item w-100 text-start"  v-if="isSeeker">
               <RouterLink
                 :to="'/' + userType + '/profile'"
                 class="nav-link grow text-colour-hover px-3 py-2"
