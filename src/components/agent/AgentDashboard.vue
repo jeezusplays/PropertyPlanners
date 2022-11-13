@@ -4,18 +4,18 @@ import { RouterLink } from "vue-router";
 
 <template>
   <!-- <EmptyDashboard v-if="!hasComponents" /> -->
-  <div class="album pt-5">
+  <div class="album py-5">
     <div class="container">
       <div class="text-start mb-3">
         <h2>Welcome {{ name }}!</h2>
         <small><i>Your current profile summary:</i></small>
       </div>
 
-      <div class="row g-3 justify-content-around" > 
+      <div class="row g-3 justify-content-around mb-5" > 
         <!--  row-cols-1 row-cols-lg-3 row-cols-xl-5  -->
 
-        <div class="col-12 col-lg-4" v-if="type == 'agent'">
-          <div class="card mb-3 my-auto" style="max-height: 130px">
+        <div class="col-12 col-md-6 col-lg-4" v-if="type == 'agent'">
+          <div class="card mb-3 h-100 my-auto" style="max-height: 200px">
             <div class="row g-0 my-2">
               <div class="col-4">
                 <img class="img-fluid my-3 " src="../../assets/profile_placeholder.png" alt="Profile Picture" />
@@ -32,8 +32,8 @@ import { RouterLink } from "vue-router";
           </div>
         </div>
 
-        <div class="col-12 col-lg-4" v-if="type == 'agent'">
-          <div class="card mb-3" style="max-height: 130px">
+        <div class="col-12 col-md-6 col-lg-4" v-if="type == 'agent'">
+          <div class="card mb-3 h-100" style="max-height: 200px">
             <div class="row g-0 my-2">
               <div class="col-4">
                 <img class="img-fluid my-4" src="../../assets/price_tag.png" alt="Plan" />
@@ -55,8 +55,8 @@ import { RouterLink } from "vue-router";
           </div>
         </div>
 
-        <div class="col-12 col-lg-4" v-if="type == 'agent'">
-          <div class="card mb-3" style="max-height: 130px">
+        <div class="col-12 col-md-6 col-lg-4" v-if="type == 'agent'">
+          <div class="card mb-3 h-100" style="max-height: 200px">
             <div class="row g-0 my-2">
               <div class="col-4">
                 <img class="img-fluid my-4" src="../../assets/chat.png" alt="Chat" />
@@ -79,6 +79,11 @@ import { RouterLink } from "vue-router";
         </div>
       </div>
     </div>
+  </div>
+
+  <hr/>
+  <div class="text-start px-5">
+    <h2>Profile Details</h2>
   </div>
 
   <EmptyProfile v-if="!hasProfile" />
@@ -454,9 +459,6 @@ export default {
 
 </script>
 <style>
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
-}
+
 </style>
 
