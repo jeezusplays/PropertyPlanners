@@ -173,6 +173,13 @@ Some <b>login details</b> you can try. Feel free to make your own Seeker account
 |Agent|boahancock@onepiece.com|password123|
 |Agent|zoro@onepiece.com|password123|
 |Agent|liowhongxiang@gmail.com|password123|
+|Agent|koby@onepiece.com|password123|
+|Agent|jiaqi@propertyagent.com|password123|
+|Agent|usopp@onepiece.com|password123|
+|Agent|sanji@onepiece.com|password123|
+|Agent|franky@onepiece.com|password123|
+|Agent|brook@onepiece.com|password123|
+
 |Seeker|tonytonychopper@onepiece.com|password123|
 |Seeker|peterpan@gmail.com|password123|
 |Seeker|johncena@gmail.com|password123|
@@ -182,6 +189,8 @@ Some <b>Property Agent CEA</b> you can use when creating an agent profile. Simpl
 
 |Agent CEA|Name|Registration Period|Company|
 |:-----:|:-----:|:-----:|:-----:|
+|R060602F|ANTHEA GUEY AI MIN|2019-01-01 ~ 2022-12-31|PROPNEX REALTY PTE. LTD.
+|R047001I|Peggy Leong|2017-07-10 ~ 2022-12-31|PROPNEX REALTY PTE. LTD.|
 |R051812G|WAN WEIXIONG AARON|2017-10-06 ~ 2022-12-31|PROPNEX REALTY PTE. LTD|
 |R057094C|TAN LI WEI, TIMOTHY	|2017-01-01 ~ 2023-12-31|ORANGETEE & TIE PTE. LTD.|
 |R045184G|KOH JIN MIN|2019-02-12 ~ 2022-12-31|PROPNEX REALTY PTE. LTD|
