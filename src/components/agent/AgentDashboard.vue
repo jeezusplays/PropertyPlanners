@@ -1,45 +1,33 @@
 <template>
-  <EmptyDashboard v-if="!hasComponents"/>
+  <EmptyDashboard v-if="!hasComponents" />
   <div class="album py-5" v-else>
     <div class="container">
-      <div class = "text-start mb-3">
+      <div class="text-start mb-3">
         <h2>Welcome {{ name }}!</h2>
         <small><i>Your current profile summary:</i></small>
       </div>
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 g-3">
-        <div class = "col" v-if="type=='agent'">
-          <div class = "card shadow-sm bg-light">
+        <div class="col" v-if="type == 'agent'">
+          <div class="card shadow-sm bg-light">
             <h5 class="card-header">Profile views</h5>
-            <img
-            class="card-img-top p-5"
-            src="../../assets/profile_placeholder.png"
-            alt="Profile Picture"
-            />
-            <h3 class = "card-text py-3"> {{ clicked }} views </h3>
+            <img class="card-img-top p-5" src="../../assets/profile_placeholder.png" alt="Profile Picture" />
+            <h3 class="card-text py-3"> {{ clicked }} views </h3>
           </div>
         </div>
-        <div class = "col" v-if="type=='agent'">
-          <div class = "card shadow-sm bg-light">
+        <div class="col" v-if="type == 'agent'">
+          <div class="card shadow-sm bg-light">
             <h5 class="card-header">Plan Subscription</h5>
-            <img
-            class="card-img-top p-5"
-            src="../../assets/price_tag.png"
-            alt="Plan"
-            />
-            <h3 class = "card-text py-3"> {{ planDaysLeft }} days left </h3>
+            <img class="card-img-top p-5" src="../../assets/price_tag.png" alt="Plan" />
+            <h3 class="card-text py-3"> {{ planDaysLeft }} days left </h3>
           </div>
         </div>
 
-        <div class = "col">
-          <div class = "card shadow-sm bg-light">
+        <div class="col">
+          <div class="card shadow-sm bg-light">
             <h5 class="card-header">Chats</h5>
-            <img
-            class="card-img-top p-5"
-            src="../../assets/chat.png"
-            alt="Chat"
-            />
-            <h3 class = "card-text py-3"> {{ chat }} ongoing chats</h3>
+            <img class="card-img-top p-5" src="../../assets/chat.png" alt="Chat" />
+            <h3 class="card-text py-3"> {{ chat }} ongoing chats</h3>
           </div>
         </div>
 
@@ -51,10 +39,10 @@
 <script>
 import EmptyDashboard from "../common/EmptyDashboard.vue"
 
-export default{
-  name:"AgentDashboard",
-  data(){
-    return{
+export default {
+  name: "AgentDashboard",
+  data() {
+    return {
       name: "",
       type: localStorage.type,
       clicked: 0,
@@ -63,41 +51,40 @@ export default{
       hasComponents: localStorage.hasComponents
     }
   },
-  mounted(){
+  mounted() {
     // Query for visits/clicks
-    if(localStorage.planDaysLeft===undefined){
+    if (localStorage.planDaysLeft === undefined) {
       this.planDaysLeft = 0
     }
-    else{
+    else {
       this.planDaysLeft = localStorage.planDaysLeft
     }
-    if(localStorage.clicked===undefined){
+    if (localStorage.clicked === undefined) {
       this.clicked = 0
     }
-    else{
+    else {
       this.clicked = localStorage.clicked
     }
-    if(localStorage.chats===undefined){
+    if (localStorage.chats === undefined) {
       this.chat = 0
     }
-    else{
+    else {
       this.clicked = localStorage.clicked
     }
-    
+
     this.name = localStorage.aboutme
 
   },
-  components:{
+  components: {
     EmptyDashboard
   }
 }
 
 </script>
 <style>
-
-.card:hover{
+.card:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
 }
 </style>
 
