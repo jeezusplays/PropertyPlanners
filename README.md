@@ -209,6 +209,7 @@ Some <b>login details</b> you can try. Feel free to make your own Seeker account
 Some <b>Property Agent CEA</b> you can use when creating an agent profile:
 |Agent CEA|Name|Registration Period|Company|
 |:-----:|:-----:|:-----:|:-----:|
+|R045184G| ... |2019-02-12 ~ 2022-12-31|PROPNEX REALTY PTE. LTD|
 
 CEA allows the property agent to become "verified" on PropertyPlanners. All information above will be displayed on their profile, except their image.
 
