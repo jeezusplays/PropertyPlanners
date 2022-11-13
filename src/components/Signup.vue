@@ -62,6 +62,8 @@
                   class="form-control"
                   placeholder="Password"
                 />
+                <p class="pt-3 d-none" id="error_message" style="color: red; font-style: italic"></p>
+
               </div>
 
               <div class="row">
@@ -124,7 +126,8 @@ export default {
           this.password.trim().length < 1 ||
           this.name.trim().length < 1
         ) {
-          alert("Please fill up all inputs");
+          document.getElementById("error_message").innerText = "Please fill up all fields";
+          document.getElementById("error_message").classList.remove("d-none");
           throw "ValurError";
         }
 

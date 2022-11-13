@@ -35,7 +35,7 @@
                                 <label class="form-label" for="password">Enter your password</label>
                                 <input type="password" id="password" v-model="password" class="form-control"
                                     placeholder="Password" @keyup.enter="logIn()" />
-                                <p class="pt-3" id="error_message" style="color: red; font-style: italic"></p>
+                                <p class="pt-3 d-none" id="error_message" style="color: red; font-style: italic"></p>
                             </div>
 
 
@@ -81,7 +81,8 @@ export default {
 
                 if (this.email.trim().length < 1 ||
                     this.password.trim().length < 1) {
-                    document.getElementById("error_message").innerText = "Please fill up all inputs";
+                    document.getElementById("error_message").innerText = "Please fill up all fields";
+                    document.getElementById("error_message").classList.remove("d-none");
                     throw 'ValurError'
                 }
                 document.getElementById("error_message").innerText = ""
