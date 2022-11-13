@@ -1,33 +1,19 @@
 <template>
   <div class="container-fluid px-5 py-3">
     <div class="row p-3">
-      <div
-        class="col-12 col-lg-2 d-flex pb-4 px-0 pe-md-3 justify-content-start"
-      >
+      <div class="col-12 col-lg-2 d-flex pb-4 px-0 pe-md-3 justify-content-start">
         <div class="d-inline-block position-relative">
-          <img
-            :src="agent.profilepic"
-            class="border border-dark img-fluid pp-pp"
-            id="profile_picture"
-            alt="Add your profile picture here!"
-          />
-          <div class="position-absolute" style="top: 0px; right: 0px">
-            <span
-              class="position-absolute badge badge-dark"
-              id="OpenImgUpload"
-              style="color: black; top: 0px; right: 0px"
-            >
+          <img :src="agent.profilepic" class="border border-dark img-fluid pp-pp" id="profile_picture"
+            alt="Add your profile picture here!" />
+          <!-- <div class="position-absolute" style="top: 0px; right: 0px">
+            <span class="position-absolute badge badge-dark" id="OpenImgUpload"
+              style="color: black; top: 0px; right: 0px">
               <label for="imgupload">
-                <input
-                  type="file"
-                  id="imgupload"
-                  style="display: none"
-                  accept="image/x-png,image/jpg,image/jpeg"
-                />
+                <input type="file" id="imgupload" style="display: none" accept="image/x-png,image/jpg,image/jpeg" />
                 <font-awesome-icon class="m-auto" icon="fa fa-pen" size="xl" />
               </label>
             </span>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="col-12 col-lg-7 justify-content-start">
@@ -51,10 +37,7 @@
         </div>
       </div>
       <div class="d-flex flex-row p-0 col-12 col-lg-3 justify-content-end">
-        <button
-          class="px-3 btn me-auto me-lg-0 ms-lg-auto pp-button rounded-pill"
-          v-if="!isAgent"
-        >
+        <button class="px-3 btn me-auto me-lg-0 ms-lg-auto pp-button rounded-pill" v-if="!isAgent">
           <RouterLink :to="'chat'">Chat now</RouterLink>
         </button>
       </div>
@@ -70,78 +53,37 @@
       <div class="row">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item" role="presentation">
-            <button
-              class="nav-link active"
-              id="home-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#home-tab-pane"
-              type="button"
-              role="tab"
-              aria-controls="home-tab-pane"
-              aria-selected="true"
-            >
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
+              type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
               HDB Resale Records
             </button>
           </li>
           <li class="nav-item" role="presentation">
-            <button
-              class="nav-link"
-              id="profile-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#profile-tab-pane"
-              type="button"
-              role="tab"
-              aria-controls="profile-tab-pane"
-              aria-selected="false"
-            >
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
+              type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
               HDB Rental Records
             </button>
           </li>
           <li class="nav-item" role="presentation">
-            <button
-              class="nav-link"
-              id="contact-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#contact-tab-pane"
-              type="button"
-              role="tab"
-              aria-controls="contact-tab-pane"
-              aria-selected="false"
-            >
+            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane"
+              type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">
               Private Rental Records
             </button>
           </li>
           <li class="nav-item" role="presentation">
-            <button
-              class="nav-link"
-              id="disabled-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#disabled-tab-pane"
-              type="button"
-              role="tab"
-              aria-controls="disabled-tab-pane"
-              aria-selected="false"
-            >
+            <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane"
+              type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false">
               Private Sales Records
             </button>
           </li>
         </ul>
 
         <div class="tab-content" id="myTabContent">
-          <div
-            class="tab-pane fade show active"
-            id="home-tab-pane"
-            role="tabpanel"
-            aria-labelledby="home-tab"
-            tabindex="0"
-          >
+          <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+            tabindex="0">
             <br />
             <div class="table-responsive">
-              <table
-                id="example"
-                class="table table-borderless table-hover table-striped"
-                style="width: 100%"
-              >
+              <table id="example" class="table table-borderless table-hover table-striped" style="width: 100%">
                 <thead>
                   <tr>
                     <th>Month/Year</th>
@@ -151,13 +93,11 @@
                 </thead>
                 <tbody style="text-align: left">
                   <template v-for="sale in sales" :key="sale._id">
-                    <tr
-                      v-if="
-                        sale.town != '-' &&
-                        sale.transaction_type == 'RESALE' &&
-                        sale.property_type == 'HDB'
-                      "
-                    >
+                    <tr v-if="
+                      sale.town != '-' &&
+                      sale.transaction_type == 'RESALE' &&
+                      sale.property_type == 'HDB'
+                    ">
                       <td>{{ sale.transaction_date }}</td>
                       <td>{{ sale.town }}</td>
                       <td>{{ sale.represented }}</td>
@@ -168,20 +108,10 @@
             </div>
           </div>
 
-          <div
-            class="tab-pane fade"
-            id="profile-tab-pane"
-            role="tabpanel"
-            aria-labelledby="profile-tab"
-            tabindex="0"
-          >
+          <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
             <br />
             <div class="table-responsive">
-              <table
-                id="example2"
-                class="table table-borderless table-hover table-striped"
-                style="width: 100%"
-              >
+              <table id="example2" class="table table-borderless table-hover table-striped" style="width: 100%">
                 <thead>
                   <tr>
                     <th>Month/Year</th>
@@ -192,13 +122,11 @@
                 </thead>
                 <tbody style="text-align: left">
                   <template v-for="sale in sales" :key="sale._id">
-                    <tr
-                      v-if="
-                        sale.town != '-' &&
-                        sale.transaction_type == 'WHOLE RENTAL' &&
-                        sale.property_type == 'HDB'
-                      "
-                    >
+                    <tr v-if="
+                      sale.town != '-' &&
+                      sale.transaction_type == 'WHOLE RENTAL' &&
+                      sale.property_type == 'HDB'
+                    ">
                       <td>{{ sale.transaction_date }}</td>
                       <td>{{ sale.town }}</td>
                       <td>{{ sale.represented }}</td>
@@ -210,20 +138,10 @@
             </div>
           </div>
 
-          <div
-            class="tab-pane fade"
-            id="contact-tab-pane"
-            role="tabpanel"
-            aria-labelledby="contact-tab"
-            tabindex="0"
-          >
+          <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
             <br />
             <div class="table-responsive">
-              <table
-                id="example3"
-                class="table table-borderless table-hover table-striped"
-                style="width: 100%"
-              >
+              <table id="example3" class="table table-borderless table-hover table-striped" style="width: 100%">
                 <thead>
                   <tr>
                     <th>Month/Year</th>
@@ -236,13 +154,11 @@
                 </thead>
                 <tbody style="text-align: left">
                   <template v-for="sale in sales" :key="sale._id">
-                    <tr
-                      v-if="
-                        sale.town == '-' &&
-                        sale.transaction_type == 'WHOLE RENTAL' &&
-                        sale.property_type != 'HDB'
-                      "
-                    >
+                    <tr v-if="
+                      sale.town == '-' &&
+                      sale.transaction_type == 'WHOLE RENTAL' &&
+                      sale.property_type != 'HDB'
+                    ">
                       <td>{{ sale.transaction_date }}</td>
                       <td>{{ sale.district }}</td>
                       <td>{{ sale.general_location }}</td>
@@ -256,20 +172,10 @@
             </div>
           </div>
 
-          <div
-            class="tab-pane fade"
-            id="disabled-tab-pane"
-            role="tabpanel"
-            aria-labelledby="disabled-tab"
-            tabindex="0"
-          >
+          <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">
             <br />
             <div class="table-responsive">
-              <table
-                id="example4"
-                class="table table-borderless table-hover table-striped"
-                style="width: 100%"
-              >
+              <table id="example4" class="table table-borderless table-hover table-striped" style="width: 100%">
                 <thead>
                   <tr>
                     <th>Month/Year</th>
@@ -283,13 +189,11 @@
 
                 <tbody style="text-align: left">
                   <template v-for="sale in sales" :key="sale._id">
-                    <tr
-                      v-if="
-                        sale.town == '-' &&
-                        sale.transaction_type != 'WHOLE RENTAL' &&
-                        sale.property_type != 'HDB'
-                      "
-                    >
+                    <tr v-if="
+                      sale.town == '-' &&
+                      sale.transaction_type != 'WHOLE RENTAL' &&
+                      sale.property_type != 'HDB'
+                    ">
                       <td>{{ sale.transaction_date }}</td>
                       <td>{{ sale.district }}</td>
                       <td>{{ sale.general_location }}</td>
@@ -332,10 +236,10 @@
 </template>
 
 <script>
-import {AgentData} from '../../scripts/agentdata'
+import { AgentData } from '../../scripts/agentdata'
 import { fsdb } from '@/scripts/fb';
 import { doc, getDoc } from "firebase/firestore";
-import { spinnerOn,spinnerOff } from "../../scripts/spinner";
+import { spinnerOn, spinnerOff } from "../../scripts/spinner";
 import $ from "jquery"
 
 export default {
@@ -343,7 +247,7 @@ export default {
   data() {
     return {
       agent: {},
-      sales:[]
+      sales: []
     };
   },
   async mounted() {
@@ -355,7 +259,7 @@ export default {
       spinnerOn();
       var dataGetter = new AgentData(this.agent.registration_no);
       var sales = await dataGetter.getSales();
-      
+
       this.sales = sales;
 
       $(document).ready(function () {
@@ -380,7 +284,7 @@ export default {
       if (docSnap.exists()) {
         var data = docSnap.data();
         this.agent = data
-        
+
       } else {
         // doc.data() will be undefined in this case
         console.log("No such document!");
