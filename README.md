@@ -231,6 +231,7 @@ Don't forget to give the project a star! Thanks again!
 
 <!-- CONTACT -->
 ## Contacts
+Feel free to contact and connect!
 
 * [Tan Zuyi Joey](https://linkedin.com/in/joey-tan-zuyi)<br>
 * [Samuel Chung](https://www.linkedin.com/in/samuel-chung-339688154/)<br>
