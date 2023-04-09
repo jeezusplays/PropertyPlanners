@@ -233,9 +233,11 @@ Don't forget to give the project a star! Thanks again!
 ## Contacts
 Feel free to contact and connect!
 
-* [Tan Zuyi Joey](https://linkedin.com/in/joey-tan-zuyi)<br>
-* [Samuel Chung](https://www.linkedin.com/in/samuel-chung-339688154/)<br>
-* [Liow Hong Xiang](https://www.linkedin.com/in/liowhongxiang/)<br>
+|| Name | Main Role | Github | LinkedIn |
+|-----------| ----------- | ----------- | ----------- | ----------- |
+|<img src="https://avatars.githubusercontent.com/u/68149788?v=4" width="100"></img>|Tan Zuyi Joey|Project Manager|[jeezusplays](https://github.com/jeezusplays)|[LinkedIn](https://linkedin.com/in/joey-tan-zuyi)|
+|<img src="https://avatars.githubusercontent.com/u/41113285?v=4" width="100"></img>|Samuel Chung|Backend Developer|[samchung95](https://github.com/samchung95)|[LinkedIn](https://www.linkedin.com/in/samuel-chung-339688154/)|
+|<img src="https://avatars.githubusercontent.com/u/111420736?v=4" width="100"></img>|Liow Hong Xiang|Frontend Developer|[hx240](https://github.com/hx240)|[LinkedIn](https://www.linkedin.com/in/liowhongxiang/)|
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
