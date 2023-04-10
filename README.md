@@ -91,20 +91,14 @@ Property Planners also provide agents a platform to advertise their profile and 
 
 This section lists any major frameworks/libraries used to bootstrap PropertyPlanners.
 
-<!-- * [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url] -->
-* [![Vue][Vue.js]][Vue-url]
-* [![Chart][Chart.js]][Chart-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
-* [![Firebase][Firebase]][Firebase-url]
-* [![GeoJSON][GeoJSON]][GeoJSON-url]
-* [![Flask][Flask]][Flask-url]
-* [![Google][Google]][Google-url]
-
-<!-- * [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url] -->
+* [![Vue](https://img.shields.io/badge/Vue.js-4FC08D.svg?style=for-the-badge&logo=vuedotjs&logoColor=white)](https://vuejs.org/)
+* [![Chart](https://img.shields.io/badge/Chart.js-FF6384.svg?style=for-the-badge&logo=chartdotjs&logoColor=white)](https://www.chartjs.org/)
+* [![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com)
+* [![JQuery](https://img.shields.io/badge/jQuery-0769AD.svg?style=for-the-badge&logo=jquery&logoColor=white)](https://jquery.com)
+* [![Firebase](https://img.shields.io/badge/Firebase-FFCA28.svg?style=for-the-badge&logo=firebase&logoColor=white)](https://firebase.google.com/)
+* [![GeoJSON](https://img.shields.io/badge/GeoJSON-FF0000.svg?style=for-the-badge&logo=geojson&logoColor=white)](https://geojson.org/)
+* [![Flask](https://img.shields.io/badge/Flask-000000.svg?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/en/2.0.x/)
+* [![Google](https://img.shields.io/badge/Google%20Compute%20Engine-4285F4.svg?style=for-the-badge&logo=google%20cloud&logoColor=white)](https://cloud.google.com/compute)
 
 This are the APIs used to integrate meaningful data into PropertyPlanners.
 * [Resale Flat Prices](https://data.gov.sg/dataset/resale-flat-prices)
@@ -152,13 +146,7 @@ _Instructions on how to install this respository onto your local machine._
    http://localhost:8080 or https://localhost:8081
    ```
 
-<!-- 6. Start a new terminal and run API server
-   ```sh
-   python api\api.py
-   ``` -->
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- USAGE -->
@@ -277,30 +265,3 @@ Credit to these helpful resources!
 [homepage-screenshot]: src/assets/product.png
 [general-screenshot]: src/assets/general_stats.png
 [regional-screenshot]: src/assets/regional_stats.png
-
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-[Vue-url]: https://vuejs.org/
-[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-[Angular-url]: https://angular.io/
-[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[Svelte-url]: https://svelte.dev/
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com
-[Chart.js]: https://img.shields.io/badge/Chart.js-ffffff?style=for-the-badge&logo=Chart.js&logoColor=dark
-[Chart-url]: https://www.chartjs.org/
-[Firebase]: https://img.shields.io/badge/Firebase-039be5?style=for-the-badge&logo=Firebase&logoColor=dark
-[Firebase-url]: https://firebase.google.com/
-[Flask]: https://img.shields.io/twitter/url?color=white&label=Flask&logo=Flask&style=for-the-badge&url=https%3A%2F%2Fflask.palletsprojects.com%2Fen%2F2.2.x%2F
-[Flask-url]:https://flask.palletsprojects.com/en/2.2.x/
-[GeoJSON]:https://img.shields.io/twitter/url?color=white&label=GeoJSON&logo=json&logoColor=blue&style=for-the-badge&url=https%3A%2F%2Fgeojson.org%2F
-[GeoJSON-url]:https://geojson.org/
-[Google]:https://img.shields.io/twitter/url?label=Google%20Compute%20Engine&logo=google%20cloud&logoColor=red&style=for-the-badge&url=https%3A%2F%2Fcloud.google.com%2Fcompute
-[Google-url]:https://cloud.google.com/compute
